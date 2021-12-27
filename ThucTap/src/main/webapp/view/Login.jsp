@@ -9,6 +9,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- favicon -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
         <!-- Place favicon.ico in the root directory -->
         <!-- Google Fonts -->
@@ -16,6 +17,7 @@
 
 		<!-- all css here -->
 		<!-- bootstrap v3.3.6 css -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="css/bootstrap.min.css">
 		<!-- animate css -->
         <link rel="stylesheet" href="css/animate.css">
@@ -53,7 +55,7 @@
         <jsp:include page="Header.jsp" />
         <!--Header Area End-->
 		
-        <!-- Breadcrumbs Area Start -->
+    <%--    <!-- Breadcrumbs Area Start -->
         <div class="breadcrumbs-area">
 			<div class="container">
 				<div class="row">
@@ -71,44 +73,29 @@
 				</div>
 			</div>
 		</div> 
-		<!-- Breadcrumbs Area Start --> 
+		<!-- Breadcrumbs Area Start --> --%>
         <!-- Loging Area Start -->
         <div class="login-account section-padding">
            <div class="container">
                 <div class="row">
-                    <div class="col-md-6 col-sm-6">
-                        <form action="#" class="create-account-form" method="post">
-                            <h2 class="heading-title">
-                                CREATE AN ACCOUNT
-                            </h2>
-                            <p class="form-row">
-                                <input type="email" placeholder="Email address">
-                            </p>
-                            <div class="submit">					
-                                <button name="submitcreate" id="submitcreate" type="submit" class="btn-default">
-                                    <span>
-                                        <i class="fa fa-user left"></i>
-                                        Create an account
-                                    </span>
-                                </button>
-                            </div>
-                        </form>
+                    <div class="col-md-4 col-sm-4">
+                        
                     </div>
-                    <div class="col-md-6 col-sm-6">
+                    <div class="col-md-4 col-sm-4">
                        <form action="#" class="create-account-form" method="post">
                             <h2 class="heading-title">
-                                ALREADY RESIGTERED?
+                                WELCOME
                             </h2>
                             <p class="form-row">
-                                <input type="email" placeholder="Email address">
+                                <input type="email" placeholder="Email address" name="username" required>
                             </p>
                             <p class="form-row">
-                                <input type="password" placeholder="Password">
+                                <input type="password" placeholder="Password" name="password" required>
                             </p>
                             <p class="lost-password form-group">
-                                <a href="#" rel="nofollow">Forgot your password?</a>
+                                <a href="Register.jsp" rel="nofollow">Don't have an account?</a>
                             </p> 
-                            <div class="submit">					
+                            <div class="d-flex justify-content-center">					
                                 <button name="submitcreate" id="submitcreate" type="submit" class="btn-default">
                                     <span>
                                         <i class="fa fa-user left"></i>
@@ -117,6 +104,9 @@
                                 </button>
                             </div>                          
                        </form>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                       
                     </div>
                 </div>               
            </div>

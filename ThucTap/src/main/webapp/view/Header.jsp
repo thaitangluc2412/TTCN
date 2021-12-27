@@ -89,13 +89,14 @@
 									<li><a href="About.jsp">About Us</a></li>
 									<li><a href="Cart.jsp">Cart Page</a></li>
 									<li><a href="Checkout.jsp">Check Out</a></li>
-									<li><a href="Login.jsp">Login</a></li>
 									<li><a href="MyAccount.jsp">My Account</a></li>
 									<li><a href="Shop.jsp">Shopping Page</a></li>
 									<li><a href="SingleProduct.jsp">Single Shop Page</a></li>
 									<li><a href="WishList.jsp">Wishlist Page</a></li>
 								</ul></li>
 							<li><a href="Contact.jsp">CONTACT</a></li>
+							<li><a href="Login.jsp"><button type="button" class="btn btn-primary">Login</button></a></li>
+               <%--          <li><a href="Index.jsp"><button type="button" class="btn btn-primary">Logout</button></a></li> --%>  
 						</ul>
 					</nav>
 				</div>
@@ -103,7 +104,7 @@
 			<div class="col-md-1 hidden-sm">
 				<div class="header-right">
 					<ul>
-						<li><a href="account.html"><i class="flaticon-people"></i></a>
+
 						</li>
 						<li class="shoping-cart"><a href="#"> <i
 								class="flaticon-shop"></i> <span>2</span>
@@ -167,38 +168,37 @@
 </div>
 
 <!-- Mobile Menu Start -->
-		<div class="mobile-menu-area">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12 col-md-12 col-sm-12">
-						<div class="mobile-menu">
-							<nav id="dropdown">
+<div class="mobile-menu-area">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<div class="mobile-menu">
+					<nav id="dropdown">
+						<ul>
+							<li><a href="index.html">HOME</a></li>
+							<li><a href="shop.html">FEATURED</a></li>
+							<li><a href="shop.html">REVIEW BOOK</a></li>
+							<li><a href="about.html">ABOUT AUTHOR</a></li>
+							<li><a href="#">pages</a>
 								<ul>
-                                    <li><a href="index.html">HOME</a></li>
-                                    <li><a href="shop.html">FEATURED</a></li>
-                                    <li><a href="shop.html">REVIEW BOOK</a></li>
-                                    <li><a href="about.html">ABOUT AUTHOR</a></li>
-                                    <li><a href="#">pages</a>
-                                        <ul>
-                                            <li><a href="about.html">About Us</a></li>
-                                            <li><a href="cart.html">Cart Page</a></li>
-                                            <li><a href="checkout.html">Check Out</a></li>
-                                            <li><a href="contact.html">Contact</a></li>
-                                            <li><a href="login.html">Login</a></li>
-                                            <li><a href="my-account.html">My Account</a></li>
-                                            <li><a href="shop.html">Shopping Page</a></li>
-                                            <li><a href="single-product.html">Single Shop Page</a></li>
-                                            <li><a href="wishlist.html">Wishlist Page</a></li>
-                                            <li><a href="404.html">404 Page</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="contact.html">CONTACT</a></li>
-								</ul>
-							</nav>
-						</div>
-					</div>
+									<li><a href="about.html">About Us</a></li>
+									<li><a href="cart.html">Cart Page</a></li>
+									<li><a href="checkout.html">Check Out</a></li>
+									<li><a href="contact.html">Contact</a></li>
+									<li><a href="login.html">Login</a></li>
+									<li><a href="my-account.html">My Account</a></li>
+									<li><a href="shop.html">Shopping Page</a></li>
+									<li><a href="single-product.html">Single Shop Page</a></li>
+									<li><a href="wishlist.html">Wishlist Page</a></li>
+									<li><a href="404.html">404 Page</a></li>
+								</ul></li>
+							<li><a href="contact.html">CONTACT</a></li>
+						</ul>
+					</nav>
 				</div>
 			</div>
-		</div>		
-		<!-- Mobile Menu End -->   
+		</div>
+	</div>
+</div>
+<!-- Mobile Menu End -->
 </html>
