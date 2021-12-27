@@ -214,7 +214,11 @@
 .seller-details {
   padding: 0;
   width: 100%;
-}    
+}   
+.rating-review{
+	padding: 0;
+	width:100%;
+} 
 .breadcrumbs {
   padding: 110px 0;
 }    

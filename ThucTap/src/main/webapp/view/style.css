@@ -757,7 +757,7 @@ body {
 }
 .single-testimonial > p::after {
   color: #868686;
-  content: "";
+  content: "ï„�";
   font-family: fontawesome;
   font-size: 30px;
   left: -17px;
@@ -1583,17 +1583,33 @@ p.form-row-phone {
   margin-left: 0;
   margin-right: 0;
 }
-.seller-details h5 {
+
+.seller-details li {
+  cursor: pointer;
+  display: inline;
+ 
+}
+
+
+.rating-review {
+  overflow: hidden;
+  padding: 0 20px 20px;
+  text-align: center;
+}
+.rating-review h5 {
   font-size: 14px;
   font-weight: 600;
   margin-bottom: 5px;
   margin-left: 0;
   margin-right: 0;
 }
-.seller-details li {
+
+.rating-review li {
   cursor: pointer;
   display: inline;
+ 
 }
+
 .widget-tag {
   margin-bottom: 40px;
 }
@@ -1854,7 +1870,7 @@ a.wish-btn {
   line-height: 30px;
 }
 .comments-advices a.open-comment-form::before {
-  content: "";
+  content: "ï�€";
 }
 .comments-advices a::before {
   background: #929292 none repeat scroll 0 0;
