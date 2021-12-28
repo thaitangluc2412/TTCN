@@ -12,12 +12,11 @@ CREATE TABLE Category
 CREATE TABLE UserInfo
 (
     UserID        INT AUTO_INCREMENT,
-    UserName      VARCHAR(255)                         NOT NULL,
+    Email         VARCHAR(255)                         NOT NULL,
     UserPassword  VARCHAR(255)                         NOT NULL,
     Name          VARCHAR(255)                         NOT NULL,
     Address       VARCHAR(255)                         NOT NULL,
     PhoneNumber   VARCHAR(255)                         NOT NULL,
-    Mail          VARCHAR(255)                         NOT NULL,
     AccountNumber VARCHAR(255)                         NOT NULL,
     Role          ENUM ('Admin', 'Customer', 'Author') NOT NULL,
     CONSTRAINT PRIMARY KEY (UserID)
@@ -49,12 +48,12 @@ CREATE TABLE `Order`
 (
     OrderID         INT AUTO_INCREMENT,
     UserID          INT,
-    OrderDate       DATETIME     NOT NULL,
-    TotalPrice      DOUBLE       NOT NULL,
-    Status          ENUM ('Arrived', 'NotArrived')  NOT NULL,
-    ShippingAddress VARCHAR(255) NOT NULL,
-    RecipientName   VARCHAR(255) NOT NULL,
-    RecipientPhone  VARCHAR(255) NOT NULL,
+    OrderDate       DATETIME                       NOT NULL,
+    TotalPrice      DOUBLE                         NOT NULL,
+    Status          ENUM ('Arrived', 'NotArrived') NOT NULL,
+    ShippingAddress VARCHAR(255)                   NOT NULL,
+    RecipientName   VARCHAR(255)                   NOT NULL,
+    RecipientPhone  VARCHAR(255)                   NOT NULL,
     CONSTRAINT PRIMARY KEY (OrderID),
     CONSTRAINT fk_Order_UserInfo FOREIGN KEY (UserID) REFERENCES UserInfo (UserID)
 );
