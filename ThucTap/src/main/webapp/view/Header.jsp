@@ -11,70 +11,8 @@
 		<div class="row">
 			<div class="col-md-2 col-sm-6 col-xs-6">
 				<div class="header-logo">
-					<a href="index.html"> <img src="img/logo.png" alt="">
+					<a href="Index.jsp"> <img src="img/logo.png" alt="">
 					</a>
-				</div>
-			</div>
-			<div class="col-md-1 col-sm-6 visible-sm  col-xs-6">
-				<div class="header-right">
-					<ul>
-						<li><a href="account.html"><i class="flaticon-people"></i></a>
-						</li>
-						<li class="shoping-cart"><a href="#"> <i
-								class="flaticon-shop"></i> <span>2</span>
-						</a>
-							<div class="add-to-cart-product">
-								<div class="cart-product">
-									<div class="cart-product-image">
-										<a href="single-product.html"> <img src="img/shop/1.jpg"
-											alt="">
-										</a>
-									</div>
-									<div class="cart-product-info">
-										<p>
-											<span>1</span> x <a href="single-product.html">East of
-												eden</a>
-										</p>
-										<a href="single-product.html">S, Orange</a> <span
-											class="cart-price">$ 140.00</span>
-									</div>
-									<div class="cart-product-remove">
-										<i class="fa fa-times"></i>
-									</div>
-								</div>
-								<div class="cart-product">
-									<div class="cart-product-image">
-										<a href="single-product.html"> <img src="img/shop/1.jpg"
-											alt="">
-										</a>
-									</div>
-									<div class="cart-product-info">
-										<p>
-											<span>1</span> x <a href="single-product.html">East of
-												eden</a>
-										</p>
-										<a href="single-product.html">S, Orange</a> <span
-											class="cart-price">$ 140.00</span>
-									</div>
-									<div class="cart-product-remove">
-										<i class="fa fa-times"></i>
-									</div>
-								</div>
-								<div class="total-cart-price">
-									<div class="cart-product-line fast-line">
-										<span>Shipping</span> <span class="free-shiping">$10.50</span>
-									</div>
-									<div class="cart-product-line">
-										<span>Total</span> <span class="total">$ 140.00</span>
-									</div>
-								</div>
-								<div class="cart-checkout">
-									<a href="checkout.html"> Check out <i
-										class="fa fa-chevron-right"></i>
-									</a>
-								</div>
-							</div></li>
-					</ul>
 				</div>
 			</div>
 			<div class="col-md-9 col-sm-12 hidden-xs">
@@ -86,38 +24,27 @@
 							<li><a href="About.jsp">ABOUT AUTHOR</a></li>
 							<c:choose>
 								<c:when test="${user.role == 1}">
-									<li><a href="#">MANAGEMENTS</a>
+									<li><a href="#">MANAGEMENT</a>
 										<ul class="sub-menu">
-											<li><a href="About.jsp">About Us</a></li>
-											<li><a href="Cart.jsp">Cart Page</a></li>
-											<li><a href="Checkout.jsp">Check Out</a></li>
-											<li><a href="MyAccount.jsp">My Account</a></li>
-											<li><a href="Shop.jsp">Shopping Page</a></li>
-											<li><a href="SingleProduct.jsp">Single Shop Page</a></li>
-											<li><a href="WishList.jsp">Wishlist Page</a></li>
+											<li><a href="Book.jsp">BOOK</a></li>
+											<li><a href="Category.jsp">CATEGORY</a></li>
+											<li><a href="Customer.jsp">CUSTOMER</a></li>
+											<li><a href="Author.jsp">AUTHOR</a></li>
+											<li><a href="Order.jsp">ORDER</a></li>
+											<li><a href="Review.jsp">REVIEW</a></li>
 										</ul></li>
 								</c:when>
 								<c:when test="${user.role == 2}">
-									<li><a href="#">MANAGEMENTS</a>
+									<li><a href="#">MANAGEMENT</a>
 										<ul class="sub-menu">
-											<li><a href="About.jsp">MY BOOKS</a></li>
-											<li><a href="Cart.jsp">Cart Page</a></li>
-											<li><a href="Checkout.jsp">Check Out</a></li>
-											<li><a href="MyAccount.jsp">My Account</a></li>
-											<li><a href="SingleProduct.jsp">Single Shop Page</a></li>
-											<li><a href="WishList.jsp">Wishlist Page</a></li>
 										</ul></li>
 								</c:when>
 								<c:otherwise>
 									<li><a href="#">FEATURES</a>
 										<ul class="sub-menu">
-											<li><a href="About.jsp">About Us</a></li>
-											<li><a href="Cart.jsp">Cart Page</a></li>
-											<li><a href="Checkout.jsp">Check Out</a></li>
-											<li><a href="MyAccount.jsp">My Account</a></li>
-											<li><a href="Shop.jsp">Shopping Page</a></li>
-											<li><a href="SingleProduct.jsp">Single Shop Page</a></li>
-											<li><a href="WishList.jsp">Wishlist Page</a></li>
+											<li><a href="Cart.jsp">MY CART</a></li>
+											<li><a href="Checkout.jsp">CHECK OUT</a></li>
+											<li><a href="CustomerOrder.jsp">MY ORDER</a>
 										</ul></li>
 								</c:otherwise>
 							</c:choose>
@@ -185,7 +112,7 @@
 									</div>
 								</div>
 								<div class="cart-checkout">
-									<a href="checkout.html"> Check out <i
+									<a href="Checkout.jsp">Check out <i
 										class="fa fa-chevron-right"></i>
 									</a>
 								</div>

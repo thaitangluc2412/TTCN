@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
 <!doctype html>
 <html class="no-js" lang="">
 
@@ -82,94 +81,106 @@
 							<thead>
 								<tr>
 									<th class="product-id">ID</th>
-									<th class="product-image">Book</th>
-									<th class="product-title">Rating</th>
-									<th class="product-author">Customer</th>
-									<th class="product-category">Comment</th>
-									<th class="product-edit">Review On</th>
+									<th class="product-image">Author</th>
+									<th class="product-author">Address</th>
+									<th class="product-category">Phone</th>
+									<th class="product-edit">Books</th>
+									<th class="product-quantity">Sales</th>
+									<th class="product-quantity">Edit</th>
 									<th class="product-subtotal">Delete</th>
 								</tr>
 							</thead>
 							<tbody>
 
 								<tr>
-									<td class="product-id">
+									<td class="customer-id">
 										<p>
 										<p>1</p>
 										</p>
 									</td>
 
-									<td class="product-name">
+									<td class="customer-email">
 										<p>
-										<p>Tôi thấy hoa vàng trên cỏ xanh</p>
+										<p>Nguyễn Nhật Ánh</p>
 										</p>
 									</td>
-									<td class="product-author">
+
+									<td class="customer-address">
 										<p>
-										<p>5.0</p>
+										<p>Hà Nội</p>
 										</p>
 									</td>
-									<td class="product-category">
+									<td class="customer-phone">
 										<p>
-										<p>Thái Tăng Lực</p>
-										</p>
-									</td>
-									<td class="product-price">
-										<p>
-										<p>Exellent book</p>
+										<p>0954785632</p>
 										</p>
 
 									</td>
 
-									<td class="product-quantity">
+									<td class="author-books">
 										<p>
-										<p>27/12/2021 15:00:00</p>
+											<a href="#">Books</a>
 										</p>
 
 									</td>
-
-									<td class="product-remove"><a href="#"> <i
-											class="flaticon-delete"></i>
+									<td class="author-sales">
+										<p>
+											<a href="#">Sales</a>
+										</p>
+									</td>
+									<td class="product-edit">
+										<p>
+											<a href="#">Edit</a>
+										</p>
+									</td>
+									<td class="product-remove "><a href="# "> <i
+											class="flaticon-delete "></i>
 									</a></td>
 								</tr>
+
 								<tr>
-									<td class="product-id">
+									<td class="customer-id">
 										<p>
-										<p>2</p>
+										<p>1</p>
 										</p>
 									</td>
 
-									<td class="product-name">
+									<td class="customer-email">
 										<p>
-										<p>Giải tích 2</p>
+										<p>Trần Đăng Khoa</p>
 										</p>
 									</td>
-									<td class="product-author">
+
+									<td class="customer-address">
 										<p>
-										<p>4.0</p>
+										<p>TP.Hồ Chí Minh</p>
 										</p>
 									</td>
-									<td class="product-category">
+									<td class="customer-phone">
 										<p>
-										<p>Nguyễn Anh Vũ</p>
-										</p>
-									</td>
-									<td class="product-price">
-										<p>
-										<p>Love this book</p>
+										<p>0758635121</p>
 										</p>
 
 									</td>
 
-									<td class="product-quantity">
+									<td class="author-books">
 										<p>
-										<p>27/12/2021 20:00:00</p>
+											<a href="#">Books</a>
 										</p>
 
 									</td>
-
-									<td class="product-remove"><a href="#"> <i
-											class="flaticon-delete"></i>
+									<td class="author-sales">
+										<p>
+											<a href="#">Sales</a>
+										</p>
+									</td>
+									<td class="product-edit">
+										<p>
+											<a href="#">Edit</a>
+										</p>
+									</td>
+									<td class="product-remove "><a href="# "> <i
+											class="flaticon-delete "></i>
 									</a></td>
 								</tr>
 
@@ -178,8 +189,8 @@
 							</tbody>
 						</table>
 					</div>
-					<div class="shopingcart-bottom-area">
-						<a class="left-shoping-cart" href="#">CREATE NEW BOOK</a>
+					<div class="shopingcart-bottom-area ">
+						<a class="left-shoping-cart " href="# ">CREATE NEW CUSTOMER</a>
 
 					</div>
 				</div>
@@ -194,36 +205,36 @@
 	<!--End of Quickview Product-->
 	<!-- all js here -->
 	<!-- jquery latest version -->
-	<script src="js/vendor/jquery-1.12.0.min.js"></script>
+	<script src="js/vendor/jquery-1.12.0.min.js "></script>
 	<!-- bootstrap js -->
-	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap.min.js "></script>
 	<!-- owl.carousel js -->
-	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/owl.carousel.min.js "></script>
 	<!-- jquery-ui js -->
-	<script src="js/jquery-ui.min.js"></script>
+	<script src="js/jquery-ui.min.js "></script>
 	<!-- jquery Counterup js -->
-	<script src="js/jquery.counterup.min.js"></script>
-	<script src="js/waypoints.min.js"></script>
+	<script src="js/jquery.counterup.min.js "></script>
+	<script src="js/waypoints.min.js "></script>
 	<!-- jquery countdown js -->
-	<script src="js/jquery.countdown.min.js"></script>
+	<script src="js/jquery.countdown.min.js "></script>
 	<!-- jquery countdown js -->
-	<script type="text/javascript" src="venobox/venobox.min.js"></script>
+	<script type="text/javascript " src="venobox/venobox.min.js "></script>
 	<!-- jquery Meanmenu js -->
-	<script src="js/jquery.meanmenu.js"></script>
+	<script src="js/jquery.meanmenu.js "></script>
 	<!-- wow js -->
-	<script src="js/wow.min.js"></script>
+	<script src="js/wow.min.js "></script>
 	<script>
 		new WOW().init();
 	</script>
 	<!-- scrollUp JS -->
-	<script src="js/jquery.scrollUp.min.js"></script>
+	<script src="js/jquery.scrollUp.min.js "></script>
 	<!-- plugins js -->
-	<script src="js/plugins.js"></script>
+	<script src="js/plugins.js "></script>
 	<!-- Nivo slider js -->
-	<script src="lib/js/jquery.nivo.slider.js" type="text/javascript"></script>
-	<script src="lib/home.js" type="text/javascript"></script>
+	<script src="lib/js/jquery.nivo.slider.js " type="text/javascript "></script>
+	<script src="lib/home.js " type="text/javascript "></script>
 	<!-- main js -->
-	<script src="js/main.js"></script>
+	<script src="js/main.js "></script>
 </body>
 
 </html>
