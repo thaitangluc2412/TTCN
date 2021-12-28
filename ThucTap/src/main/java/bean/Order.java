@@ -13,7 +13,7 @@ public class Order {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "UserID", referencedColumnName = "UserID")
-    private UserInfo user;
+    private User user;
 
     @Column(name = "OrderDate")
     private LocalDateTime orderDate;
@@ -38,7 +38,7 @@ public class Order {
     }
 
     public Order(Integer orderId,
-                 UserInfo user,
+                 User user,
                  LocalDateTime orderDate,
                  Double totalPrice,
                  Status status,
@@ -61,11 +61,11 @@ public class Order {
         this.orderId = orderId;
     }
 
-    public UserInfo getUser() {
+    public User getUser() {
         return user;
     }
 
-    public void setUser(UserInfo userId) {
+    public void setUser(User userId) {
         this.user = userId;
     }
 

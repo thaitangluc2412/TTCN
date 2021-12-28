@@ -9,10 +9,10 @@ CREATE TABLE Category
     CONSTRAINT PRIMARY KEY (CategoryID)
 );
 
-CREATE TABLE UserInfo
+CREATE TABLE User
 (
     UserID        INT AUTO_INCREMENT,
-    Email         VARCHAR(255)                         NOT NULL,
+    Email         VARCHAR(255)                         NOT NULL UNIQUE,
     UserPassword  VARCHAR(255)                         NOT NULL,
     Name          VARCHAR(255)                         NOT NULL,
     Address       VARCHAR(255)                         NOT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE BookDetail
     UserID INT,
     BookID INT,
     CONSTRAINT PRIMARY KEY (UserID, BookID),
-    CONSTRAINT fk_BookDetail_UserInfo FOREIGN KEY (UserID) REFERENCES UserInfo (UserID),
+    CONSTRAINT fk_BookDetail_UserInfo FOREIGN KEY (UserID) REFERENCES User (UserID),
     CONSTRAINT fk_BookDetail_Book FOREIGN KEY (BookID) REFERENCES Book (BookID)
 );
 
@@ -55,7 +55,7 @@ CREATE TABLE `Order`
     RecipientName   VARCHAR(255)                   NOT NULL,
     RecipientPhone  VARCHAR(255)                   NOT NULL,
     CONSTRAINT PRIMARY KEY (OrderID),
-    CONSTRAINT fk_Order_UserInfo FOREIGN KEY (UserID) REFERENCES UserInfo (UserID)
+    CONSTRAINT fk_Order_UserInfo FOREIGN KEY (UserID) REFERENCES User (UserID)
 );
 
 CREATE TABLE OderDetail
@@ -78,7 +78,7 @@ CREATE TABLE Review
     ReviewDate DATETIME NOT NULL,
     PRIMARY KEY (ReviewID),
     CONSTRAINT fk_Review_Book FOREIGN KEY (BookID) REFERENCES Book (BookID),
-    CONSTRAINT fk_Review_UserInfo FOREIGN KEY (UserID) REFERENCES UserInfo (UserID)
+    CONSTRAINT fk_Review_UserInfo FOREIGN KEY (UserID) REFERENCES User (UserID)
 );
 
 

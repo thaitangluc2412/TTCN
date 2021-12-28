@@ -1,10 +1,11 @@
 package bean;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name = "UserInfo")
-public class UserInfo {
+@Table(name = "User")
+public class User {
 
     @Id
     @Column(name = "UserID")
@@ -32,15 +33,21 @@ public class UserInfo {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    public UserInfo() {
+    @OneToMany(mappedBy = "user")
+    private List<Review> reviews;
+
+    @OneToMany(mappedBy = "user")
+    private List<Order> orders;
+
+    public User() {
     }
 
-    public UserInfo(Integer userId,
-                    String email,
-                    String userPassword,
-                    String name,
-                    String address,
-                    String phoneNumber, String accountNumber, Role role) {
+    public User(Integer userId,
+                String email,
+                String userPassword,
+                String name,
+                String address,
+                String phoneNumber, String accountNumber, Role role) {
         this.userId = userId;
         this.email = email;
         this.userPassword = userPassword;
@@ -113,6 +120,22 @@ public class UserInfo {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
 
     @Override

@@ -17,7 +17,7 @@ public class Review {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "UserID", referencedColumnName = "UserID")
-    private UserInfo user;
+    private User user;
 
     @Column(name = "Comment")
     private String comment;
@@ -33,7 +33,7 @@ public class Review {
 
     public Review(Integer reviewId,
                   Book book,
-                  UserInfo user,
+                  User user,
                   String comment,
                   Double rating,
                   LocalDateTime reviewDate) {
@@ -61,11 +61,11 @@ public class Review {
         this.book = book;
     }
 
-    public UserInfo getUser() {
+    public User getUser() {
         return user;
     }
 
-    public void setUser(UserInfo user) {
+    public void setUser(User user) {
         this.user = user;
     }
 
@@ -92,6 +92,8 @@ public class Review {
     public void setReviewDate(LocalDateTime reviewDate) {
         ReviewDate = reviewDate;
     }
+
+
 
     @Override
     public String toString() {

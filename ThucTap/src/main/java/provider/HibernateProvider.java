@@ -35,7 +35,7 @@ public class HibernateProvider {
         if (sessionFactory == null) {
             Configuration configuration = new Configuration();
 
-            configuration.addAnnotatedClass(UserInfo.class);
+            configuration.addAnnotatedClass(User.class);
             configuration.addAnnotatedClass(Book.class);
             configuration.addAnnotatedClass(BookDetail.class);
             configuration.addAnnotatedClass(Category.class);
