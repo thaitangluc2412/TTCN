@@ -1,102 +1,123 @@
 package bean;
 
-import java.time.LocalDate;
+import javax.persistence.*;
+import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "Order")
 public class Order {
-	private int orderID;
-	private int userId;
-	private LocalDate orderDate;
-	private double totalPrice;
-	private Status status;
-	private String shippingAddress;
-	private String recipientName;
-	private String recipientPhone;
-	
-	public Order() {
-	}
 
-	public Order(int orderID, int userId, LocalDate orderDate, double totalPrice, Status status, String shippingAddress,
-			String recipientName, String recipientPhone) {
-		this.orderID = orderID;
-		this.userId = userId;
-		this.orderDate = orderDate;
-		this.totalPrice = totalPrice;
-		this.status = status;
-		this.shippingAddress = shippingAddress;
-		this.recipientName = recipientName;
-		this.recipientPhone = recipientPhone;
-	}
+    @Id
+    @Column(name = "OrderID")
+    private Integer orderId;
 
-	public int getOrderID() {
-		return orderID;
-	}
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "UserID", referencedColumnName = "UserID")
+    private UserInfo user;
 
-	public void setOrderID(int orderID) {
-		this.orderID = orderID;
-	}
+    @Column(name = "OrderDate")
+    private LocalDateTime orderDate;
 
-	public int getUserId() {
-		return userId;
-	}
+    @Column(name = "TotalPrice")
+    private Double totalPrice;
 
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
+    @Column(name = "Status")
+    @Enumerated(EnumType.STRING)
+    private Status status;
 
-	public LocalDate getOrderDate() {
-		return orderDate;
-	}
+    @Column(name = "ShippingAddress")
+    private String shippingAddress;
 
-	public void setOrderDate(LocalDate orderDate) {
-		this.orderDate = orderDate;
-	}
+    @Column(name = "RecipientName")
+    private String recipientName;
 
-	public double getTotalPrice() {
-		return totalPrice;
-	}
+    @Column(name = "RecipientPhone")
+    private String recipientPhone;
 
-	public void setTotalPrice(double totalPrice) {
-		this.totalPrice = totalPrice;
-	}
+    public Order() {
+    }
 
-	public Status getStatus() {
-		return status;
-	}
+    public Order(Integer orderId,
+                 UserInfo user,
+                 LocalDateTime orderDate,
+                 Double totalPrice,
+                 Status status,
+                 String shippingAddress, String recipientName, String recipientPhone) {
+        this.orderId = orderId;
+        this.user = user;
+        this.orderDate = orderDate;
+        this.totalPrice = totalPrice;
+        this.status = status;
+        this.shippingAddress = shippingAddress;
+        this.recipientName = recipientName;
+        this.recipientPhone = recipientPhone;
+    }
 
-	public void setStatus(Status status) {
-		this.status = status;
-	}
+    public Integer getOrderId() {
+        return orderId;
+    }
 
-	public String getShippingAddress() {
-		return shippingAddress;
-	}
+    public void setOrderId(Integer orderId) {
+        this.orderId = orderId;
+    }
 
-	public void setShippingAddress(String shippingAddress) {
-		this.shippingAddress = shippingAddress;
-	}
+    public UserInfo getUser() {
+        return user;
+    }
 
-	public String getRecipientName() {
-		return recipientName;
-	}
+    public void setUser(UserInfo userId) {
+        this.user = userId;
+    }
 
-	public void setRecipientName(String recipientName) {
-		this.recipientName = recipientName;
-	}
+    public LocalDateTime getOrderDate() {
+        return orderDate;
+    }
 
-	public String getRecipientPhone() {
-		return recipientPhone;
-	}
+    public void setOrderDate(LocalDateTime orderDate) {
+        this.orderDate = orderDate;
+    }
 
-	public void setRecipientPhone(String recipientPhone) {
-		this.recipientPhone = recipientPhone;
-	}
+    public Double getTotalPrice() {
+        return totalPrice;
+    }
 
-	@Override
-	public String toString() {
-		return "Order [orderID=" + orderID + ", userId=" + userId + ", orderDate=" + orderDate + ", totalPrice="
-				+ totalPrice + ", status=" + status + ", shippingAddress=" + shippingAddress + ", recipientName="
-				+ recipientName + ", recipientPhone=" + recipientPhone + "]";
-	}
-	
-	
+    public void setTotalPrice(Double totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public String getShippingAddress() {
+        return shippingAddress;
+    }
+
+    public void setShippingAddress(String shippingAddress) {
+        this.shippingAddress = shippingAddress;
+    }
+
+    public String getRecipientName() {
+        return recipientName;
+    }
+
+    public void setRecipientName(String recipientName) {
+        this.recipientName = recipientName;
+    }
+
+    public String getRecipientPhone() {
+        return recipientPhone;
+    }
+
+    public void setRecipientPhone(String recipientPhone) {
+        this.recipientPhone = recipientPhone;
+    }
+
+    public enum Status {
+        ARRIVED, NOTARRIVED
+    }
 }

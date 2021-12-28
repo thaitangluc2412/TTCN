@@ -1,37 +1,37 @@
 package bean;
 
 public class Category {
-	private int categoryID;
-	private String name;
-	
-	public Category() {
-	}
+    private int categoryID;
+    private String name;
 
-	public Category(int categoryID, String name) {
-		this.categoryID = categoryID;
-		this.name = name;
-	}
+    public Category() {
+    }
 
-	public int getCategoryID() {
-		return categoryID;
-	}
+    public Category(int categoryID, String name) {
+        this.categoryID = categoryID;
+        this.name = name;
+    }
 
-	public void setCategoryID(int categoryID) {
-		this.categoryID = categoryID;
-	}
+    public int getCategoryID() {
+        return categoryID;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public void setCategoryID(int categoryID) {
+        this.categoryID = categoryID;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	@Override
-	public String toString() {
-		return "Category [categoryID=" + categoryID + ", name=" + name + "]";
-	}
-	
-	
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Category [categoryID=" + categoryID + ", name=" + name + "]";
+    }
+
+
 }

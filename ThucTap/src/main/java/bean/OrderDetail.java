@@ -1,47 +1,47 @@
 package bean;
 
 public class OrderDetail {
-	private int orderId;
-	private int bookId;
-	private int quantity;
-	
-	public OrderDetail() {
-	}
+    private int orderId;
+    private int bookId;
+    private int quantity;
 
-	public OrderDetail(int orderId, int bookId, int quantity) {
-		this.orderId = orderId;
-		this.bookId = bookId;
-		this.quantity = quantity;
-	}
+    public OrderDetail() {
+    }
 
-	public int getOrderId() {
-		return orderId;
-	}
+    public OrderDetail(int orderId, int bookId, int quantity) {
+        this.orderId = orderId;
+        this.bookId = bookId;
+        this.quantity = quantity;
+    }
 
-	public void setOrderId(int orderId) {
-		this.orderId = orderId;
-	}
+    public int getOrderId() {
+        return orderId;
+    }
 
-	public int getBookId() {
-		return bookId;
-	}
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
+    }
 
-	public void setBookId(int bookId) {
-		this.bookId = bookId;
-	}
+    public int getBookId() {
+        return bookId;
+    }
 
-	public int getQuantity() {
-		return quantity;
-	}
+    public void setBookId(int bookId) {
+        this.bookId = bookId;
+    }
 
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
+    public int getQuantity() {
+        return quantity;
+    }
 
-	@Override
-	public String toString() {
-		return "OrderDetail [orderId=" + orderId + ", bookId=" + bookId + ", quantity=" + quantity + "]";
-	}
-	
-	
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    @Override
+    public String toString() {
+        return "OrderDetail [orderId=" + orderId + ", bookId=" + bookId + ", quantity=" + quantity + "]";
+    }
+
+
 }

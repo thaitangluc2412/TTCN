@@ -1,37 +1,36 @@
 package bean;
 
 public class BookDetail {
-	private int userId;
-	private int bookId;
-	
-	public BookDetail() {
-		
-	}
+    private int userId;
+    private int bookId;
 
-	public BookDetail(int userId, int bookId) {
-		this.userId = userId;
-		this.bookId = bookId;
-	}
+    public BookDetail() {
+    }
 
-	public int getUserId() {
-		return userId;
-	}
+    public BookDetail(int userId, int bookId) {
+        this.userId = userId;
+        this.bookId = bookId;
+    }
 
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
+    public int getUserId() {
+        return userId;
+    }
 
-	public int getBookId() {
-		return bookId;
-	}
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
-	public void setBookId(int bookId) {
-		this.bookId = bookId;
-	}
+    public int getBookId() {
+        return bookId;
+    }
 
-	@Override
-	public String toString() {
-		return "BookDetail [userId=" + userId + ", bookId=" + bookId + "]";
-	}
-	
+    public void setBookId(int bookId) {
+        this.bookId = bookId;
+    }
+
+    @Override
+    public String toString() {
+        return "BookDetail [userId=" + userId + ", bookId=" + bookId + "]";
+    }
+
 }	

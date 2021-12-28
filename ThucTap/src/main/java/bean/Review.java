@@ -1,82 +1,107 @@
 package bean;
 
-import java.time.LocalDate;
+import javax.persistence.*;
+import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "Review")
 public class Review {
 
-	private int reviewId;
-	private int bookId;
-	private int userId;
-	private String comment;
-	private double rating;
-	private LocalDate ReviewDate;
-	
-	public Review() {
-	}
+    @Id
+    @Column(name = "ReviewID")
+    private Integer reviewId;
 
-	public Review(int reviewId, int bookId, int userId, String comment, double rating, LocalDate reviewDate) {
-		this.reviewId = reviewId;
-		this.bookId = bookId;
-		this.userId = userId;
-		this.comment = comment;
-		this.rating = rating;
-		ReviewDate = reviewDate;
-	}
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "BookID", referencedColumnName = "BookID")
+    private Book book;
 
-	public int getReviewId() {
-		return reviewId;
-	}
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "UserID", referencedColumnName = "UserID")
+    private UserInfo user;
 
-	public void setReviewId(int reviewId) {
-		this.reviewId = reviewId;
-	}
+    @Column(name = "Comment")
+    private String comment;
 
-	public int getBookId() {
-		return bookId;
-	}
+    @Column(name = "Rating")
+    private Double rating;
 
-	public void setBookId(int bookId) {
-		this.bookId = bookId;
-	}
+    @Column(name = "ReviewDate")
+    private LocalDateTime ReviewDate;
 
-	public int getUserId() {
-		return userId;
-	}
+    public Review() {
+    }
 
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
+    public Review(Integer reviewId,
+                  Book book,
+                  UserInfo user,
+                  String comment,
+                  Double rating,
+                  LocalDateTime reviewDate) {
+        this.reviewId = reviewId;
+        this.book = book;
+        this.user = user;
+        this.comment = comment;
+        this.rating = rating;
+        ReviewDate = reviewDate;
+    }
 
-	public String getComment() {
-		return comment;
-	}
+    public Integer getReviewId() {
+        return reviewId;
+    }
 
-	public void setComment(String comment) {
-		this.comment = comment;
-	}
+    public void setReviewId(Integer reviewId) {
+        this.reviewId = reviewId;
+    }
 
-	public double getRating() {
-		return rating;
-	}
+    public Book getBook() {
+        return book;
+    }
 
-	public void setRating(double rating) {
-		this.rating = rating;
-	}
+    public void setBook(Book book) {
+        this.book = book;
+    }
 
-	public LocalDate getReviewDate() {
-		return ReviewDate;
-	}
+    public UserInfo getUser() {
+        return user;
+    }
 
-	public void setReviewDate(LocalDate reviewDate) {
-		ReviewDate = reviewDate;
-	}
+    public void setUser(UserInfo user) {
+        this.user = user;
+    }
 
-	@Override
-	public String toString() {
-		return "Review [reviewId=" + reviewId + ", bookId=" + bookId + ", userId=" + userId + ", comment=" + comment
-				+ ", rating=" + rating + ", ReviewDate=" + ReviewDate + "]";
-	}
-	
-	
-	
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public Double getRating() {
+        return rating;
+    }
+
+    public void setRating(Double rating) {
+        this.rating = rating;
+    }
+
+    public LocalDateTime getReviewDate() {
+        return ReviewDate;
+    }
+
+    public void setReviewDate(LocalDateTime reviewDate) {
+        ReviewDate = reviewDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Review{" +
+               "reviewId=" + reviewId +
+               ", book=" + book +
+               ", user=" + user +
+               ", comment='" + comment + '\'' +
+               ", rating=" + rating +
+               ", ReviewDate=" + ReviewDate +
+               '}';
+    }
 }
