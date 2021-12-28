@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!-- nguyen da o day -->
+<!-- nguyen da o day va luc-->
 <!doctype html>
 <html class="no-js" lang="">
-
+ 
 <head>
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
