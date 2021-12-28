@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -81,22 +82,49 @@
 					<nav>
 						<ul id="nav">
 							<li><a href="Index.jsp">HOME</a></li>
-							<li><a href="Shop.jsp">FEATURED</a></li>
-							<li><a href="Shop.jsp">REVIEW BOOK</a></li>
+							<li><a href="Shop.jsp">SHOPPING PAGE</a></li>
 							<li><a href="About.jsp">ABOUT AUTHOR</a></li>
-							<li><a href="#">pages</a>
-								<ul class="sub-menu">
-									<li><a href="About.jsp">About Us</a></li>
-									<li><a href="Cart.jsp">Cart Page</a></li>
-									<li><a href="Checkout.jsp">Check Out</a></li>
-									<li><a href="MyAccount.jsp">My Account</a></li>
-									<li><a href="Shop.jsp">Shopping Page</a></li>
-									<li><a href="SingleProduct.jsp">Single Shop Page</a></li>
-									<li><a href="WishList.jsp">Wishlist Page</a></li>
-								</ul></li>
+							<c:choose>
+								<c:when test="${user.role == 1}">
+									<li><a href="#">MANAGEMENTS</a>
+										<ul class="sub-menu">
+											<li><a href="About.jsp">About Us</a></li>
+											<li><a href="Cart.jsp">Cart Page</a></li>
+											<li><a href="Checkout.jsp">Check Out</a></li>
+											<li><a href="MyAccount.jsp">My Account</a></li>
+											<li><a href="Shop.jsp">Shopping Page</a></li>
+											<li><a href="SingleProduct.jsp">Single Shop Page</a></li>
+											<li><a href="WishList.jsp">Wishlist Page</a></li>
+										</ul></li>
+								</c:when>
+								<c:when test="${user.role == 2}">
+									<li><a href="#">MANAGEMENTS</a>
+										<ul class="sub-menu">
+											<li><a href="About.jsp">MY BOOKS</a></li>
+											<li><a href="Cart.jsp">Cart Page</a></li>
+											<li><a href="Checkout.jsp">Check Out</a></li>
+											<li><a href="MyAccount.jsp">My Account</a></li>
+											<li><a href="SingleProduct.jsp">Single Shop Page</a></li>
+											<li><a href="WishList.jsp">Wishlist Page</a></li>
+										</ul></li>
+								</c:when>
+								<c:otherwise>
+									<li><a href="#">FEATURES</a>
+										<ul class="sub-menu">
+											<li><a href="About.jsp">About Us</a></li>
+											<li><a href="Cart.jsp">Cart Page</a></li>
+											<li><a href="Checkout.jsp">Check Out</a></li>
+											<li><a href="MyAccount.jsp">My Account</a></li>
+											<li><a href="Shop.jsp">Shopping Page</a></li>
+											<li><a href="SingleProduct.jsp">Single Shop Page</a></li>
+											<li><a href="WishList.jsp">Wishlist Page</a></li>
+										</ul></li>
+								</c:otherwise>
+							</c:choose>
 							<li><a href="Contact.jsp">CONTACT</a></li>
-							<li><a href="Login.jsp"><button type="button" class="btn btn-primary">Login</button></a></li>
-               <%--          <li><a href="Index.jsp"><button type="button" class="btn btn-primary">Logout</button></a></li> --%>  
+							<li><a href="Login.jsp" class="ml-5"><button
+										type="button" class="btn btn-primary">Login</button></a></li>
+							<%--          <li><a href="Index.jsp"><button type="button" class="btn btn-primary">Logout</button></a></li> --%>
 						</ul>
 					</nav>
 				</div>
@@ -104,8 +132,10 @@
 			<div class="col-md-1 hidden-sm">
 				<div class="header-right">
 					<ul>
-
-						</li>
+						<c:if test="${user.role == 1}">
+							<li><a href="MyAccount.jsp"><i class="flaticon-people"></i></a>
+							</li>
+						</c:if>
 						<li class="shoping-cart"><a href="#"> <i
 								class="flaticon-shop"></i> <span>2</span>
 						</a>

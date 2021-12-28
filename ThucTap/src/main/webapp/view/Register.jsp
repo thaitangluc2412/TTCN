@@ -110,6 +110,7 @@
                                         REGISTER
                                     </span>
                                 </button>
+                                
                             </div>                          
                        </form>
                     </div>
