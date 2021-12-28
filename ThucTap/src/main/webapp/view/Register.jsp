@@ -81,10 +81,11 @@
                         
                     </div>
                     <div class="col-md-4 col-sm-4">
-                       <form action="#" class="create-account-form" method="post">
-                            <h2 class="heading-title">
-                                WELCOME
+                       <form action="UserController" class="create-account-form" method="post">
+                            <h2 class="heading-title text-center">
+                                REGISTER
                             </h2>
+                            <input type="hidden" value="REGISTER" name="command">
                             <p class="form-row">
                                 <input type="email" placeholder="Email address" name="username" required>
                             </p>
