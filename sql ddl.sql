@@ -81,7 +81,19 @@ CREATE TABLE Review
     CONSTRAINT fk_Review_UserInfo FOREIGN KEY (UserID) REFERENCES User (UserID)
 );
 
-
-
-
+INSERT INTO Book (BookID, CategoryID, Title, Description, Image, Price, PublishDate)
+VALUES (1, 1, "Trang Quynh", "Truyen hay", "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
+		(2, 2, "Trang Quynh", "Truyen hay", "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
+		(3, 3, "Trang Quynh", "Truyen hay", "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
+        (4, 4, "Trang Quynh", "Truyen hay", "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
+        (5, 5, "Trang Quynh", "Truyen hay", "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
+        (6, 6, "Trang Quynh", "Truyen hay", "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
+        (7, 7, "Trang Quynh", "Truyen hay", "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
+        (8, 8, "Trang Quynh", "Truyen hay", "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
+        (9, 9, "Trang Quynh", "Truyen hay", "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
+		(10, 10, "Trang Quynh", "Truyen hay", "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
+        (11, 11, "Trang Quynh", "Truyen hay", "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
+        (12, 12, "Trang Quynh", "Truyen hay", "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
+        (13, 13, "Trang Quynh", "Truyen hay", "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
+        (14, 14, "Trang Quynh", "Truyen hay", "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10");
 

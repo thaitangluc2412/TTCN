@@ -1,30 +1,30 @@
 package bean;
 
 public class BookDetail {
-    private int userId;
-    private int bookId;
+    private Integer userId;
+    private Integer bookId;
 
     public BookDetail() {
     }
 
-    public BookDetail(int userId, int bookId) {
+    public BookDetail(Integer userId, Integer bookId) {
         this.userId = userId;
         this.bookId = bookId;
     }
 
-    public int getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
-    public int getBookId() {
+    public Integer getBookId() {
         return bookId;
     }
 
-    public void setBookId(int bookId) {
+    public void setBookId(Integer bookId) {
         this.bookId = bookId;
     }
 

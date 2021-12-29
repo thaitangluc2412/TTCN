@@ -1,9 +1,9 @@
-package dao;
+package service;
 
 import java.util.List;
 
 import bean.Book;
 
-public interface BookDao {
+public interface BookService {
 	List<Book> getAll();
 }

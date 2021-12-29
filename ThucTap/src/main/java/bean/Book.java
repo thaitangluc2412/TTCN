@@ -2,20 +2,42 @@ package bean;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Book")
 public class Book {
-    private int bookId;
+	
+	@Id
+	@Column(name = "BookID")
+    private Integer bookId;
+    
+    @Column(name = "Title")
     private String title;
+    
+    @Column(name = "Description")
     private String desciption;
+    
+    @Column(name = "Image")
     private String image;
+    
+    @Column(name = "Price")
     private double price;
+    
+    @Column(name = "PublishDate")
     private LocalDate publishDate;
-    private int categoryID;
+    
+    @Column(name = "CategoryID")
+    private Integer categoryID;
 
     public Book() {
     }
 
-    public Book(int bookId, String title, String description, String image, double price, LocalDate publishDate,
-                int categoryID) {
+    public Book(Integer bookId, String title, String description, String image, double price, LocalDate publishDate,
+    		Integer categoryID) {
         this.bookId = bookId;
         this.title = title;
         this.desciption = description;
@@ -25,11 +47,11 @@ public class Book {
         this.categoryID = categoryID;
     }
 
-    public int getBookId() {
+    public Integer getBookId() {
         return bookId;
     }
 
-    public void setBookId(int bookId) {
+    public void setBookId(Integer bookId) {
         this.bookId = bookId;
     }
 
@@ -73,11 +95,11 @@ public class Book {
         this.publishDate = publishDate;
     }
 
-    public int getCategoryID() {
+    public Integer getCategoryID() {
         return categoryID;
     }
 
-    public void setCategoryID(int categoryID) {
+    public void setCategoryID(Integer categoryID) {
         this.categoryID = categoryID;
     }
 
