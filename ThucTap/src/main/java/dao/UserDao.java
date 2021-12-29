@@ -1,6 +1,7 @@
 package dao;
 
 import bean.User;
+import bean.User.Role;
 
 import java.util.List;
 

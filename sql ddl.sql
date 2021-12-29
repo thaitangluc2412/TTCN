@@ -28,6 +28,7 @@ CREATE TABLE Book
     CategoryID  INT,
     Title       VARCHAR(255) NOT NULL,
     Description VARCHAR(255),
+    Rating      Double,
     Image       VARCHAR(255) NOT NULL,
     Price       DOUBLE       NOT NULL,
     PublishDate DATE         NOT NULL,
@@ -48,7 +49,7 @@ CREATE TABLE `Order`
 (
     OrderID         INT AUTO_INCREMENT,
     UserID          INT,
-    OrderDate       DATETIME                       NOT NULL,
+    OrderDate       DATE                       NOT NULL,
     TotalPrice      DOUBLE                         NOT NULL,
     Status          ENUM ('Arrived', 'NotArrived') NOT NULL,
     ShippingAddress VARCHAR(255)                   NOT NULL,
@@ -81,19 +82,50 @@ CREATE TABLE Review
     CONSTRAINT fk_Review_UserInfo FOREIGN KEY (UserID) REFERENCES User (UserID)
 );
 
-INSERT INTO Book (BookID, CategoryID, Title, Description, Image, Price, PublishDate)
-VALUES (1, 1, "Trang Quynh", "Truyen hay", "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
-		(2, 2, "Trang Quynh", "Truyen hay", "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
-		(3, 3, "Trang Quynh", "Truyen hay", "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
-        (4, 4, "Trang Quynh", "Truyen hay", "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
-        (5, 5, "Trang Quynh", "Truyen hay", "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
-        (6, 6, "Trang Quynh", "Truyen hay", "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
-        (7, 7, "Trang Quynh", "Truyen hay", "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
-        (8, 8, "Trang Quynh", "Truyen hay", "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
-        (9, 9, "Trang Quynh", "Truyen hay", "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
-		(10, 10, "Trang Quynh", "Truyen hay", "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
-        (11, 11, "Trang Quynh", "Truyen hay", "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
-        (12, 12, "Trang Quynh", "Truyen hay", "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
-        (13, 13, "Trang Quynh", "Truyen hay", "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
-        (14, 14, "Trang Quynh", "Truyen hay", "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10");
+
+INSERT INTO User (UserID, Email, UserPassword, Name, Address, PhoneNumber, AccountNumber, Role)
+VALUES (1, "thaitangluc2412@gmail.com", "1234", "Thai Luc", "Cam Lo, Quang Tri", "06873496874", "037486164967", "Admin"),
+	   (2, "manhviet@gmail.com", "1234", "Manh Viet", "Cam Lo, Quang Tri", "06873496874", "037486164967", "Customer"),
+       (3, "xuantuan@gmail.com", "1234", "Xuan Tuan", "Cam Lo, Quang Tri", "06873496874", "037486164967", "Author"),
+       (4, "trungnguyen@gmail.com", "1234", "Trung Nguyen", "Cam Lo, Quang Tri", "06873496874", "037486164967", "Admin"),
+       (5, "nguyenvu@gmail.com", "1234", "Nguyen Vu", "Cam Lo, Quang Tri", "06873496874", "037486164967", "Customer");
+       
+
+INSERT INTO Book (BookID, CategoryID, Title, Description, Rating, Image, Price, PublishDate)
+VALUES (1, 1, "Trang Quynh", "Truyen hay", 4.3, "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
+		(2, 2, "Trang Quynh", "Truyen hay", 4.2, "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
+		(3, 3, "Trang Quynh", "Truyen hay", 2.1, "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
+        (4, 4, "Trang Quynh", "Truyen hay", 4.5, "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
+        (5, 1, "Trang Quynh", "Truyen hay", 5.0, "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
+        (6, 2, "Trang Quynh", "Truyen hay", 3.4, "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
+        (7, 3, "Trang Quynh", "Truyen hay", 4.2, "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
+        (8, 4, "Trang Quynh", "Truyen hay", 2.4, "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
+        (9, 5, "Trang Quynh", "Truyen hay", 3.8, "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
+		(10, 1, "Trang Quynh", "Truyen hay", 4.2, "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
+        (11, 2, "Trang Quynh", "Truyen hay", 4.8, "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
+        (12, 3, "Trang Quynh", "Truyen hay", 4.2, "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
+        (13, 4, "Trang Quynh", "Truyen hay", 3.4, "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
+        (14, 5, "Trang Quynh", "Truyen hay", 4.6, "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10");
+        
+INSERT INTO Category (CategoryID, Name)
+VALUES (1, "Truyen Cuoi"),
+	   (2, "Truyen Ma"),
+       (3, "Truyen Kinh Di"),
+       (4, "Truyen Co Tinh"),
+       (5, "Truyen tinh cam");
+       
+       
+INSERT INTO `Order` (OrderID, UserID, OrderDate, TotalPrice, Status, ShippingAddress, RecipientName, RecipientPhone)
+VALUES (1, 2, "2021-12-5", 50000.00, "Arrived", "Cam Lo, Quang tri", "Thai Tang Luc", "067761634988"),
+	   (2, 2, "2021-12-5", 50000.00, "Arrived", "Cam Lo, Quang tri", "Thai Tang Luc", "067761634988"),
+       (3, 5, "2021-12-5", 50000.00, "Arrived", "Cam Lo, Quang tri", "Thai Tang Luc", "067761634988"),
+       (4, 2, "2021-12-5", 50000.00, "Arrived", "Cam Lo, Quang tri", "Thai Tang Luc", "067761634988"),
+       (5, 5, "2021-12-5", 50000.00, "Arrived", "Cam Lo, Quang tri", "Thai Tang Luc", "067761634988"),
+       (6, 2, "2021-12-5", 50000.00, "Arrived", "Cam Lo, Quang tri", "Thai Tang Luc", "067761634988"),
+       (7, 5, "2021-12-5", 50000.00, "Arrived", "Cam Lo, Quang tri", "Thai Tang Luc", "067761634988"),
+       (8, 2, "2021-12-5", 50000.00, "Arrived", "Cam Lo, Quang tri", "Thai Tang Luc", "067761634988"),
+       (9, 2, "2021-12-5", 50000.00, "Arrived", "Cam Lo, Quang tri", "Thai Tang Luc", "067761634988"),
+       (10, 5, "2021-12-5", 50000.00, "Arrived", "Cam Lo, Quang tri", "Thai Tang Luc", "067761634988"),
+       (11, 5, "2021-12-5", 50000.00, "Arrived", "Cam Lo, Quang tri", "Thai Tang Luc", "067761634988");
+
 

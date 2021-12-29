@@ -21,6 +21,9 @@ public class Book {
     @Column(name = "Description")
     private String desciption;
     
+    @Column(name = "Rating")
+    private Double rating;
+    
     @Column(name = "Image")
     private String image;
     
@@ -36,18 +39,21 @@ public class Book {
     public Book() {
     }
 
-    public Book(Integer bookId, String title, String description, String image, double price, LocalDate publishDate,
-    		Integer categoryID) {
-        this.bookId = bookId;
-        this.title = title;
-        this.desciption = description;
-        this.image = image;
-        this.price = price;
-        this.publishDate = publishDate;
-        this.categoryID = categoryID;
-    }
+   
 
-    public Integer getBookId() {
+    public Book(Integer bookId, String title, String desciption, Double rating, String image, double price,
+			LocalDate publishDate, Integer categoryID) {
+		this.bookId = bookId;
+		this.title = title;
+		this.desciption = desciption;
+		this.rating = rating;
+		this.image = image;
+		this.price = price;
+		this.publishDate = publishDate;
+		this.categoryID = categoryID;
+	}
+
+	public Integer getBookId() {
         return bookId;
     }
 
@@ -70,6 +76,14 @@ public class Book {
     public void setDesciption(String desciption) {
         this.desciption = desciption;
     }
+    
+    public Double getRating() {
+		return rating;
+	}
+    
+    public void setRating(Double rating) {
+		this.rating = rating;
+	}
 
     public String getImage() {
         return image;
@@ -103,11 +117,11 @@ public class Book {
         this.categoryID = categoryID;
     }
 
-    @Override
-    public String toString() {
-        return "Book [bookId=" + bookId + ", title=" + title + ", desciption=" + desciption + ", image=" + image
-               + ", price=" + price + ", publishDate=" + publishDate + ", categoryID=" + categoryID + "]";
-    }
-
+	@Override
+	public String toString() {
+		return "Book [bookId=" + bookId + ", title=" + title + ", desciption=" + desciption + ", rating=" + rating
+				+ ", image=" + image + ", price=" + price + ", publishDate=" + publishDate + ", categoryID="
+				+ categoryID + "]";
+	}
 
 }
