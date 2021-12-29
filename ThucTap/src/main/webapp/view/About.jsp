@@ -55,23 +55,7 @@
         <!--Header Area End-->
 		 
         <!-- Breadcrumbs Area Start -->
-        <div class="breadcrumbs-area">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-					    <div class="breadcrumbs">
-					       <h2>About Us</h2> 
-					       <ul class="breadcrumbs-list">
-						        <li>
-						            <a title="Return to Home" href="index.html">Home</a>
-						        </li>
-						        <li>About Us</li>
-						    </ul>
-					    </div>
-					</div>
-				</div>
-			</div>
-		</div> 
+        <jsp:include page="BreadCrumbs.jsp"></jsp:include>
 		<!-- Breadcrumbs Area Start --> 
 		<!-- About Us Area Start -->
 		<div class="about-us-area section-padding">

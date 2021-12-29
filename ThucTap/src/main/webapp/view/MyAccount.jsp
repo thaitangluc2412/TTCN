@@ -54,25 +54,9 @@
         <jsp:include page="Header.jsp"></jsp:include>
         <!--Header Area End-->
 		 
-        <!-- Breadcrumbs Area Start -->
-        <div class="breadcrumbs-area">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-					    <div class="breadcrumbs">
-					       <h2>My Account</h2> 
-					       <ul class="breadcrumbs-list">
-						        <li>
-						            <a title="Return to Home" href="index.html">Home</a>
-						        </li>
-						        <li>My Account</li>
-						    </ul>
-					    </div>
-					</div>
-				</div>
-			</div>
-		</div> 
-		<!-- Breadcrumbs Area Start -->
+        	<!-- Breadcrumbs Area Start -->
+	<jsp:include page="BreadCrumbs.jsp"></jsp:include>
+	<!-- Breadcrumbs Area Start -->
 		<!-- My Account Area Start -->
 		<div class="my-account-area section-padding">
 			<div class="container">

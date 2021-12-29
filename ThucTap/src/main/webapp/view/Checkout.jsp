@@ -54,25 +54,9 @@
         <jsp:include page="Header.jsp"></jsp:include>
         <!--Header Area End-->
 		
-        <!-- Breadcrumbs Area Start -->
-        <div class="breadcrumbs-area">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-					    <div class="breadcrumbs">
-					       <h2>Checkout List</h2> 
-					       <ul class="breadcrumbs-list">
-						        <li>
-						            <a title="Return to Home" href="index.html">Home</a>
-						        </li>
-						        <li>Checkout List</li>
-						    </ul>
-					    </div>
-					</div>
-				</div>
-			</div>
-		</div> 
-		<!-- Breadcrumbs Area Start --> 
+        	<!-- Breadcrumbs Area Start -->
+	<jsp:include page="BreadCrumbs.jsp"></jsp:include>
+	<!-- Breadcrumbs Area Start --> 
         <!-- Check Out Area Start -->
         <div class="check-out-area section-padding">
             <div class="container">

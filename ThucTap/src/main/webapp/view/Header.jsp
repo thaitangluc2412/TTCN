@@ -37,6 +37,8 @@
 								<c:when test="${user.role == 2}">
 									<li><a href="#">MANAGEMENT</a>
 										<ul class="sub-menu">
+											<li><a href="AuthorBook.jsp">TRACKING BOOK SELLING</a></li>
+											<li><a href="AuthorProfit.jsp">MY EARNING</a></li>
 										</ul></li>
 								</c:when>
 								<c:otherwise>

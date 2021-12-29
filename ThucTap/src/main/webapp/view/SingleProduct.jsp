@@ -18,7 +18,10 @@
 
 <!-- all css here -->
 <!-- bootstrap v3.3.6 css -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <!-- animate css -->
 <link rel="stylesheet" href="css/animate.css">
@@ -59,23 +62,11 @@
 	<!--Header Area End-->
 
 	<!-- Breadcrumbs Area Start -->
-	<div class="breadcrumbs-area">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="breadcrumbs">
-						<h2>PRODUCT DETAILS</h2>
-						<ul class="breadcrumbs-list">
-							<li><a title="Return to Home" href="index.html">Home</a></li>
-							<li>Product Details</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	<jsp:include page="BreadCrumbs.jsp"></jsp:include>
 	<!-- Breadcrumbs Area Start -->
-	<!-- Single Product Area Start -->
+	
+	
+	
 	<div class="single-product-area section-padding">
 		<div class="container">
 			<div class="row">
@@ -195,42 +186,42 @@
 							<div role="tabpanel" class="tab-pane" id="data">
 								<div class="mb-3">
 									<div class="seller-details">
-                                            <label class="form-label" >Customer Name</label>
-                                            <ul >
-                                                <li><i class="fa fa-star icolor"></i></li>
-                                                <li><i class="fa fa-star icolor"></i></li>
-                                                <li><i class="fa fa-star icolor"></i></li>
-                                                <li><i class="fa fa-star icolor"></i></li>
-                                                <li><i class="fa fa-star icolor"></i></li>
-                                            </ul>
-                                            <div class="form-label">I really recommend this book</div>
-                                        </div>
+										<label class="form-label">Customer Name</label>
+										<ul>
+											<li><i class="fa fa-star icolor"></i></li>
+											<li><i class="fa fa-star icolor"></i></li>
+											<li><i class="fa fa-star icolor"></i></li>
+											<li><i class="fa fa-star icolor"></i></li>
+											<li><i class="fa fa-star icolor"></i></li>
+										</ul>
+										<div class="form-label">I really recommend this book</div>
+									</div>
 								</div>
 								<div class="mb-3">
 									<div class="seller-details">
-                                            <label class="form-label">Customer Name</label>
-                                            <ul>
-                                                <li><i class="fa fa-star icolor"></i></li>
-                                                <li><i class="fa fa-star icolor"></i></li>
-                                                <li><i class="fa fa-star icolor"></i></li>
-                                                <li><i class="fa fa-star icolor"></i></li>
-                                                <li><i class="fa fa-star icolor"></i></li>
-                                            </ul>
-                                            <div class="form-label">I really recommend this book</div>
-                                        </div>
+										<label class="form-label">Customer Name</label>
+										<ul>
+											<li><i class="fa fa-star icolor"></i></li>
+											<li><i class="fa fa-star icolor"></i></li>
+											<li><i class="fa fa-star icolor"></i></li>
+											<li><i class="fa fa-star icolor"></i></li>
+											<li><i class="fa fa-star icolor"></i></li>
+										</ul>
+										<div class="form-label">I really recommend this book</div>
+									</div>
 								</div>
 								<div class="mb-3">
 									<div class="seller-details">
-                                            <label class="form-label">Customer Name</label>
-                                            <ul>
-                                                <li><i class="fa fa-star icolor"></i></li>
-                                                <li><i class="fa fa-star icolor"></i></li>
-                                                <li><i class="fa fa-star icolor"></i></li>
-                                                <li><i class="fa fa-star icolor"></i></li>
-                                                <li><i class="fa fa-star icolor"></i></li>
-                                            </ul>
-                                            <div class="form-label">I really recommend this book</div>
-                                        </div>
+										<label class="form-label">Customer Name</label>
+										<ul>
+											<li><i class="fa fa-star icolor"></i></li>
+											<li><i class="fa fa-star icolor"></i></li>
+											<li><i class="fa fa-star icolor"></i></li>
+											<li><i class="fa fa-star icolor"></i></li>
+											<li><i class="fa fa-star icolor"></i></li>
+										</ul>
+										<div class="form-label">I really recommend this book</div>
+									</div>
 
 								</div>
 							</div>

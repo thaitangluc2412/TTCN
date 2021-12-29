@@ -62,6 +62,10 @@
 	<!-- Add your site or application content here -->
 	<jsp:include page="Header.jsp"></jsp:include>
 
+    <!-- Breadcrumbs Area Start -->
+        <jsp:include page="BreadCrumbs.jsp"></jsp:include>
+		<!-- Breadcrumbs Area Start --> 
+
 	<div class="d-flex justify-content-center">
 		<div class="input-group" style="width: 500px">
 			<input type="search" class="form-control rounded w-75 p-3"

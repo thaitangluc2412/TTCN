@@ -61,35 +61,13 @@
 
 	<!-- Add your site or application content here -->
 	<!--Header Area Start-->
-	<div class="header-area">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-2 col-sm-6 col-xs-6">
-					<div class="header-logo">
-						<a href="index.html"> <img src="img/logo.png" alt="">
-						</a>
-					</div>
-				</div>
-
-				<div class="col-md-9 col-sm-12 hidden-xs">
-					<div class="mainmenu text-center">
-						<nav>
-							<ul id="nav">
-								<li><a href="book.html">BOOK</a></li>
-								<li><a href="category.html">CATEGORY</a></li>
-								<li><a href="customer.html">CUSTOMER</a></li>
-								<li><a href="author.html">AUTHOR</a></li>
-								<li><a href="order.html">ORDER</a></li>
-								<li><a href="review.html">REVIEW</a></li>
-							</ul>
-						</nav>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</div>
+	<jsp:include page="Header.jsp"></jsp:include>
 	<!--Header Area End-->
+	
+		<!-- Breadcrumbs Area Start -->
+	<jsp:include page="BreadCrumbs.jsp"></jsp:include>
+	<!-- Breadcrumbs Area Start -->
+	
 	<div class="d-flex justify-content-center">
 		<div class="input-group" style="width: 500px">
 			<input type="search" class="form-control rounded w-75 p-3"
