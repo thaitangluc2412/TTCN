@@ -15,7 +15,7 @@
 					</a>
 				</div>
 			</div>
-			<div class="col-md-9 col-sm-12 hidden-xs">
+			<div class="col-md-7 col-sm-12 hidden-xs">
 				<div class="mainmenu text-center">
 					<nav>
 						<ul id="nav">
@@ -32,6 +32,7 @@
 											<li><a href="Author.jsp">AUTHOR</a></li>
 											<li><a href="Order.jsp">ORDER</a></li>
 											<li><a href="Review.jsp">REVIEW</a></li>
+											<li><a href="Contact.jsp">CONTACT</a></li>
 										</ul></li>
 								</c:when>
 								<c:when test="${sessionScope.user.role == 'Author'}">
@@ -39,6 +40,7 @@
 										<ul class="sub-menu">
 											<li><a href="AuthorBook.jsp">TRACKING BOOK SELLING</a></li>
 											<li><a href="AuthorProfit.jsp">MY EARNING</a></li>
+											<li><a href="Contact.jsp">CONTACT</a></li>
 										</ul></li>
 								</c:when>
 								<c:otherwise>
@@ -47,10 +49,10 @@
 											<li><a href="Cart.jsp">MY CART</a></li>
 											<li><a href="Checkout.jsp">CHECK OUT</a></li>
 											<li><a href="CustomerOrder.jsp">MY ORDER</a>
+											<li><a href="Contact.jsp">CONTACT</a></li>
 										</ul></li>
 								</c:otherwise>
 							</c:choose>
-							<li><a href="Contact.jsp">CONTACT</a></li>
 							<c:if test="${sessionScope.user == null }">
 								<li><a href="Login.jsp" class="ml-5"><button
 											type="button" class="btn btn-primary">Login</button></a></li>
@@ -63,10 +65,11 @@
 					</nav>
 				</div>
 			</div>
-			<div class="col-md-1 hidden-sm">
+			<div class="col-md-3 hidden-sm">
 				<div class="header-right">
 					<ul>
 						<c:if test="${sessionScope.user != null}">
+						    Welcome, ${sessionScope.user.name}
 							<li><a href="MyAccount.jsp"><i class="flaticon-people"></i></a>
 							</li>
 						</c:if>

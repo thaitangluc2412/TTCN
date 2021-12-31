@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bean.Book;
+import bean.ReviewByNameDTO;
 import service.BookServiceImpl;
+import service.ReviewServiceImpl;
 import service.UserServiceImpl;
 
 /**
@@ -35,6 +37,7 @@ public class Home extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		BookServiceImpl bookService = new BookServiceImpl();
 		UserServiceImpl userService = new UserServiceImpl();
+		ReviewServiceImpl reviewService = new ReviewServiceImpl();
 		List<Book> bookNewRelease = bookService.getNewReleaseBook();
 		List<Book> listBook = bookService.getAll();
 		int quantityBook = bookService.getQuantity();
@@ -48,6 +51,7 @@ public class Home extends HttpServlet {
 		request.setAttribute("quantityBook", quantityBook);
 		request.setAttribute("quantityUser", quantityUser);
 		request.setAttribute("quantityAuthor", quantityAuthor);
+//		request.setAttribute("reviewByName", reviewByName);
 		request.getRequestDispatcher("Index.jsp").forward(request, response);
 	}
 

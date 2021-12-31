@@ -241,32 +241,20 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="testimonial-list">
-						<div class="single-testimonial">
-							<img
-								src="https://lh3.googleusercontent.com/proxy/L8ZJZAxZRJ73uTyTEMjF_bOWG-VtWajEckTaiTsM1qMzRJMD9aqC2ZbVU6gOX6lo-3O14WBw6V5KKqh_sIxzcX-KDX24-w9qQYksmXmtvA"
-								alt="">
-							<div class="testmonial-info clearfix">
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-									sed do eiusmod tempor incididunt ut labore et dolore magna
-									aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-								<div class="testimonial-author text-center">
-									<h3>JOHN DOE</h3>
-									<p>The Author</p>
+						<c:forEach items="${reviewByName}" var="review">
+							<div class="single-testimonial">
+								<img
+									src="https://lh3.googleusercontent.com/proxy/L8ZJZAxZRJ73uTyTEMjF_bOWG-VtWajEckTaiTsM1qMzRJMD9aqC2ZbVU6gOX6lo-3O14WBw6V5KKqh_sIxzcX-KDX24-w9qQYksmXmtvA"
+									alt="">
+								<div class="testmonial-info clearfix">
+									<p>${review.review}</p>
+									<div class="testimonial-author text-center">
+										<h3>${review.name}</h3>
+										<p>${review.role}</p>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="single-testimonial">
-							<img src="https://lh3.googleusercontent.com/proxy/L8ZJZAxZRJ73uTyTEMjF_bOWG-VtWajEckTaiTsM1qMzRJMD9aqC2ZbVU6gOX6lo-3O14WBw6V5KKqh_sIxzcX-KDX24-w9qQYksmXmtvA" alt="">
-							<div class="testmonial-info clearfix">
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-									sed do eiusmod tempor incididunt ut labore et dolore magna
-									aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-								<div class="testimonial-author text-center">
-									<h3>Ashim Kumar</h3>
-									<p>CEO</p>
-								</div>
-							</div>
-						</div>
+						</c:forEach>
 					</div>
 				</div>
 			</div>
