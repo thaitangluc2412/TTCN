@@ -20,7 +20,7 @@
 					<nav>
 						<ul id="nav">
 							<li><a href="Index.jsp">HOME</a></li>
-							<li><a href="Shop.jsp">SHOPPING PAGE</a></li>
+							<li><a href="BookController">SHOPPING PAGE</a></li>
 							<li><a href="About.jsp">ABOUT AUTHOR</a></li>
 							<c:choose>
 								<c:when test="${user.role == 1}">
