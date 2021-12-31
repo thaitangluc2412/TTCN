@@ -6,4 +6,5 @@ import bean.Book;
 
 public interface BookService {
 	List<Book> getAll();
+	List<Book> getNewReleaseBook();
 }

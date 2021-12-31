@@ -85,6 +85,7 @@ CREATE TABLE Review
 SET FOREIGN_KEY_CHECKS = 0;
 
 
+
 INSERT INTO User (UserID, Email, UserPassword, Name, Address, PhoneNumber, AccountNumber, Role)
 VALUES (1, "thaitangluc2412@gmail.com", "1234", "Thai Luc", "Cam Lo, Quang Tri", "06873496874", "037486164967", "Admin"),
 	   (2, "manhviet@gmail.com", "1234", "Manh Viet", "Cam Lo, Quang Tri", "06873496874", "037486164967", "Customer"),
@@ -133,6 +134,7 @@ VALUES (1, 2, "2021-12-5", 50000.00, "Arrived", "Cam Lo, Quang tri", "Thai Tang 
        (10, 5, "2021-12-5", 50000.00, "Arrived", "Cam Lo, Quang tri", "Thai Tang Luc", "067761634988"),
        (11, 5, "2021-12-5", 50000.00, "Arrived", "Cam Lo, Quang tri", "Thai Tang Luc", "067761634988");
        
+
 INSERT INTO BookUser (BookId, UserId)
 VALUES (1, 3), (1, 6),
        (2, 7), (2, 3), (2, 6),
@@ -161,6 +163,8 @@ VALUES (1, 1, 3), (1, 2, 1), (1, 5, 2),
        (9, 1, 3), (9, 5, 2),
        (10, 1, 3), (10, 5, 2),
        (11, 8, 7);
+
+
 
 INSERT INTO Review(ReviewId, BookId, UserId, Comment, Rating, ReviewDate)
 VALUES (1, 1, 2, "Truyen hay", 4, "2020-12-15"),
