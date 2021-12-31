@@ -83,7 +83,6 @@ CREATE TABLE Review
 );
 
 
-<<<<<<< HEAD
 INSERT INTO User (UserID, Email, UserPassword, Name, Address, PhoneNumber, AccountNumber, Role)
 VALUES (1, "thaitangluc2412@gmail.com", "1234", "Thai Luc", "Cam Lo, Quang Tri", "06873496874", "037486164967", "Admin"),
 	   (2, "manhviet@gmail.com", "1234", "Manh Viet", "Cam Lo, Quang Tri", "06873496874", "037486164967", "Customer"),
@@ -107,7 +106,11 @@ VALUES (1, 1, "Trang Quynh", "Truyen hay", 4.3, "https://cdn0.fahasa.com/media/c
         (12, 3, "Trang Quynh", "Truyen hay", 4.2, "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
         (13, 4, "Trang Quynh", "Truyen hay", 3.4, "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
         (14, 5, "Trang Quynh", "Truyen hay", 4.6, "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10");
-        
+
+INSERT INTO Book (BookID, CategoryID, Title, Description, Rating, Image, Price, PublishDate)
+VALUES (2, 1, "Trang Quynh", "Truyen hay", 4.3, "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
+ (3, 1, "Trang Quynh", "Truyen hay", 4.3, "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10");
+
 INSERT INTO Category (CategoryID, Name)
 VALUES (1, "Truyen Cuoi"),
 	   (2, "Truyen Ma"),
@@ -129,5 +132,6 @@ VALUES (1, 2, "2021-12-5", 50000.00, "Arrived", "Cam Lo, Quang tri", "Thai Tang 
        (10, 5, "2021-12-5", 50000.00, "Arrived", "Cam Lo, Quang tri", "Thai Tang Luc", "067761634988"),
        (11, 5, "2021-12-5", 50000.00, "Arrived", "Cam Lo, Quang tri", "Thai Tang Luc", "067761634988");
 
-
-
+-- INSERT INTO `Order` (OrderID, UserID, OrderDate, TotalPrice, Status, ShippingAddress, RecipientName, RecipientPhone)
+-- VALUES (12, 2, "2021-12-13", 60000.00, 2, "Cam Lo, Quang tri", "Thai Tang Luc", "067761634988");
+-- 	   

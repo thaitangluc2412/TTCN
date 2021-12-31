@@ -3,6 +3,7 @@ package controller;
 import java.io.IOException;
 import java.util.List;
 
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,15 +15,13 @@ import bean.Category;
 import service.BookServiceImpl;
 import service.CategoryServiceImpl;
 
-/**
+/*
  * Servlet implementation class BookController
  */
 @WebServlet("/BookController")
 public class BookController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
+/*     * @see HttpServlet#HttpServlet()
      */
     public BookController() {
         super();

@@ -49,11 +49,9 @@
 		                    <div class="single-footer">
 		                        <h2 class="footer-title">My Account</h2>
 		                        <ul class="footer-list">
-		                            <li><a href="my-account.html">My Account</a></li>
-		                            <li><a href="account.html">Login</a></li>
-		                            <li><a href="cart.html">My Cart</a></li>
-		                            <li><a href="wishlist.html">Wishlist</a></li>
-		                            <li><a href="checkout.html">Checkout</a></li>
+		                            <li><a href="MyAccount.jsp">My Account</a></li>
+		                            <li><a href="Cart.jsp">My Cart</a></li>
+		                            <li><a href="Checkout.jsp">Checkout</a></li>
 		                        </ul>
 		                    </div>
 		                </div>
