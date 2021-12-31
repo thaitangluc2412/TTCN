@@ -33,14 +33,14 @@ CREATE TABLE Book
     Image       VARCHAR(255) NOT NULL,
     Price       DOUBLE       NOT NULL,
     PublishDate DATE         NOT NULL,
-    Quantity INT,
+    Quantity    INT,
     CONSTRAINT PRIMARY KEY (BookID),
     CONSTRAINT fk_Book_Category FOREIGN KEY (CategoryID) REFERENCES Category (CategoryID)
 );
 
 CREATE TABLE BookUser
 (
-	BookID INT,
+    BookID INT,
     UserID INT,
     CONSTRAINT PRIMARY KEY (BookID, UserID),
     CONSTRAINT fk_BookDetail_UserInfo FOREIGN KEY (UserID) REFERENCES User (UserID),
@@ -51,7 +51,7 @@ CREATE TABLE `Order`
 (
     OrderID         INT AUTO_INCREMENT,
     UserID          INT,
-    OrderDate       DATE                       NOT NULL,
+    OrderDate       DATE                           NOT NULL,
     TotalPrice      DOUBLE                         NOT NULL,
     Status          ENUM ('Arrived', 'NotArrived') NOT NULL,
     ShippingAddress VARCHAR(255)                   NOT NULL,
@@ -63,7 +63,7 @@ CREATE TABLE `Order`
 
 CREATE TABLE OrderDetail
 (
-    OrderID   INT,
+    OrderID  INT,
     BookID   INT,
     Quantity INT NOT NULL,
     PRIMARY KEY (orderID, BookID),
@@ -77,7 +77,7 @@ CREATE TABLE Review
     BookID     INT,
     UserID     INT,
     Comment    VARCHAR(255),
-    Rating     INT   NOT NULL,
+    Rating     INT      NOT NULL,
     ReviewDate DATETIME NOT NULL,
     PRIMARY KEY (ReviewID),
     CONSTRAINT fk_Review_Book FOREIGN KEY (BookID) REFERENCES Book (BookID),
@@ -121,17 +121,22 @@ VALUES (1, 2, "2021-12-5", 50000.00, "Arrived", "Cam Lo, Quang tri", "Thai Tang 
        (9, 2, "2021-12-5", 50000.00, "Arrived", "Cam Lo, Quang tri", "Thai Tang Luc", "067761634988"),
        (10, 5, "2021-12-5", 50000.00, "Arrived", "Cam Lo, Quang tri", "Thai Tang Luc", "067761634988"),
        (11, 5, "2021-12-5", 50000.00, "Arrived", "Cam Lo, Quang tri", "Thai Tang Luc", "067761634988");
-       
 
 INSERT INTO BookUser (BookId, UserId)
-VALUES (1, 3), (1, 6),
-       (2, 7), (2, 3), (2, 6),
+VALUES (1, 3),
+       (1, 6),
+       (2, 7),
+       (2, 3),
+       (2, 6),
        (3, 6),
-       (4, 3), (4, 7),
+       (4, 3),
+       (4, 7),
        (5, 7),
        (6, 3),
-       (7, 6), (7, 3),
-       (8, 6), (8, 7),
+       (7, 6),
+       (7, 3),
+       (8, 6),
+       (8, 7),
        (9, 3),
        (10, 7),
        (11, 3),
@@ -172,8 +177,8 @@ VALUES (1, 1, 2, "Truyen hay", 4, "2020-12-15"),
        (15, 8, 2, "Truyen hay", 4, "2020-12-15"),
        (16, 8, 5, "Truyen hay", 4, "2020-12-15"),
        (17, 9, 2, "Truyen hay", 4, "2020-12-15"),
-       (18, 9, 5, "Truyen hay", 4, "2020-12-15");   
-  
+       (18, 9, 5, "Truyen hay", 4, "2020-12-15");
+
 INSERT INTO Book (BookID, CategoryID, Title, Description, Rating, Image, Price, PublishDate)
 VALUES (1, 1, "Trang Quynh", "Truyen hay", 4.3, "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
 	(2, 2, "Trang Quynh", "Truyen hay", 4.2, "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
@@ -189,10 +194,10 @@ VALUES (1, 1, "Trang Quynh", "Truyen hay", 4.3, "https://cdn0.fahasa.com/media/c
         (12, 3, "Trang Quynh", "Truyen hay", 4.2, "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
         (13, 4, "Trang Quynh", "Truyen hay", 3.4, "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
         (14, 5, "Trang Quynh", "Truyen hay", 4.6, "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_46642.jpg", 12520.00, "2015-11-10"),
-	
+
 	(21, 6, "Thám Tử Lừng Danh Conan Tập 1", "Truyen hay", 5.0, "https://cdn0.fahasa.com/media/catalog/product/i/m/image_182222.jpg", 18000.00, "2018-5-3"),
 	(22, 6, "Thám Tử Lừng Danh Conan Tập 2", "Truyen hay", 4.9, "https://cdn0.fahasa.com/media/catalog/product/i/m/image_185929.jpg", 18000.00, "2018-5-3"),
-	(23, 6, "Thám Tử Lừng Danh Conan Tập 3", "Truyen hay", 5.0, "https://salt.tikicdn.com/cache/w1200/ts/product/22/10/8e/fd9eae4e26999955e43091e295acbbd3.jpg", 18000.00, "2018-5-3"),	
+	(23, 6, "Thám Tử Lừng Danh Conan Tập 3", "Truyen hay", 5.0, "https://salt.tikicdn.com/cache/w1200/ts/product/22/10/8e/fd9eae4e26999955e43091e295acbbd3.jpg", 18000.00, "2018-5-3"),
 	(24, 6, "Thám Tử Lừng Danh Conan Tập 4", "Truyen hay", 4.9, "https://salt.tikicdn.com/cache/w1200/ts/product/34/ac/78/b52ac4c588953fe35512dd901a277682.jpg", 18000.00, "2018-5-3"),
 	(25, 6, "Thám Tử Lừng Danh Conan Tập 5", "Truyen hay", 4.7, "https://salt.tikicdn.com/cache/w1200/ts/product/4c/f1/ea/f6734381f182f9dc2d9bfaf90d324767.jpg", 18000.00, "2018-5-3"),
 	(26, 6, "Thám Tử Lừng Danh Conan Tập 6", "Truyen hay", 4.8, "https://salt.tikicdn.com/cache/w1200/ts/product/8c/b4/d3/ed1953df9cdf17d0f30a1dd8032b6534.jpg", 18000.00, "2018-5-3"),
@@ -200,7 +205,7 @@ VALUES (1, 1, "Trang Quynh", "Truyen hay", 4.3, "https://cdn0.fahasa.com/media/c
 	(28, 6, "Thám Tử Lừng Danh Conan Tập 8", "Truyen hay", 4.4, "https://salt.tikicdn.com/cache/w1200/ts/product/4f/78/c8/765db0148ee01e04ce162b37597898ca.jpg", 18000.00, "2018-5-3"),
 	(29, 6, "Thám Tử Lừng Danh Conan Tập 9", "Truyen hay", 4.5, "https://salt.tikicdn.com/cache/w1200/ts/product/d2/10/18/8bc577b100e51f0bee014a9a6c0a876c.jpg", 18000.00, "2018-5-3"),
 	(30, 6, "Thám Tử Lừng Danh Conan Tập 10", "Truyen hay", 4.6, "https://salt.tikicdn.com/cache/w1200/ts/product/84/2a/54/dc6d7556bf1651f0491225e2d57573e6.jpg", 18000.00, "2018-5-3"),
-	
+
 	(31, 6, "Thám Tử Lừng Danh Conan Tập 11", "Truyen hay", 4.9, "https://salt.tikicdn.com/cache/w1200/ts/product/46/f8/e2/1cb3680bbc27a759413335961bc6fecb.jpg", 18000.00, "2018-7-23"),
 	(32, 6, "Thám Tử Lừng Danh Conan Tập 12", "Truyen hay", 4.6, "https://salt.tikicdn.com/cache/w1200/ts/product/99/40/a9/be0ba6926716188f169b3b070151b22e.jpg", 18000.00, "2018-7-23"),
 	(33, 6, "Thám Tử Lừng Danh Conan Tập 13", "Truyen hay", 4.7, "https://salt.tikicdn.com/cache/w1200/ts/product/d4/87/db/eb7cebc67503f53a69a78c1099caa772.jpg", 18000.00, "2018-7-23"),
@@ -222,7 +227,7 @@ VALUES (1, 1, "Trang Quynh", "Truyen hay", 4.3, "https://cdn0.fahasa.com/media/c
 	(48, 6, "Thám Tử Lừng Danh Conan Tập 28", "Truyen hay", 4.6, "https://salt.tikicdn.com/cache/w1200/ts/product/14/f4/18/6ba1cfa288677ac50ae9e50a6c14d4b9.jpg", 18000.00, "2018-9-5"),
 	(49, 6, "Thám Tử Lừng Danh Conan Tập 29", "Truyen hay", 4.6, "https://salt.tikicdn.com/cache/w1200/ts/product/7b/cd/f4/2b87c850d31d159c58e4ec2e23f4b23c.jpg", 18000.00, "2018-9-5"),
 	(50, 6, "Thám Tử Lừng Danh Conan Tập 30", "Truyen hay", 4.6, "https://salt.tikicdn.com/cache/w1200/ts/product/d1/8f/26/668cee1276b39b608da74a60525e9c0a.jpg", 18000.00, "2018-9-5"),
-	
+
 	(51, 6, "Thám Tử Lừng Danh Conan Tập 31", "Truyen hay", 4.9, "https://salt.tikicdn.com/cache/w1200/ts/product/45/aa/f1/839284dc85e29d54eda9d626d7f3be6a.jpg", 18000.00, "2018-10-15"),
 	(52, 6, "Thám Tử Lừng Danh Conan Tập 32", "Truyen hay", 4.6, "https://salt.tikicdn.com/cache/w1200/ts/product/ac/c5/f3/3ada7e3929951cb3ec75439cc1b6938d.jpg", 18000.00, "2018-10-15"),
 	(53, 6, "Thám Tử Lừng Danh Conan Tập 33", "Truyen hay", 4.9, "https://salt.tikicdn.com/cache/w1200/ts/product/8b/e2/3c/7c15b7a9ba37b7302a5fdb9a75f40d1c.jpg", 18000.00, "2018-10-15"),
@@ -233,7 +238,7 @@ VALUES (1, 1, "Trang Quynh", "Truyen hay", 4.3, "https://cdn0.fahasa.com/media/c
 	(58, 6, "Thám Tử Lừng Danh Conan Tập 38", "Truyen hay", 4.7, "https://salt.tikicdn.com/cache/w1200/ts/product/90/be/2b/454cb63fc7c8fa7b318f693f6d32ab32.jpg", 18000.00, "2018-10-15"),
 	(59, 6, "Thám Tử Lừng Danh Conan Tập 39", "Truyen hay", 4.6, "https://salt.tikicdn.com/cache/w1200/ts/product/fb/0f/0f/5b6a9cae1248703150dbcaadd87151d2.jpg", 18000.00, "2018-10-15"),
 	(60, 6, "Thám Tử Lừng Danh Conan Tập 40", "Truyen hay", 4.5, "https://salt.tikicdn.com/cache/w1200/ts/product/aa/a2/9f/a810382d866ccef4d21017f1bf9a792e.jpg", 18000.00, "2018-10-15"),
-	
+
 	(61, 6, "Thám Tử Lừng Danh Conan Tập 41", "Truyen hay", 4.6, "https://salt.tikicdn.com/cache/w1200/ts/product/6b/a3/e3/d51434705e0608db30ba9ac8de8a37f2.jpg", 18000.00, "2018-11-4"),
 	(62, 6, "Thám Tử Lừng Danh Conan Tập 42", "Truyen hay", 4.9, "https://salt.tikicdn.com/cache/w1200/ts/product/35/dc/69/c6c48fcddcd89cac08e95a6d132ece38.jpg", 18000.00, "2018-11-4"),
 	(63, 6, "Thám Tử Lừng Danh Conan Tập 43", "Truyen hay", 4.9, "https://salt.tikicdn.com/cache/w1200/ts/product/3b/39/56/d0ef82d5e31452ed5949ccfae4534dd4.jpg", 18000.00, "2018-11-4"),
