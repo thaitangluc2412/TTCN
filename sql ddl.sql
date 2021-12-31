@@ -22,6 +22,8 @@ CREATE TABLE User
     CONSTRAINT PRIMARY KEY (UserID)
 );
 
+SELECT count(*) as quantity FROM User WHERE Role=1
+
 CREATE TABLE Book
 (
     BookID      INT AUTO_INCREMENT,
@@ -184,5 +186,4 @@ VALUES (1, 1, 2, "Truyen hay", 4, "2020-12-15"),
        (15, 8, 2, "Truyen hay", 4, "2020-12-15"),
        (16, 8, 5, "Truyen hay", 4, "2020-12-15"),
        (17, 9, 2, "Truyen hay", 4, "2020-12-15"),
-       (18, 9, 5, "Truyen hay", 4, "2020-12-15");
-       
+       (18, 9, 5, "Truyen hay", 4, "2020-12-15");      

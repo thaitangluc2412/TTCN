@@ -1,29 +1,24 @@
 package controller;
 
 import java.io.IOException;
-import java.util.List;
-
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import bean.Book;
-import bean.Category;
-import service.BookServiceImpl;
-import service.CategoryServiceImpl;
-
-/*
- * Servlet implementation class BookController
+/**
+ * Servlet implementation class Logout
  */
-@WebServlet("/Shopping")
-public class Shopping extends HttpServlet {
+@WebServlet("/Logout")
+public class LogoutController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-/*     * @see HttpServlet#HttpServlet()
+       
+    /**
+     * @see HttpServlet#HttpServlet()
      */
-    public Shopping() {
+    public LogoutController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,19 +26,11 @@ public class Shopping extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html;charset=UTF-8");
-		BookServiceImpl bookService = new BookServiceImpl();
-		CategoryServiceImpl categoryService = new CategoryServiceImpl();
-    	List<Book> listBook = bookService.getAll();
-    	List<Category> listCategory = categoryService.getAll();
-    	for(Category cate : listCategory) {
-    		System.out.println(cate);
-    	}
-    	request.setAttribute("listBook", listBook);
-    	request.setAttribute("listCategory", listCategory);
-    	request.getRequestDispatcher("Shop.jsp").forward(request, response);
+		// TODO Auto-generated method stub
+        HttpSession session = request.getSession();
+        session.invalidate();
+        response.sendRedirect("Login.jsp");
 	}
 
 	/**

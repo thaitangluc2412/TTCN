@@ -41,6 +41,7 @@ public class HibernateReviewDao extends AbstractHibernateDao implements ReviewDa
                             .getResultList();
     }
 
+
     @SuppressWarnings({"unchecked", "deprecation"})
     @Override
     public List<ReviewByNameDTO> getReviewByName(String name) {
@@ -56,4 +57,5 @@ public class HibernateReviewDao extends AbstractHibernateDao implements ReviewDa
                             .setResultTransformer(Transformers.aliasToBean(ReviewByNameDTO.class))
                             .getResultList();
     }
+
 }

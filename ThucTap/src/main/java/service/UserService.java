@@ -8,4 +8,9 @@ public interface UserService {
     List<User> getAll();
 
     User getUser(String email, String password);
+    
+    int getQuantityUser();
+    
+    int getQuantityAuthor();
+    
 }

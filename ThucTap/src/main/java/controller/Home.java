@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import bean.Book;
 import service.BookServiceImpl;
+import service.UserServiceImpl;
 
 /**
  * Servlet implementation class Home
@@ -33,14 +34,20 @@ public class Home extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
 		BookServiceImpl bookService = new BookServiceImpl();
+		UserServiceImpl userService = new UserServiceImpl();
 		List<Book> bookNewRelease = bookService.getNewReleaseBook();
 		List<Book> listBook = bookService.getAll();
+		int quantityBook = bookService.getQuantity();
+		int quantityUser = userService.getQuantityUser();
+		int quantityAuthor = userService.getQuantityAuthor();
 		for(Book book : bookNewRelease) {
 			System.out.println(book);
 		}
-		
 		request.setAttribute("bookNewRelease", bookNewRelease);
 		request.setAttribute("listBook", listBook);
+		request.setAttribute("quantityBook", quantityBook);
+		request.setAttribute("quantityUser", quantityUser);
+		request.setAttribute("quantityAuthor", quantityAuthor);
 		request.getRequestDispatcher("Index.jsp").forward(request, response);
 	}
 

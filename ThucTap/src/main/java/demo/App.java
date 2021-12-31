@@ -2,17 +2,20 @@ package demo;
 
 import java.util.List;
 
-import bean.Book;
+import bean.User;
 import service.BookService;
 import service.BookServiceImpl;
+import service.UserServiceImpl;
 
 public class App {
 	private static BookService itemService = new BookServiceImpl();
 	
+	
 	public static void main(String[] args) {
-		List<Book> books = itemService.getAll();
-		for (Book book: books) {
-			System.out.println(book);
+		UserServiceImpl user = new UserServiceImpl();
+		List<User> list = user.getAll();
+		for(User u : list) {
+			System.out.println(u);
 		}
 	}
 }

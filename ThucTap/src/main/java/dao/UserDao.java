@@ -9,4 +9,8 @@ public interface UserDao {
     List<User> getAll();
 
     User getUser(String email, String password);
+    
+    int getQuantityUser();
+    
+    int getQuantityAuthor();
 }

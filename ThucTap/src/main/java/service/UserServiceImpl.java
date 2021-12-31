@@ -23,4 +23,15 @@ public class UserServiceImpl implements UserService {
     public User getUser(String email, String password) {
         return userDao.getUser(email, password);
     }
+
+	@Override
+	public int getQuantityUser() {
+		// TODO Auto-generated method stub
+		return userDao.getQuantityUser();
+	}
+	
+	@Override
+	public int getQuantityAuthor() {
+		return userDao.getQuantityAuthor();
+	}
 }

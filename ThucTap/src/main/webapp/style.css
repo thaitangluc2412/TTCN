@@ -1,3 +1,4 @@
+@charset "ISO-8859-1";
 /*-----------------------------------------------------------------------------------
 
     Template Name: Your template name 
@@ -722,8 +723,8 @@ body {
 /*  7.	Testimonial Area CSS
 /*----------------------------------------*/
 .testimonial-area {
-  background: rgba(0, 0, 0, 0) url("img/testimonial/bg.jpg") no-repeat scroll center center;
-  color: #ffffff;
+  background: rgba(0, 0, 0, 0) url("https://ssl.bigstockimages.com/2/8/3/large1500/382561277.jpg") no-repeat scroll center center;
+  color: #800080;
   padding-bottom: 100px;
   padding-top: 70px;
 }
@@ -735,7 +736,7 @@ body {
   width: 110px;
 }
 .testimonial-title > h2 {
-  font-size: 22px;
+  font-size: 30px;
   font-weight: 600;
   text-transform: uppercase;
 }
@@ -757,7 +758,7 @@ body {
 }
 .single-testimonial > p::after {
   color: #868686;
-  content: "ï„�";
+  content: "";
   font-family: fontawesome;
   font-size: 30px;
   left: -17px;
@@ -1583,33 +1584,17 @@ p.form-row-phone {
   margin-left: 0;
   margin-right: 0;
 }
-
-.seller-details li {
-  cursor: pointer;
-  display: inline;
- 
-}
-
-
-.rating-review {
-  overflow: hidden;
-  padding: 0 20px 20px;
-  text-align: center;
-}
-.rating-review h5 {
+.seller-details h5 {
   font-size: 14px;
   font-weight: 600;
   margin-bottom: 5px;
   margin-left: 0;
   margin-right: 0;
 }
-
-.rating-review li {
+.seller-details li {
   cursor: pointer;
   display: inline;
- 
 }
-
 .widget-tag {
   margin-bottom: 40px;
 }
@@ -1870,7 +1855,7 @@ a.wish-btn {
   line-height: 30px;
 }
 .comments-advices a.open-comment-form::before {
-  content: "ï�€";
+  content: "";
 }
 .comments-advices a::before {
   background: #929292 none repeat scroll 0 0;

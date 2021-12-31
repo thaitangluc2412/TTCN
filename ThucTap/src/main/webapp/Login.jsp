@@ -71,12 +71,12 @@
 			<div class="row">
 				<div class="col-md-4 col-sm-4"></div>
 				<div class="col-md-4 col-sm-4">
-					<form action="UserController" class="create-account-form"
+					<form action="LoginController" class="create-account-form"
 						method="post">
 						<h2 class="heading-title text-center">WELCOME</h2>
 						<input type="hidden" value="LOGIN" name="command">
 						<p class="form-row">
-							<input type="email" placeholder="Email address" name="username"
+							<input type="text" placeholder="Email address" name="username"
 								required>
 						</p>
 						<p class="form-row">
@@ -89,7 +89,7 @@
 						<div class="d-flex justify-content-center">
 							<button name="submitcreate" id="submitcreate" type="submit"
 								class="btn-default">
-								<span> <i class="fa fa-user left"></i> SING IN
+								<span> <i class="fa fa-user left"></i> SIGN IN
 								</span>
 							</button>
 						</div>
