@@ -1,47 +1,79 @@
 package bean;
 
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "OrderDetail")
 public class OrderDetail {
-    private int orderId;
-    private int bookId;
+	
+	@EmbeddedId
+	private Id id;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "OrderId", referencedColumnName = "OrderId", insertable = false, updatable = false)
+	private Order order;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "BookId", referencedColumnName = "BookId", insertable = false, updatable = false)
+	private Book book;
+    
+	@Column(name = "quantity")
     private int quantity;
 
     public OrderDetail() {
     }
+    
+    
 
-    public OrderDetail(int orderId, int bookId, int quantity) {
-        this.orderId = orderId;
-        this.bookId = bookId;
-        this.quantity = quantity;
+    @Embeddable
+    public static class Id implements Serializable{
+    	
+		private static final long serialVersionUID = 1746436995300407165L;
+
+		@Column(name = "OrderId")
+    	private int orderId;
+    	
+    	@Column(name = "BookId")
+        private int bookId;
+    	
+    	public Id() {
+		}
+
+		public Id(int orderId, int bookId) {
+			this.orderId = orderId;
+			this.bookId = bookId;
+		}	
+		
+		public int getOrderId() {
+			return orderId;
+		}
+
+		public void setOrderId(int orderId) {
+			this.orderId = orderId;
+		}
+
+		public int getBookId() {
+			return bookId;
+		}
+
+		public void setBookId(int bookId) {
+			this.bookId = bookId;
+		}
+
+		@Override
+		public String toString() {
+			return "Id [orderId=" + orderId + ", bookId=" + bookId + "]";
+		}
+    	
     }
-
-    public int getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(int orderId) {
-        this.orderId = orderId;
-    }
-
-    public int getBookId() {
-        return bookId;
-    }
-
-    public void setBookId(int bookId) {
-        this.bookId = bookId;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    @Override
-    public String toString() {
-        return "OrderDetail [orderId=" + orderId + ", bookId=" + bookId + ", quantity=" + quantity + "]";
-    }
-
 
 }
