@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+         pageEncoding="ISO-8859-1" %>
 <!doctype html>
 <html class="no-js" lang="">
 
@@ -18,9 +18,9 @@
     <!-- all css here -->
     <!-- bootstrap v3.3.6 css -->
     <link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-	crossorigin="anonymous">
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- animate css -->
     <link rel="stylesheet" href="css/animate.css">
@@ -35,10 +35,10 @@
     <!-- Flaticon css -->
     <link rel="stylesheet" href="css/flaticon.css">
     <!-- venobox css -->
-    <link rel="stylesheet" href="venobox/venobox.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="venobox/venobox.css" type="text/css" media="screen"/>
     <!-- nivo slider css -->
-    <link rel="stylesheet" href="lib/css/nivo-slider.css" type="text/css" />
-    <link rel="stylesheet" href="lib/css/preview.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="lib/css/nivo-slider.css" type="text/css"/>
+    <link rel="stylesheet" href="lib/css/preview.css" type="text/css" media="screen"/>
     <!-- owl.carousel css -->
     <link rel="stylesheet" href="css/owl.carousel.css">
     <!-- style css -->
@@ -51,29 +51,30 @@
 
 <body>
     <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a
+            href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
 
     <!-- Add your site or application content here -->
     <!--Header Area Start-->
-   <jsp:include page="Header.jsp"></jsp:include>
+    <jsp:include page="Header.jsp"></jsp:include>
     <!--Header Area End-->
 
 
-    	<!-- Breadcrumbs Area Start -->
-	<jsp:include page="BreadCrumbs.jsp"></jsp:include>
-	<!-- Breadcrumbs Area Start -->
-	
+    <!-- Breadcrumbs Area Start -->
+    <jsp:include page="BreadCrumbs.jsp"></jsp:include>
+    <!-- Breadcrumbs Area Start -->
 
-   <div class="d-flex justify-content-center">
-		<div class="input-group"
-			style="width: 500px">
-			<input type="search" class="form-control rounded w-75 p-3"
-				placeholder="Search" aria-label="Search"
-				aria-describedby="search-addon" />
-			<button type="button" class="btn btn-outline-primary">search</button>
-		</div>
-	</div>
+
+    <div class="d-flex justify-content-center">
+        <div class="input-group"
+             style="width: 500px">
+            <input type="search" class="form-control rounded w-75 p-3"
+                   placeholder="Search" aria-label="Search"
+                   aria-describedby="search-addon"/>
+            <button type="button" class="btn btn-outline-primary">search</button>
+        </div>
+    </div>
     <div class="shopping-cart-area section-padding">
 
         <div class="container">
@@ -82,113 +83,113 @@
                     <div class="wishlist-table-area table-responsive">
                         <table>
                             <thead>
-                                <tr>
-                                    <th class="category-id">Id</th>
+                            <tr>
+                                <th class="category-id">Id</th>
 
-                                    <th class="category-name">Category Name</th>
+                                <th class="category-name">Category Name</th>
 
-                                    <th class="product-quantity">Edit</th>
-                                    <th class="product-subtotal">Delete</th>
-                                </tr>
+                                <th class="product-quantity">Edit</th>
+                                <th class="product-subtotal">Delete</th>
+                            </tr>
                             </thead>
                             <tbody>
 
-                                <tr>
-                                    <td class="t-product-id">
-                                        <p>
-                                            <p>1</p>
-                                        </p>
-                                    </td>
+                            <tr>
+                                <td class="t-product-id">
+                                    <p>
+                                    <p>1</p>
+                                    </p>
+                                </td>
 
-                                    <td class="category-name">
-                                        <p>
-                                            <p>Truyện ngắn</p>
-                                        </p>
-                                    </td>
+                                <td class="category-name">
+                                    <p>
+                                    <p>Truyện ngắn</p>
+                                    </p>
+                                </td>
 
-                                    <td class="product-edit">
-                                        <p>
-                                            <a href="#">Edit</a>
-                                        </p>
-                                    </td>
-                                    <td class="product-remove">
-                                        <a href="#">
-                                            <i class="flaticon-delete"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="t-product-id">
-                                        <p>
-                                            <p>2</p>
-                                        </p>
-                                    </td>
+                                <td class="product-edit">
+                                    <p>
+                                        <a href="#">Edit</a>
+                                    </p>
+                                </td>
+                                <td class="product-remove">
+                                    <a href="#">
+                                        <i class="flaticon-delete"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-product-id">
+                                    <p>
+                                    <p>2</p>
+                                    </p>
+                                </td>
 
-                                    <td class="category-name">
-                                        <p>
-                                            <p>Truyện dài</p>
-                                        </p>
-                                    </td>
+                                <td class="category-name">
+                                    <p>
+                                    <p>Truyện dài</p>
+                                    </p>
+                                </td>
 
-                                    <td class="product-edit">
-                                        <p>
-                                            <a href="#">Edit</a>
-                                        </p>
-                                    </td>
-                                    <td class="product-remove">
-                                        <a href="#">
-                                            <i class="flaticon-delete"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="t-product-id">
-                                        <p>
-                                            <a href="#">3</a>
-                                        </p>
-                                    </td>
+                                <td class="product-edit">
+                                    <p>
+                                        <a href="#">Edit</a>
+                                    </p>
+                                </td>
+                                <td class="product-remove">
+                                    <a href="#">
+                                        <i class="flaticon-delete"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-product-id">
+                                    <p>
+                                        <a href="#">3</a>
+                                    </p>
+                                </td>
 
-                                    <td class="category-name">
-                                        <p>
-                                            <p>Thiếu nhi</p>
-                                        </p>
-                                    </td>
+                                <td class="category-name">
+                                    <p>
+                                    <p>Thiếu nhi</p>
+                                    </p>
+                                </td>
 
-                                    <td class="product-edit">
-                                        <p>
-                                            <a href="#">Edit</a>
-                                        </p>
-                                    </td>
-                                    <td class="product-remove">
-                                        <a href="#">
-                                            <i class="flaticon-delete"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="t-product-id">
-                                        <p>
-                                            <a href="#">4</a>
-                                        </p>
-                                    </td>
+                                <td class="product-edit">
+                                    <p>
+                                        <a href="#">Edit</a>
+                                    </p>
+                                </td>
+                                <td class="product-remove">
+                                    <a href="#">
+                                        <i class="flaticon-delete"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="t-product-id">
+                                    <p>
+                                        <a href="#">4</a>
+                                    </p>
+                                </td>
 
-                                    <td class="category-name">
-                                        <p>
-                                            <p>Giáo dục</p>
-                                        </p>
-                                    </td>
+                                <td class="category-name">
+                                    <p>
+                                    <p>Giáo dục</p>
+                                    </p>
+                                </td>
 
-                                    <td class="product-edit">
-                                        <p>
-                                            <a href="#">Edit</a>
-                                        </p>
-                                    </td>
-                                    <td class="product-remove">
-                                        <a href="#">
-                                            <i class="flaticon-delete"></i>
-                                        </a>
-                                    </td>
-                                </tr>
+                                <td class="product-edit">
+                                    <p>
+                                        <a href="#">Edit</a>
+                                    </p>
+                                </td>
+                                <td class="product-remove">
+                                    <a href="#">
+                                        <i class="flaticon-delete"></i>
+                                    </a>
+                                </td>
+                            </tr>
 
 
                             </tbody>
@@ -202,7 +203,6 @@
             </div>
         </div>
     </div>
-
 
 
     <!-- Footer Area Start -->

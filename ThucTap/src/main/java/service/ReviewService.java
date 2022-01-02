@@ -1,7 +1,7 @@
 package service;
 
 import bean.Review;
-import bean.ReviewByNameDTO;
+import bean.ReviewDetailWithUserNameDto;
 
 import java.util.List;
 
@@ -12,6 +12,5 @@ public interface ReviewService {
 
     List<Review> getReviewByUserId(int userId);
 
-    List<ReviewByNameDTO> getReviewByName(String name);
-
+    List<ReviewDetailWithUserNameDto> getLatestReviews();
 }

@@ -9,12 +9,12 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Category")
 public class Category {
-	
-	@Id
-	@Column(name = "CategoryID")
+
+    @Id
+    @Column(name = "CategoryID")
     private int categoryID;
-	
-	@Column(name= "Name")
+
+    @Column(name = "Name")
     private String name;
 
     public Category() {
@@ -45,6 +45,4 @@ public class Category {
     public String toString() {
         return "Category [categoryID=" + categoryID + ", name=" + name + "]";
     }
-
-
 }
