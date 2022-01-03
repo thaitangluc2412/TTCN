@@ -5,6 +5,7 @@ import bean.Book;
 import java.util.List;
 
 public interface BookService {
+<<<<<<< HEAD
     String ASC = "ASC";
     String DESC = "DESC";
     String TITLE = "Title";
@@ -29,4 +30,23 @@ public interface BookService {
     List<Book> getAll(String orderBy, String orderType);
 
     List<Book> getByTitle(String title);
+=======
+	List<Book> getAll();
+
+	List<Book> getNewReleaseBook();
+
+	int getQuantity();
+
+	List<Book> get2BookSeller();
+
+	List<Book> getBookByCategoryId(Integer categoryId);
+
+	List<Book> getBookOrderByTitleASC();
+
+	List<Book> getBookOrderByTitleDESC();
+
+	List<Book> getBookOrderByPriceASC();
+
+	List<Book> getBookOrderByPriceDESC();
+>>>>>>> 2b6de3b (luc)
 }

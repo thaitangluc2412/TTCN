@@ -18,8 +18,13 @@ public class OrderDetail {
     @JoinColumn(name = "BookId", referencedColumnName = "BookId", insertable = false, updatable = false)
     private Book book;
 
+<<<<<<< HEAD
     @Column(name = "Quantity")
     private int quantity;
+=======
+    @Column(name = "quantity")
+    private Integer quantity;
+>>>>>>> 2b6de3b (luc)
 
     public OrderDetail() {
     }
@@ -40,32 +45,32 @@ public class OrderDetail {
         private static final long serialVersionUID = 1746436995300407165L;
 
         @Column(name = "OrderId")
-        private int orderId;
+        private Integer orderId;
 
         @Column(name = "BookId")
-        private int bookId;
+        private Integer bookId;
 
         public Id() {
         }
 
-        public Id(int orderId, int bookId) {
+        public Id(Integer orderId, Integer bookId) {
             this.orderId = orderId;
             this.bookId = bookId;
         }
 
-        public int getOrderId() {
+        public Integer getOrderId() {
             return orderId;
         }
 
-        public void setOrderId(int orderId) {
+        public void setOrderId(Integer orderId) {
             this.orderId = orderId;
         }
 
-        public int getBookId() {
+        public Integer getBookId() {
             return bookId;
         }
 
-        public void setBookId(int bookId) {
+        public void setBookId(Integer bookId) {
             this.bookId = bookId;
         }
 

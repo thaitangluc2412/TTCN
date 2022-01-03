@@ -32,6 +32,7 @@ public class BookServiceImpl implements BookService{
 	public List<Book> get2BookSeller() {
 		return bookDao.get2BookSeller();
 	}
+<<<<<<< HEAD
 
 	@Override
 	public List<Book> getAll(String orderBy, String orderType) {
@@ -41,5 +42,32 @@ public class BookServiceImpl implements BookService{
 	@Override
 	public List<Book> getByTitle(String title) {
 		return bookDao.getByTitle(title);
+=======
+	
+	@Override
+	public List<Book> getBookByCategoryId(Integer categoryId) {
+		return bookDao.getBookByCategoryId(categoryId);
+	}
+	
+	@Override
+	public List<Book> getBookOrderByTitleASC() {
+		return bookDao.getBookOrderByTitleASC();
+	}
+	
+	@Override
+	public List<Book> getBookOrderByTitleDESC() {
+
+		return bookDao.getBookOrderByTitleDESC();
+	}
+	
+	@Override
+	public List<Book> getBookOrderByPriceASC() {
+		return bookDao.getBookOrderByPriceASC();
+	}
+	
+	@Override
+	public List<Book> getBookOrderByPriceDESC() {
+		return bookDao.getBookOrderByPriceDESC();
+>>>>>>> 2b6de3b (luc)
 	}
 }
