@@ -37,7 +37,6 @@ public class HibernateProvider {
 
             configuration.addAnnotatedClass(User.class);
             configuration.addAnnotatedClass(Book.class);
-            configuration.addAnnotatedClass(BookDto.class);
             configuration.addAnnotatedClass(Category.class);
             configuration.addAnnotatedClass(Order.class);
             configuration.addAnnotatedClass(OrderDetail.class);

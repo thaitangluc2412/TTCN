@@ -1,15 +1,11 @@
 package dao;
 
 
-import bean.Book;
-import bean.BookDto;
-import bean.CategoryDto;
-
-import org.hibernate.transform.Transformers;
-import org.hibernate.type.IntegerType;
-import org.hibernate.type.StringType;
-
 import java.util.List;
+
+import org.hibernate.type.IntegerType;
+
+import bean.Book;
 
 public class HibernateBookDao extends AbstractHibernateDao implements BookDao {
     private static final String Q_GET_ALL = "SELECT * FROM Book";

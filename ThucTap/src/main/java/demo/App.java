@@ -1,19 +1,19 @@
 package demo;
 
-import service.*;
-
-
 import java.util.Collection;
 import java.util.List;
 
 import bean.Book;
-import bean.BookDto;
 import bean.CategoryDto;
-
-import bean.User;
 import service.BookService;
 import service.BookServiceImpl;
+import service.CategoryService;
+import service.CategoryServiceImpl;
+import service.OrderService;
+import service.OrderServiceImpl;
+import service.ReviewService;
 import service.ReviewServiceImpl;
+import service.UserService;
 import service.UserServiceImpl;
 
 
