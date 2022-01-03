@@ -1,7 +1,7 @@
 package dao;
 
 import bean.Review;
-import bean.ReviewByNameDTO;
+import bean.ReviewDetailWithUserNameDto;
 import org.hibernate.transform.Transformers;
 import org.hibernate.type.IntegerType;
 import org.hibernate.type.LocalDateTimeType;
@@ -14,13 +14,19 @@ public class HibernateReviewDao extends AbstractHibernateDao implements ReviewDa
     private static final String Q_GET_ALL = "SELECT * FROM Review";
     private static final String Q_GET_REVIEW_BY_BOOKID = "SELECT * FROM Review WHERE BookID = :bookid";
     private static final String Q_GET_REVIEW_BY_USERID = "SELECT * FROM Review WHERE UserID = :userid";
-    private static final String Q_GET_REVIEW_BY_NAME = "SELECT usr.Name,\n" +
-                                                       "       usr.Role,\n" +
-                                                       "       rv.*\n" +
+    private static final String Q_GET_LASTEST_REVIEW = "SELECT usr.Name,\n" +
+                                                       "       rv.Comment,\n" +
+                                                       "       rv.Rating,\n" +
+                                                       "       rv.ReviewDate,\n" +
+                                                       "       bk.Title,\n" +
+                                                       "       bk.Image\n" +
                                                        "FROM review rv\n" +
                                                        "JOIN user usr\n" +
                                                        "ON rv.UserID = usr.UserID\n" +
-                                                       "WHERE Name = :name";
+                                                       "JOIN book bk\n" +
+                                                       "ON rv.BookID = bk.BookID\n" +
+                                                       "ORDER BY rv.ReviewDate DESC\n" +
+                                                       "LIMIT 3";
 
     @Override
     public List<Review> getAll() {
@@ -41,21 +47,17 @@ public class HibernateReviewDao extends AbstractHibernateDao implements ReviewDa
                             .getResultList();
     }
 
-
     @SuppressWarnings({"unchecked", "deprecation"})
     @Override
-    public List<ReviewByNameDTO> getReviewByName(String name) {
-        return openSession().createNativeQuery(Q_GET_REVIEW_BY_NAME)
-                            .setParameter("name", StringType.INSTANCE)
+    public List<ReviewDetailWithUserNameDto> getLatestReviews() {
+        return openSession().createNativeQuery(Q_GET_LASTEST_REVIEW)
                             .addScalar("Name", StringType.INSTANCE)
-                            .addScalar("Role", StringType.INSTANCE)
-                            .addScalar("ReviewID", IntegerType.INSTANCE)
-                            .addScalar("BookID", IntegerType.INSTANCE)
                             .addScalar("Comment", StringType.INSTANCE)
                             .addScalar("Rating", IntegerType.INSTANCE)
                             .addScalar("ReviewDate", LocalDateTimeType.INSTANCE)
-                            .setResultTransformer(Transformers.aliasToBean(ReviewByNameDTO.class))
+                            .addScalar("Title", StringType.INSTANCE)
+                            .addScalar("Image", StringType.INSTANCE)
+                            .setResultTransformer(Transformers.aliasToBean(ReviewDetailWithUserNameDto.class))
                             .getResultList();
     }
-
 }

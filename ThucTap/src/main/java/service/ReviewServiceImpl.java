@@ -1,7 +1,7 @@
 package service;
 
 import bean.Review;
-import bean.ReviewByNameDTO;
+import bean.ReviewDetailWithUserNameDto;
 import dao.HibernateReviewDao;
 import dao.ReviewDao;
 
@@ -31,7 +31,7 @@ public class ReviewServiceImpl implements ReviewService{
     }
 
     @Override
-    public List<ReviewByNameDTO> getReviewByName(String name) {
-        return reviewDao.getReviewByName(name);
+    public List<ReviewDetailWithUserNameDto> getLatestReviews() {
+        return reviewDao.getLatestReviews();
     }
 }

@@ -42,7 +42,9 @@ public class Order {
                  LocalDateTime orderDate,
                  Double totalPrice,
                  Status status,
-                 String shippingAddress, String recipientName, String recipientPhone) {
+                 String shippingAddress,
+                 String recipientName,
+                 String recipientPhone) {
         this.orderId = orderId;
         this.user = user;
         this.orderDate = orderDate;
@@ -115,6 +117,20 @@ public class Order {
 
     public void setRecipientPhone(String recipientPhone) {
         this.recipientPhone = recipientPhone;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+               "orderId=" + orderId +
+               ", user=" + user +
+               ", orderDate=" + orderDate +
+               ", totalPrice=" + totalPrice +
+               ", status=" + status +
+               ", shippingAddress='" + shippingAddress + '\'' +
+               ", recipientName='" + recipientName + '\'' +
+               ", recipientPhone='" + recipientPhone + '\'' +
+               '}';
     }
 
     public enum Status {
