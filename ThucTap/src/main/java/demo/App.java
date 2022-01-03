@@ -1,20 +1,8 @@
 package demo;
 
-import java.util.Collection;
-import java.util.List;
+import service.*;
 
-import bean.Book;
-import bean.CategoryDto;
-import service.BookService;
-import service.BookServiceImpl;
-import service.CategoryService;
-import service.CategoryServiceImpl;
-import service.OrderService;
-import service.OrderServiceImpl;
-import service.ReviewService;
-import service.ReviewServiceImpl;
-import service.UserService;
-import service.UserServiceImpl;
+import java.util.Collection;
 
 
 public class App {
@@ -24,19 +12,13 @@ public class App {
     private static CategoryService categoryService = new CategoryServiceImpl();
     private static OrderService orderService = new OrderServiceImpl();
     private static ReviewService reviewService = new ReviewServiceImpl();
-    
- 
 
     public static void main(String[] args) {
-        List<CategoryDto> listCategoryById = categoryService.getCategoryById();
-        print(listCategoryById);
-        System.out.println("=================================");
-        List<Book> twoBookSeller = bookService.get2BookSeller();
-        print(twoBookSeller);
+        // System.out.println(bookService.getAll(BookService.PRICE, BookService.ASC));
+        print(bookService.getByTitle("Great"));
     }
 
     private static <Element> void print(Collection<Element> elements) {
         elements.forEach(System.out::println);
     }
-
 }

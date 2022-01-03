@@ -18,7 +18,7 @@ public class OrderDetail {
     @JoinColumn(name = "BookId", referencedColumnName = "BookId", insertable = false, updatable = false)
     private Book book;
 
-    @Column(name = "quantity")
+    @Column(name = "Quantity")
     private int quantity;
 
     public OrderDetail() {

@@ -1,10 +1,10 @@
 package service;
 
-import java.util.List;
-
 import bean.Book;
 import dao.BookDao;
 import dao.HibernateBookDao;
+
+import java.util.List;
 
 public class BookServiceImpl implements BookService{
 	private BookDao bookDao;
@@ -31,5 +31,15 @@ public class BookServiceImpl implements BookService{
 	@Override
 	public List<Book> get2BookSeller() {
 		return bookDao.get2BookSeller();
+	}
+
+	@Override
+	public List<Book> getAll(String orderBy, String orderType) {
+		return bookDao.getAll(orderBy, orderType);
+	}
+
+	@Override
+	public List<Book> getByTitle(String title) {
+		return bookDao.getByTitle(title);
 	}
 }
