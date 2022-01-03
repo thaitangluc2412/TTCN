@@ -1,6 +1,7 @@
 package controller;
 
 import bean.Book;
+import bean.ReviewDetailWithUserNameDto;
 import service.BookServiceImpl;
 import service.ReviewServiceImpl;
 import service.UserServiceImpl;
@@ -39,6 +40,7 @@ public class Home extends HttpServlet {
         ReviewServiceImpl reviewService = new ReviewServiceImpl();
         List<Book> bookNewRelease = bookService.getNewReleaseBook();
         List<Book> listBook = bookService.getAll();
+        List<ReviewDetailWithUserNameDto> listReview = reviewService.getLatestReviews();
         int quantityBook = bookService.getQuantity();
         int quantityUser = userService.getQuantityUser();
         int quantityAuthor = userService.getQuantityAuthor();
@@ -50,6 +52,7 @@ public class Home extends HttpServlet {
         request.setAttribute("quantityBook", quantityBook);
         request.setAttribute("quantityUser", quantityUser);
         request.setAttribute("quantityAuthor", quantityAuthor);
+        request.setAttribute("reviewByName", listReview);
         //		request.setAttribute("reviewByName", reviewByName);
         request.getRequestDispatcher("Index.jsp").forward(request, response);
     }

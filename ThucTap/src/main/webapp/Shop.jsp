@@ -85,12 +85,10 @@
 									</c:forEach>
 								</ul>
 							</aside>
-							<aside class="widget shop-filter">
-							</aside>
+							<aside class="widget shop-filter"></aside>
 						</div>
 						<div class="shop-widget-bottom">
-							<aside class="widget widget-tag">
-							</aside>
+							<aside class="widget widget-tag"></aside>
 							<aside class="widget widget-seller">
 								<h2 class="sidebar-title">TOP SELLERS</h2>
 								<div class="single-seller">
@@ -140,37 +138,31 @@
 											class="fa fa-th-list"></i><span>List</span></a></li>
 								</ul>
 							</div>
-							<div class="shop-tab-pill pull-right">
-								<ul>
-									<li class="product-size-deatils">
-										<div class="show-label">
-											<label>Show : </label> <select>
-												<option value="10" selected="selected">10</option>
-												<option value="09">09</option>
-												<option value="08">08</option>
-												<option value="07">07</option>
-												<option value="06">06</option>
-											</select>
-										</div>
-									</li>
-									<li class="product-size-deatils">
-										<div class="show-label">
-											<label><i class="fa fa-sort-amount-asc"></i>Sort by :
-											</label> <select>
-												<option value="position" selected="selected">Position</option>
-												<option value="Name">Name</option>
-												<option value="Price">Price</option>
-											</select>
-										</div>
-									</li>
-									<li class="shop-pagination"><a href="#">1</a></li>
-									<li class="shop-pagination"><a href="#">2</a></li>
-									<li class="shop-pagination"><a href="#"><i
-											class="fa fa-caret-right"></i></a></li>
-								</ul>
-							</div>
 						</div>
 						<div class="tab-content">
+							<div>
+								<div style="margin-top: 10px">
+									<form action="Shopping" method="POST">
+										<input type="hidden" value="search" name="command">
+										<div class="input-group" style="width: 100%">
+											<input type="search" class="form-control rounded w-50 p-3"
+												placeholder="Search..." aria-label="Search"
+												aria-describedby="search-addon" />
+											<button type="submit" class="btn btn-outline-primary">search</button>
+											<div style="display: inline; position:absolute; right: 20px">
+												<select class="form-control rounded w-100"
+													aria-label="Disabled select example" style="outline:none" name="sortBy">
+													<option value="" selected>Select your options</option>
+													<option value="nameL">Name: from Lowest to Highest</option>
+													<option value="nameH">Name: from Highest to Lowest</option>
+													<option value="priceL">Price: from Lowest to Highest</option>
+													<option value="priceH">Price: from Highest to Lowest</option>
+												</select>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
 							<div class="row tab-pane fade in active" id="home">
 								<div class="shop-single-product-area">
 									<c:forEach items="${listBook}" var="book">
@@ -214,142 +206,37 @@
 							</div>
 							<div id="menu1" class="tab-pane fade">
 								<div class="row">
-									<div class="single-shop-product">
-										<div class="col-xs-12 col-sm-5 col-md-4">
-											<div class="left-item">
-												<a href="single-product.html" title="East of eden"> <img
-													src="img/featured/1.jpg" alt="">
-												</a>
+									<c:forEach items="${listBook}" var="book">
+										<div class="single-shop-product">
+											<div class="col-xs-12 col-sm-5 col-md-4">
+												<div class="left-item">
+													<a href="single-product.html" title="${book.title}"> <img
+														src="${book.image}" alt="">
+													</a>
+												</div>
 											</div>
-										</div>
-										<div class="col-xs-12 col-sm-7 col-md-8">
-											<div class="deal-product-content">
-												<h4>
-													<a href="single-product.html" title="East of eden">East
-														of eden</a>
-												</h4>
-												<div class="product-price">
-													<span class="new-price">$ 140.00</span> <span
-														class="old-price">$ 120.00</span>
-												</div>
-												<div class="list-rating-icon">
-													<i class="fa fa-star icolor"></i> <i
-														class="fa fa-star icolor"></i> <i
-														class="fa fa-star icolor"></i> <i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-												<p>Faded short sleeves t-shirt with high neckline. Soft
-													and stretchy material for a comfortable fit. Accessorize
-													with a straw hat and you're ready for summer!</p>
-												<div class="availability">
-													<span>In stock</span> <span><a href="cart.html">Add
-															to cart</a></span>
+											<div class="col-xs-12 col-sm-7 col-md-8">
+												<div class="deal-product-content">
+													<h4>
+														<a href="single-product.html" title="East of eden">${book.title}</a>
+													</h4>
+													<div class="product-price">
+														<span class="new-price">$ ${book.price}</span>
+													</div>
+													<div class="list-rating-icon">
+														<i class="fa fa-star icolor"></i> <i
+															class="fa fa-star icolor"></i> <i
+															class="fa fa-star icolor"></i> <i class="fa fa-star"></i>
+														<i class="fa fa-star"></i>
+													</div>
+													<p>${book.description}</p>
+													<div class="availability">
+														<span>In stock</span> <span><a>Add to cart</a></span>
+													</div>
 												</div>
 											</div>
 										</div>
-									</div>
-									<div class="single-shop-product">
-										<div class="col-xs-12 col-sm-5 col-md-4">
-											<div class="left-item">
-												<a href="single-product.html" title="People of the book">
-													<img src="img/featured/2.jpg" alt="">
-												</a>
-											</div>
-										</div>
-										<div class="col-xs-12 col-sm-7 col-md-8">
-											<div class="deal-product-content">
-												<h4>
-													<a href="single-product.html" title="People of the book">People
-														of the book</a>
-												</h4>
-												<div class="product-price">
-													<span class="new-price">$ 140.00</span> <span
-														class="old-price">$ 120.00</span>
-												</div>
-												<div class="list-rating-icon">
-													<i class="fa fa-star icolor"></i> <i
-														class="fa fa-star icolor"></i> <i
-														class="fa fa-star icolor"></i> <i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-												<p>Faded short sleeves t-shirt with high neckline. Soft
-													and stretchy material for a comfortable fit. Accessorize
-													with a straw hat and you're ready for summer!</p>
-												<div class="availability">
-													<span>In stock</span> <span><a href="cart.html">Add
-															to cart</a></span>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="single-shop-product">
-										<div class="col-xs-12 col-sm-5 col-md-4">
-											<div class="left-item">
-												<a href="single-product.html" title="The secret letter">
-													<img src="img/featured/3.jpg" alt="">
-												</a>
-											</div>
-										</div>
-										<div class="col-xs-12 col-sm-7 col-md-8">
-											<div class="deal-product-content">
-												<h4>
-													<a href="single-product.html" title="The secret letter">The
-														secret letter</a>
-												</h4>
-												<div class="product-price">
-													<span class="new-price">$ 140.00</span> <span
-														class="old-price">$ 120.00</span>
-												</div>
-												<div class="list-rating-icon">
-													<i class="fa fa-star icolor"></i> <i
-														class="fa fa-star icolor"></i> <i
-														class="fa fa-star icolor"></i> <i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-												<p>Faded short sleeves t-shirt with high neckline. Soft
-													and stretchy material for a comfortable fit. Accessorize
-													with a straw hat and you're ready for summer!</p>
-												<div class="availability">
-													<span>In stock</span> <span><a href="cart.html">Add
-															to cart</a></span>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="single-shop-product">
-										<div class="col-xs-12 col-sm-5 col-md-4">
-											<div class="left-item">
-												<a href="single-product.html" title="Lone some dove"> <img
-													src="img/featured/4.jpg" alt="">
-												</a>
-											</div>
-										</div>
-										<div class="col-xs-12 col-sm-7 col-md-8">
-											<div class="deal-product-content">
-												<h4>
-													<a href="single-product.html" title="Lone some dove">Lone
-														some dove</a>
-												</h4>
-												<div class="product-price">
-													<span class="new-price">$ 140.00</span> <span
-														class="old-price">$ 120.00</span>
-												</div>
-												<div class="list-rating-icon">
-													<i class="fa fa-star icolor"></i> <i
-														class="fa fa-star icolor"></i> <i
-														class="fa fa-star icolor"></i> <i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-												<p>Faded short sleeves t-shirt with high neckline. Soft
-													and stretchy material for a comfortable fit. Accessorize
-													with a straw hat and you're ready for summer!</p>
-												<div class="availability">
-													<span>In stock</span> <span><a href="cart.html">Add
-															to cart</a></span>
-												</div>
-											</div>
-										</div>
-									</div>
+									</c:forEach>
 								</div>
 							</div>
 						</div>
