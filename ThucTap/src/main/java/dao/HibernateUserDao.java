@@ -12,10 +12,16 @@ public class HibernateUserDao extends AbstractHibernateDao implements UserDao {
     private static final String Q_GET_ALL = "SELECT * FROM User";
     private static final String Q_QUANTITY_USER = "SELECT count(*) AS Quantity FROM User WHERE Role='Customer'";
     private static final String Q_QUANTITY_AUTHOR = "SELECT count(*) AS Quantity FROM User WHERE Role='Author'";
-
+    private static final String Q_GET_AUTHOR = "SELECT * FROM User WHERE Role='Author'";
+    
     @Override
     public List<User> getAll() {
         return openSession().createNativeQuery(Q_GET_ALL, User.class).getResultList();
+    }
+    
+    @Override
+    public List<User> getAuthor() {
+        return openSession().createNativeQuery(Q_GET_AUTHOR, User.class).getResultList();
     }
 
     @Override

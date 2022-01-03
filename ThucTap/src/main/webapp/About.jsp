@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+   
 <!doctype html>
 <html class="no-js" lang="">
     <head>
@@ -65,24 +67,23 @@
                         <div class="col-md-6">
                             <div class="about-inner">
                                 <div class="about-title">
-                                    <h2>Our Story</h2>
+                                    <h2>Our Project</h2>
                                 </div>
                                 <div class="about-content">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elitss ed do eiusmod tempor incididunt ut labore et dolore mag na aliqua. Utes enim ad minim veniam, quis nostrud exerck itation ullam co laboris nisi ut aliquip ex ea commodo coes nsequat. Duis aute irure dolor in reprehenderit in.</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elitss ed do eiusmod tempor incididunt ut labore et dolore mag na aliqua. Utes enim ad minimLorem ipsum dolor sit amet, consectetur adipisicing elitss ed do eiusmod tempor incididunt ut labore et dolore mag na aliqua. Utes enim ad minim veniam, quis nostrud exerck itation ullam co laboris nisi ut aliquip ex ea commodo coes nsequat. Duis aute irure dolor in reprehenderit in. </p>
+                                    <p>Thuc Tap Cong Nhan Web.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="about-image">
-                                <img src="img/about/1.jpg" alt="">
+                                <img src="https://bangcapchungchitoanquoc.com/wp-content/uploads/2021/03/124183592_2071595499641335_7241306753923477235_o.jpg" alt="">
                             </div>
                         </div>
                     </div>
                     <div class="about-bottom-inner">
                         <div class="col-md-6">
                             <div class="about-image">
-                                <img src="img/about/2.jpg" alt="">
+                                <img src="https://kinsta.com/wp-content/uploads/2020/02/web-design-best-practices-1024x512.jpg" alt="">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -91,8 +92,7 @@
                                     <h2>Mission and Vission</h2>
                                 </div>
                                 <div class="about-content">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elitss ed do eiusmod tempor incididunt ut labore et dolore mag na aliqua. Utes enim ad minim veniam, quis nostrud exerck itation ullam co laboris nisi ut aliquip ex ea commodo coes nsequat. Duis aute irure dolor in reprehenderit in.</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elitss ed do eiusmod tempor incididunt ut labore et dolore mag na aliqua. Utes enim ad minimLorem ipsum dolor sit amet, consectetur adipisicing elitss ed do eiusmod tempor incididunt ut labore et dolore mag na aliqua. </p>
+                                    <p>Lorem prehenderit in.</p>
                                 </div>
                             </div>
                         </div>
@@ -103,76 +103,24 @@
 		<!-- About Us Area End -->
 		<!-- Our Team Area Start -->
 		<div class="our-team-area">
-		    <h2 class="section-title">OUR WRITER</h2>
+		    <h2 class="section-title">OUR AUTHOR</h2>
 		    <div class="container">
 		        <div class="row">
 		        <div class="team-list indicator-style">
-		            <div class="col-md-3">
-		                <div class="single-team-member">
-		                    <a href="#">
-		                        <img src="img/about/team/1.jpg" alt="">
-		                    </a>
-		                    <div class="member-info">
-		                        <a href="#">rokan tech</a>
-		                        <p>WRITER</p>
-		                    </div>
-		                </div>
-		            </div>
-		            <div class="col-md-3">
-		                <div class="single-team-member">
-		                    <a href="#">
-		                        <img src="img/about/team/2.jpg" alt="">
-		                    </a>
-		                    <div class="member-info">
-		                        <a href="#">mirinda</a>
-		                        <p>AUTHOR</p>
-		                    </div>
-		                </div>
-		            </div>
-		            <div class="col-md-3">
-		                <div class="single-team-member">
-		                    <a href="#">
-		                        <img src="img/about/team/3.jpg" alt="">
-		                    </a>
-		                    <div class="member-info">
-		                        <a href="#">jone doe</a>
-		                        <p>WRITER</p>
-		                    </div>
-		                </div>
-		            </div>
-		            <div class="col-md-3">
-		                <div class="single-team-member">
-		                    <a href="#">
-		                        <img src="img/about/team/4.jpg" alt="">
-		                    </a>
-		                    <div class="member-info">
-		                        <a href="#">nick kon</a>
-		                        <p>WRITER</p>
-		                    </div>
-		                </div>
-		            </div>
-		            <div class="col-md-3">
-		                <div class="single-team-member">
-		                    <a href="#">
-		                        <img src="img/about/team/2.jpg" alt="">
-		                    </a>
-		                    <div class="member-info">
-		                        <a href="#">mirinda</a>
-		                        <p>AUTHOR</p>
-		                    </div>
-		                </div>
-		            </div>
-		            <div class="col-md-3">
-		                <div class="single-team-member">
-		                    <a href="#">
-		                        <img src="img/about/team/1.jpg" alt="">
-		                    </a>
-		                    <div class="member-info">
-		                        <a href="#">rokan tech</a>
-		                        <p>WRITER</p>
-		                    </div>
-		                </div>
-		            </div>
+		            <c:forEach items="${listAuthor}" var="author">
+			           
+			            <div class="col-md-8">
+			                <div class="single-team-member">
+			                    
+			                        <img src="http://cb.dut.udn.vn/ImageSV/18/102180053.jpg" alt="">
+			                    
+			                    <div class="member-info">
+			                        <p>${author.name}</p>
+			                        <p>AUTHOR</p>
+			                    </div>
+			                </div>
+			            </div>
+			    	</c:forEach>
 		        </div>
 		        </div>
 		    </div>

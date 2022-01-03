@@ -18,6 +18,11 @@ public class UserServiceImpl implements UserService {
     public List<User> getAll() {
         return userDao.getAll();
     }
+    
+    @Override
+    public List<User> getAuthor() {
+        return userDao.getAuthor();
+    }
 
     @Override
     public User getUser(String email, String password) {

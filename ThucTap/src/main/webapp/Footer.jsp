@@ -37,7 +37,7 @@
 		                    <div class="single-footer">
 		                        <h2 class="footer-title">Information</h2>
 		                        <ul class="footer-list">
-		                            <li><a href="about.html">About Us</a></li>
+		                            <li><a href="About">About</a></li>
 		                            <li><a href="#">Delivery Information</a></li>
 		                            <li><a href="#">Privacy & Policy</a></li>
 		                            <li><a href="#">Terms & Conditions</a></li>
