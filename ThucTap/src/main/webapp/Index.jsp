@@ -208,8 +208,6 @@
 													<div class="functional-buttons">
 														<a href="#" title="Add to Cart"> <i
 															class="fa fa-shopping-cart"></i>
-														</a> <a href="#" title="Add to Wishlist"> <i
-															class="fa fa-heart-o"></i>
 														</a> <a href="#" title="Quick view" data-toggle="modal"
 															data-target="#productModal"> <i
 															class="fa fa-compress"></i>

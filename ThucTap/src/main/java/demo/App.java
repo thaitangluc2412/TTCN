@@ -5,6 +5,7 @@ import service.*;
 import java.util.Collection;
 
 public class App {
+
     private static UserService userService = new UserServiceImpl();
     private static BookService bookService = new BookServiceImpl();
     private static CategoryService categoryService = new CategoryServiceImpl();
@@ -18,4 +19,5 @@ public class App {
     private static <Element> void print(Collection<Element> elements) {
         elements.forEach(System.out::println);
     }
+
 }
