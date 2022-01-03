@@ -3,6 +3,7 @@ package service;
 import java.util.List;
 
 import bean.Category;
+import bean.CategoryDto;
 import dao.CategoryDao;
 import dao.HibernateCategoryDao;
 
@@ -19,4 +20,9 @@ public class CategoryServiceImpl implements CategoryService {
         return categoryDao.getAll();
     }
 
+    @Override
+    public List<CategoryDto> getCategoryById() {
+    	
+    	return categoryDao.getCategoryById();
+    }
 }
