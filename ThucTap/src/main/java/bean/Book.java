@@ -1,110 +1,63 @@
 package bean;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "Book")
 public class Book {
-
-    @Id
-    @Column(name = "BookID")
+	
+	@Id
+	@Column(name = "BookID")
     private Integer bookId;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "CategoryID", referencedColumnName = "CategoryID")
-    private Category categoryId;
-
+    
     @Column(name = "Title")
     private String title;
-
+    
     @Column(name = "Description")
-    private String description;
-
+    private String desciption;
+    
     @Column(name = "Rating")
-    private Integer rating;
-
+    private Double rating;
+    
     @Column(name = "Image")
     private String image;
-
+    
     @Column(name = "Price")
-    private Double price;
-
+    private double price;
+    
     @Column(name = "PublishDate")
     private LocalDate publishDate;
-
-    @Column(name = "Quantity")
-    private Integer quantity;
+    
+    @Column(name = "CategoryID")
+    private Integer categoryID;
 
     public Book() {
     }
 
-    public Book(Integer bookId,
-                Category categoryId,
-                String title,
-                String description,
-                Integer rating,
-                String image,
-                Double price,
-                LocalDate publishDate,
-                Integer quantity) {
+   
+
+    public Book(Integer bookId, String title, String desciption, Double rating, String image, double price,
+			LocalDate publishDate, Integer categoryID) {
+		this.bookId = bookId;
+		this.title = title;
+		this.desciption = desciption;
+		this.rating = rating;
+		this.image = image;
+		this.price = price;
+		this.publishDate = publishDate;
+		this.categoryID = categoryID;
+	}
+
+	public Integer getBookId() {
+        return bookId;
+    }
+
+    public void setBookId(Integer bookId) {
         this.bookId = bookId;
-        this.categoryId = categoryId;
-        this.title = title;
-        this.description = description;
-        this.rating = rating;
-        this.image = image;
-        this.price = price;
-        this.publishDate = publishDate;
-        this.quantity = quantity;
-    }
-
-    public Integer getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
-
-    public LocalDate getPublishDate() {
-        return publishDate;
-    }
-
-    public void setPublishDate(LocalDate publishDate) {
-        this.publishDate = publishDate;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public Integer getRating() {
-        return rating;
-    }
-
-    public void setRating(Integer rating) {
-        this.rating = rating;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public String getTitle() {
@@ -115,34 +68,59 @@ public class Book {
         this.title = title;
     }
 
-    public Category getCategoryId() {
-        return categoryId;
+    public String getDesciption() {
+        return desciption;
     }
 
-    public void setCategoryId(Category categoryId) {
-        this.categoryId = categoryId;
+    public void setDesciption(String desciption) {
+        this.desciption = desciption;
+    }
+    
+    public Double getRating() {
+		return rating;
+	}
+    
+    public void setRating(Double rating) {
+		this.rating = rating;
+	}
+
+    public String getImage() {
+        return image;
     }
 
-    public Integer getBookId() {
-        return bookId;
+    public void setImage(String image) {
+        this.image = image;
     }
 
-    public void setBookId(Integer bookId) {
-        this.bookId = bookId;
+    public double getPrice() {
+        return price;
     }
 
-    @Override
-    public String toString() {
-        return "Book{" +
-               "bookId=" + bookId +
-               ", categoryId=" + categoryId +
-               ", title='" + title + '\'' +
-               ", description='" + description + '\'' +
-               ", rating=" + rating +
-               ", image='" + image + '\'' +
-               ", price=" + price +
-               ", publishDate=" + publishDate +
-               ", quantity=" + quantity +
-               '}';
+    public void setPrice(double price) {
+        this.price = price;
     }
+
+    public LocalDate getPublishDate() {
+        return publishDate;
+    }
+
+    public void setPublishDate(LocalDate publishDate) {
+        this.publishDate = publishDate;
+    }
+
+    public Integer getCategoryID() {
+        return categoryID;
+    }
+
+    public void setCategoryID(Integer categoryID) {
+        this.categoryID = categoryID;
+    }
+
+	@Override
+	public String toString() {
+		return "Book [bookId=" + bookId + ", title=" + title + ", desciption=" + desciption + ", rating=" + rating
+				+ ", image=" + image + ", price=" + price + ", publishDate=" + publishDate + ", categoryID="
+				+ categoryID + "]";
+	}
+
 }

@@ -47,9 +47,7 @@ public class User {
                 String userPassword,
                 String name,
                 String address,
-                String phoneNumber,
-                String accountNumber,
-                Role role) {
+                String phoneNumber, String accountNumber, Role role) {
         this.userId = userId;
         this.email = email;
         this.userPassword = userPassword;

@@ -37,11 +37,11 @@ public class HibernateProvider {
 
             configuration.addAnnotatedClass(User.class);
             configuration.addAnnotatedClass(Book.class);
+            configuration.addAnnotatedClass(BookDetail.class);
             configuration.addAnnotatedClass(Category.class);
             configuration.addAnnotatedClass(Order.class);
             configuration.addAnnotatedClass(OrderDetail.class);
             configuration.addAnnotatedClass(Review.class);
-            configuration.addAnnotatedClass(BookUser.class);
 
             sessionFactory = configuration.setProperties(getHibernateProps())
                                           .buildSessionFactory();
@@ -55,7 +55,7 @@ public class HibernateProvider {
         props.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
         props.put(Environment.URL, "jdbc:mysql://localhost:3306/bookstore");
         props.put(Environment.USER, "root");
-        props.put(Environment.PASS, "");
+        props.put(Environment.PASS, "nguyenmanhviet");
 
         props.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");
         props.put(Environment.SHOW_SQL, "true");

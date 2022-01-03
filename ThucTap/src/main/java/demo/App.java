@@ -1,21 +1,24 @@
 package demo;
 
-import service.*;
+import java.util.List;
 
-import java.util.Collection;
+import bean.ReviewByNameDTO;
+import bean.User;
+import service.BookService;
+import service.BookServiceImpl;
+import service.ReviewServiceImpl;
+import service.UserServiceImpl;
 
 public class App {
-    private static UserService userService = new UserServiceImpl();
-    private static BookService bookService = new BookServiceImpl();
-    private static CategoryService categoryService = new CategoryServiceImpl();
-    private static OrderService orderService = new OrderServiceImpl();
-    private static ReviewService reviewService = new ReviewServiceImpl();
-
-    public static void main(String[] args) {
-        print(reviewService.getLatestReviews());
-    }
-
-    private static <Element> void print(Collection<Element> elements) {
-        elements.forEach(System.out::println);
-    }
+	private static BookService itemService = new BookServiceImpl();
+	
+	
+	public static void main(String[] args) {
+		UserServiceImpl user = new UserServiceImpl();
+		ReviewServiceImpl rv = new ReviewServiceImpl();
+		List<ReviewByNameDTO> list = rv.getReviewByName();
+		for(User u : list) {
+			System.out.println(u);
+		}
+	}
 }

@@ -1,9 +1,9 @@
 package dao;
 
-import bean.Category;
-
 import java.util.List;
 
+import bean.Category;
+
 public interface CategoryDao {
-    List<Category> getAll();
+	List<Category> getAll();
 }

@@ -30,7 +30,7 @@ CREATE TABLE Book
     Title       VARCHAR(255) NOT NULL,
     Description VARCHAR(255),
     Rating      INT,
-    Image       TEXT         NOT NULL,
+    Image       VARCHAR(255) NOT NULL,
     Price       DOUBLE       NOT NULL,
     PublishDate DATE         NOT NULL,
     Quantity    INT,
