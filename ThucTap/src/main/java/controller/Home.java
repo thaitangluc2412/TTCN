@@ -42,9 +42,9 @@ public class Home extends HttpServlet {
         int quantityBook = bookService.getQuantity();
         int quantityUser = userService.getQuantityUser();
         int quantityAuthor = userService.getQuantityAuthor();
-        for (Book book : bookNewRelease) {
-            System.out.println(book);
-        }
+//        for (Book book : bookNewRelease) {
+//            System.out.println(book);
+//        }
         request.setAttribute("bookNewRelease", bookNewRelease);
         request.setAttribute("listBook", listBook);
         request.setAttribute("quantityBook", quantityBook);

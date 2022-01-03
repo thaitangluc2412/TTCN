@@ -1,4 +1,4 @@
-USE bookstore
+USE bookstore;
 
 SET FOREIGN_KEY_CHECKS = 0;
 
