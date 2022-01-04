@@ -44,8 +44,6 @@ public class BookUser {
     @Override
     public String toString() {
         return "BookUser{" +
-               "id=" + id +
-               ", book=" + book +
                ", user=" + user +
                '}';
     }

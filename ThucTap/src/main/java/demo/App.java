@@ -16,7 +16,7 @@ public class App {
     private static ReviewService reviewService = new ReviewServiceImpl();
 
     public static void main(String[] args) {
-        List<Book> listbooks = bookService.getAll(bookService.PRICE, false);
+        List<Book> listbooks = bookService.getAll();
         print(listbooks);
     }
 
