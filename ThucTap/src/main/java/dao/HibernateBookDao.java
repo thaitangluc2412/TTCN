@@ -26,6 +26,8 @@ public class HibernateBookDao extends AbstractHibernateDao implements BookDao {
 			+ "ON bo.CategoryId = ct.CategoryId\n" + "WHERE ct.CategoryId = :CategoryId";
 
 	private static final String Q_GET_BOOK_OF_CURRENT_PAGE = "SELECT * FROM book LIMIT :trimStart , :rows";
+	
+	private static final String Q_GET_BOOK_BY_CATEGORY_ID_OF_CURRENT_PAGE = "SELECT * FROM book WHERE CategoryId = :CategoryId LIMIT :trimStart, :rows";
 
 	@Override
 	public List<Book> getAll() {
@@ -78,6 +80,15 @@ public class HibernateBookDao extends AbstractHibernateDao implements BookDao {
 	public List<Book> getBookCurrentPage(int trimStart, int rows) {
 		// TODO Auto-generated method stub
 		return openSession().createNativeQuery(Q_GET_BOOK_OF_CURRENT_PAGE, Book.class)
+				.setParameter("trimStart", trimStart, IntegerType.INSTANCE)
+				.setParameter("rows", rows, IntegerType.INSTANCE)
+				.getResultList();
+	}
+
+	@Override
+	public List<Book> getBookByCategoryIDCurrentPage(int trimStart, int rows, int categoryID) {
+		return openSession().createNativeQuery(Q_GET_BOOK_BY_CATEGORY_ID_OF_CURRENT_PAGE, Book.class)
+				.setParameter("CategoryId", categoryID, IntegerType.INSTANCE)
 				.setParameter("trimStart", trimStart, IntegerType.INSTANCE)
 				.setParameter("rows", rows, IntegerType.INSTANCE)
 				.getResultList();

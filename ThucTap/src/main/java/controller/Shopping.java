@@ -22,7 +22,7 @@ import service.CategoryServiceImpl;
 @WebServlet("/Shopping")
 public class Shopping extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private int rows = 15;
+	private int rows = 12;
 	private int window = 5;
 
 	/*
@@ -43,7 +43,7 @@ public class Shopping extends HttpServlet {
         // List pairs of name category and their quantity book
         int currentPage = 1;
         String page = request.getParameter("page");
-        String categoryID = request.getParameter("cateogryID");
+        String categoryID = request.getParameter("categoryID");
         if(page != null) {
         	currentPage = Integer.valueOf(page);
         }
@@ -56,15 +56,20 @@ public class Shopping extends HttpServlet {
         }
         
         int trimStart = (currentPage - 1) * rows;
+        
         List<Book> listBook = new ArrayList<>();
+        List<Book> listBookCurrentPage = new ArrayList<>();
         if(categoryID != null) {
+        	System.out.print("cOS ID");
         	listBook = bookService.getBookByCategoryId(Integer.parseInt(categoryID));
+        	listBookCurrentPage = bookService.getBookByCategoryIDCurrentPage(trimStart, rows, Integer.parseInt(categoryID));
         }
         else {
+        	System.out.print("0 co ID");
         	listBook = bookService.getAll();
+        	listBookCurrentPage = bookService.getBookCurrentPage(trimStart, rows);
         }
         List<Book> bookBestSeller = bookService.get2BookSeller();
-        List<Book> listBookCurrentPage = bookService.getBookCurrentPage(trimStart, rows);
         int totalPages = (int) (Math.ceil(listBook.size()/rows));
         
         
@@ -89,6 +94,7 @@ public class Shopping extends HttpServlet {
         
         request.setAttribute("listBook", listBook);
         request.setAttribute("listBookCurrentPage", listBookCurrentPage);
+        request.setAttribute("categoryID", categoryID);
         request.setAttribute("currentPage", currentPage);
         request.setAttribute("totalPages", totalPages);
         request.setAttribute("maxLeft", maxLeft);

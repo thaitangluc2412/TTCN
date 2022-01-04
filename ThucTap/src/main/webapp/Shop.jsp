@@ -74,21 +74,22 @@
 			<div class="row">
 				<div class="col-md-3 col-sm-3 col-xs-12">
 					<div class="shop-widget">
-						<div class="shop-widget-top">
-							<aside class="widget widget-categories">
-								<h2 class="sidebar-title text-center">CATEGORY</h2>
-								<ul class="sidebar-menu">
+						<div class="shop-widget-top ">
+							<aside class="widget widget-categories mt-0">
+								<div class="card-header bg-success text-white text-uppercase">
+									<i class="fa fa-list"></i> Categories
+								</div>
+								<ul class="list-group category_block">
 									<c:forEach items="${categoryMap}" var="category">
-										<li><a href="Shopping?categoryID=${category.key.categoryID}"> <i class="fa fa-angle-double-right"></i>
-												${category.key.name} <span>(${category.value})</span>
+										<li class="list-group-item text-white ${category.key.categoryID == categoryID ? "bg-secondary" : ""}"><a
+											href="Shopping?categoryID=${category.key.categoryID}"> <i
+												class="fa fa-angle-double-right"></i> ${category.key.name} <span>(${category.value})</span>
 										</a></li>
 									</c:forEach>
 								</ul>
 							</aside>
-							<aside class="widget shop-filter"></aside>
 						</div>
 						<div class="shop-widget-bottom">
-							<aside class="widget widget-tag"></aside>
 							<aside class="widget widget-seller">
 								<h2 class="sidebar-title">TOP SELLERS</h2>
 								<c:forEach items="${bookBestSeller}" var="bestSeller">
@@ -232,14 +233,18 @@
 							aria-label="Page navigation example">
 							<ul class="pagination">
 								<c:if test="${currentPage != 1}">
-									<li class="page-item"><a class="page-link" href="Shopping?page=1">
-											First </a></li>
+									<li class="page-item"><a class="page-link"
+										href="Shopping?page=1&categoryID=${categoryID}"> First </a></li>
 								</c:if>
 								<c:forEach var="page" begin="${maxLeft}" end="${maxRight}">
-								      <li class="page-item ${page == currentPage ? "active" : "" } "><a class="page-link" href="Shopping?page=${page}"> ${page} </a></li>
+									<li class="page-item ${page == currentPage ? "active" : "" } "><a
+										class="page-link"
+										href="Shopping?page=${page}&categoryID=${categoryID}">
+											${page} </a></li>
 								</c:forEach>
 								<c:if test="${currentPage != totalPages}">
-								<li class="page-item"><a class="page-link" href="Shopping?page=${totalPages}">
+									<li class="page-item"><a class="page-link"
+										href="Shopping?page=${totalPages}&categoryID=${categoryID}">
 											Last </a></li>
 								</c:if>
 							</ul>
