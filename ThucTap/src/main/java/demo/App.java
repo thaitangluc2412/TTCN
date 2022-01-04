@@ -3,39 +3,25 @@ package demo;
 import service.*;
 
 import java.util.Collection;
+import java.util.List;
+
+import bean.Book;
 
 public class App {
 
-<<<<<<< HEAD
-    private static UserService userService = new UserServiceImpl();
+	private static UserService userService = new UserServiceImpl();
     private static BookService bookService = new BookServiceImpl();
     private static CategoryService categoryService = new CategoryServiceImpl();
     private static OrderService orderService = new OrderServiceImpl();
     private static ReviewService reviewService = new ReviewServiceImpl();
 
     public static void main(String[] args) {
-        // System.out.println(bookService.getAll(BookService.PRICE, BookService.ASC));
-        print(bookService.getByTitle("Great"));
+        List<Book> listbooks = bookService.getAll(bookService.PRICE, false);
+        print(listbooks);
     }
 
     private static <Element> void print(Collection<Element> elements) {
         elements.forEach(System.out::println);
     }
-=======
-	private static UserService userService = new UserServiceImpl();
-	private static BookService bookService = new BookServiceImpl();
-	private static CategoryService categoryService = new CategoryServiceImpl();
-	private static OrderService orderService = new OrderServiceImpl();
-	private static ReviewService reviewService = new ReviewServiceImpl();
 
-	public static void main(String[] args) {
-		List<Book> listBooks = bookService.getBookOrderByPriceDESC();
-		print(listBooks);
-	}
-
-	private static <Element> void print(Collection<Element> elements) {
-		elements.forEach(System.out::println);
-	}
-
->>>>>>> 2b6de3b (luc)
 }

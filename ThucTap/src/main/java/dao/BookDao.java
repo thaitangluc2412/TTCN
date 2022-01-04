@@ -13,23 +13,13 @@ public interface BookDao {
 
     int getQuantity();
     
-    List<Book> get2BookSeller();
-<<<<<<< HEAD
+    List<Book> getTwoBookSeller();
 
-    List<Book> getAll(String orderBy, String orderType);
+    List<Book> getAll(String orderBy, boolean orderType);
 
     List<Book> getByTitle(String title);
-=======
     
     List<Book> getBookByCategoryId(Integer categoryId);
     
-    List<Book> getBookOrderByTitleASC();
-    
-    List<Book> getBookOrderByTitleDESC();
-    
-    List<Book> getBookOrderByPriceASC();
-    
-    List<Book> getBookOrderByPriceDESC();
-    
->>>>>>> 2b6de3b (luc)
+    List<Book> getBookCategoryOrderBy(Integer categoryId, String orderBy, boolean orderType);
 }

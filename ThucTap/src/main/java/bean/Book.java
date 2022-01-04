@@ -2,6 +2,7 @@ package bean;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "Book")
@@ -13,7 +14,7 @@ public class Book {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "CategoryID", referencedColumnName = "CategoryID")
-    private Category categoryId;
+    private Category category;
 
     @Column(name = "Title")
     private String title;
@@ -35,6 +36,12 @@ public class Book {
 
     @Column(name = "Quantity")
     private Integer quantity;
+    
+//    @ManyToMany
+//    @JoinTable(name = "BookUser1", 
+//    		joinColumns = @JoinColumn(name = "BookId"),
+//    		inverseJoinColumns = @JoinColumn(name = "UserId")) 
+//    private List<User> author;
 
     public Book() {
     }
@@ -49,7 +56,7 @@ public class Book {
                 LocalDate publishDate,
                 Integer quantity) {
         this.bookId = bookId;
-        this.categoryId = categoryId;
+        this.category = categoryId;
         this.title = title;
         this.description = description;
         this.rating = rating;
@@ -116,11 +123,11 @@ public class Book {
     }
 
     public Category getCategoryId() {
-        return categoryId;
+        return category;
     }
 
     public void setCategoryId(Category categoryId) {
-        this.categoryId = categoryId;
+        this.category = categoryId;
     }
 
     public Integer getBookId() {
@@ -135,7 +142,7 @@ public class Book {
     public String toString() {
         return "Book{" +
                "bookId=" + bookId +
-               ", categoryId=" + categoryId +
+               ", categoryId=" + category +
                ", title='" + title + '\'' +
                ", description='" + description + '\'' +
                ", rating=" + rating +
@@ -145,4 +152,9 @@ public class Book {
                ", quantity=" + quantity +
                '}';
     }
+    
+    public static String getSQLOrder(String property, boolean orderType) {
+    	return property + " " + (orderType ? "ASC" : "DESC");
+    }
+    
 }

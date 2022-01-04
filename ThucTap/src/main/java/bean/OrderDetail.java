@@ -18,13 +18,9 @@ public class OrderDetail {
     @JoinColumn(name = "BookId", referencedColumnName = "BookId", insertable = false, updatable = false)
     private Book book;
 
-<<<<<<< HEAD
-    @Column(name = "Quantity")
-    private int quantity;
-=======
+
     @Column(name = "quantity")
     private Integer quantity;
->>>>>>> 2b6de3b (luc)
 
     public OrderDetail() {
     }
