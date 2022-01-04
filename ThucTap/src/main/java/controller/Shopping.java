@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -42,20 +43,26 @@ public class Shopping extends HttpServlet {
         // List pairs of name category and their quantity book
         int currentPage = 1;
         String page = request.getParameter("page");
+        String categoryID = request.getParameter("cateogryID");
         if(page != null) {
         	currentPage = Integer.valueOf(page);
         }
         BookServiceImpl bookService = new BookServiceImpl();
         CategoryServiceImpl categoryService = new CategoryServiceImpl();
-        HashMap<String, Integer> categoryMap = new HashMap<>();
+        HashMap<Category, Integer> categoryMap = new HashMap<>();
         List<Category> listCategory = categoryService.getAll();
         for(Category category : listCategory) {
-        	categoryMap.put(category.getName(), bookService.getBookByCategoryId(category.getCategoryID()).size());
+        	categoryMap.put(category, bookService.getBookByCategoryId(category.getCategoryID()).size());
         }
         
         int trimStart = (currentPage - 1) * rows;
-        
-        List<Book> listBook = bookService.getAll();
+        List<Book> listBook = new ArrayList<>();
+        if(categoryID != null) {
+        	listBook = bookService.getBookByCategoryId(Integer.parseInt(categoryID));
+        }
+        else {
+        	listBook = bookService.getAll();
+        }
         List<Book> bookBestSeller = bookService.get2BookSeller();
         List<Book> listBookCurrentPage = bookService.getBookCurrentPage(trimStart, rows);
         int totalPages = (int) (Math.ceil(listBook.size()/rows));

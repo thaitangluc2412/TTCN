@@ -79,8 +79,8 @@
 								<h2 class="sidebar-title text-center">CATEGORY</h2>
 								<ul class="sidebar-menu">
 									<c:forEach items="${categoryMap}" var="category">
-										<li><a href="#"> <i class="fa fa-angle-double-right"></i>
-												${category.key} <span>(${category.value})</span>
+										<li><a href="Shopping?categoryID=${category.key.categoryID}"> <i class="fa fa-angle-double-right"></i>
+												${category.key.name} <span>(${category.value})</span>
 										</a></li>
 									</c:forEach>
 								</ul>
