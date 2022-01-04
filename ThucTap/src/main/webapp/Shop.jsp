@@ -149,14 +149,17 @@
 												placeholder="Search..." aria-label="Search"
 												aria-describedby="search-addon" />
 											<button type="submit" class="btn btn-outline-primary">search</button>
-											<div style="display: inline; position:absolute; right: 20px">
+											<div style="display: inline; position: absolute; right: 20px">
 												<select class="form-control rounded w-100"
-													aria-label="Disabled select example" style="outline:none" name="sortBy">
+													aria-label="Disabled select example" style="outline: none"
+													name="sortBy">
 													<option value="" selected>Select your options</option>
 													<option value="nameL">Name: from Lowest to Highest</option>
 													<option value="nameH">Name: from Highest to Lowest</option>
-													<option value="priceL">Price: from Lowest to Highest</option>
-													<option value="priceH">Price: from Highest to Lowest</option>
+													<option value="priceL">Price: from Lowest to
+														Highest</option>
+													<option value="priceH">Price: from Highest to
+														Lowest</option>
 												</select>
 											</div>
 										</div>
@@ -171,13 +174,13 @@
 												<div class="product-wrapper">
 													<a href="#" class="single-banner-image-wrapper"> <img
 														alt="" src="${book.image}">
-														<div class="price">
-															<span>$</span>${book.price}
+														<div class="price priceValue" >
+															${book.price}
 														</div>
 													</a>
 													<div class="product-description">
 														<div class="functional-buttons">
-															<a href="#" title="Add to Cart"> <i
+															<a href="#" title="Add to Cart" class="addToCart"  data-product-id="${book.bookId}"> <i
 																class="fa fa-shopping-cart"></i>
 															</a> <a href="#" title="Add to Wishlist"> <i
 																class="fa fa-heart-o"></i>
@@ -190,7 +193,7 @@
 												</div>
 												<div class="banner-bottom text-center">
 													<div class="banner-bottom-title">
-														<a href="#">${book.title}</a>
+														<a href="#" class="productName">${book.title}</a>
 													</div>
 													<div class="rating-icon">
 														<i class="fa fa-star icolor"></i> <i
@@ -240,6 +243,16 @@
 								</div>
 							</div>
 						</div>
+						<nav class="d-flex justify-content-center" aria-label="Page navigation example">
+							<ul class="pagination">
+								<li class="page-item"><a class="page-link" href="#">Previous</a></li>
+								<li class="page-item"><a class="page-link" href="#">1</a></li>
+								<li class="page-item"><a class="page-link" href="#">2</a></li>
+								<li class="page-item"><a class="page-link" href="#">3</a></li>
+								<li class="page-item"><a class="page-link" href="#">Next</a></li>
+							</ul>
+						</nav>
+
 					</div>
 				</div>
 			</div>
@@ -254,6 +267,7 @@
 
 	<!-- all js here -->
 	<!-- jquery latest version -->
+	
 	<script src="js/vendor/jquery-1.12.0.min.js"></script>
 	<!-- bootstrap js -->
 	<script src="js/bootstrap.min.js"></script>
@@ -272,6 +286,7 @@
 	<script src="js/jquery.meanmenu.js"></script>
 	<!-- wow js -->
 	<script src="js/wow.min.js"></script>
+	<script src="js/addToCart.js"></script>
 	<script>
 		new WOW().init();
 	</script>

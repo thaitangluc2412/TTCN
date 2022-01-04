@@ -19,6 +19,8 @@ import java.util.List;
 @WebServlet("/Shopping")
 public class Shopping extends HttpServlet {
     private static final long serialVersionUID = 1L;
+    private int currentPage = 1;
+    private int rows = 5;
 
     /*     * @see HttpServlet#HttpServlet()
      */
@@ -34,14 +36,20 @@ public class Shopping extends HttpServlet {
     protected void doGet(HttpServletRequest request,
                          HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        int trimStart = (currentPage - 1) * rows;
+        int trimEnd = trimStart + rows;
         BookServiceImpl bookService = new BookServiceImpl();
         CategoryServiceImpl categoryService = new CategoryServiceImpl();
         List<Book> listBook = bookService.getAll();
+        // List<Book> listBook = bookService.getBookCurrentPage(trimStart, trimEnd);
+        // int totalPages = Math.ceil(bookService.getTotalBook()/rows);
         List<Category> listCategory = categoryService.getAll();
+        
         for (Category cate : listCategory) {
             System.out.println(cate);
         }
         request.setAttribute("listBook", listBook);
+        // request.setAttribute("totalPages", totalPages);
         request.setAttribute("listCategory", listCategory);
         request.getRequestDispatcher("Shop.jsp").forward(request, response);
     }

@@ -114,11 +114,8 @@
 									</div>
 								</div>
 								<div class="total-cart-price">
-									<div class="cart-product-line fast-line">
-										<span>Shipping</span> <span class="free-shiping">$10.50</span>
-									</div>
 									<div class="cart-product-line">
-										<span>Total</span> <span class="total">$ 140.00</span>
+										<span>Total</span> <span class="total" id="sum-prices">$ 140.00</span>
 									</div>
 								</div>
 								<div class="cart-checkout">
