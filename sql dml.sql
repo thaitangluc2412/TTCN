@@ -33,27 +33,22 @@ VALUES (1, 2, '2021-12-5', 50000.00, 'Arrived', 'Cam Lo, Quang tri', 'Thai Tang 
        (11, 5, '2021-12-5', 50000.00, 'Arrived', 'Cam Lo, Quang tri', 'Thai Tang Luc', '067761634988');
 
 INSERT INTO BookUser (BookId, UserId)
-VALUES (1, 3),
-       (1, 6),
-       (2, 7),
-       (2, 3),
-       (2, 6),
+VALUES (1, 3), (1, 6),
+       (2, 7), (2, 3), (2, 6),
        (3, 6),
-       (4, 3),
-       (4, 7),
+       (4, 3), (4, 7),
        (5, 7),
        (6, 3),
-       (7, 6),
-       (7, 3),
-       (8, 6),
-       (8, 7),
+       (7, 6), (7, 3),
+       (8, 6), (8, 7),
        (9, 3),
        (10, 7),
        (11, 3),
        (12, 6),
        (13, 7),
        (14, 7);
-
+INSERT INTO BookUser (BookId, UserId)
+VALUES (398, 3);
 INSERT INTO OrderDetail (OrderId, BookId, Quantity)
 VALUES (1, 1, 3),
        (1, 2, 1),
