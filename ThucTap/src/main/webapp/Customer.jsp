@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 
 <!doctype html>
 <html class="no-js" lang="">
@@ -98,97 +99,52 @@
 								</tr>
 							</thead>
 							<tbody>
-
-								<tr>
-									<td class="customer-id">
-										<p>
-										<p>1</p>
-										</p>
-									</td>
-
-									<td class="customer-email">
-										<p>
-										<p>thidaihoc2000@gmail.com</p>
-										</p>
-									</td>
-									<td class="customer-name">
-										<p>
-										<p>Nguyễn Mạnh Việt</p>
-										</p>
-									</td>
-									<td class="customer-address">
-										<p>
-										<p>445 Nguyễn Lương Bằng</p>
-										</p>
-									</td>
-									<td class="customer-phone">
-										<p>
-										<p>0796583512</p>
-										</p>
-
-									</td>
-
-									<td class="registered-date">
-										<p>
-										<p>27/12/2021 15:00:00</p>
-										</p>
-
-									</td>
-									<td class="product-edit ">
-										<p>
-											<a href="# ">Edit</a>
-										</p>
-									</td>
-									<td class="product-remove "><a href="# "> <i
-											class="flaticon-delete "></i>
-									</a></td>
-								</tr>
-
-								<tr>
-									<td class="customer-id">
-										<p>
-										<p>2</p>
-										</p>
-									</td>
-
-									<td class="customer-email">
-										<p>
-										<p>anhvu2k@gmail.com</p>
-										</p>
-									</td>
-									<td class="customer-name">
-										<p>
-										<p>Nguyễn Anh Vũ</p>
-										</p>
-									</td>
-									<td class="customer-address">
-										<p>
-										<p>Hội An</p>
-										</p>
-									</td>
-									<td class="customer-phone">
-										<p>
-										<p>0796582343</p>
-										</p>
-
-									</td>
-
-									<td class="registered-date">
-										<p>
-										<p>27/12/2021 17:00:00</p>
-										</p>
-
-									</td>
-									<td class="product-edit">
-										<p>
-											<a href="# ">Edit</a>
-										</p>
-									</td>
-									<td class="product-remove"><a href="# "> <i
-											class="flaticon-delete "></i>
-									</a></td>
-								</tr>
-
+								<c:forEach items="${listCustomer}" var="customer">
+									<tr>
+										<td class="customer-id">
+											<p>
+											<p>${customer.userId}</p>
+											</p>
+										</td>
+	
+										<td class="customer-email">
+											<p>
+											<p>${customer.email}</p>
+											</p>
+										</td>
+										<td class="customer-name">
+											<p>
+											<p>${customer.name}</p>
+											</p>
+										</td>
+										<td class="customer-address">
+											<p>
+											<p>${customer.address}</p>
+											</p>
+										</td>
+										<td class="customer-phone">
+											<p>
+											<p>${customer.phoneNumber}</p>
+											</p>
+	
+										</td>
+	
+										<td class="registered-date">
+											<p>
+											<p>27/12/2021 15:00:00</p>
+											</p>
+	
+										</td>
+										<td class="product-edit ">
+											<p>
+												<a href="# ">Edit</a>
+											</p>
+										</td>
+										<td class="product-remove "><a href="# "> <i
+												class="flaticon-delete "></i>
+										</a></td>
+									</tr>
+								</c:forEach>
 
 							</tbody>
 						</table>

@@ -8,6 +8,8 @@ public interface UserDao {
     List<User> getAll();
     
     List<User> getAuthor();
+    
+    List<User> getCustomer();
 
     User getUser(String email, String password);
 

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 
 <!doctype html>
 <html class="no-js" lang="">
@@ -92,175 +93,63 @@
 							</thead>
 							<tbody>
 
-								<tr>
-									<td class="order-id">
-										<p>
-										<p>1</p>
-										</p>
-									</td>
-
-									<td class="customer-name">
-										<p>
-										<p>Nguyễn Mạnh Việt</p>
-										</p>
-									</td>
-									<td class="customer-name">
-										<p>
-										<p>3</p>
-										</p>
-									</td>
-									<td class="customer-address">
-										<p>
-										<p>44$</p>
-										</p>
-									</td>
-									<td class="customer-phone">
-										<p>
-										<p>Momo</p>
-										</p>
-
-									</td>
-									<td class="customer-phone">
-										<p>
-										<p>Shipping</p>
-										</p>
-
-									</td>
-
-									<td class="registered-date">
-										<p>
-										<p>27/12/2021 15:00:00</p>
-										</p>
-
-									</td>
-									<td class="product-edit ">
-										<p>
-											<a href="# ">Details</a>
-										</p>
-									</td>
-									<td class="product-edit ">
-										<p>
-											<a href="# ">Edit</a>
-										</p>
-									</td>
-									<td class="product-remove "><a href="# "> <i
-											class="flaticon-delete "></i>
-									</a></td>
-								</tr>
-
-								<tr>
-									<td class="order-id">
-										<p>
-										<p>2</p>
-										</p>
-									</td>
-
-									<td class="customer-name">
-										<p>
-										<p>Nguyễn Anh Vũ</p>
-										</p>
-									</td>
-									<td class="customer-name">
-										<p>
-										<p>1</p>
-										</p>
-									</td>
-									<td class="customer-address">
-										<p>
-										<p>14$</p>
-										</p>
-									</td>
-									<td class="customer-phone">
-										<p>
-										<p>Paypal</p>
-										</p>
-
-									</td>
-									<td class="customer-phone">
-										<p>
-										<p>Completed</p>
-										</p>
-
-									</td>
-
-									<td class="registered-date">
-										<p>
-										<p>27/12/2021 15:00:00</p>
-										</p>
-
-									</td>
-									<td class="product-edit ">
-										<p>
-											<a href="# ">Details</a>
-										</p>
-									</td>
-									<td class="product-edit ">
-										<p>
-											<a href="# ">Edit</a>
-										</p>
-									</td>
-									<td class="product-remove "><a href="# "> <i
-											class="flaticon-delete "></i>
-									</a></td>
-								</tr>
-								<tr>
-									<td class="order-id">
-										<p>
-										<p>3</p>
-										</p>
-									</td>
-
-									<td class="customer-name">
-										<p>
-										<p>Thái Tăng Lực</p>
-										</p>
-									</td>
-									<td class="customer-name">
-										<p>
-										<p>3</p>
-										</p>
-									</td>
-									<td class="customer-address">
-										<p>
-										<p>21$</p>
-										</p>
-									</td>
-									<td class="customer-phone">
-										<p>
-										<p>Momo</p>
-										</p>
-
-									</td>
-									<td class="customer-phone">
-										<p>
-										<p>Processing</p>
-										</p>
-
-									</td>
-
-									<td class="registered-date">
-										<p>
-										<p>27/12/2021 15:00:00</p>
-										</p>
-
-									</td>
-									<td class="product-edit ">
-										<p>
-											<a href="# ">Details</a>
-										</p>
-									</td>
-									<td class="product-edit ">
-										<p>
-											<a href="# ">Edit</a>
-										</p>
-									</td>
-									<td class="product-remove "><a href="# "> <i
-											class="flaticon-delete "></i>
-									</a></td>
-								</tr>
-
-
-
+								<c:forEach items="${listOrder}" var="order">
+									<tr>
+										<td class="order-id">
+											<p>
+											<p>${order.orderId}</p>
+											</p>
+										</td>
+	
+										<td class="customer-name">
+											<p>
+											<p>${order.user.name}</p>
+											</p>
+										</td>
+										<td class="customer-name">
+											<p>
+											<p>${order.orderId}</p>
+											</p>
+										</td>
+										<td class="customer-address">
+											<p>
+											<p>${order.totalPrice}</p>
+											</p>
+										</td>
+										<td class="customer-phone">
+											<p>
+											<p>Momo</p>
+											</p>
+	
+										</td>
+										<td class="customer-phone">
+											<p>
+											<p>${order.status}</p>
+											</p>
+	
+										</td>
+	
+										<td class="registered-date">
+											<p>
+											<p>${order.orderDate}</p>
+											</p>
+	
+										</td>
+										<td class="product-edit ">
+											<p>
+												<a href="# ">Details</a>
+											</p>
+										</td>
+										<td class="product-edit ">
+											<p>
+												<a href="# ">Edit</a>
+											</p>
+										</td>
+										<td class="product-remove "><a href="# "> <i
+												class="flaticon-delete "></i>
+										</a></td>
+									</tr>
+								</c:forEach>
 							</tbody>
 						</table>
 					</div>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 
 <!doctype html>
 <html class="no-js" lang="">
@@ -96,90 +97,49 @@
 								</tr>
 							</thead>
 							<tbody>
-
-								<tr>
-									<td class="product-id">
-										<p>
-										<p>1</p>
-										</p>
-									</td>
-
-									<td class="product-name">
-										<p>
-										<p>Tôi thấy hoa vàng trên cỏ xanh</p>
-										</p>
-									</td>
-									<td class="product-author">
-										<p>
-										<p>5.0</p>
-										</p>
-									</td>
-									<td class="product-category">
-										<p>
-										<p>Thái Tăng Lực</p>
-										</p>
-									</td>
-									<td class="product-price">
-										<p>
-										<p>Exellent book</p>
-										</p>
-
-									</td>
-
-									<td class="product-quantity">
-										<p>
-										<p>27/12/2021 15:00:00</p>
-										</p>
-
-									</td>
-
-									<td class="product-remove"><a href="#"> <i
-											class="flaticon-delete"></i>
-									</a></td>
-								</tr>
-								<tr>
-									<td class="product-id">
-										<p>
-										<p>2</p>
-										</p>
-									</td>
-
-									<td class="product-name">
-										<p>
-										<p>Giải tích 2</p>
-										</p>
-									</td>
-									<td class="product-author">
-										<p>
-										<p>4.0</p>
-										</p>
-									</td>
-									<td class="product-category">
-										<p>
-										<p>Nguyễn Anh Vũ</p>
-										</p>
-									</td>
-									<td class="product-price">
-										<p>
-										<p>Love this book</p>
-										</p>
-
-									</td>
-
-									<td class="product-quantity">
-										<p>
-										<p>27/12/2021 20:00:00</p>
-										</p>
-
-									</td>
-
-									<td class="product-remove"><a href="#"> <i
-											class="flaticon-delete"></i>
-									</a></td>
-								</tr>
-
-
-
+								<c:forEach items="${listReview}" var="review">
+									<tr>
+										<td class="product-id">
+											<p>
+											<p>${review.reviewId}</p>
+											</p>
+										</td>
+	
+										<td class="product-name">
+											<p>
+											<p>${review.book.title}</p>
+											</p>
+										</td>
+										<td class="product-author">
+											<p>
+											<p>${review.rating}</p>
+											</p>
+										</td>
+										<td class="product-category">
+											<p>
+											<p>${review.user.name}</p>
+											</p>
+										</td>
+										<td class="product-price">
+											<p>
+											<p>${review.comment}</p>
+											</p>
+	
+										</td>
+	
+										<td class="product-quantity">
+											<p>
+											<p>${review.reviewDate}</p>
+											</p>
+	
+										</td>
+	
+										<td class="product-remove"><a href="#"> <i
+												class="flaticon-delete"></i>
+										</a></td>
+									</tr>
+								</c:forEach>
+								
 							</tbody>
 						</table>
 					</div>

@@ -26,12 +26,12 @@
 								<c:when test="${sessionScope.user.role == 'Admin'}">
 									<li><a href="#">MANAGEMENT</a>
 										<ul class="sub-menu">
-											<li><a href="Book.jsp">BOOK</a></li>
-											<li><a href="Category.jsp">CATEGORY</a></li>
-											<li><a href="Customer.jsp">CUSTOMER</a></li>
-											<li><a href="Author.jsp">AUTHOR</a></li>
-											<li><a href="Order.jsp">ORDER</a></li>
-											<li><a href="Review.jsp">REVIEW</a></li>
+											<li><a href="Admin?Management=Book">BOOK</a></li>
+											<li><a href="Admin?Management=Category">CATEGORY</a></li>
+											<li><a href="Admin?Management=Customer">CUSTOMER</a></li>
+											<li><a href="Admin?Management=Author">AUTHOR</a></li>
+											<li><a href="Admin?Management=Order">ORDER</a></li>
+											<li><a href="Admin?Management=Review">REVIEW</a></li>
 											<li><a href="Contact.jsp">CONTACT</a></li>
 										</ul></li>
 								</c:when>

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!--  va luc-->
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!doctype html>
 <html class="no-js" lang="">
  
@@ -95,110 +95,59 @@
 								</tr>
 							</thead>
 							<tbody>
-
-								<tr>
-									<td class="product-id">
-										<p>
-										<p>1</p>
-										</p>
-									</td>
-									<td class="product-image"><a href="#"> <img
-											src="img/shop/1.jpg" alt="">
-									</a></td>
-									<td class="t-product-name">
-										<p>
-										<p>TÃ´i tháº¥y hoa vÃ ng trÃªn cá» xanh</p>
-										</p>
-									</td>
-									<td class="product-author">
-										<p>
-										<p>Nguyá»n Nháº­t Ãnh</p>
-										</p>
-									</td>
-									<td class="product-category">
-										<p>
-										<p>Truyá»n ngáº¯n</p>
-										</p>
-									</td>
-									<td class="product-price">
-										<p>
-										<p>$ 10</p>
-										</p>
-
-									</td>
-									<td class="product-quantity">
-										<p>
-										<p>34</p>
-										</p>
-
-									</td>
-									<td class="product-date">
-										<p>
-										<p>27/12/2021 15:00:00</p>
-										</p>
-
-									</td>
-									<td class="product-edit">
-										<p>
-											<a href="#">Edit</a>
-										</p>
-									</td>
-									<td class="product-remove"><a href="#"> <i
-											class="flaticon-delete"></i>
-									</a></td>
-								</tr>
-								<tr>
-									<td class="product-id">
-										<p>
-										<p>2</p>
-										</p>
-									</td>
-									<td class="product-image"><a href="#"> <img
-											src="img/shop/1.jpg" alt="">
-									</a></td>
-									<td class="product-name">
-										<p>
-										<p>Hai sá» pháº­n</p>
-										</p>
-									</td>
-									<td class="product-author">
-										<p>
-										<p>Jeffrey Archer</p>
-										</p>
-									</td>
-									<td class="product-category">
-										<p>
-										<p>Truyá»n dÃ i</p>
-										</p>
-									</td>
-									<td class="product-price">
-										<p>
-										<p>$ 15</p>
-										</p>
-
-									</td>
-									<td class="product-quantity">
-										<p>
-										<p>34</p>
-										</p>
-
-									</td>
-									<td class="product-date">
-										<p>
-										<p>27/12/2021 16:00:00</p>
-										</p>
-
-									</td>
-									<td class="product-edit">
-										<p>
-											<a href="#">Edit</a>
-										</p>
-									</td>
-									<td class="product-remove"><a href="#"> <i
-											class="flaticon-delete"></i>
-									</a></td>
-								</tr>
-
+								<c:forEach items="${listBook}" var="book">
+									<tr>
+										<td class="product-id">
+											<p>
+											<p>${book.bookId}</p>
+											</p>
+										</td>
+										<td class="product-image"><a href="#"> <img
+												src="${book.image}" alt="">
+										</a></td>
+										<td class="t-product-name">
+											<p>
+											<p>${book.title}</p>
+											</p>
+										</td>
+										<td class="product-author">
+											<p>
+											<p>a</p>
+											</p>
+										</td>
+										<td class="product-category">
+											<p>
+											<p>${book.categoryId.name}</p>
+											</p>
+										</td>
+										<td class="product-price">
+											<p>
+											<p>$ 10</p>
+											</p>
+	
+										</td>
+										<td class="product-quantity">
+											<p>
+											<p>34</p>
+											</p>
+	
+										</td>
+										<td class="product-date">
+											<p>
+											<p>27/12/2021 15:00:00</p>
+											</p>
+	
+										</td>
+										<td class="product-edit">
+											<p>
+												<a href="#">Edit</a>
+											</p>
+										</td>
+										<td class="product-remove"><a href="#"> <i
+												class="flaticon-delete"></i>
+										</a></td>
+									</tr>
+							</c:forEach>
 							</tbody>
 						</table>
 					</div>

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+    
 <!doctype html>
 <html class="no-js" lang="">
 
@@ -92,103 +94,32 @@
                                 </tr>
                             </thead>
                             <tbody>
-
-                                <tr>
-                                    <td class="t-product-id">
-                                        <p>
-                                            <p>1</p>
-                                        </p>
-                                    </td>
-
-                                    <td class="category-name">
-                                        <p>
-                                            <p>Truyện ngắn</p>
-                                        </p>
-                                    </td>
-
-                                    <td class="product-edit">
-                                        <p>
-                                            <a href="#">Edit</a>
-                                        </p>
-                                    </td>
-                                    <td class="product-remove">
-                                        <a href="#">
-                                            <i class="flaticon-delete"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="t-product-id">
-                                        <p>
-                                            <p>2</p>
-                                        </p>
-                                    </td>
-
-                                    <td class="category-name">
-                                        <p>
-                                            <p>Truyện dài</p>
-                                        </p>
-                                    </td>
-
-                                    <td class="product-edit">
-                                        <p>
-                                            <a href="#">Edit</a>
-                                        </p>
-                                    </td>
-                                    <td class="product-remove">
-                                        <a href="#">
-                                            <i class="flaticon-delete"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="t-product-id">
-                                        <p>
-                                            <a href="#">3</a>
-                                        </p>
-                                    </td>
-
-                                    <td class="category-name">
-                                        <p>
-                                            <p>Thiếu nhi</p>
-                                        </p>
-                                    </td>
-
-                                    <td class="product-edit">
-                                        <p>
-                                            <a href="#">Edit</a>
-                                        </p>
-                                    </td>
-                                    <td class="product-remove">
-                                        <a href="#">
-                                            <i class="flaticon-delete"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="t-product-id">
-                                        <p>
-                                            <a href="#">4</a>
-                                        </p>
-                                    </td>
-
-                                    <td class="category-name">
-                                        <p>
-                                            <p>Giáo dục</p>
-                                        </p>
-                                    </td>
-
-                                    <td class="product-edit">
-                                        <p>
-                                            <a href="#">Edit</a>
-                                        </p>
-                                    </td>
-                                    <td class="product-remove">
-                                        <a href="#">
-                                            <i class="flaticon-delete"></i>
-                                        </a>
-                                    </td>
-                                </tr>
+								<c:forEach items="${listCategory}" var="category">
+	                                <tr>
+	                                    <td class="t-product-id">
+	                                        <p>
+	                                            <p>${category.categoryID}</p>
+	                                        </p>
+	                                    </td>
+	
+	                                    <td class="category-name">
+	                                        <p>
+	                                            <p>${category.name}</p>
+	                                        </p>
+	                                    </td>
+	
+	                                    <td class="product-edit">
+	                                        <p>
+	                                            <a href="#">Edit</a>
+	                                        </p>
+	                                    </td>
+	                                    <td class="product-remove">
+	                                        <a href="#">
+	                                            <i class="flaticon-delete"></i>
+	                                        </a>
+	                                    </td>
+	                                </tr>
+                            	</c:forEach>
 
 
                             </tbody>

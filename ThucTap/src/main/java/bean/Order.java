@@ -134,6 +134,6 @@ public class Order {
     }
 
     public enum Status {
-        ARRIVED, NOTARRIVED
+        Arrived, NotArrived
     }
 }
