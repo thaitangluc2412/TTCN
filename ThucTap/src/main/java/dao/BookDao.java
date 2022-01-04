@@ -22,4 +22,6 @@ public interface BookDao {
     List<Book> getBookByCategoryId(Integer categoryId);
     
     List<Book> getBookCategoryOrderBy(Integer categoryId, String orderBy, boolean orderType);
+    
+    List<Book> getBookCurrentPage(int trimStart, int rows);
 }

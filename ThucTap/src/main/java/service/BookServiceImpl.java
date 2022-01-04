@@ -52,4 +52,9 @@ public class BookServiceImpl implements BookService {
 	public List<Book> getBookCategoryOrderBy(Integer categoryId, String orderBy, boolean orderType) {
 		return bookDao.getBookCategoryOrderBy(categoryId, orderBy, orderType);
 	}
+
+	@Override
+	public List<Book> getBookCurrentPage(int trimStart, int rows) {
+		return bookDao.getBookCurrentPage(trimStart, rows);
+	}
 }

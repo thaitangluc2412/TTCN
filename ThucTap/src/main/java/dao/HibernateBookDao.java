@@ -9,24 +9,23 @@ import org.hibernate.type.StringType;
 
 public class HibernateBookDao extends AbstractHibernateDao implements BookDao {
 	private static final String Q_GET_ALL = "SELECT * FROM Book";
-	
+
 	private static final String Q_GET_NEW_RELEASE = "SELECT * FROM Book ORDER BY PublishDate DESC LIMIT 3";
-	
+
 	private static final String Q_GET_QUANTITY = "SELECT count(*) AS Quantity FROM Book";
-	
+
 	private static final String Q_GET_TWO_BOOK_SELLER = "WITH CTE_BOOK AS (\n"
 			+ "SELECT bo.BookId, sum(od.Quantity) numOfBookSold\n" + "FROM  `Order` o\n" + "LEFT JOIN OrderDetail od\n"
 			+ "ON o.OrderId = od.OrderId\n" + "LEFT JOIN Book bo\n" + "ON bo.BookId = od.BookId\n"
 			+ "GROUP BY bo.BookId\n" + "ORDER BY numOfBookSold DESC\n" + "LIMIT 2)\n" + "SELECT book.*\n"
 			+ "FROM book\n" + "JOIN CTE_BOOK \n" + "ON book.BookID = CTE_BOOK.BookID;";
-	
+
 	private static final String Q_GET_BY_TITLE = "SELECT * FROM book WHERE Title LIKE :title";
 
 	private static final String Q_GET_BOOK_BY_CATEGORY_ID = "SELECT bo.*\n" + "FROM Book bo\n" + "JOIN Category ct \n"
 			+ "ON bo.CategoryId = ct.CategoryId\n" + "WHERE ct.CategoryId = :CategoryId";
-	
-	
-	
+
+	private static final String Q_GET_BOOK_OF_CURRENT_PAGE = "SELECT * FROM book LIMIT :trimStart , :rows";
 
 	@Override
 	public List<Book> getAll() {
@@ -66,16 +65,22 @@ public class HibernateBookDao extends AbstractHibernateDao implements BookDao {
 		return openSession().createNativeQuery(Q_GET_BOOK_BY_CATEGORY_ID, Book.class)
 				.setParameter("CategoryId", categoryId, IntegerType.INSTANCE).getResultList();
 	}
-	
+
 	@Override
 	public List<Book> getBookCategoryOrderBy(Integer categoryId, String orderBy, boolean orderType) {
-		String Q_GET_BOOK_BY_CATEGORY_ID_ORDER_BY = "SELECT * \n"
-				+ "FROM book \n"
-				+ "WHERE CategoryId = :categoryId \n"
+		String Q_GET_BOOK_BY_CATEGORY_ID_ORDER_BY = "SELECT * \n" + "FROM book \n" + "WHERE CategoryId = :categoryId \n"
 				+ "ORDER BY " + Book.getSQLOrder(orderBy, orderType);
 		return openSession().createNativeQuery(Q_GET_BOOK_BY_CATEGORY_ID_ORDER_BY, Book.class)
-							.setParameter("categoryId", categoryId, IntegerType.INSTANCE)
-							.getResultList();
+				.setParameter("categoryId", categoryId, IntegerType.INSTANCE).getResultList();
+	}
+
+	@Override
+	public List<Book> getBookCurrentPage(int trimStart, int rows) {
+		// TODO Auto-generated method stub
+		return openSession().createNativeQuery(Q_GET_BOOK_OF_CURRENT_PAGE, Book.class)
+				.setParameter("trimStart", trimStart, IntegerType.INSTANCE)
+				.setParameter("rows", rows, IntegerType.INSTANCE)
+				.getResultList();
 	}
 
 }

@@ -78,9 +78,9 @@
 							<aside class="widget widget-categories">
 								<h2 class="sidebar-title text-center">CATEGORY</h2>
 								<ul class="sidebar-menu">
-									<c:forEach items="${listCategory}" var="category">
+									<c:forEach items="${categoryMap}" var="category">
 										<li><a href="#"> <i class="fa fa-angle-double-right"></i>
-												${category.name} <span>(5)</span>
+												${category.key} <span>(${category.value})</span>
 										</a></li>
 									</c:forEach>
 								</ul>
@@ -91,38 +91,24 @@
 							<aside class="widget widget-tag"></aside>
 							<aside class="widget widget-seller">
 								<h2 class="sidebar-title">TOP SELLERS</h2>
-								<div class="single-seller">
-									<div class="seller-img">
-										<img src="img/shop/1.jpg" alt="" />
+								<c:forEach items="${bookBestSeller}" var="bestSeller">
+									<div class="single-seller">
+										<div class="seller-img">
+											<img src="${bestSeller.image}" alt="" />
+										</div>
+										<div class="seller-details">
+											<a href="shop.html"><h5>${bestSeller.title}</h5></a>
+											<h5>${bestSeller.price}</h5>
+											<ul>
+												<li><i class="fa fa-star icolor"></i></li>
+												<li><i class="fa fa-star icolor"></i></li>
+												<li><i class="fa fa-star icolor"></i></li>
+												<li><i class="fa fa-star icolor"></i></li>
+												<li><i class="fa fa-star icolor"></i></li>
+											</ul>
+										</div>
 									</div>
-									<div class="seller-details">
-										<a href="shop.html"><h5>Cold mountain</h5></a>
-										<h5>$ 50.00</h5>
-										<ul>
-											<li><i class="fa fa-star icolor"></i></li>
-											<li><i class="fa fa-star icolor"></i></li>
-											<li><i class="fa fa-star icolor"></i></li>
-											<li><i class="fa fa-star icolor"></i></li>
-											<li><i class="fa fa-star icolor"></i></li>
-										</ul>
-									</div>
-								</div>
-								<div class="single-seller">
-									<div class="seller-img">
-										<img src="img/shop/2.jpg" alt="" />
-									</div>
-									<div class="seller-details">
-										<a href=""><h5>The historian</h5></a>
-										<h5>$ 50.00</h5>
-										<ul>
-											<li><i class="fa fa-star icolor"></i></li>
-											<li><i class="fa fa-star icolor"></i></li>
-											<li><i class="fa fa-star icolor"></i></li>
-											<li><i class="fa fa-star icolor"></i></li>
-											<li><i class="fa fa-star icolor"></i></li>
-										</ul>
-									</div>
-								</div>
+								</c:forEach>
 							</aside>
 						</div>
 					</div>
@@ -168,19 +154,18 @@
 							</div>
 							<div class="row tab-pane fade in active" id="home">
 								<div class="shop-single-product-area">
-									<c:forEach items="${listBook}" var="book">
+									<c:forEach items="${listBookCurrentPage}" var="book">
 										<div class="col-md-4 col-sm-6">
 											<div class="single-banner">
 												<div class="product-wrapper">
 													<a href="#" class="single-banner-image-wrapper"> <img
 														alt="" src="${book.image}">
-														<div class="price priceValue" >
-															${book.price}
-														</div>
+														<div class="price priceValue">${book.price}</div>
 													</a>
 													<div class="product-description">
 														<div class="functional-buttons">
-															<a href="#" title="Add to Cart" class="addToCart"  data-product-id="${book.bookId}"> <i
+															<a href="#" title="Add to Cart" class="addToCart"
+																data-product-id="${book.bookId}"> <i
 																class="fa fa-shopping-cart"></i>
 															</a> <a href="#" title="Add to Wishlist"> <i
 																class="fa fa-heart-o"></i>
@@ -209,7 +194,7 @@
 							</div>
 							<div id="menu1" class="tab-pane fade">
 								<div class="row">
-									<c:forEach items="${listBook}" var="book">
+									<c:forEach items="${listBookCurrentPage}" var="book">
 										<div class="single-shop-product">
 											<div class="col-xs-12 col-sm-5 col-md-4">
 												<div class="left-item">
@@ -243,13 +228,20 @@
 								</div>
 							</div>
 						</div>
-						<nav class="d-flex justify-content-center" aria-label="Page navigation example">
+						<nav class="d-flex justify-content-center"
+							aria-label="Page navigation example">
 							<ul class="pagination">
-								<li class="page-item"><a class="page-link" href="#">Previous</a></li>
-								<li class="page-item"><a class="page-link" href="#">1</a></li>
-								<li class="page-item"><a class="page-link" href="#">2</a></li>
-								<li class="page-item"><a class="page-link" href="#">3</a></li>
-								<li class="page-item"><a class="page-link" href="#">Next</a></li>
+								<c:if test="${currentPage != 1}">
+									<li class="page-item"><a class="page-link" href="Shopping?page=1">
+											First </a></li>
+								</c:if>
+								<c:forEach var="page" begin="${maxLeft}" end="${maxRight}">
+								      <li class="page-item ${page == currentPage ? "active" : "" } "><a class="page-link" href="Shopping?page=${page}"> ${page} </a></li>
+								</c:forEach>
+								<c:if test="${currentPage != totalPages}">
+								<li class="page-item"><a class="page-link" href="Shopping?page=${totalPages}">
+											Last </a></li>
+								</c:if>
 							</ul>
 						</nav>
 
@@ -267,7 +259,7 @@
 
 	<!-- all js here -->
 	<!-- jquery latest version -->
-	
+
 	<script src="js/vendor/jquery-1.12.0.min.js"></script>
 	<!-- bootstrap js -->
 	<script src="js/bootstrap.min.js"></script>
