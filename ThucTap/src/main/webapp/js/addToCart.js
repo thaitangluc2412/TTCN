@@ -11,7 +11,7 @@ if (!productsInCart) {
 }
 const parentElement = document.querySelector('.add-to-cart-product');
 // const cartSumPrice = document.querySelector('#sum-prices');
-const products = document.querySelectorAll('.functional-buttons');
+const products = document.querySelectorAll('.product-wapper');
 
 
 console.log("Hello1222");
@@ -73,12 +73,17 @@ function updateProductsInCart(product) { // 2
 
 products.forEach(item => {   // 1
 	item.addEventListener('click', (e) => {
-		if (e.target.classList.contains('addToCart')) {
+		// if (e.target.classList.contains('addToCart')) {
 			console.log("kicked");
 			const productID = e.target.dataset.productId;
-			const productName = item.querySelector('.productName').innerHTML;
-			const productPrice = item.querySelector('.priceValue').innerHTML;
+			
+			console.log(productID);
+			const productName = item.querySelector('.title-product').textContent;
+			console.log(productName);
+			const productPrice = item.querySelector('.rating-icon').textContent;
+			console.log(productPrice);
 			const productImage = item.querySelector('img').src;
+			console.log(productImage);
 			let product = {
 				name: productName,
 				image: productImage,
@@ -89,7 +94,7 @@ products.forEach(item => {   // 1
 			}
 			updateProductsInCart(product);
 			updateShoppingCartHTML();
-		}
+		// }
 
 	});
 });

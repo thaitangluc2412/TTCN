@@ -192,7 +192,7 @@
 												</div>
 											</div>
 										</div> -->
-										<div class="col-4">
+										<div class="col-4 product-wapper">
 											<div class="single-product-wrapper">
 												<a href="#"><img class="image-product" alt=""
 													src="${book.image}"></a>
@@ -205,8 +205,8 @@
 													class="fa fa-star icolor"></i> <i class="fa fa-star icolor"></i>
 												<i class="fa fa-star"></i> <i class="fa fa-star"></i>
 											</div>
-											<div class="col functional-buttons" style="text-align: center">
-												<button class="btn btn-info addToCart">
+											<div class="col addToCart" style="text-align: center">
+												<button class="btn btn-info">
 													<i class="fa fa-shopping-cart"><span style="font-family: sans-serif">Add to cart</span></i> 
 												</button>
 											</div>

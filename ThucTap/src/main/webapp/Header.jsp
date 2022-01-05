@@ -20,7 +20,7 @@
 					<nav>
 						<ul id="nav">
 							<li><a href="Home">HOME</a></li>
-							<li><a href="Shopping">SHOPPING PAGE</a></li>
+							<li><a href="Shopping">SHOPPING</a></li>
 							<li><a href="About">ABOUT AUTHOR</a></li>
 							<c:choose>
 								<c:when test="${sessionScope.user.role == 'Admin'}">
