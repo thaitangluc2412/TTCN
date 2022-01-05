@@ -1,8 +1,8 @@
 package service;
 
-import bean.Book;
 
 import java.util.List;
+import bean.Book;
 
 public interface BookService {
 	
