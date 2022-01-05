@@ -72,7 +72,7 @@
 			<button type="button" class="btn btn-outline-primary">search</button>
 		</div>
 		<div class="shopingcart-bottom-area">
-			<a class="left-shoping-cart" href="#">CREATE NEW BOOK</a>
+			<a class="left-shoping-cart" href="CreateNewBook.jsp">CREATE NEW BOOK</a>
 		</div>
 	</div>
 	<div class="shopping-cart-area section-padding">
