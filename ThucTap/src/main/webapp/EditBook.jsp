@@ -67,11 +67,12 @@
 
         <div class="container">
             <div class="section-title2">
-                <h2 class="header-title">CREATE A NEW BOOK</h2>
+                <h2 class="header-title">EDIT BOOK</h2>
 
             </div>
 
             <div class="row">
+
                 <div class="col-md-12">
                     <form action="">
 
@@ -87,13 +88,13 @@
                         <div class="shop-select">
                             <label>Title  <span class="required">*</span></label>
                             <p class="form-row">
-                                <input type="text" placeholder="Title">
+                                <input type="text" placeholder="Title" value="Trạng Quỳnh">
                             </p>
                         </div>
                         <div class="shop-select">
                             <label>Author  <span class="required">*</span></label>
                             <p class="form-row">
-                                <input type="text" placeholder="Author">
+                                <input type="text" placeholder="Author" value="Nhà xuất bản Đồng Nai">
                             </p>
                         </div>
                         <div class="country-select shop-select">
@@ -196,30 +197,29 @@
                         <div class="shop-select">
                             <label>Price  <span class="required">*</span></label>
                             <p class="form-row">
-                                <input type="text" placeholder="Price">
+                                <input type="text" placeholder="Price" value="40000">
                             </p>
                         </div>
                         <div class="shop-select">
                             <label>Description </label>
                             <p class="form-row order-notes">
-                                <textarea placeholder="Book Description"></textarea>
+                                <textarea placeholder="Additional information">Trạng Quỳnh – Trạng Quỷnh là một bộ truyện tranh thiếu nhi nhiều tập của Việt Nam được thực hiện bởi tác giả Kim Khánh, tập truyện đầu tiên mang tên "Sao sáng xứ Thanh" được Nhà xuất bản Đồng Nai phát hành giữa tháng 6 năm 2003.</textarea>
                             </p>
                         </div>
 
                         <div class="shopingcart-bottom-area">
                             <a class="left-shoping-cart" href="#">Save</a>
-                            <a class="left-shoping-cart" href="#">Cancel</a>
+                            <a class="left-shoping-cart" href="#"> Cancel</a>
                         </div>
-                    </div>
+                     </form>
                 </div>
-              </div>
-           </form>
+            </div>
+        </div>
+
+        
 
     </div>
-    </div>
-    </div>
-    </div>
-
+   
 
 
 

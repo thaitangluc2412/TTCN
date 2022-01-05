@@ -1754,6 +1754,12 @@ p.form-row-phone {
 	width: 100%;
 }
 
+
+.header-title {
+    padding-bottom: 30px;
+}
+
+
 .create-account-form .form-row>input {
 	background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
 	border: 1px solid #bbbbbb;
@@ -2066,6 +2072,8 @@ ul.product-tabs {
 	margin-right: 30px;
 	margin-top: 30px;
 }
+
+
 
 .product-tabs li:last-child {
 	margin-right: 0;

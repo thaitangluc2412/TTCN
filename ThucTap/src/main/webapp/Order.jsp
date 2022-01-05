@@ -66,9 +66,7 @@
 	<!--Header Area End-->
 
 
-	<!-- Breadcrumbs Area Start -->
-	<jsp:include page="BreadCrumbs.jsp"></jsp:include>
-	<!-- Breadcrumbs Area Start -->
+
 
 	<div class="shopping-cart-area section-padding">
 

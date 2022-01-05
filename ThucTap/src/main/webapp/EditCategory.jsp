@@ -1,10 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
-
 <!doctype html>
 <html class="no-js" lang="">
-
+ 
 <head>
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -61,81 +60,45 @@
         <![endif]-->
 
 	<!-- Add your site or application content here -->
-	<!--Header Area Start-->
 	<jsp:include page="Header.jsp"></jsp:include>
-	<!--Header Area End-->
-	
+    <!--Header Area End-->
 
-	<div class="shopping-cart-area section-padding">
+    <div class="shopping-cart-area section-padding">
 
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="wishlist-table-area table-responsive">
-						<table>
-							<thead>
-								<tr>
-									<th class="product-id">ID</th>
-									<th class="product-image">Book</th>
-									<th class="product-title">Rating</th>
-									<th class="product-author">Customer</th>
-									<th class="product-category">Comment</th>
-									<th class="product-edit">Review On</th>
-									<th class="product-subtotal">Delete</th>
-								</tr>
-							</thead>
-							<tbody>
-								<c:forEach items="${listReview}" var="review">
-									<tr>
-										<td class="product-id">
-											<p>
-											<p>${review.reviewId}</p>
-											</p>
-										</td>
-	
-										<td class="product-name">
-											<p>
-											<p>${review.book.title}</p>
-											</p>
-										</td>
-										<td class="product-author">
-											<p>
-											<p>${review.rating}</p>
-											</p>
-										</td>
-										<td class="product-category">
-											<p>
-											<p>${review.user.name}</p>
-											</p>
-										</td>
-										<td class="product-price">
-											<p>
-											<p>${review.comment}</p>
-											</p>
-	
-										</td>
-	
-										<td class="product-quantity">
-											<p>
-											<p>${review.reviewDate}</p>
-											</p>
-	
-										</td>
-	
-										<td class="product-remove"><a href="#"> <i
-												class="flaticon-delete"></i>
-										</a></td>
-									</tr>
-								</c:forEach>
-								
-							</tbody>
-						</table>
-					</div>
-				
-				</div>
-			</div>
-		</div>
-	</div>
+        <div class="container">
+            <div class="section-title2">
+                <h2 class="header-title">EDIT CATEGORY</h2>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-12">
+                    <form action="">
+
+
+                        <div class="shop-select">
+                            <label>Name</label> <span class="required">*</span></label>
+                            <p class="form-row">
+                                <input type="text" placeholder="Name" value="Truyện thiếu nhi">
+                            </p>
+                        </div>
+
+
+                        <div class="shopingcart-bottom-area">
+                            <a class="left-shoping-cart" href="#">Save</a>
+                            <a class="left-shoping-cart" href="#">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+       
+
+    </div>
+   
+
 
 
 

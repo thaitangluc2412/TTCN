@@ -50,7 +50,7 @@ public class HibernateProvider {
         }
         return sessionFactory;
     }
-
+   
     private static Properties getHibernateProps() {
         Properties props = new Properties();
 

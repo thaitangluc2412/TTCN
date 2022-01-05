@@ -56,89 +56,91 @@
 </head>
 
 <body>
-	<!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-
-	<!-- Add your site or application content here -->
+	
 	<!--Header Area Start-->
 	<jsp:include page="Header.jsp"></jsp:include>
 	<!--Header Area End-->
 
 
-	<div class="shopping-cart-area section-padding">
-
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="wishlist-table-area table-responsive">
-						<table>
-							<thead>
-								<tr>
-									<th class="product-id">ID</th>
-									<th class="product-image">Email</th>
-									<th class="product-title">Fullname</th>
-									<th class="product-author">Address</th>
-									<th class="product-category">Phone</th>
-									<th class="product-edit">Registered Date</th>
-
-								
-									<th class="product-subtotal">Delete</th>
-								</tr>
-							</thead>
-							<tbody>
-								<c:forEach items="${listCustomer}" var="customer">
-									<tr>
-										<td class="customer-id">
-											<p>
-											<p>${customer.userId}</p>
-											</p>
-										</td>
-	
-										<td class="customer-email">
-											<p>
-											<p>${customer.email}</p>
-											</p>
-										</td>
-										<td class="customer-name">
-											<p>
-											<p>${customer.name}</p>
-											</p>
-										</td>
-										<td class="customer-address">
-											<p>
-											<p>${customer.address}</p>
-											</p>
-										</td>
-										<td class="customer-phone">
-											<p>
-											<p>${customer.phoneNumber}</p>
-											</p>
-	
-										</td>
-	
-										<td class="registered-date">
-											<p>
-											<p>27/12/2021 15:00:00</p>
-											</p>
-	
-										</td>
-									
-										<td class="product-remove "><a href="# "> <i
-												class="flaticon-delete "></i>
-										</a></td>
-									</tr>
-								</c:forEach>
-
-							</tbody>
-						</table>
-					</div>
-					
-				</div>
-			</div>
-		</div>
+	<div align="center">
+		<h2 class="header-title">Order Overview</h2>
+		<table>
+		    <tr>
+		        <td><b>Ordered By: </b></td>
+		        <td>Thai Luc</td>
+		    </tr>
+		     <tr>
+		        <td><b>Phone: </b></td>
+		        <td>088985493</td>
+		    </tr>
+		     <tr>
+		        <td><b>Address: </b></td>
+		        <td>Cam Lo, Quang Tri</td>
+		    </tr>
+		    <tr>
+		        <td><b>Order Status: </b></td>
+		        <td>Waiting Confirm</td>
+		    </tr>
+		     <tr>
+		        <td><b>Order Date: </b></td>
+		        <td>05/01/2021</td>
+		    </tr>
+		    <tr>
+		        <td><b>Recipient Method: </b></td>
+		        <td>Paypal</td>
+		    </tr>
+		    <tr>
+		        <td><b>Book Copies: </b></td>
+		        <td>2</td>
+		    </tr>
+		     <tr>
+		        <td><b>Total Amount: </b></td>
+		        <td><fmt:formatNumber value="" type="currency"/>35</td>
+		    </tr>
+		
+		    
+		</table>
 	</div>
-
+	<p></p>
+	<div align="center">
+	   
+	   <table border="1">
+	       <tr>
+	           <th>Index</th>
+	           <th>Book Title</th>
+	           <th>Author</th>
+	           <th>Price</th>
+	           <th>Quantity</th>
+	           <th>Subtotal</th>
+	       </tr>
+	       <c:forEach items="${order.orderDetails}" var="orderDetail" varStatus="status">
+	       <tr>
+	           <td>${status.index + 1}</td>
+	           <td>${orderDetail.book.title}</td>
+	           <td>${orderDetail.book.author}</td>
+	           <td><fmt:formatNumber value="${orderDetail.book.price}" type="currency"/></td>
+	           <td>${orderDetail.quantity}</td>
+	           <td><fmt:formatNumber value="${orderDetail.subtotal}" type="currency"/></td>
+	       </tr>
+	       </c:forEach>
+	       <tr>
+	           <td colspan="6" align="right">
+	              <p>Subtotal: <fmt:formatNumber value="${order.subtotal}" type="currency"/></p>
+	              <p>Tax: <fmt:formatNumber value="${order.tax}" type="currency"/></p>
+	              <p>Shipping Fee: <fmt:formatNumber value="${order.shippingFee}" type="currency"/></p>
+	              <p>TOTAL:<fmt:formatNumber value="${order.total}" type="currency"/></p>
+	           </td>
+	       </tr>
+	   </table>
+	 
+	    <div class="shopingcart-bottom-area">
+	      <p></p>
+             <a class="left-shoping-cart" href="#">Confirm</a>
+             <a class="left-shoping-cart" href="#">Delete</a>
+          <p></p>
+        </div>
+         
+	</div>
 
 
 	<!-- Footer Area Start -->
