@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+
 <!doctype html>
 <html class="no-js" lang="">
 <head>
@@ -75,54 +77,44 @@
 						<!-- Tab panes -->
 						<div class="tab-content">
 							<div role="tabpanel" class="tab-pane active" id="one">
-								<a class="venobox" href="img/single-product/bg-1.jpg"
+								<a class="venobox" href="${book.image}"
 									data-gall="gallery" title=""> <img
-									src="img/single-product/bg-1.jpg" alt="">
+									src="${book.image}"  alt="">
 								</a>
 							</div>
-							<div role="tabpanel" class="tab-pane" id="two">
-								<a class="venobox" href="img/single-product/bg-2.jpg"
-									data-gall="gallery" title=""> <img
-									src="img/single-product/bg-2.jpg" alt="">
-								</a>
-							</div>
-							<div role="tabpanel" class="tab-pane" id="three">
-								<a class="venobox" href="img/single-product/bg-3.jpg"
-									data-gall="gallery" title=""> <img
-									src="img/single-product/bg-3.jpg" alt="">
-								</a>
-							</div>
+							
 						</div>
 						<!-- Nav tabs -->
 						<ul class="product-tabs" role="tablist">
-							<li role="presentation" class="active"><a href="#one"
+							<li role="presentation" class="active"><a class="venobox" href="${book.image}"
 								aria-controls="one" role="tab" data-toggle="tab"><img
-									src="img/single-product/1.jpg" alt=""></a></li>
-							<li role="presentation"><a href="#two" aria-controls="two"
+									src="${book.image}" style="width:150px;height:160px;" alt=""></a></li>
+							<li role="presentation"><a class="venobox" href="${book.image}" aria-controls="two"
 								role="tab" data-toggle="tab"><img
-									src="img/single-product/2.jpg" alt=""></a></li>
-							<li role="presentation"><a href="#three"
+									src="${book.image}" style="width:150px;height:160px;" alt=""></a></li>
+							<li role="presentation"><a class="venobox" href="${book.image}"
 								aria-controls="three" role="tab" data-toggle="tab"><img
-									src="img/single-product/3.jpg" alt=""></a></li>
+									src=${book.image} style="width:150px;height:160px;" alt=""></a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-md-6 col-sm-5">
 					<div class="single-product-details">
 						<div class="list-pro-rating">
-							<i class="fa fa-star icolor"></i> <i class="fa fa-star icolor"></i>
-							<i class="fa fa-star icolor"></i> <i class="fa fa-star icolor"></i>
-							<i class="fa fa-star"></i>
+							<c:forEach var = "i" begin = "1" end ="${book.rating}">
+								<i class="fa fa-star icolor"></i> 
+							</c:forEach>
+							<c:forEach var = "i" begin = "1" end ="${5-book.rating}">
+								<i class="fa fa-star"></i>
+							</c:forEach>
 						</div>
-						<h2>Cold mountain</h2>
+						<h2>${book.title}</h2>
 						<div class="availability">
 							<span>In stock</span>
 						</div>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-							sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna
-							aliquam erat volutpat.</p>
+						<p>${book.description}</p>
 						<div class="single-product-price">
-							<h2>$49.66</h2>
+							<h2>${book.price}</h2>
 						</div>
 						<div class="product-attributes clearfix">
 							<span class="pull-left" id="quantity-wanted-p"> <span
@@ -139,8 +131,8 @@
 							</a>
 						</div>
 						<div class="single-product-categories">
-							<label>Categories:</label> <span>e-book, biological,
-								business</span>
+							<label>Categories:</label> <span>${book.categoryId.name}</span><br>
+							<label>Author:</label> <span>adu</span>
 						</div>
 						<div class="social-share">
 							<label>Share: </label>
@@ -173,15 +165,7 @@
 						<div class="clearfix"></div>
 						<div class="tab-content review">
 							<div role="tabpanel" class="tab-pane active" id="more-info">
-								<p>Fashion has been creating well-designed collections since
-									2010. The brand offers feminine designs delivering stylish
-									separates and statement dresses which have since evolved into a
-									full ready-to-wear collection in which every item is a vital
-									part of a woman's wardrobe. The result? Cool, easy, chic looks
-									with youthful elegance and unmistakable signature style. All
-									the beautiful pieces are made in Italy and manufactured with
-									the greatest attention. Now Fashion extends to a range of
-									accessories including shoes, hats, belts and more!</p>
+								<p>${book.description}</p>
 							</div>
 							<div role="tabpanel" class="tab-pane" id="data">
 								<div class="mb-3">

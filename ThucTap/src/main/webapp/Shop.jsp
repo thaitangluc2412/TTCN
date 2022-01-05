@@ -194,11 +194,11 @@
 										</div> -->
 										<div class="col-4 product-wapper">
 											<div class="single-product-wrapper">
-												<a href="#"><img class="image-product" alt=""
+												<a href="TheBook?Book=${book.bookId}"><img class="image-product" alt=""
 													src="${book.image}"></a>
 											</div>
 											<div class="title-product">
-												<a href="#">${book.title}</a>
+												<a href="TheBook?Book=${book.bookId}">${book.title}</a>
 											</div>
 											<div class="rating-icon" style="text-align: center">
 												<p style="color: #ba1e1e; margin-bottom: 0px">${book.price}$</p> <i class="fa fa-star icolor"></i> <i
