@@ -26,4 +26,5 @@ public interface BookDao {
     List<Book> getBookCurrentPage(int trimStart, int rows);
     
     List<Book> getBookByCategoryIDCurrentPage(int trimStart, int rows, int categoryID);
+
 }

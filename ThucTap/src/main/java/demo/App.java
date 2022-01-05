@@ -17,13 +17,11 @@ public class App {
 
 
     public static void main(String[] args) {
-        List<Book> listbooks = bookService.getAll();
-        print(listbooks);
+       List<Book> listBooks =   bookService.getAll();
+       print(listBooks);
     }
 
     private static <Element> void print(Collection<Element> elements) {
         elements.forEach(System.out::println);
     }
-
-
 }
