@@ -59,7 +59,7 @@ public class Shopping extends HttpServlet {
         
         List<Book> listBook = new ArrayList<>();
         List<Book> listBookCurrentPage = new ArrayList<>();
-        if(categoryID != null) {
+        if(categoryID != null && !categoryID.equals("")) {
         	System.out.print("cOS ID");
         	listBook = bookService.getBookByCategoryId(Integer.parseInt(categoryID));
         	listBookCurrentPage = bookService.getBookByCategoryIDCurrentPage(trimStart, rows, Integer.parseInt(categoryID));

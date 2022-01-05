@@ -11,7 +11,7 @@ import org.hibernate.type.StringType;
 
 public class HibernateCategoryDao extends AbstractHibernateDao implements CategoryDao {
     private static final String Q_SIGN_IN = "";
-    private static final String Q_GET_ALL = "SELECT * FROM Category";
+    private static final String Q_GET_ALL = "SELECT * FROM Category ORDER BY CategoryId";
     
     private static String Q_SUM_CATEGORY_BY_ID = "SELECT ct.Name " + CategoryDto.CATEGORY_NAME
     		+ ", \n " + "count(ct.CategoryId) " + CategoryDto.NUMBER_OF_BOOKS 

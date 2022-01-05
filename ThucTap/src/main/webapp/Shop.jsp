@@ -81,7 +81,8 @@
 								</div>
 								<ul class="list-group category_block">
 									<c:forEach items="${categoryMap}" var="category">
-										<li class="list-group-item text-white ${category.key.categoryID == categoryID ? "bg-secondary" : ""}"><a
+										<li
+											class="list-group-item text-white ${category.key.categoryID == categoryID ? "bg-secondary" : ""}"><a
 											href="Shopping?categoryID=${category.key.categoryID}"> <i
 												class="fa fa-angle-double-right"></i> ${category.key.name} <span>(${category.value})</span>
 										</a></li>
@@ -153,10 +154,11 @@
 									</form>
 								</div>
 							</div>
-							<div class="row tab-pane fade in active" id="home">
-								<div class="shop-single-product-area">
+							<div class="row tab-pane fade in active" id="home"
+								style="margin-top: 20px">
+								<div class="row shop-single-product-area">
 									<c:forEach items="${listBookCurrentPage}" var="book">
-										<div class="col-md-4 col-sm-6">
+										<!--  				<div class="col-md-4 col-sm-6">
 											<div class="single-banner">
 												<div class="product-wrapper">
 													<a href="#" class="single-banner-image-wrapper"> <img
@@ -178,8 +180,8 @@
 													</div>
 												</div>
 												<div class="banner-bottom text-center">
-													<div class="banner-bottom-title">
-														<a href="#" class="productName">${book.title}</a>
+													<div class="banner-bottom-title2">
+														${book.title}
 													</div>
 													<div class="rating-icon">
 														<i class="fa fa-star icolor"></i> <i
@@ -188,6 +190,25 @@
 														<i class="fa fa-star"></i>
 													</div>
 												</div>
+											</div>
+										</div> -->
+										<div class="col-4">
+											<div class="single-product-wrapper">
+												<a href="#"><img class="image-product" alt=""
+													src="${book.image}"></a>
+											</div>
+											<div class="title-product">
+												<a href="#">${book.title}</a>
+											</div>
+											<div class="rating-icon" style="text-align: center">
+												<p style="color: #ba1e1e; margin-bottom: 0px">${book.price}$</p> <i class="fa fa-star icolor"></i> <i
+													class="fa fa-star icolor"></i> <i class="fa fa-star icolor"></i>
+												<i class="fa fa-star"></i> <i class="fa fa-star"></i>
+											</div>
+											<div class="col functional-buttons" style="text-align: center">
+												<button class="btn btn-info addToCart">
+													<i class="fa fa-shopping-cart"><span style="font-family: sans-serif">Add to cart</span></i> 
+												</button>
 											</div>
 										</div>
 									</c:forEach>
@@ -201,6 +222,7 @@
 												<div class="left-item">
 													<a href="single-product.html" title="${book.title}"> <img
 														src="${book.image}" alt="">
+														<div class="price priceValue">${book.price}</div>
 													</a>
 												</div>
 											</div>

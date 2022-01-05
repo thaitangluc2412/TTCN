@@ -58,8 +58,8 @@
 											type="button" class="btn btn-primary">Login</button></a></li>
 							</c:if>
 							<c:if test="${sessionScope.user != null }">
-								<li><a href="Logout" class="ml-5"><button
-											type="button" class="btn btn-primary">Logout</button></a></li>
+								<li><a href="Logout" class="ml-5"><button type="button"
+											class="btn btn-primary">Logout</button></a></li>
 							</c:if>
 						</ul>
 					</nav>
@@ -114,12 +114,15 @@
 									</div>
 								</div>
 								<div class="total-cart-price">
+									<div class="cart-product-line fast-line">
+										<span>Shipping</span> <span class="free-shiping">$10.50</span>
+									</div>
 									<div class="cart-product-line">
-										<span>Total</span> <span class="total" id="sum-prices">$ 140.00</span>
+										<span>Total</span> <span class="total">$ 140.00</span>
 									</div>
 								</div>
 								<div class="cart-checkout">
-									<a href="Checkout.jsp">Check out <i
+									<a href="checkout.html"> Check out <i
 										class="fa fa-chevron-right"></i>
 									</a>
 								</div>
@@ -129,6 +132,7 @@
 			</div>
 		</div>
 	</div>
+</div>
 </div>
 
 <!-- Mobile Menu Start -->
