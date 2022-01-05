@@ -193,6 +193,7 @@
 											</div>
 										</div> -->
 										<div class="col-4 product-wapper">
+										    <div class="id-product hidden">${book.bookId}</div>
 											<div class="single-product-wrapper">
 												<a href="TheBook?Book=${book.bookId}"><img class="image-product" alt=""
 													src="${book.image}"></a>
@@ -305,7 +306,7 @@
 	<script src="js/jquery.meanmenu.js"></script>
 	<!-- wow js -->
 	<script src="js/wow.min.js"></script>
-	<script src="js/addToCart.js"></script>
+	<script src="js/addToCart.js"></script> 
 	<script>
 		new WOW().init();
 	</script>

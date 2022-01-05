@@ -77,46 +77,32 @@
 								class="flaticon-shop"></i> <span>2</span>
 						</a>
 							<div class="add-to-cart-product">
-								<div class="cart-product">
-									<div class="cart-product-image">
-										<a href="single-product.html"> <img src="img/shop/1.jpg"
+							<!-- <div class="row cart-product">
+									<div class="cart-product-image" style="margin-left: 10px">
+										<a href="single-product.html"> <img
+											src="//bizweb.dktcdn.net/thumb/large/100/282/917/products/z2881714372397-6e76a1433ffec29c5d8cc256df7c7c05.jpg?v=1635741227000"
 											alt="">
 										</a>
 									</div>
-									<div class="cart-product-info">
-										<p>
-											<span>1</span> x <a href="single-product.html">East of
-												eden</a>
+									<div class="cart-product-info title-product">
+										<p style="margin-bottom: 5px">
+											<a href="single-product.html">Charming Classics 6 Books
+												Collection: Alice In Wonderland, The Wizard of Oz, A Little
+												Princess, The Secret Garden, & Anne of Green Gables,
+												(Includes one Bracelet with four Charms) by</a>
 										</p>
-										<a href="single-product.html">S, Orange</a> <span
-											class="cart-price">$ 140.00</span>
-									</div>
-									<div class="cart-product-remove">
-										<i class="fa fa-times"></i>
-									</div>
-								</div>
-								<div class="cart-product">
-									<div class="cart-product-image">
-										<a href="single-product.html"> <img src="img/shop/1.jpg"
-											alt="">
-										</a>
-									</div>
-									<div class="cart-product-info">
-										<p>
-											<span>1</span> x <a href="single-product.html">East of
-												eden</a>
-										</p>
-										<a href="single-product.html">S, Orange</a> <span
-											class="cart-price">$ 140.00</span>
+										<span class="cart-price">$ 140.00</span>
+										<div style="margin-top: 10px">
+											<button class="button-minus" data-id=${product.id}>-</button>
+											<span class="countOfProduct">1</span>
+											<button class="button-plus" data-id=${product.id}>+</button>
+										</div>
 									</div>
 									<div class="cart-product-remove">
 										<i class="fa fa-times"></i>
 									</div>
 								</div>
 								<div class="total-cart-price">
-									<div class="cart-product-line fast-line">
-										<span>Shipping</span> <span class="free-shiping">$10.50</span>
-									</div>
 									<div class="cart-product-line">
 										<span>Total</span> <span class="total">$ 140.00</span>
 									</div>
@@ -125,7 +111,7 @@
 									<a href="checkout.html"> Check out <i
 										class="fa fa-chevron-right"></i>
 									</a>
-								</div>
+								</div> -->
 							</div></li>
 					</ul>
 				</div>
