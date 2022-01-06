@@ -123,8 +123,8 @@
 						</div>
 						<div class="single-product-categories">
 							<label>Categories:</label> <span>${book.categoryId.name}</span><br>
-							<label>Author:</label> <span><c:forEach
-									items="${book.getBookUser()}" var="bookUser">
+							<label>Author:</label> <span>
+							<c:forEach items="${book.getBookUser()}" var="bookUser">
 									${bookUser.getUser().getName()}
 								</c:forEach></span>
 						</div>
