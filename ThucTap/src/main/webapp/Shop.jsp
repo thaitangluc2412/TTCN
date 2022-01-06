@@ -80,11 +80,11 @@
 									<i class="fa fa-list"></i> Categories
 								</div>
 								<ul class="list-group category_block">
-									<c:forEach items="${categoryMap}" var="category">
+									<c:forEach items="${listCategory}" var="category">
 										<li
-											class="list-group-item text-white ${category.key.categoryID == categoryID ? "bg-secondary" : ""}"><a
-											href="Shopping?categoryID=${category.key.categoryID}"> <i
-												class="fa fa-angle-double-right"></i> ${category.key.name} <span>(${category.value})</span>
+											class="list-group-item text-white ${category.categoryID == categoryID ? "bg-secondary" : ""}"><a
+											href="Shopping?categoryID=${category.categoryID}"> <i
+												class="fa fa-angle-double-right"></i> ${category.name}
 										</a></li>
 									</c:forEach>
 								</ul>
@@ -193,22 +193,25 @@
 											</div>
 										</div> -->
 										<div class="col-4 product-wapper">
-										    <div class="id-product hidden">${book.bookId}</div>
+											<div class="id-product hidden">${book.bookId}</div>
 											<div class="single-product-wrapper">
-												<a href="TheBook?Book=${book.bookId}"><img class="image-product" alt=""
-													src="${book.image}"></a>
+												<a href="TheBook?Book=${book.bookId}"><img
+													class="image-product" alt="" src="${book.image}"></a>
 											</div>
 											<div class="title-product">
 												<a href="TheBook?Book=${book.bookId}">${book.title}</a>
 											</div>
 											<div class="rating-icon" style="text-align: center">
-												<p style="color: #ba1e1e; margin-bottom: 0px">${book.price}$</p> <i class="fa fa-star icolor"></i> <i
+												<p style="color: #ba1e1e; margin-bottom: 0px">${book.price}</p>
+												<i class="fa fa-star icolor"></i> <i
 													class="fa fa-star icolor"></i> <i class="fa fa-star icolor"></i>
 												<i class="fa fa-star"></i> <i class="fa fa-star"></i>
 											</div>
-											<div class="col addToCart" style="text-align: center">
-												<button class="btn btn-info">
-													<i class="fa fa-shopping-cart"><span style="font-family: sans-serif">Add to cart</span></i> 
+											<div class="col" style="text-align: center">
+												<button class="btn btn-info addToCart">
+													<i class="fa fa-shopping-cart addToCart"><span
+														class="addToCart" style="font-family: sans-serif">Add
+															to cart</span></i>
 												</button>
 											</div>
 										</div>
@@ -218,12 +221,12 @@
 							<div id="menu1" class="tab-pane fade">
 								<div class="row">
 									<c:forEach items="${listBookCurrentPage}" var="book">
-										<div class="single-shop-product">
+										<div class="col-12 single-shop-product product-wapper2">
+											<div class="id-product hidden">${book.bookId}</div>
 											<div class="col-xs-12 col-sm-5 col-md-4">
 												<div class="left-item">
 													<a href="single-product.html" title="${book.title}"> <img
 														src="${book.image}" alt="">
-														<div class="price priceValue">${book.price}</div>
 													</a>
 												</div>
 											</div>
@@ -233,7 +236,7 @@
 														<a href="single-product.html" title="East of eden">${book.title}</a>
 													</h4>
 													<div class="product-price">
-														<span class="new-price">$ ${book.price}</span>
+														<span class="new-price">${book.price}</span>
 													</div>
 													<div class="list-rating-icon">
 														<i class="fa fa-star icolor"></i> <i
@@ -242,8 +245,12 @@
 														<i class="fa fa-star"></i>
 													</div>
 													<p>${book.description}</p>
-													<div class="availability">
-														<span>In stock</span> <span><a>Add to cart</a></span>
+													<div class="availability addToCart">
+														<button class="btn btn-info addToCart">
+															<i class="fa fa-shopping-cart addToCart"><span
+																class="addToCart" style="font-family: sans-serif">Add
+																	to cart</span></i>
+														</button>
 													</div>
 												</div>
 											</div>
@@ -306,7 +313,7 @@
 	<script src="js/jquery.meanmenu.js"></script>
 	<!-- wow js -->
 	<script src="js/wow.min.js"></script>
-	<script src="js/addToCart.js"></script> 
+	<script src="js/addToCart.js"></script>
 	<script>
 		new WOW().init();
 	</script>

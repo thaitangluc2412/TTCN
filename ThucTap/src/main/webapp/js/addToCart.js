@@ -10,12 +10,12 @@ if (!productsInCart) {
 	productsInCart = [];
 }
 const parentElement = document.querySelector('.add-to-cart-product');
-// const cartSumPrice = document.querySelector('#sum-prices');
 const products = document.querySelectorAll('.product-wapper');
+const products2 = document.querySelectorAll('.product-wapper2');
 
 
-console.log("Hello122233333");
-products.innerHTML = ``;
+
+// products.innerHTML = ``;
 
 const countTheSumPrice = function () { // 4
 	let sum = 0;
@@ -26,6 +26,7 @@ const countTheSumPrice = function () { // 4
 }
 
 const updateShoppingCartHTML = function () {  // 3
+	let sumPrice = countTheSumPrice();
 	localStorage.setItem('shoppingCart', JSON.stringify(productsInCart));
 	if (productsInCart.length > 0) {
 		let result = productsInCart.map(product => {
@@ -47,15 +48,14 @@ const updateShoppingCartHTML = function () {  // 3
 					<button class="button-plus text-secondary" data-id=${product.id}>+</button>
 				</div>
 			</div>
-			<div class="cart-product-remove">
-				<i class="fa fa-times"></i>
+			<div class="cart-product-remove deleteProduct">
+				<i class="fa fa-times deleteProduct" data-id=${product.id}></i>
 			</div>
 		</div> `
 		});
-		console.log("Hello1");
 		parentElement.innerHTML = result.join('') + `<div class="total-cart-price">
 		<div class="cart-product-line">
-			<span>Total</span> <span class="total">$ 140.00</span>
+			<span>Total</span> <span class="total">$ ${sumPrice}</span>
 		</div>
 	</div>
 	<div class="cart-checkout">
@@ -63,12 +63,10 @@ const updateShoppingCartHTML = function () {  // 3
 			class="fa fa-chevron-right"></i>
 		</a>
 	</div>`;
-		// document.querySelector('.cart-checkout').classList.remove('hidden');
-		// cartSumPrice.innerHTML = countTheSumPrice();
+		
 
 	}
 	else {
-		console.log("Hello22222222");
 		parentElement.innerHTML = `<div class="total-cart-price">
 		<div class="cart-product-line">
 			<span>Total</span> <span class="total">$</span>
@@ -79,10 +77,12 @@ const updateShoppingCartHTML = function () {  // 3
 			class="fa fa-chevron-right"></i>
 		</a>
 	</div>`;
-		// document.querySelector('.cart-checkout').classList.add('hidden');
-		// cartSumPrice.innerText  = ``;
+		
 	}
 }
+
+
+
 
 function updateProductsInCart(product) { // 2
 	for (let i = 0; i < productsInCart.length; i++) {
@@ -98,16 +98,33 @@ function updateProductsInCart(product) { // 2
 products.forEach(item => {   // 1
 	item.addEventListener('click', (e) => {
 		if (e.target.classList.contains('addToCart')) {
-		console.log("kicked");
 		const productID = item.querySelector('.id-product').textContent;
-		console.log(productID);
 		const productName = item.querySelector('.title-product').textContent;
-		console.log(productName);
 		const productPrice = item.querySelector('.rating-icon').textContent;
-		// productPrice = productPrice.replace('$','');
-		console.log(productPrice);
 		const productImage = item.querySelector('img').src;
-		console.log(productImage);
+		let product = {
+			name: productName,
+			image: productImage,
+			id: productID,
+			count: 1,
+			price: +productPrice,
+			basePrice: +productPrice,
+		}
+		updateProductsInCart(product);
+		updateShoppingCartHTML();
+		}
+
+	});
+});
+
+
+products2.forEach(item => {   // 1
+	item.addEventListener('click', (e) => {
+		if (e.target.classList.contains('addToCart')) {
+		const productID = item.querySelector('.id-product').textContent;
+		const productName = item.querySelector('.deal-product-content').textContent;
+		const productPrice = item.querySelector('.product-price').textContent;
+		const productImage = item.querySelector('img').src;
 		let product = {
 			name: productName,
 			image: productImage,
@@ -146,5 +163,17 @@ products.forEach(item => {   // 1
      }
  });
 
+
+ parentElement.addEventListener('click', (e) => { // Last
+	const isDeleteButton = e.target.classList.contains('deleteProduct');
+	if (isDeleteButton) {
+		for (let i = 0; i < productsInCart.length; i++) {
+			if (productsInCart[i].id == e.target.dataset.id) {
+				productsInCart.splice(i, 1);
+            }
+		}
+		updateShoppingCartHTML();
+	}
+});
 
 updateShoppingCartHTML();

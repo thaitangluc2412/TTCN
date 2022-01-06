@@ -49,11 +49,11 @@ public class Shopping extends HttpServlet {
         }
         BookServiceImpl bookService = new BookServiceImpl();
         CategoryServiceImpl categoryService = new CategoryServiceImpl();
-        HashMap<Category, Integer> categoryMap = new HashMap<>();
+//        HashMap<Category, Integer> categoryMap = new HashMap<>();
         List<Category> listCategory = categoryService.getAll();
-        for(Category category : listCategory) {
-        	categoryMap.put(category, bookService.getBookByCategoryId(category.getCategoryID()).size());
-        }
+//        for(Category category : listCategory) {
+//        	categoryMap.put(category, bookService.getBookByCategoryId(category.getCategoryID()).size());
+//        }
         
         int trimStart = (currentPage - 1) * rows;
         
@@ -99,8 +99,9 @@ public class Shopping extends HttpServlet {
         request.setAttribute("totalPages", totalPages);
         request.setAttribute("maxLeft", maxLeft);
         request.setAttribute("maxRight", maxRight);
-        request.setAttribute("categoryMap", categoryMap);
+//        request.setAttribute("categoryMap", categoryMap);
         request.setAttribute("bookBestSeller", bookBestSeller);
+        request.setAttribute("listCategory", listCategory);
         request.getRequestDispatcher("Shop.jsp").forward(request, response);
     }
 
