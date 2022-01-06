@@ -101,11 +101,8 @@
 				<div class="col-md-6 col-sm-5">
 					<div class="single-product-details">
 						<div class="list-pro-rating">
-							<c:forEach var = "i" begin = "1" end ="${book.rating}">
-								<i class="fa fa-star icolor"></i> 
-							</c:forEach>
-							<c:forEach var = "i" begin = "1" end ="${5-book.rating}">
-								<i class="fa fa-star"></i>
+							<c:forEach var = "i" begin = "1" end ="5">
+								<i class="fa fa-star ${i <= book.rating ? "icolor" : ""}"></i> 
 							</c:forEach>
 						</div>
 						<h2>${book.title}</h2>
@@ -436,6 +433,7 @@
 	<script src="js/jquery.meanmenu.js"></script>
 	<!-- wow js -->
 	<script src="js/wow.min.js"></script>
+	<script src="js/addToCart.js"></script>
 	<script>
 		new WOW().init();
 	</script>

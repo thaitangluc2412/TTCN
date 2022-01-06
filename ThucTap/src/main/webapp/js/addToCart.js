@@ -12,6 +12,7 @@ if (!productsInCart) {
 const parentElement = document.querySelector('.add-to-cart-product');
 const products = document.querySelectorAll('.product-wapper');
 const products2 = document.querySelectorAll('.product-wapper2');
+const quantityProduct = document.querySelector(".quantity-product");
 
 
 
@@ -27,6 +28,8 @@ const countTheSumPrice = function () { // 4
 
 const updateShoppingCartHTML = function () {  // 3
 	let sumPrice = countTheSumPrice();
+    quantityProduct.innerHTML = `<i
+	class="flaticon-shop"></i> <span>${productsInCart.length}</span>`;
 	localStorage.setItem('shoppingCart', JSON.stringify(productsInCart));
 	if (productsInCart.length > 0) {
 		let result = productsInCart.map(product => {

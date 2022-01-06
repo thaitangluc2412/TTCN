@@ -22,11 +22,17 @@ public class HibernateBookDao extends AbstractHibernateDao implements BookDao {
 
 	private static final String Q_GET_BY_TITLE = "SELECT * FROM book WHERE Title LIKE :title";
 
+	private static final String Q_GET_GET_TITLE_CURRENT_PAGE = "SELECT * FROM book WHERE Title LIKE :title LIMIT :trimStart, :rows";
+
+	private static final String Q_GET_BY_TITLE_WITH_CATEGORY_ID = "SELECT * FROM book WHERE CategoryId = :CategoryId AND Title LIKE :title";
+
+	private static final String Q_GET_BY_TITLE_WITH_CATEGORY_ID_CURRENT_PAGE = "SELECT * FROM book WHERE CategoryId = :CategoryId AND Title LIKE :title LIMIT :trimStart, :rows";
+
 	private static final String Q_GET_BOOK_BY_CATEGORY_ID = "SELECT bo.*\n" + "FROM Book bo\n" + "JOIN Category ct \n"
 			+ "ON bo.CategoryId = ct.CategoryId\n" + "WHERE ct.CategoryId = :CategoryId";
 
 	private static final String Q_GET_BOOK_OF_CURRENT_PAGE = "SELECT * FROM book LIMIT :trimStart , :rows";
-	
+
 	private static final String Q_GET_BOOK_BY_CATEGORY_ID_OF_CURRENT_PAGE = "SELECT * FROM book WHERE CategoryId = :CategoryId LIMIT :trimStart, :rows";
 
 	@Override
@@ -63,6 +69,12 @@ public class HibernateBookDao extends AbstractHibernateDao implements BookDao {
 	}
 
 	@Override
+	public List<Book> getByTitleAndCategory(String title, int categoryID) {
+		return openSession().createNativeQuery(Q_GET_BY_TITLE_WITH_CATEGORY_ID, Book.class)
+				.setParameter("title", "%" + title + "%").setParameter("CategoryId", categoryID).getResultList();
+	}
+
+	@Override
 	public List<Book> getBookByCategoryId(Integer categoryId) {
 		return openSession().createNativeQuery(Q_GET_BOOK_BY_CATEGORY_ID, Book.class)
 				.setParameter("CategoryId", categoryId, IntegerType.INSTANCE).getResultList();
@@ -81,8 +93,7 @@ public class HibernateBookDao extends AbstractHibernateDao implements BookDao {
 		// TODO Auto-generated method stub
 		return openSession().createNativeQuery(Q_GET_BOOK_OF_CURRENT_PAGE, Book.class)
 				.setParameter("trimStart", trimStart, IntegerType.INSTANCE)
-				.setParameter("rows", rows, IntegerType.INSTANCE)
-				.getResultList();
+				.setParameter("rows", rows, IntegerType.INSTANCE).getResultList();
 	}
 
 	@Override
@@ -90,8 +101,24 @@ public class HibernateBookDao extends AbstractHibernateDao implements BookDao {
 		return openSession().createNativeQuery(Q_GET_BOOK_BY_CATEGORY_ID_OF_CURRENT_PAGE, Book.class)
 				.setParameter("CategoryId", categoryID, IntegerType.INSTANCE)
 				.setParameter("trimStart", trimStart, IntegerType.INSTANCE)
-				.setParameter("rows", rows, IntegerType.INSTANCE)
-				.getResultList();
+				.setParameter("rows", rows, IntegerType.INSTANCE).getResultList();
+	}
+
+	@Override
+	public List<Book> getByTitleCurrentPage(int trimStart, int rows, String title) {
+		return openSession().createNativeQuery(Q_GET_GET_TITLE_CURRENT_PAGE, Book.class)
+				.setParameter("title", "%" + title + "%", StringType.INSTANCE)
+				.setParameter("trimStart", trimStart, IntegerType.INSTANCE)
+				.setParameter("rows", rows, IntegerType.INSTANCE).getResultList();
+	}
+
+	@Override
+	public List<Book> getByTitleAndCategoryCurrentPage(int trimStart, int rows, String title, int categoryID) {
+		return openSession().createNativeQuery(Q_GET_BY_TITLE_WITH_CATEGORY_ID_CURRENT_PAGE, Book.class)
+				.setParameter("CategoryId", categoryID, IntegerType.INSTANCE)
+				.setParameter("title", "%" + title + "%", StringType.INSTANCE)
+				.setParameter("trimStart", trimStart, IntegerType.INSTANCE)
+				.setParameter("rows", rows, IntegerType.INSTANCE).getResultList();
 	}
 
 }

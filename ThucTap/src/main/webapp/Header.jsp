@@ -73,8 +73,8 @@
 							<li><a href="MyAccount.jsp"><i class="flaticon-people"></i></a>
 							</li>
 						</c:if>
-						<li class="shoping-cart"><a href="#"> <i
-								class="flaticon-shop"></i> <span>2</span>
+						<li class="shoping-cart"><a href="#" class="quantity-product"> <i
+								class="flaticon-shop"></i> <span ></span>
 						</a>
 							<div class="add-to-cart-product">
 							<!-- <div class="row cart-product">

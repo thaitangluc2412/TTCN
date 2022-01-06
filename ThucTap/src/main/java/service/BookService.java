@@ -31,6 +31,12 @@ public interface BookService {
 
     List<Book> getByTitle(String title);
     
+    List<Book> getByTitleCurrentPage(int trimStart, int rows, String title);
+    
+    List<Book> getByTitleAndCategory(String title, int categoryID);
+    
+    List<Book> getByTitleAndCategoryCurrentPage(int trimStart, int rows, String title, int categoryID);
+    
     List<Book> getBookByCategoryId(Integer categoryId);
     
     List<Book> getBookCategoryOrderBy(Integer categoryId, String orderBy, boolean orderType);

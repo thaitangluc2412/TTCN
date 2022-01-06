@@ -80,6 +80,11 @@
 									<i class="fa fa-list"></i> Categories
 								</div>
 								<ul class="list-group category_block">
+									<li
+										class="list-group-item text-white ${categoryID == null || categoryID == '' ? "bg-secondary" : ""}"><a
+										href="Shopping?"> <i class="fa fa-angle-double-right"></i>
+											All
+									</a></li>
 									<c:forEach items="${listCategory}" var="category">
 										<li
 											class="list-group-item text-white ${category.categoryID == categoryID ? "bg-secondary" : ""}"><a
@@ -130,12 +135,13 @@
 						<div class="tab-content">
 							<div>
 								<div style="margin-top: 10px">
-									<form action="Shopping" method="POST">
+									<form action="Shopping?categoryID=${categoryID}" method="POST">
 										<input type="hidden" value="search" name="command">
 										<div class="input-group" style="width: 100%">
 											<input type="search" class="form-control rounded w-50 p-3"
 												placeholder="Search..." aria-label="Search"
-												aria-describedby="search-addon" />
+												aria-describedby="search-addon" name="searchBook"
+												value="${searchBook}" />
 											<button type="submit" class="btn btn-outline-primary">search</button>
 											<div style="display: inline; position: absolute; right: 20px">
 												<select class="form-control rounded w-100"
@@ -203,9 +209,11 @@
 											</div>
 											<div class="rating-icon" style="text-align: center">
 												<p style="color: #ba1e1e; margin-bottom: 0px">${book.price}</p>
-												<i class="fa fa-star icolor"></i> <i
-													class="fa fa-star icolor"></i> <i class="fa fa-star icolor"></i>
-												<i class="fa fa-star"></i> <i class="fa fa-star"></i>
+												<div class="list-pro-rating">
+													<c:forEach var="i" begin="1" end="5">
+														<i class="fa fa-star ${i <= book.rating ? "icolor" : ""}"></i>
+													</c:forEach>
+												</div>
 											</div>
 											<div class="col" style="text-align: center">
 												<button class="btn btn-info addToCart">
@@ -239,10 +247,9 @@
 														<span class="new-price">${book.price}</span>
 													</div>
 													<div class="list-rating-icon">
-														<i class="fa fa-star icolor"></i> <i
-															class="fa fa-star icolor"></i> <i
-															class="fa fa-star icolor"></i> <i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
+														<c:forEach var="i" begin="1" end="5">
+														<i class="fa fa-star ${i <= book.rating ? "icolor" : ""}"></i>
+													</c:forEach>
 													</div>
 													<p>${book.description}</p>
 													<div class="availability addToCart">
@@ -264,17 +271,18 @@
 							<ul class="pagination">
 								<c:if test="${currentPage != 1}">
 									<li class="page-item"><a class="page-link"
-										href="Shopping?page=1&categoryID=${categoryID}"> First </a></li>
+										href="Shopping?page=1&categoryID=${categoryID}&searchBook=${searchBook}">
+											First </a></li>
 								</c:if>
 								<c:forEach var="page" begin="${maxLeft}" end="${maxRight}">
 									<li class="page-item ${page == currentPage ? "active" : "" } "><a
 										class="page-link"
-										href="Shopping?page=${page}&categoryID=${categoryID}">
+										href="Shopping?page=${page}&categoryID=${categoryID}&searchBook=${searchBook}">
 											${page} </a></li>
 								</c:forEach>
 								<c:if test="${currentPage != totalPages}">
 									<li class="page-item"><a class="page-link"
-										href="Shopping?page=${totalPages}&categoryID=${categoryID}">
+										href="Shopping?page=${totalPages}&categoryID=${categoryID}&searchBook=${searchBook}">
 											Last </a></li>
 								</c:if>
 							</ul>

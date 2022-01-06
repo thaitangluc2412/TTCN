@@ -62,4 +62,19 @@ public class BookServiceImpl implements BookService {
 	public List<Book> getBookByCategoryIDCurrentPage(int trimStart, int rows, int categoryID) {
 		return bookDao.getBookByCategoryIDCurrentPage(trimStart, rows, categoryID);
 	}
+
+	@Override
+	public List<Book> getByTitleAndCategory(String title, int categoryID) {
+		return bookDao.getByTitleAndCategory(title, categoryID);
+	}
+
+	@Override
+	public List<Book> getByTitleCurrentPage(int trimStart, int rows, String title) {
+		return bookDao.getByTitleCurrentPage(trimStart, rows, title);
+	}
+
+	@Override
+	public List<Book> getByTitleAndCategoryCurrentPage(int trimStart, int rows, String title, int categoryID) {
+		return bookDao.getByTitleAndCategoryCurrentPage(trimStart, rows, title, categoryID);
+	}
 }
