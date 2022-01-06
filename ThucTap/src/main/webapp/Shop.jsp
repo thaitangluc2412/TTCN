@@ -233,7 +233,7 @@
 											<div class="id-product hidden">${book.bookId}</div>
 											<div class="col-xs-12 col-sm-5 col-md-4">
 												<div class="left-item">
-													<a href="single-product.html" title="${book.title}"> <img
+													<a href="TheBook?Book=${book.bookId}" title="${book.title}"> <img
 														src="${book.image}" alt="">
 													</a>
 												</div>
@@ -241,7 +241,7 @@
 											<div class="col-xs-12 col-sm-7 col-md-8">
 												<div class="deal-product-content">
 													<h4>
-														<a href="single-product.html" title="East of eden">${book.title}</a>
+														<a href="TheBook?Book=${book.bookId}" title="East of eden">${book.title}</a>
 													</h4>
 													<div class="product-price">
 														<span class="new-price">${book.price}</span>

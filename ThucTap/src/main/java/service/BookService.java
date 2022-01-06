@@ -12,6 +12,8 @@ public interface BookService {
     String PRICE = "Price";
 
     List<Book> getAll();
+    
+    Book getBookById(int id);
 
     List<Book> getNewReleaseBook();
 

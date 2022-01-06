@@ -66,70 +66,67 @@
 	<!-- Breadcrumbs Area Start -->
 	<jsp:include page="BreadCrumbs.jsp"></jsp:include>
 	<!-- Breadcrumbs Area Start -->
-	
-	
-	
+
+
+
 	<div class="single-product-area section-padding">
 		<div class="container">
-			<div class="row">
+			<div class="row product-detail-wapper">
 				<div class="col-md-6 col-sm-7">
 					<div class="single-product-image-inner">
 						<!-- Tab panes -->
 						<div class="tab-content">
+							<div class="id-product hidden">${book.bookId}</div>
+							<div class="title-product hidden">${book.title}</div>
 							<div role="tabpanel" class="tab-pane active" id="one">
-								<a class="venobox" href="${book.image}"
-									data-gall="gallery" title=""> <img
-									src="${book.image}"  alt="">
+								<a class="venobox" href="${book.image}" data-gall="gallery"
+									title=""> <img src="${book.image}" alt="">
 								</a>
 							</div>
-							
 						</div>
 						<!-- Nav tabs -->
 						<ul class="product-tabs" role="tablist">
-							<li role="presentation" class="active"><a class="venobox" href="${book.image}"
-								aria-controls="one" role="tab" data-toggle="tab"><img
-									src="${book.image}" style="width:150px;height:160px;" alt=""></a></li>
-							<li role="presentation"><a class="venobox" href="${book.image}" aria-controls="two"
-								role="tab" data-toggle="tab"><img
-									src="${book.image}" style="width:150px;height:160px;" alt=""></a></li>
-							<li role="presentation"><a class="venobox" href="${book.image}"
-								aria-controls="three" role="tab" data-toggle="tab"><img
-									src=${book.image} style="width:150px;height:160px;" alt=""></a></li>
+							<li role="presentation" class="active"><a class="venobox"
+								href="${book.image}" aria-controls="one" role="tab"
+								data-toggle="tab"><img src="${book.image}"
+									style="width: 150px; height: 160px;" alt=""></a></li>
+							<li role="presentation"><a class="venobox"
+								href="${book.image}" aria-controls="two" role="tab"
+								data-toggle="tab"><img src="${book.image}"
+									style="width: 150px; height: 160px;" alt=""></a></li>
+							<li role="presentation"><a class="venobox"
+								href="${book.image}" aria-controls="three" role="tab"
+								data-toggle="tab"><img src=${book.image
+									}
+									style="width: 150px; height: 160px;" alt=""></a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-md-6 col-sm-5">
 					<div class="single-product-details">
+						<h3>${book.title}</h3>
+						<p>${book.description}</p>
 						<div class="list-pro-rating">
-							<c:forEach var = "i" begin = "1" end ="5">
-								<i class="fa fa-star ${i <= book.rating ? "icolor" : ""}"></i> 
+							<c:forEach var="i" begin="1" end="5">
+								<i class="fa fa-star ${i <= book.rating ? "icolor" : ""}"></i>
 							</c:forEach>
 						</div>
-						<h2>${book.title}</h2>
-						<div class="availability">
-							<span>In stock</span>
-						</div>
-						<p>${book.description}</p>
-						<div class="single-product-price">
-							<h2>${book.price}</h2>
+						<div class="single-product-price" style="margin-bottom: 10px">
+							<h3>${book.price}</h3>
 						</div>
 						<div class="product-attributes clearfix">
-							<span class="pull-left" id="quantity-wanted-p"> <span
-								class="dec qtybutton">-</span> <input type="text" value="1"
-								class="cart-plus-minus-box"> <span class="inc qtybutton">+</span>
-							</span> <span> <a class="cart-btn btn-default" href="cart.html">
-									<i class="flaticon-shop"></i> Add to cart
-							</a>
-							</span>
-						</div>
-						<div class="add-to-wishlist">
-							<a class="wish-btn" href="cart.html"> <i
-								class="fa fa-heart-o"></i> ADD TO WISHLIST
-							</a>
+							<button class="btn btn-info addToCart">
+								<i class="fa fa-shopping-cart addToCart"><span
+									class="addToCart" style="font-family: sans-serif">Add to
+										cart</span></i>
+							</button>
 						</div>
 						<div class="single-product-categories">
 							<label>Categories:</label> <span>${book.categoryId.name}</span><br>
-							<label>Author:</label> <span>adu</span>
+							<label>Author:</label> <span><c:forEach
+									items="${book.getBookUser()}" var="bookUser">
+									${bookUser.getUser().getName()}
+								</c:forEach></span>
 						</div>
 						<div class="social-share">
 							<label>Share: </label>

@@ -13,6 +13,7 @@ const parentElement = document.querySelector('.add-to-cart-product');
 const products = document.querySelectorAll('.product-wapper');
 const products2 = document.querySelectorAll('.product-wapper2');
 const quantityProduct = document.querySelector(".quantity-product");
+const productDetail = document.querySelector(".product-detail-wapper");
 
 
 
@@ -178,5 +179,25 @@ products2.forEach(item => {   // 1
 		updateShoppingCartHTML();
 	}
 });
+
+productDetail.addEventListener('click', (e) => {
+	if (e.target.classList.contains('addToCart')) {
+		const productID = productDetail.querySelector('.id-product').textContent;
+		const productName = productDetail.querySelector('.title-product').textContent;
+		const productPrice = productDetail.querySelector('.single-product-price').textContent;
+		const productImage = productDetail.querySelector('img').src;
+		let product = {
+			name: productName,
+			image: productImage,
+			id: productID,
+			count: 1,
+			price: +productPrice,
+			basePrice: +productPrice,
+		}
+		updateProductsInCart(product);
+		updateShoppingCartHTML();
+		}
+});
+
 
 updateShoppingCartHTML();

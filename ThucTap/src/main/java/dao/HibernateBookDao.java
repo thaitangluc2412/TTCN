@@ -10,7 +10,9 @@ import org.hibernate.type.StringType;
 
 public class HibernateBookDao extends AbstractHibernateDao implements BookDao {
 	private static final String Q_GET_ALL = "SELECT * FROM Book";
-
+	
+	private static final String Q_GET_SINGLE_BY_ID = "SELECT * FROM Book WHERE BookID = :id";
+	
 	private static final String Q_GET_NEW_RELEASE = "SELECT * FROM Book ORDER BY PublishDate DESC LIMIT 3";
 
 	private static final String Q_GET_QUANTITY = "SELECT count(*) AS Quantity FROM Book";
@@ -144,6 +146,11 @@ public class HibernateBookDao extends AbstractHibernateDao implements BookDao {
 				+ "WHERE bu.UserId = " + id;
 		return openSession().createNativeQuery(Q_GET_BOOK_BY_AUTHOR_ID, Book.class)
 				.getResultList();
+	}
+
+	@Override
+	public Book getBookById(int id) {
+		return openSession().createNativeQuery(Q_GET_SINGLE_BY_ID, Book.class).setParameter("id", id, IntegerType.INSTANCE).uniqueResult();
 	}
 
 }

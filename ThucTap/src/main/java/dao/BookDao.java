@@ -10,6 +10,8 @@ public interface BookDao {
     List<Book> getAll();
 
     List<Book> getNewReleaseBook();
+    
+    Book getBookById(int id);
 
     int getQuantity();
     
@@ -33,7 +35,9 @@ public interface BookDao {
     
     List<Book> getBookByCategoryIDCurrentPage(int trimStart, int rows, int categoryID);
     
+
     Book getById(Integer Id);
     
     List<Book> getByAuthorId(Integer Id);
+
 }
