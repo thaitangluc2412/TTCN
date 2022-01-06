@@ -44,5 +44,9 @@ public interface BookService {
     List<Book> getBookCurrentPage(int trimStart, int rows);
     
     List<Book> getBookByCategoryIDCurrentPage(int trimStart, int rows, int categoryID);
+    
+    Book getById(Integer Id);
+    
+    List<Book> getByAuthorId(Integer Id);
 
 }

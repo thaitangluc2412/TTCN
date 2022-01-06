@@ -42,13 +42,11 @@ public class BookUser {
     }
 
     @Override
-    public String toString() {
-        return "BookUser{" +
-               ", user=" + user +
-               '}';
-    }
+	public String toString() {
+		return "BookUser [id=" + id + ", book=" + book +"]";
+	}
 
-    @Embeddable
+	@Embeddable
     public static class Id implements Serializable {
 
         private static final long serialVersionUID = -3772092037819807334L;

@@ -1,6 +1,7 @@
 package dao;
 
 import bean.Book;
+import bean.BookUser;
 
 import java.util.List;
 
@@ -35,6 +36,10 @@ public class HibernateBookDao extends AbstractHibernateDao implements BookDao {
 
 	private static final String Q_GET_BOOK_BY_CATEGORY_ID_OF_CURRENT_PAGE = "SELECT * FROM book WHERE CategoryId = :CategoryId LIMIT :trimStart, :rows";
 
+	private static final String Q_GET_BOOK_BY_ID = "SELECT * FROM Book WHERE BookId = :bookId";
+
+	
+	
 	@Override
 	public List<Book> getAll() {
 		return openSession().createNativeQuery(Q_GET_ALL, Book.class).getResultList();
@@ -119,6 +124,26 @@ public class HibernateBookDao extends AbstractHibernateDao implements BookDao {
 				.setParameter("title", "%" + title + "%", StringType.INSTANCE)
 				.setParameter("trimStart", trimStart, IntegerType.INSTANCE)
 				.setParameter("rows", rows, IntegerType.INSTANCE).getResultList();
+	}
+	
+	@Override
+	public Book getById(Integer Id) {
+		return openSession().createNativeQuery(Q_GET_BOOK_BY_ID, Book.class)
+				.setParameter("bookId", Id, IntegerType.INSTANCE)
+				.uniqueResult();
+	}
+	
+	@Override
+	public List<Book> getByAuthorId(Integer id) {
+		String Q_GET_BOOK_BY_AUTHOR_ID = "SELECT b.*\n"
+				+ "FROM BookUser bu\n"
+				+ "JOIN BOOK b\n"
+				+ "ON bu.BookId = b.BookID\n"
+				+ "JOIN User u\n"
+				+ "ON u.UserId = bu.UserId\n"
+				+ "WHERE bu.UserId = " + id;
+		return openSession().createNativeQuery(Q_GET_BOOK_BY_AUTHOR_ID, Book.class)
+				.getResultList();
 	}
 
 }

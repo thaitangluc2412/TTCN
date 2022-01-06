@@ -112,8 +112,10 @@
 											</p>
 										</td>
 										<td class="product-author">
-											<p>
-											<p>a</p>
+											<p>			 
+												<c:forEach items="${book.getBookUser()}" var="bookUser">
+													<p>${bookUser.getUser().getName()}</p>
+												</c:forEach>
 											</p>
 										</td>
 										<td class="product-category">

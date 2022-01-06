@@ -38,9 +38,9 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     private List<Order> orders;
-    
+
     @OneToMany(mappedBy = "user")
-	private List<BookUser> bookUser;
+    private List<BookUser> bookUsers;
 
     public User() {
     }
@@ -142,22 +142,25 @@ public class User {
     public void setOrders(List<Order> orders) {
         this.orders = orders;
     }
+    
+    public List<BookUser> getBookUsers() {
+		return bookUsers;
+	}
+    
+    public void setBookUsers(List<BookUser> bookUsers) {
+		this.bookUsers = bookUsers;
+	}
 
-    @Override
-    public String toString() {
-        return "UserInfo{" +
-               "userId=" + userId +
-               ", email='" + email + '\'' +
-               ", userPassword='" + userPassword + '\'' +
-               ", name='" + name + '\'' +
-               ", address='" + address + '\'' +
-               ", phoneNumber='" + phoneNumber + '\'' +
-               ", accountNumber='" + accountNumber + '\'' +
-               ", role=" + role +
-               '}';
-    }
+    
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", email=" + email + ", userPassword=" + userPassword + ", name=" + name
+				+ ", address=" + address + ", phoneNumber=" + phoneNumber + ", accountNumber=" + accountNumber
+				+ ", role=" + role + ", bookUsers=" + bookUsers + "]";
+	}
 
-    public enum Role {
+
+	public enum Role {
         Admin, Author, Customer
     }
 }

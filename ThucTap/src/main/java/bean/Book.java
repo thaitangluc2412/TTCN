@@ -55,6 +55,14 @@ public class Book {
 		this.publishDate = publishDate;
 		this.quantity = quantity;
 	}
+	
+	public List<BookUser> getBookUser() {
+		return bookUser;
+	}
+	
+	public void setBookUser(List<BookUser> bookUser) {
+		this.bookUser = bookUser;
+	}
 
 	public Integer getQuantity() {
 		return quantity;
@@ -132,7 +140,7 @@ public class Book {
 	public String toString() {
 		return "Book [bookId=" + bookId + ", category=" + category + ", title=" + title + ", description=" + description
 				+ ", rating=" + rating + ", image=" + image + ", price=" + price + ", publishDate=" + publishDate
-				+ ", quantity=" + quantity + ", bookUser=" + bookUser + "]";
+				+ ", quantity=" + quantity + "]";
 	}
 
 	public static String getSQLOrder(String property, boolean orderType) {
