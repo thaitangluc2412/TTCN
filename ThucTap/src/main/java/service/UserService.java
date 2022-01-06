@@ -17,4 +17,6 @@ public interface UserService {
     
     int getQuantityAuthor();
     
+	User getProfile(String userId);
+
 }

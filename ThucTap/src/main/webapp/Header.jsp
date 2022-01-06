@@ -70,7 +70,7 @@
 					<ul>
 						<c:if test="${sessionScope.user != null}">
 						    Welcome, ${sessionScope.user.name}
-							<li><a href="MyAccount.jsp"><i class="flaticon-people"></i></a>
+							<li><a href="Account?id=${sessionScope.user.userId}"><i class="flaticon-people"></i></a>
 							</li>
 						</c:if>
 						<li class="shoping-cart"><a href="#" class="quantity-product"> <i

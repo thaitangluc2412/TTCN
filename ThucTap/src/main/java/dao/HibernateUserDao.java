@@ -14,6 +14,8 @@ public class HibernateUserDao extends AbstractHibernateDao implements UserDao {
     private static final String Q_QUANTITY_AUTHOR = "SELECT count(*) AS Quantity FROM User WHERE Role='Author'";
     private static final String Q_GET_AUTHOR = "SELECT * FROM User WHERE Role='Author'";
     private static final String Q_GET_CUSTOMER = "SELECT * FROM User WHERE Role='Customer'";
+    private static final String Q_PROFILE = "SELECT * FROM User WHERE UserID= :userId";
+
 
     @Override
     public List<User> getAll() {
@@ -51,4 +53,12 @@ public class HibernateUserDao extends AbstractHibernateDao implements UserDao {
                                   .addScalar("Quantity", IntegerType.INSTANCE)
                                   .uniqueResult();
     }
+    
+    @Override
+    public User getProfile(String userId) {
+        return openSession().createNativeQuery(Q_PROFILE, User.class)
+                            .setParameter("userId", userId, StringType.INSTANCE)
+                            .uniqueResult();
+    }
+
 }

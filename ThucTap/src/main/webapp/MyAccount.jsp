@@ -73,49 +73,29 @@
 										<h4 class="panel-title">
 											<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
 												<i class="fa fa-building"></i>
-											   <span>Add my first address</span>
+											   <span>My Profile</span>
 											</a>
 										</h4>
 									</div>
 									<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 										<div class="panel-body">
 											<div class="coupon-info">
-												<h1 class="heading-title">Your addresses </h1>
-												<p class="coupon-text">To add a new address, please fill out the form below.</p>
+								
 												<p class="required">*Required field</p>
 												<form action="#">
-													<p class="form-row">
-														<input type="text" placeholder="Your Full Name *">
+													<p class="form-row"><b>Email</b>
+														<input type="text" placeholder="email" value="${profile.email}"/>
 													</p>
-													<p class="form-row">
-														<input type="text" placeholder="Address *">
+													<p class="form-row"><b>Name</b>
+														<input type="text" placeholder="name" value="${profile.name}">
 													</p>
-													<p class="form-row">
-														<input type="text" placeholder="City *" />
+													<p class="form-row"><b>Address</b>
+														<input type="text" placeholder="address" value="${profile.address}">
+													</p>	
+													<p class="form-row"><b>Phone number</b>
+														<input type="text" placeholder="phone number" value="${profile.phoneNumber}" />
 													</p>
-													<div class="shop-select">
-														<label>Country <span class="required">*</span></label>
-														<select>
-															<option value="volvo">Bangladesh</option>
-															<option value="saab">Algeria</option>
-															<option value="mercedes">Afghanistan</option>
-															<option value="audi">Ghana</option>
-															<option value="audi2">Albania</option>
-															<option value="audi3">Bahrain</option>
-															<option value="audi4">Colombia</option>
-															<option value="audi5">Dominican Republic</option>
-														</select> 										
-													</div>	
-													<p class="form-row">
-														<input type="text" placeholder="Mobile phone *" />
-													</p>
-													<p class="required">** You must register at least one phone number.</p>
-													<p class="form-row order-notes">
-														<textarea placeholder="Additional information"></textarea>
-													</p>
-													<p class="form-row">
-														<input type="text" placeholder="Please assign an address title for future reference. *" />
-													</p>
+													
 													<a title="Save" class="btn button button-small" href="index.html">
 														<span>
 															  Save

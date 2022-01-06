@@ -16,4 +16,6 @@ public interface UserDao {
     int getQuantityUser();
 
     int getQuantityAuthor();
+
+	User getProfile(String userId);
 }

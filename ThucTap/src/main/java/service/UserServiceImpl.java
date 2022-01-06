@@ -44,4 +44,10 @@ public class UserServiceImpl implements UserService {
 	public int getQuantityAuthor() {
 		return userDao.getQuantityAuthor();
 	}
+
+	@Override
+	public User getProfile(String userId) {
+		// TODO Auto-generated method stub
+		return userDao.getProfile(userId);
+	}
 }
