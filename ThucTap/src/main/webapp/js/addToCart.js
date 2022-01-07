@@ -9,6 +9,8 @@ let productsInCart = JSON.parse(localStorage.getItem('shoppingCart'));
 if (!productsInCart) {
 	productsInCart = [];
 }
+
+
 const parentElement = document.querySelector('.add-to-cart-product');
 const products = document.querySelectorAll('.product-wapper');
 const products2 = document.querySelectorAll('.product-wapper2');
@@ -179,6 +181,8 @@ products2.forEach(item => {   // 1
 		updateShoppingCartHTML();
 	}
 });
+
+updateShoppingCartHTML();
 
 productDetail.addEventListener('click', (e) => {
 	if (e.target.classList.contains('addToCart')) {

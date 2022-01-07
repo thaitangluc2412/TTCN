@@ -123,8 +123,8 @@
 						</div>
 						<div class="single-product-categories">
 							<label>Categories:</label> <span>${book.categoryId.name}</span><br>
-							<label>Author:</label> <span>
-							<c:forEach items="${book.getBookUser()}" var="bookUser">
+							<label>Author:</label> <span> <c:forEach
+									items="${book.getBookUser()}" var="bookUser">
 									${bookUser.getUser().getName()}
 								</c:forEach></span>
 						</div>
@@ -217,191 +217,33 @@
 		<div class="container">
 			<div class="row">
 				<div class="related-product indicator-style">
-					<div class="col-md-3">
-						<div class="single-banner">
-							<div class="product-wrapper">
-								<a href="#" class="single-banner-image-wrapper"> <img alt=""
-									src="img/featured/1.jpg">
-									<div class="price">
-										<span>$</span>160
-									</div>
-									<div class="rating-icon">
-										<i class="fa fa-star icolor"></i> <i class="fa fa-star icolor"></i>
-										<i class="fa fa-star icolor"></i> <i class="fa fa-star"></i> <i
-											class="fa fa-star"></i>
-									</div>
-								</a>
-								<div class="product-description">
-									<div class="functional-buttons">
-										<a href="#" title="Add to Cart"> <i
-											class="fa fa-shopping-cart"></i>
-										</a> <a href="#" title="Add to Wishlist"> <i
-											class="fa fa-heart-o"></i>
-										</a> <a href="#" title="Quick View"> <i class="fa fa-compress"></i>
-										</a>
-									</div>
+					<c:forEach items="${listBook}" var="book">
+						<div class="col-4 product-wapper" style="max-width: 80%; height:450px">
+							<div class="id-product hidden">${book.bookId}</div>
+							<div class="single-product-wrapper">
+								<a href="TheBook?Book=${book.bookId}"><img
+									class="image-product" alt="" src="${book.image}"></a>
+							</div>
+							<div class="title-product">
+								<a href="TheBook?Book=${book.bookId}">${book.title}</a>
+							</div>
+							<div class="rating-icon" style="text-align: center">
+								<p style="color: #ba1e1e; margin-bottom: 0px">${book.price}</p>
+								<div class="list-pro-rating">
+									<c:forEach var="i" begin="1" end="5">
+										<i class="fa fa-star ${i <= book.rating ? "icolor" : ""}"></i>
+									</c:forEach>
 								</div>
 							</div>
-							<div class="banner-bottom text-center">
-								<a href="#">People of the book</a>
+							<div class="col" style="text-align: center">
+								<button class="btn btn-info addToCart">
+									<i class="fa fa-shopping-cart addToCart"><span
+										class="addToCart" style="font-family: sans-serif">Add
+											to cart</span></i>
+								</button>
 							</div>
 						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="single-banner">
-							<div class="product-wrapper">
-								<a href="#" class="single-banner-image-wrapper"> <img alt=""
-									src="img/featured/2.jpg">
-									<div class="price">
-										<span>$</span>160
-									</div>
-									<div class="rating-icon">
-										<i class="fa fa-star icolor"></i> <i class="fa fa-star icolor"></i>
-										<i class="fa fa-star icolor"></i> <i class="fa fa-star"></i> <i
-											class="fa fa-star"></i>
-									</div>
-								</a>
-								<div class="product-description">
-									<div class="functional-buttons">
-										<a href="#" title="Add to Cart"> <i
-											class="fa fa-shopping-cart"></i>
-										</a> <a href="#" title="Add to Wishlist"> <i
-											class="fa fa-heart-o"></i>
-										</a> <a href="#" title="Quick view" data-toggle="modal"
-											data-target="#productModal"> <i class="fa fa-compress"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-							<div class="banner-bottom text-center">
-								<a href="#">East of eden</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="single-banner">
-							<div class="product-wrapper">
-								<a href="#" class="single-banner-image-wrapper"> <img alt=""
-									src="img/featured/3.jpg">
-									<div class="price">
-										<span>$</span>160
-									</div>
-									<div class="rating-icon">
-										<i class="fa fa-star icolor"></i> <i class="fa fa-star icolor"></i>
-										<i class="fa fa-star icolor"></i> <i class="fa fa-star"></i> <i
-											class="fa fa-star"></i>
-									</div>
-								</a>
-								<div class="product-description">
-									<div class="functional-buttons">
-										<a href="#" title="Add to Cart"> <i
-											class="fa fa-shopping-cart"></i>
-										</a> <a href="#" title="Add to Wishlist"> <i
-											class="fa fa-heart-o"></i>
-										</a> <a href="#" title="Quick view" data-toggle="modal"
-											data-target="#productModal"> <i class="fa fa-compress"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-							<div class="banner-bottom text-center">
-								<a href="#">Lone some dove</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="single-banner">
-							<div class="product-wrapper">
-								<a href="#" class="single-banner-image-wrapper"> <img alt=""
-									src="img/featured/4.jpg">
-									<div class="price">
-										<span>$</span>160
-									</div>
-									<div class="rating-icon">
-										<i class="fa fa-star icolor"></i> <i class="fa fa-star icolor"></i>
-										<i class="fa fa-star icolor"></i> <i class="fa fa-star"></i> <i
-											class="fa fa-star"></i>
-									</div>
-								</a>
-								<div class="product-description">
-									<div class="functional-buttons">
-										<a href="#" title="Add to Cart"> <i
-											class="fa fa-shopping-cart"></i>
-										</a> <a href="#" title="Add to Wishlist"> <i
-											class="fa fa-heart-o"></i>
-										</a> <a href="#" title="Quick view" data-toggle="modal"
-											data-target="#productModal"> <i class="fa fa-compress"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-							<div class="banner-bottom text-center">
-								<a href="#">The secret garden</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="single-banner">
-							<div class="product-wrapper">
-								<a href="#" class="single-banner-image-wrapper"> <img alt=""
-									src="img/featured/5.jpg">
-									<div class="price">
-										<span>$</span>160
-									</div>
-									<div class="rating-icon">
-										<i class="fa fa-star icolor"></i> <i class="fa fa-star icolor"></i>
-										<i class="fa fa-star icolor"></i> <i class="fa fa-star"></i> <i
-											class="fa fa-star"></i>
-									</div>
-								</a>
-								<div class="product-description">
-									<div class="functional-buttons">
-										<a href="#" title="Add to Cart"> <i
-											class="fa fa-shopping-cart"></i>
-										</a> <a href="#" title="Add to Wishlist"> <i
-											class="fa fa-heart-o"></i>
-										</a> <a href="#" title="Quick view" data-toggle="modal"
-											data-target="#productModal"> <i class="fa fa-compress"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-							<div class="banner-bottom text-center">
-								<a href="#">Twilight</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="single-banner">
-							<div class="product-wrapper">
-								<a href="#" class="single-banner-image-wrapper"> <img alt=""
-									src="img/featured/6.jpg">
-									<div class="price">
-										<span>$</span>160
-									</div>
-									<div class="rating-icon">
-										<i class="fa fa-star icolor"></i> <i class="fa fa-star icolor"></i>
-										<i class="fa fa-star icolor"></i> <i class="fa fa-star"></i> <i
-											class="fa fa-star"></i>
-									</div>
-								</a>
-								<div class="product-description">
-									<div class="functional-buttons">
-										<a href="#" title="Add to Cart"> <i
-											class="fa fa-shopping-cart"></i>
-										</a> <a href="#" title="Add to Wishlist"> <i
-											class="fa fa-heart-o"></i>
-										</a> <a href="#" title="Quick view" data-toggle="modal"
-											data-target="#productModal"> <i class="fa fa-compress"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-							<div class="banner-bottom text-center">
-								<a href="#">Cold mountain</a>
-							</div>
-						</div>
-					</div>
+					</c:forEach>
 				</div>
 			</div>
 		</div>

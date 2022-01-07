@@ -887,7 +887,7 @@ body {
 /*  7.	Testimonial Area CSS
 /*----------------------------------------*/
 .testimonial-area {
-	background: rgba(0, 0, 0, 0) url("img/testimonial/bg.jpg") no-repeat
+	background: rgba(0, 0, 0, 0) url("https://static2.bigstockphoto.com/2/8/3/large1500/382561277.jpg") no-repeat
 		scroll center center;
 	color: #ffffff;
 	padding-bottom: 100px;
@@ -2341,7 +2341,7 @@ a.wish-btn {
 }
 
 .related-product {
-	margin-top: 60px;
+	margin-top: 30px;
 }
 
 .related-product-area {

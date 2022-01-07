@@ -146,13 +146,10 @@
 			<div class="row">
 				<div class="banner-list">
 					<c:forEach items="${bookNewRelease}" var="bookNew">
-						<div class="col-md-4 col-sm-6">
-							<div class="single-banner">
-								<a href="#"> <img src="${bookNew.image}" alt="">
+						<div class="col-md-4 col-sm-6" style="height: 500px">
+							<div class="single-banner" style="height:100%">
+								<a href="#" style="height: 90%"> <img src="${bookNew.image}" alt="" style="height: 100%; width: 100%">
 								</a>
-								<div class="price">
-									<span>$</span>${bookNew.price}
-								</div>
 								<div class="banner-bottom text-center">
 									<a href="#">NEW RELEASE ${bookNew.publishDate.getYear()}</a>
 								</div>
@@ -188,37 +185,30 @@
 					<div role="tabpanel" class="tab-pane fade in active" id="arrival">
 						<div class="featured-product-list indicator-style">
 							<c:forEach items="${listBook}" var="book">
-								<div class="single-p-banner">
-									<div class="col-md-3">
-										<div class="single-banner">
-											<div class="product-wrapper">
-												<a href="#" class="single-banner-image-wrapper"> <img
-													alt="" src="${book.image}">
-													<div class="price">
-														<span>$</span>${book.price}
-													</div>
-													<div class="rating-icon center">
-														<i class="fa fa-star icolor"></i> <i
-															class="fa fa-star icolor"></i> <i
-															class="fa fa-star icolor"></i> <i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-													</div>
-												</a>
-												<div class="product-description">
-													<div class="functional-buttons">
-														<a href="#" title="Add to Cart"> <i
-															class="fa fa-shopping-cart"></i>
-														</a> <a href="#" title="Quick view" data-toggle="modal"
-															data-target="#productModal"> <i
-															class="fa fa-compress"></i>
-														</a>
-													</div>
-												</div>
-											</div>
-											<div class="banner-bottom text-center">
-												<a href="#">${book.title}</a>
-											</div>
+								<div class="col-4 product-wapper"
+									style="max-width: 80%; height: 450px">
+									<div class="id-product hidden">${book.bookId}</div>
+									<div class="single-product-wrapper">
+										<a href="TheBook?Book=${book.bookId}"><img
+											class="image-product" alt="" src="${book.image}"></a>
+									</div>
+									<div class="title-product">
+										<a href="TheBook?Book=${book.bookId}">${book.title}</a>
+									</div>
+									<div class="rating-icon" style="text-align: center">
+										<p style="color: #ba1e1e; margin-bottom: 0px">${book.price}</p>
+										<div class="list-pro-rating">
+											<c:forEach var="i" begin="1" end="5">
+												<i class="fa fa-star ${i <= book.rating ? "icolor" : ""}"></i>
+											</c:forEach>
 										</div>
+									</div>
+									<div class="col" style="text-align: center">
+										<button class="btn btn-info addToCart">
+											<i class="fa fa-shopping-cart addToCart"><span
+												class="addToCart" style="font-family: sans-serif">Add
+													to cart</span></i>
+										</button>
 									</div>
 								</div>
 							</c:forEach>
@@ -321,7 +311,7 @@
 	<script src="js/jquery.meanmenu.js"></script>
 	<!-- wow js -->
 	<script src="js/wow.min.js"></script>
-	<script>
+	<script src="js/addToCart.js"></script>
 		new WOW().init();
 	</script>
 	<!-- scrollUp JS -->
