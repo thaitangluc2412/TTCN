@@ -152,28 +152,7 @@ if (products3) {
         products3.innerHTML = ``;
 
     }
-	products3.addEventListener('click', (e) => { // Last
-		const isPlusButton = e.target.classList.contains('button-plus');
-		const isMinusButton = e.target.classList.contains('button-minus');
-		if (isPlusButton || isMinusButton) {
-			for (let i = 0; i < productsInCart.length; i++) {
-				if (productsInCart[i].id == e.target.dataset.id) {
-					if (isPlusButton) {
-						productsInCart[i].count += 1
-					}
-					else if (isMinusButton) {
-						productsInCart[i].count -= 1
-					}
-					productsInCart[i].price = productsInCart[i].basePrice * productsInCart[i].count;
-   
-				}
-				if (productsInCart[i].count <= 0) {
-					productsInCart.splice(i, 1);
-				}
-			}
-			updateShoppingCartHTML();
-		}
-	});
+	
 }
 
 }
@@ -281,6 +260,31 @@ productDetail.addEventListener('click', (e) => {
 		updateShoppingCartHTML();
 		}
 });}
+
+if(products3){
+	products3.addEventListener('click', (e) => { // Last
+		const isPlusButton = e.target.classList.contains('button-plus');
+		const isMinusButton = e.target.classList.contains('button-minus');
+		if (isPlusButton || isMinusButton) {
+			for (let i = 0; i < productsInCart.length; i++) {
+				if (productsInCart[i].id == e.target.dataset.id) {
+					if (isPlusButton) {
+						productsInCart[i].count += 1
+					}
+					else if (isMinusButton) {
+						productsInCart[i].count -= 1
+					}
+					productsInCart[i].price = productsInCart[i].basePrice * productsInCart[i].count;
+   
+				}
+				if (productsInCart[i].count <= 0) {
+					productsInCart.splice(i, 1);
+				}
+			}
+			updateShoppingCartHTML();
+		}
+	});
+}
 
 updateMyCart();
 updateShoppingCartHTML();
