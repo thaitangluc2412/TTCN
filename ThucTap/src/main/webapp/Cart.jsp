@@ -69,24 +69,20 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="wishlist-table-area table-responsive">
+					<div class="wishlist-table-area table-responsive my-cart-product">
 						<table>
 							<thead>
 								<tr>
-									<th class="product-remove">Remove</th>
 									<th class="product-image">Image</th>
 									<th class="t-product-name">Product Name</th>
-									<th class="product-edit">Edit</th>
 									<th class="product-unit-price">Unit Price</th>
 									<th class="product-quantity">Quantity</th>
 									<th class="product-subtotal">Subtotal</th>
+									<th class="product-remove">Remove</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
-									<td class="product-remove"><a href="#"> <i
-											class="flaticon-delete"></i>
-									</a></td>
 									<td class="product-image"><a href="#"> <img
 											src="img/shop/1.jpg" alt="">
 									</a></td>
@@ -95,11 +91,6 @@
 											<a href="#">Cold mountain</a>
 										</h3>
 									</td>
-									<td class="product-edit">
-										<p>
-											<a href="#">Edit</a>
-										</p>
-									</td>
 									<td class="product-unit-price">
 										<p>$ 100</p>
 									</td>
@@ -108,11 +99,11 @@
 									<td class="product-quantity">
 										<p>$ 100</p>
 									</td>
-								</tr>
-								<tr>
 									<td class="product-remove"><a href="#"> <i
 											class="flaticon-delete"></i>
 									</a></td>
+								</tr>
+								<tr>
 									<td class="product-image"><a href="#"> <img
 											src="img/shop/2.jpg" alt="">
 									</a></td>
@@ -121,11 +112,6 @@
 											<a href="#">East of eden</a>
 										</h3>
 									</td>
-									<td class="product-edit">
-										<p>
-											<a href="#">Edit</a>
-										</p>
-									</td>
 									<td class="product-unit-price">
 										<p>$ 100</p>
 									</td>
@@ -134,6 +120,9 @@
 									<td class="product-quantity">
 										<p>$ 100</p>
 									</td>
+									<td class="product-remove"><a href="#"> <i
+											class="flaticon-delete"></i>
+									</a></td>
 								</tr>
 							</tbody>
 						</table>
@@ -198,6 +187,7 @@
 	<script src="js/jquery.meanmenu.js"></script>
 	<!-- wow js -->
 	<script src="js/wow.min.js"></script>
+	<script src="js/addToCart.js"></script>
 	<script>
 		new WOW().init();
 	</script>
