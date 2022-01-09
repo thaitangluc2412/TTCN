@@ -53,7 +53,7 @@ public class Admin extends HttpServlet {
 		if(user==null) {
 			response.sendRedirect("404.jsp");
 		}
-		else if(!user.getRole().equals("Author")) {
+		else if(!user.getRole().equals("Admin")) {
 			response.sendRedirect("404.jsp");
 		}
 		else {	
