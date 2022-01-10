@@ -17,12 +17,14 @@ const products2 = document.querySelectorAll('.product-wapper2');
 const quantityProduct = document.querySelector(".quantity-product");
 const productDetail = document.querySelector(".product-detail-wapper");
 const products3 = document.querySelector('.my-cart-product');
+const subtotal = document.querySelector('.subtotal-area');
+const clearAll = document.querySelector('.clear-all-product-in-cart');
 
 
 
 // products.innerHTML = ``;
 
-const countTheSumPrice = function () { // 4
+const countTheSumPrice = function() { // 4
 	let sum = 0;
 	productsInCart.forEach(item => {
 		sum += item.price;
@@ -30,10 +32,10 @@ const countTheSumPrice = function () { // 4
 	return sum;
 }
 
-const updateShoppingCartHTML = function () {  // 3
-	
+const updateShoppingCartHTML = function() {  // 3
+
 	let sumPrice = countTheSumPrice();
-    quantityProduct.innerHTML = `<i
+	quantityProduct.innerHTML = `<i
 	class="flaticon-shop"></i> <span>${productsInCart.length}</span>`;
 	localStorage.setItem('shoppingCart', JSON.stringify(productsInCart));
 	if (productsInCart.length > 0) {
@@ -71,7 +73,7 @@ const updateShoppingCartHTML = function () {  // 3
 			class="fa fa-chevron-right"></i>
 		</a>
 	</div>`;
-		
+
 
 	}
 	else {
@@ -85,7 +87,7 @@ const updateShoppingCartHTML = function () {  // 3
 			class="fa fa-chevron-right"></i>
 		</a>
 	</div>`;
-		
+
 	}
 	updateMyCart()
 }
@@ -104,14 +106,22 @@ function updateProductsInCart(product) { // 2
 	productsInCart.push(product);
 }
 
-const updateMyCart = function () {
-	
-if (products3) {
-    if (productsInCart.length > 0) {
-        let result = productsInCart.map(product => {
-            return `<tr>
+const updateMyCart = function() {
+
+	let sumPrice2 = countTheSumPrice();
+     
+    if(subtotal) {
+       subtotal.innerHTML = `<h2>
+	   SUBTOTAL<span >$ ${sumPrice2}</span>
+   </h2>`;
+	}
+
+	if (products3) {
+		if (productsInCart.length > 0) {
+			let result = productsInCart.map(product => {
+				return `<tr>
             <td class="product-image"><a href="#"> <img
-                    src="${product.image}" alt="">
+                    src="${product.image}" alt="" class="rounded">
             </a></td>
             <td class="t-product-name">
                 <h3>
@@ -127,12 +137,12 @@ if (products3) {
             <td class="product-quantity">
                 <p>$ ${product.price}</p>
             </td>
-            <td class="product-remove"><a href="#"> <i
-                    class="flaticon-delete"></i>
-            </a></td>
+            <td class="product-remove"><button class="delete-in-cart btn btn-danger" data-id=${product.id} ><i
+                    class="flaticon-delete delete-in-cart" data-id=${product.id}></i>
+            </button></td>
         </tr> `
-        });
-        products3.innerHTML = `<table>
+			});
+			products3.innerHTML = `<table>
         <thead>
             <tr>
                 <th class="product-image">Image</th>
@@ -147,33 +157,33 @@ if (products3) {
         </table>`;
 
 
-    }
-    else {
-        products3.innerHTML = ``;
+		}
+		else {
+			products3.innerHTML = `<h2 class="text-center">You don't choose any products.</h2>`;
 
-    }
-	
-}
+		}
+
+	}
 
 }
 
 products.forEach(item => {   // 1
 	item.addEventListener('click', (e) => {
 		if (e.target.classList.contains('addToCart')) {
-		const productID = item.querySelector('.id-product').textContent;
-		const productName = item.querySelector('.title-product').textContent;
-		const productPrice = item.querySelector('.rating-icon').textContent;
-		const productImage = item.querySelector('img').src;
-		let product = {
-			name: productName,
-			image: productImage,
-			id: productID,
-			count: 1,
-			price: +productPrice,
-			basePrice: +productPrice,
-		}
-		updateProductsInCart(product);
-		updateShoppingCartHTML();
+			const productID = item.querySelector('.id-product').textContent;
+			const productName = item.querySelector('.title-product').textContent;
+			const productPrice = item.querySelector('.rating-icon').textContent;
+			const productImage = item.querySelector('img').src;
+			let product = {
+				name: productName,
+				image: productImage,
+				id: productID,
+				count: 1,
+				price: +productPrice,
+				basePrice: +productPrice,
+			}
+			updateProductsInCart(product);
+			updateShoppingCartHTML();
 		}
 
 	});
@@ -183,56 +193,56 @@ products.forEach(item => {   // 1
 products2.forEach(item => {   // 1
 	item.addEventListener('click', (e) => {
 		if (e.target.classList.contains('addToCart')) {
-		const productID = item.querySelector('.id-product').textContent;
-		const productName = item.querySelector('.deal-product-content').textContent;
-		const productPrice = item.querySelector('.product-price').textContent;
-		const productImage = item.querySelector('img').src;
-		let product = {
-			name: productName,
-			image: productImage,
-			id: productID,
-			count: 1,
-			price: +productPrice,
-			basePrice: +productPrice,
-		}
-		updateProductsInCart(product);
-		updateShoppingCartHTML();
+			const productID = item.querySelector('.id-product').textContent;
+			const productName = item.querySelector('.deal-product-content').textContent;
+			const productPrice = item.querySelector('.product-price').textContent;
+			const productImage = item.querySelector('img').src;
+			let product = {
+				name: productName,
+				image: productImage,
+				id: productID,
+				count: 1,
+				price: +productPrice,
+				basePrice: +productPrice,
+			}
+			updateProductsInCart(product);
+			updateShoppingCartHTML();
 		}
 
 	});
 });
 
- parentElement.addEventListener('click', (e) => { // Last
-     const isPlusButton = e.target.classList.contains('button-plus');
-     const isMinusButton = e.target.classList.contains('button-minus');
-     if (isPlusButton || isMinusButton) {
-         for (let i = 0; i < productsInCart.length; i++) {
-             if (productsInCart[i].id == e.target.dataset.id) {
-                 if (isPlusButton) {
-                     productsInCart[i].count += 1
-                 }
-                 else if (isMinusButton) {
-                     productsInCart[i].count -= 1
-                 }
-                 productsInCart[i].price = productsInCart[i].basePrice * productsInCart[i].count;
+parentElement.addEventListener('click', (e) => { // Last
+	const isPlusButton = e.target.classList.contains('button-plus');
+	const isMinusButton = e.target.classList.contains('button-minus');
+	if (isPlusButton || isMinusButton) {
+		for (let i = 0; i < productsInCart.length; i++) {
+			if (productsInCart[i].id == e.target.dataset.id) {
+				if (isPlusButton) {
+					productsInCart[i].count += 1
+				}
+				else if (isMinusButton) {
+					productsInCart[i].count -= 1
+				}
+				productsInCart[i].price = productsInCart[i].basePrice * productsInCart[i].count;
 
-             }
-             if (productsInCart[i].count <= 0) {
-                 productsInCart.splice(i, 1);
-             }
-         }
-         updateShoppingCartHTML();
-     }
- });
+			}
+			if (productsInCart[i].count <= 0) {
+				productsInCart.splice(i, 1);
+			}
+		}
+		updateShoppingCartHTML();
+	}
+});
 
 
- parentElement.addEventListener('click', (e) => { // Last
+parentElement.addEventListener('click', (e) => { // Last
 	const isDeleteButton = e.target.classList.contains('deleteProduct');
 	if (isDeleteButton) {
 		for (let i = 0; i < productsInCart.length; i++) {
 			if (productsInCart[i].id == e.target.dataset.id) {
 				productsInCart.splice(i, 1);
-            }
+			}
 		}
 		updateShoppingCartHTML();
 	}
@@ -241,30 +251,32 @@ products2.forEach(item => {   // 1
 updateShoppingCartHTML();
 
 
-if(productDetail){
-productDetail.addEventListener('click', (e) => {
-	if (e.target.classList.contains('addToCart')) {
-		const productID = productDetail.querySelector('.id-product').textContent;
-		const productName = productDetail.querySelector('.title-product').textContent;
-		const productPrice = productDetail.querySelector('.single-product-price').textContent;
-		const productImage = productDetail.querySelector('img').src;
-		let product = {
-			name: productName,
-			image: productImage,
-			id: productID,
-			count: 1,
-			price: +productPrice,
-			basePrice: +productPrice,
+if (productDetail) {
+	productDetail.addEventListener('click', (e) => {
+		if (e.target.classList.contains('addToCart')) {
+			const productID = productDetail.querySelector('.id-product').textContent;
+			const productName = productDetail.querySelector('.title-product').textContent;
+			const productPrice = productDetail.querySelector('.single-product-price').textContent;
+			const productImage = productDetail.querySelector('img').src;
+			let product = {
+				name: productName,
+				image: productImage,
+				id: productID,
+				count: 1,
+				price: +productPrice,
+				basePrice: +productPrice,
+			}
+			updateProductsInCart(product);
+			updateShoppingCartHTML();
 		}
-		updateProductsInCart(product);
-		updateShoppingCartHTML();
-		}
-});}
+	});
+}
 
-if(products3){
+if (products3) {
 	products3.addEventListener('click', (e) => { // Last
 		const isPlusButton = e.target.classList.contains('button-plus');
 		const isMinusButton = e.target.classList.contains('button-minus');
+		
 		if (isPlusButton || isMinusButton) {
 			for (let i = 0; i < productsInCart.length; i++) {
 				if (productsInCart[i].id == e.target.dataset.id) {
@@ -275,7 +287,7 @@ if(products3){
 						productsInCart[i].count -= 1
 					}
 					productsInCart[i].price = productsInCart[i].basePrice * productsInCart[i].count;
-   
+
 				}
 				if (productsInCart[i].count <= 0) {
 					productsInCart.splice(i, 1);
@@ -285,6 +297,30 @@ if(products3){
 		}
 	});
 }
+
+if(products3) {
+	products3.addEventListener('click', (e) => { // Last
+		const isDeleteButton2 = e.target.classList.contains('delete-in-cart');
+		if (isDeleteButton2) {
+			for (let i = 0; i < productsInCart.length; i++) {
+				if (productsInCart[i].id == e.target.dataset.id) {
+					productsInCart.splice(i, 1);
+				}
+			}
+			updateShoppingCartHTML();
+		}
+	});
+}
+
+if(products3){
+	
+	clearAll.addEventListener('click', (e) => {
+		productsInCart = [];
+		updateShoppingCartHTML()
+	});
+}
+
+
 
 updateMyCart();
 updateShoppingCartHTML();

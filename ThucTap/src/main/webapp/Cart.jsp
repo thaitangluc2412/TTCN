@@ -61,7 +61,7 @@
 	<jsp:include page="Header.jsp"></jsp:include>
 	<!--Header Area End-->
 
-		<!-- Breadcrumbs Area Start -->
+	<!-- Breadcrumbs Area Start -->
 	<jsp:include page="BreadCrumbs.jsp"></jsp:include>
 	<!-- Breadcrumbs Area Start -->
 	<!-- Cart Area Start -->
@@ -70,67 +70,11 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="wishlist-table-area table-responsive my-cart-product">
-						<table>
-							<thead>
-								<tr>
-									<th class="product-image">Image</th>
-									<th class="t-product-name">Product Name</th>
-									<th class="product-unit-price">Unit Price</th>
-									<th class="product-quantity">Quantity</th>
-									<th class="product-subtotal">Subtotal</th>
-									<th class="product-remove">Remove</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td class="product-image"><a href="#"> <img
-											src="img/shop/1.jpg" alt="">
-									</a></td>
-									<td class="t-product-name">
-										<h3>
-											<a href="#">Cold mountain</a>
-										</h3>
-									</td>
-									<td class="product-unit-price">
-										<p>$ 100</p>
-									</td>
-									<td class="product-quantity product-cart-details"><input
-										type="number" value="1"></td>
-									<td class="product-quantity">
-										<p>$ 100</p>
-									</td>
-									<td class="product-remove"><a href="#"> <i
-											class="flaticon-delete"></i>
-									</a></td>
-								</tr>
-								<tr>
-									<td class="product-image"><a href="#"> <img
-											src="img/shop/2.jpg" alt="">
-									</a></td>
-									<td class="t-product-name">
-										<h3>
-											<a href="#">East of eden</a>
-										</h3>
-									</td>
-									<td class="product-unit-price">
-										<p>$ 100</p>
-									</td>
-									<td class="product-quantity product-cart-details"><input
-										type="number" value="1"></td>
-									<td class="product-quantity">
-										<p>$ 100</p>
-									</td>
-									<td class="product-remove"><a href="#"> <i
-											class="flaticon-delete"></i>
-									</a></td>
-								</tr>
-							</tbody>
-						</table>
 					</div>
 					<div class="shopingcart-bottom-area">
-						<a class="left-shoping-cart" href="Shop.jsp">CONTINUE SHOPPING</a>
+						<a class="left-shoping-cart" href="Shopping">CONTINUE SHOPPING</a>
 						<div class="shopingcart-bottom-area pull-right">
-							<button type="button" class="btn-default">CLEAR ALL</button>
+							<button type="button" class="btn-default clear-all-product-in-cart">CLEAR ALL</button>
 						</div>
 					</div>
 				</div>
@@ -142,22 +86,12 @@
 	<div class="discount-area">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-6 col-sm-6">
-				</div>
+				<div class="col-md-6 col-sm-6"></div>
 				<div class="col-md-6 col-sm-6">
 					<div class="subtotal-main-area">
 						<div class="subtotal-area">
-							<h2>
-								SUBTOTAL<span>$ 200</span>
-							</h2>
-						</div>
-						<div class="subtotal-area">
-							<h2>
-								GRAND TOTAL<span>$ 200</span>
-							</h2>
 						</div>
 						<a href="Checkout.jsp">CHECKOUT</a>
-						<p>Checkout With Multiple Addresses</p>
 					</div>
 				</div>
 			</div>

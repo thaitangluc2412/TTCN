@@ -1,59 +1,60 @@
-/**
- * 
- */
 let productsInCart = JSON.parse(localStorage.getItem('shoppingCart'));
-
-const products3 = document.querySelector('.my-cart-product');
-
 if (!productsInCart) {
-    if (productsInCart.length > 0) {
-        let result = productsInCart.map(product => {
-            return `<tr>
-            <td class="product-image"><a href="#"> <img
-                    src="${product.image}" alt="">
-            </a></td>
-            <td class="t-product-name">
-                <h3>
-                    <a href="#">${product.name}</a>
-                </h3>
-            </td>
-            <td class="product-unit-price">
-                <p>$ ${product.basePrice}</p>
-            </td>
-            <td class="product-quantity product-cart-details"><button class="button-minus text-secondary" data-id=${product.id}>-</button>
-            <span class="countOfProduct">${product.count}</span>
-            <button class="button-plus text-secondary" data-id=${product.id}>+</button></td>
-            <td class="product-quantity">
-                <p>$ ${product.price}</p>
-            </td>
-            <td class="product-remove"><a href="#"> <i
-                    class="flaticon-delete"></i>
-            </a></td>
-        </tr> `
-        });
-        products3.innerHTML = `<table>
-        <thead>
-            <tr>
-                <th class="product-image">Image</th>
-                <th class="t-product-name">Product Name</th>
-                <th class="product-unit-price">Unit Price</th>
-                <th class="product-quantity">Quantity</th>
-                <th class="product-subtotal">Subtotal</th>
-                <th class="product-remove">Remove</th>
-            </tr>
-        </thead>
-        <tbody>` + result.join('') + `</tbody>
-        </table>`;
-
-
-    }
-    else {
-        products3.innerHTML = ``;
-
-    }
-}
-else {
-    products3.innerHTML = ``;
-
+	productsInCart = [];
 }
 
+const parentElement = document.querySelector('.cart-in-payment');
+const subtotal = document.querySelector('.subtotal');
+const subtotal2 = document.querySelector('.subtotal2');
+
+const countTheSumPrice = function() { // 4
+	let sum = 0;
+	productsInCart.forEach(item => {
+		sum += item.price;
+	});
+	return sum;
+}
+
+const updateShoppingCartHTML = function() {  // 3
+
+	let sumPrice = countTheSumPrice();
+	subtotal.textContent = sumPrice + '$'; 
+	subtotal2.textContent = sumPrice + '$'; 
+	localStorage.setItem('shoppingCart', JSON.stringify(productsInCart));
+
+	if (productsInCart.length > 0) {
+		let result = productsInCart.map(product => {
+			return `<div class="row" style="margin-bottom: 10px">
+						<div class="col-2" style="height: 70px; width: 90px">
+							<a href="#"><img
+								src="${product.image}"
+								style="height: 100%"></a>
+						</div>
+						<div class="col-6 title-product d-flex align-items-center"
+							style="margin: 0">
+							<div>
+								<div>
+									<a href="TheBook?Book=${product.id}">${product.name}</a>
+								</div>
+								<div>
+									<p style="margin: 0; text-align: left">Quantity: ${product.count}</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-offset-1 col-3 d-flex align-items-center">
+							<p style="margin: 0">${product.price} $</p>
+						</div>
+					</div> `
+		});
+		parentElement.innerHTML = result.join('');
+
+
+	}
+	else {
+		parentElement.innerHTML = ``;
+
+	}
+	
+}
+
+updateShoppingCartHTML()
