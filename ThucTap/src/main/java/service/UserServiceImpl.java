@@ -46,8 +46,13 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User getProfile(String userId) {
+	public User getProfile(Integer id) {
 		// TODO Auto-generated method stub
-		return userDao.getProfile(userId);
+		return userDao.getProfile(id);
+	}
+	
+	@Override
+	public void updatePassword(Integer id,String newPassword) {
+		userDao.updatePassword(id, newPassword);
 	}
 }

@@ -129,14 +129,14 @@ public class HibernateBookDao extends AbstractHibernateDao implements BookDao {
 	}
 	
 	@Override
-	public Book getById(Integer Id) {
+	public Book getById(int Id) {
 		return openSession().createNativeQuery(Q_GET_BOOK_BY_ID, Book.class)
 				.setParameter("bookId", Id, IntegerType.INSTANCE)
 				.uniqueResult();
 	}
 	
 	@Override
-	public List<Book> getByAuthorId(Integer id) {
+	public List<Book> getByAuthorId(int id) {
 		String Q_GET_BOOK_BY_AUTHOR_ID = "SELECT b.*\n"
 				+ "FROM BookUser bu\n"
 				+ "JOIN BOOK b\n"

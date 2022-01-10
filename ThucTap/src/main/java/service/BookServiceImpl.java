@@ -80,12 +80,12 @@ public class BookServiceImpl implements BookService {
 
 	
 	@Override
-	public Book getById(Integer Id) {
+	public Book getById(int Id) {
 		return bookDao.getById(Id);
 	}
 	
 	@Override
-	public List<Book> getByAuthorId(Integer Id) {
+	public List<Book> getByAuthorId(int Id) {
 		return bookDao.getByAuthorId(Id);
 	}
 

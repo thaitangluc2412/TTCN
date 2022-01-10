@@ -1,10 +1,15 @@
 package dao;
 
 import bean.User;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.type.IntegerType;
 import org.hibernate.type.StringType;
 
 import java.util.List;
+
+import javax.transaction.Transactional;
 
 public class HibernateUserDao extends AbstractHibernateDao implements UserDao {
 
@@ -15,6 +20,7 @@ public class HibernateUserDao extends AbstractHibernateDao implements UserDao {
     private static final String Q_GET_AUTHOR = "SELECT * FROM User WHERE Role='Author'";
     private static final String Q_GET_CUSTOMER = "SELECT * FROM User WHERE Role='Customer'";
     private static final String Q_PROFILE = "SELECT * FROM User WHERE UserID= :userId";
+    private static final String Q_UPDATE_PASSWORD = "UPDATE User SET UserPassword = :newPassword WHERE UserID = :id";
 
 
     @Override
@@ -55,10 +61,32 @@ public class HibernateUserDao extends AbstractHibernateDao implements UserDao {
     }
     
     @Override
-    public User getProfile(String userId) {
+    public User getProfile(Integer userId) {
         return openSession().createNativeQuery(Q_PROFILE, User.class)
-                            .setParameter("userId", userId, StringType.INSTANCE)
+                            .setParameter("userId", userId, IntegerType.INSTANCE)
                             .uniqueResult();
     }
-
+    
+    @Override
+    @Transactional
+    
+    public void updatePassword(Integer id, String newPassword) {
+    	Session session = getCurrentSession();
+    	Transaction transaction = session.beginTransaction();
+    	User user= getProfile(id);
+    	
+    	user.setUserId(id);
+    	user.setUserPassword(newPassword);
+    	session.merge(user);
+    	transaction.commit();
+//    	session.createNativeQuery(Q_UPDATE_PASSWORD,User.class).setParameter("newPassword", newPassword)
+//										        .setParameter("id", id)
+//										        .executeUpdate();
+ 
+//    	session.update(Q_UPDATE_PASSWORD);
+//    	session.createQuery(Q_UPDATE_PASSWORD)
+//						        .setParameter("newPassword", newPassword)
+//						        .setParameter("id", id)
+//						        .executeUpdate();
+    }
 }

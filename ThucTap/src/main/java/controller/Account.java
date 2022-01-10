@@ -60,7 +60,13 @@ public class Account extends HttpServlet {
         // TODO Auto-generated method stub
     	String pw = request.getParameter("updatePw");
     	System.out.print(pw);
-    	doGet(request, response);
+    	UserServiceImpl userService = new UserServiceImpl();
+    	HttpSession session = request.getSession();
+		User user=(User)session.getAttribute("user");
+    	userService.updatePassword(user.getUserId(), pw);
+//    	User userNew =userService.getProfile(user.getUserId());
+//    	session.setAttribute("user", userNew);
+//    	doGet(request, response);
     }
 
 }

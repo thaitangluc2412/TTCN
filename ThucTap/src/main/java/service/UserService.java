@@ -17,6 +17,7 @@ public interface UserService {
     
     int getQuantityAuthor();
     
-	User getProfile(String userId);
-
+	User getProfile(Integer userId);
+	
+	void updatePassword(Integer id, String newPassword);
 }

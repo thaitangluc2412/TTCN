@@ -38,8 +38,8 @@
 								<c:when test="${sessionScope.user.role == 'Author'}">
 									<li><a href="#">MANAGEMENT</a>
 										<ul class="sub-menu">
-											<li><a href="AuthorBook.jsp">TRACKING BOOK SELLING</a></li>
-											<li><a href="AuthorProfit.jsp">MY EARNING</a></li>
+											<li><a href="AuthorController?Management=Profit">TRACKING BOOK SELLING</a></li>
+											<li><a href="AuthorController?Management=Profit">MY EARNING</a></li>
 											<li><a href="Contact.jsp">CONTACT</a></li>
 										</ul></li>
 								</c:when>

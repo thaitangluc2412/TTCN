@@ -17,5 +17,7 @@ public interface UserDao {
 
     int getQuantityAuthor();
 
-	User getProfile(String userId);
+	User getProfile(Integer id);
+
+	void updatePassword(Integer id, String newPassword);
 }
