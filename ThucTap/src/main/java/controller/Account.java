@@ -63,7 +63,7 @@ public class Account extends HttpServlet {
     	UserServiceImpl userService = new UserServiceImpl();
     	HttpSession session = request.getSession();
 		User user=(User)session.getAttribute("user");
-    	userService.updatePassword(user.getUserId(), pw);
+//    	userService.updatePassword(user.getUserId(), pw);
 //    	User userNew =userService.getProfile(user.getUserId());
 //    	session.setAttribute("user", userNew);
 //    	doGet(request, response);

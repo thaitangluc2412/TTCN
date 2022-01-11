@@ -79,33 +79,33 @@
 									</div>
 									<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 										<div class="panel-body">
+										<form action="Account" method="POST" id="formInfo">
 											<div class="coupon-info">
 								
 												<p class="required">*Required field</p>
-												<form action="#">
 													<p class="form-row"><b>Email</b>
-														<input type="text" placeholder="email" value="${profile.email}"/>
+														<input type="text" placeholder="email" value="${profile.email}" readonly/>
 													</p>
 													<p class="form-row"><b>Name</b>
-														<input type="text" placeholder="name" value="${profile.name}">
+														<input type="text" placeholder="name" value="${profile.name}" id="name">
 													</p>
 													<p class="form-row"><b>Address</b>
-														<input type="text" placeholder="address" value="${profile.address}">
+														<input type="text" placeholder="address" value="${profile.address}" id="address">
 													</p>	
 													<p class="form-row"><b>Phone number</b>
-														<input type="text" placeholder="phone number" value="${profile.phoneNumber}" />
+														<input type="text" placeholder="phone number" value="${profile.phoneNumber}" id="phone"/>
 													</p>
 													<p class="form-row"><b>Account number</b>
-														<input type="text" placeholder="phone number" value="${profile.accountNumber}" />
+														<input type="text" placeholder="account number" value="${profile.accountNumber}" id="account" />
 													</p>
-													<a title="Save" class="btn button button-small" href="index.html">
+													<button type="submit" name="Save"  class="btn button button-small" >
 														<span>
 															  Save
 															<i class="fa fa-chevron-right"></i>
 														</span>
-													</a>
-												</form>
-											</div>											
+													</button>
+											</div>	
+											</form>										
 										</div>
 									</div>
 								</div>
