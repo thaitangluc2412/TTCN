@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /*
@@ -28,6 +29,8 @@ import java.util.List;
 @WebServlet("/Admin")
 public class Admin extends HttpServlet {
     private static final long serialVersionUID = 1L;
+    private int rows = 6;
+	private int window = 5;
 
     /*     * @see HttpServlet#HttpServlet()
      */
@@ -59,10 +62,63 @@ public class Admin extends HttpServlet {
 		else {	
 	        String str =request.getParameter("Management");
 	        if(str.equals("Book")) {
-	            BookServiceImpl bookService = new BookServiceImpl();
-	            List<Book> listBook = bookService.getAll();
+	        	int currentPage = 1;
+	    		String page = request.getParameter("page");
+	    		if (page != null) {
+	    			currentPage = Integer.valueOf(page);
+	    		}
+	    		
+	    		System.out.println("currentpage : "+currentPage);
+	    		
+	    		int trimStart = (currentPage - 1) * rows;
+	    		
+	        	BookServiceImpl bookService = new BookServiceImpl();
+	            List<Book> listBook = new ArrayList<>();
+	            List<Book> listAllBook = new ArrayList<>();
+	        	String searchBook = request.getParameter("searchBook");
+	        	if (searchBook != null && !searchBook.equals("")) {
+	        		listBook = bookService.getByTitleAndCurrentPage(trimStart, rows, searchBook);
+	        		listAllBook = bookService.getByTitle(searchBook);
+	        	} else {
+	        		listBook = bookService.getBookCurrentPage(trimStart, rows);
+	        		listAllBook = bookService.getAll();
+	        	}	
+	        	
+	        	System.out.println("last : "+listAllBook.get(listAllBook.size()-1));
+	        	
+//	        	int totalPages = (int) (Math.floor(listAllBook.size() / rows));
+	        	int totalPages=listAllBook.size()/rows;
+	        	if(totalPages*rows<listAllBook.size()) {
+	        		++totalPages;
+	        	}
+
+	    		int maxLeft = (int) (currentPage - Math.floor(window / 2));
+	    		int maxRight = (int) (currentPage + Math.floor(window / 2));
+
+	    		if (maxLeft < 1) {
+	    			maxLeft = 1;
+	    			maxRight = window;
+	    		}
+
+	    		if (maxRight > totalPages) {
+	    			maxLeft = totalPages - (window - 1);
+
+	    			if (maxLeft < 1) {
+	    				maxLeft = 1;
+	    			}
+	    			maxRight = totalPages;
+	    		}
+	        	
+	    		System.out.println("listbook : "+listBook);
+	    		
+	        	request.setAttribute("searchBook", searchBook);
 	            request.setAttribute("listBook", listBook);
+	            request.setAttribute("currentPage", currentPage);
+	    		request.setAttribute("totalPages", totalPages);
+	    		request.setAttribute("maxLeft", maxLeft);
+	    		request.setAttribute("maxRight", maxRight);
 	        	request.getRequestDispatcher("Book.jsp").forward(request, response);
+	        	
 	        }else if(str.equals("Category")) {
 	            CategoryServiceImpl categoryService = new CategoryServiceImpl();
 	            List<Category> listCategory = categoryService.getAll();
@@ -102,5 +158,5 @@ public class Admin extends HttpServlet {
         // TODO Auto-generated method stub
         doGet(request, response);
     }
-
+    
 }

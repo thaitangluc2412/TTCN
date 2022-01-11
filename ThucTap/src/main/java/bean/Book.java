@@ -1,6 +1,9 @@
 package bean;
 
 import javax.persistence.*;
+
+import org.hibernate.annotations.Cascade;
+
 import java.time.LocalDate;
 import java.util.List;
 
@@ -37,7 +40,8 @@ public class Book {
 	@Column(name = "Quantity")
 	private Integer quantity;
 
-	@OneToMany(mappedBy = "book")
+	@OneToMany(mappedBy = "book", cascade=CascadeType.REMOVE )
+	//@Cascade(value= {org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.DELETE})
 	private List<BookUser> bookUser;
 	
 	public Book() {

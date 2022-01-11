@@ -1,6 +1,9 @@
 package bean;
 
 import javax.persistence.*;
+
+import org.hibernate.annotations.Cascade;
+
 import java.util.List;
 
 @Entity
@@ -39,7 +42,9 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Order> orders;
 
-    @OneToMany(mappedBy = "user")
+    
+    @OneToMany(mappedBy = "user", cascade=CascadeType.REMOVE )
+    //@Cascade(value= {org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.DELETE})
     private List<BookUser> bookUsers;
 
     public User() {
@@ -66,6 +71,7 @@ public class User {
     public Integer getUserId() {
         return userId;
     }
+    
 
     public void setUserId(Integer userId) {
         this.userId = userId;

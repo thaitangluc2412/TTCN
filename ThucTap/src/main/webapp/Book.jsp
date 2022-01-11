@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!doctype html>
 <html class="no-js" lang="">
- 
+
 <head>
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -62,18 +62,21 @@
 	<!-- Add your site or application content here -->
 	<jsp:include page="Header.jsp"></jsp:include>
 
-   
+
 
 	<div class="d-flex justify-content-center">
-		<div class="input-group" style="width: 500px">
-			<input type="search" class="form-control rounded w-75 p-3"
-				placeholder="Search" aria-label="Search"
-				aria-describedby="search-addon" />
-			<button type="button" class="btn btn-outline-primary">search</button>
-		</div>
-		<div class="shopingcart-bottom-area">
-			<a class="left-shoping-cart" href="CreateNewBook.jsp">CREATE NEW BOOK</a>
-		</div>
+		<form action="Admin?Management=Book" method="POST">
+			<div class="input-group" style="width: 500px">
+				<input type="search" class="form-control rounded w-75 p-3"
+					placeholder="Search" aria-label="Search"
+					aria-describedby="search-addon" name="searchBook" value="${searchBook}"/>
+				<button type="submit" class="btn btn-outline-primary">search</button>
+			</div>
+		</form>
+			<div class="shopingcart-bottom-area">
+				<a class="left-shoping-cart" href="CreateNewBook">CREATE NEW BOOK</a>
+			</div>
+		
 	</div>
 	<div class="shopping-cart-area section-padding">
 		<div class="container">
@@ -88,7 +91,7 @@
 									<th class="product-title">Title</th>
 									<th class="product-author">Author</th>
 									<th class="product-category">Category</th>
-									<th class="product-price">Price</th>
+									<th class="product-price">Price for a book</th>
 									<th class="product-quantity">Quantity</th>
 									<th class="product-date">Last Updated</th>
 									<th class="product-edit">Edit</th>
@@ -112,7 +115,7 @@
 											</p>
 										</td>
 										<td class="product-author">
-											<p>			 
+											<p>
 												<c:forEach items="${book.getBookUser()}" var="bookUser">
 													<p>${bookUser.getUser().getName()}</p>
 												</c:forEach>
@@ -125,36 +128,57 @@
 										</td>
 										<td class="product-price">
 											<p>
-											<p>$ 10</p>
+											<p>${book.getPrice()}VNĐ</p>
 											</p>
-	
+
 										</td>
 										<td class="product-quantity">
 											<p>
-											<p>34</p>
+											<p>${book.getQuantity()}</p>
 											</p>
-	
+
 										</td>
 										<td class="product-date">
 											<p>
-											<p>27/12/2021 15:00:00</p>
+											<p>${book.getPublishDate()}</p>
 											</p>
-	
+
 										</td>
 										<td class="product-edit">
 											<p>
 												<a href="#">Edit</a>
 											</p>
 										</td>
-										<td class="product-remove"><a href="#"> <i
+										<td class="product-remove"><a
+											href="DeleteBook?bookId=${book.bookId}"> <i
 												class="flaticon-delete"></i>
 										</a></td>
 									</tr>
-							</c:forEach>
+								</c:forEach>
 							</tbody>
 						</table>
 					</div>
-					
+					<nav class="d-flex justify-content-center"
+							aria-label="Page navigation example">
+							<ul class="pagination">
+								<c:if test="${currentPage != 1}">
+									<li class="page-item"><a class="page-link"
+										href="Admin?Management=Book&page=1">
+											First </a></li>
+								</c:if>
+								<c:forEach var="page" begin="${maxLeft}" end="${maxRight}">
+									<li class="page-item ${page == currentPage ? "active" : "" } "><a
+										class="page-link"
+										href="Admin?Management=Book&page=${page}">
+											${page} </a></li>
+								</c:forEach>
+								<c:if test="${currentPage != totalPages}">
+									<li class="page-item"><a class="page-link"
+										href="Admin?Management=Book&page=${totalPages}">
+											Last </a></li>
+								</c:if>
+							</ul>
+						</nav>
 				</div>
 			</div>
 		</div>

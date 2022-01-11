@@ -12,7 +12,7 @@ public class Category {
 
     @Id
     @Column(name = "CategoryID")
-    private Integer categoryID;
+    private Integer categoryId;
 
     @Column(name = "Name")
     private String name;
@@ -21,16 +21,16 @@ public class Category {
     }
 
     public Category(Integer categoryID, String name) {
-        this.categoryID = categoryID;
+        this.categoryId = categoryID;
         this.name = name;
     }
 
     public Integer getCategoryID() {
-        return categoryID;
+        return categoryId;
     }
 
     public void setCategoryID(Integer categoryID) {
-        this.categoryID = categoryID;
+        this.categoryId = categoryID;
     }
 
     public String getName() {
@@ -43,6 +43,6 @@ public class Category {
 
     @Override
     public String toString() {
-        return "Category [categoryID=" + categoryID + ", name=" + name + "]";
+        return "Category [categoryID=" + categoryId + ", name=" + name + "]";
     }
 }

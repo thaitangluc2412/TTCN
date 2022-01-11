@@ -83,10 +83,20 @@ public class Shopping extends HttpServlet {
 			}
 		}
 		List<Book> bookBestSeller = bookService.get2BookSeller();
+<<<<<<< HEAD
 		int totalPages = (int) (Math.ceil(listBook.size() / rows)) + 1;
 
 		int maxLeft = (int) (currentPage - Math.floor(window / 2));  
 		int maxRight = (int) (currentPage + Math.floor(window / 2)); 
+=======
+		//int totalPages = (int) (Math.ceil(listBook.size() / rows));
+		int totalPages=listBook.size()/rows;
+    	if(totalPages*rows<listBook.size()) {
+    		++totalPages;
+    	}
+		int maxLeft = (int) (currentPage - Math.floor(window / 2));
+		int maxRight = (int) (currentPage + Math.floor(window / 2));
+>>>>>>> d38ec76 (Luc)
 
 		if (maxLeft < 1) {
 			maxLeft = 1;

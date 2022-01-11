@@ -1,6 +1,7 @@
 package service;
 
 
+import java.time.LocalDate;
 import java.util.List;
 import bean.Book;
 
@@ -39,6 +40,8 @@ public interface BookService {
     
     List<Book> getByTitleAndCategoryCurrentPage(int trimStart, int rows, String title, int categoryID);
     
+    List<Book> getByTitleAndCurrentPage(int trimStart, int rows, String title);
+    
     List<Book> getBookByCategoryId(Integer categoryId);
     
     List<Book> getBookCategoryOrderBy(Integer categoryId, String orderBy, boolean orderType);
@@ -51,4 +54,7 @@ public interface BookService {
     
     List<Book> getByAuthorId(int Id);
 
+    int deleteByBookId(Integer bookId);
+    
+    int insertBook(String categoryId, String title, String description, String image, Double price, LocalDate publishDate, Integer quantity);
 }

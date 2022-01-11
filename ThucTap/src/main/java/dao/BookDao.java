@@ -2,7 +2,7 @@ package dao;
 
 import bean.Book;
 
-
+import java.time.LocalDate;
 import java.util.List;
 
 public interface BookDao {
@@ -38,6 +38,14 @@ public interface BookDao {
 
     Book getById(int Id);
     
+<<<<<<< HEAD
     List<Book> getByAuthorId(int Id);
 
+=======
+    List<Book> getByAuthorId(Integer Id);
+    
+    int deleteByBookId(Integer bookId);
+    
+    int insertBook(String categoryId, String title, String description, String image, Double price, LocalDate publishDate, Integer quantity);
+>>>>>>> d38ec76 (Luc)
 }

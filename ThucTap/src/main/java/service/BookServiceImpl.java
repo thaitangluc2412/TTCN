@@ -4,6 +4,7 @@ import bean.Book;
 import dao.BookDao;
 import dao.HibernateBookDao;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class BookServiceImpl implements BookService {
@@ -62,6 +63,12 @@ public class BookServiceImpl implements BookService {
 	public List<Book> getBookByCategoryIDCurrentPage(int trimStart, int rows, int categoryID) {
 		return bookDao.getBookByCategoryIDCurrentPage(trimStart, rows, categoryID);
 	}
+	
+	@Override
+	public List<Book> getByTitleAndCurrentPage(int trimStart, int rows, String title) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	@Override
 	public List<Book> getByTitleAndCategory(String title, int categoryID) {
@@ -88,11 +95,24 @@ public class BookServiceImpl implements BookService {
 	public List<Book> getByAuthorId(int Id) {
 		return bookDao.getByAuthorId(Id);
 	}
+<<<<<<< HEAD
 
 
 
 	@Override
 	public Book getBookById(int id) {
 		return bookDao.getBookById(id);
+=======
+	
+	@Override
+	public int deleteByBookId(Integer bookId) {
+		return bookDao.deleteByBookId(bookId);
+	}
+	
+	@Override
+	public int insertBook(String categoryId, String title, String description, String image, Double price,
+			LocalDate publishDate, Integer quantity) {
+		return bookDao.insertBook(categoryId, title, description, image, price, publishDate, quantity);
+>>>>>>> d38ec76 (Luc)
 	}
 }

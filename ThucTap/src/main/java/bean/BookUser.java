@@ -8,7 +8,7 @@ import java.io.Serializable;
 public class BookUser {
     @EmbeddedId
     private Id id;
-
+    
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "BookID", referencedColumnName = "BookID", insertable = false, updatable = false)
     private Book book;
