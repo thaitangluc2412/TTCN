@@ -66,8 +66,7 @@ public class BookServiceImpl implements BookService {
 	
 	@Override
 	public List<Book> getByTitleAndCurrentPage(int trimStart, int rows, String title) {
-		// TODO Auto-generated method stub
-		return null;
+		return bookDao.getByTitleCurrentPage(trimStart, rows, title);
 	}
 
 	@Override
@@ -95,14 +94,11 @@ public class BookServiceImpl implements BookService {
 	public List<Book> getByAuthorId(int Id) {
 		return bookDao.getByAuthorId(Id);
 	}
-<<<<<<< HEAD
-
-
 
 	@Override
 	public Book getBookById(int id) {
 		return bookDao.getBookById(id);
-=======
+	}
 	
 	@Override
 	public int deleteByBookId(Integer bookId) {
@@ -113,6 +109,5 @@ public class BookServiceImpl implements BookService {
 	public int insertBook(String categoryId, String title, String description, String image, Double price,
 			LocalDate publishDate, Integer quantity) {
 		return bookDao.insertBook(categoryId, title, description, image, price, publishDate, quantity);
->>>>>>> d38ec76 (Luc)
 	}
 }

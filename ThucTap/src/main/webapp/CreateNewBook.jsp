@@ -282,7 +282,7 @@
 						</div>
 
 						<div class="shopingcart-bottom-area">
-							<button type="submit">Save</button>
+							<button type="submit" class="btn btn-default">Save</button>
 							<a class="left-shoping-cart" href="#">Cancel</a>
 						</div>
 				</div>
