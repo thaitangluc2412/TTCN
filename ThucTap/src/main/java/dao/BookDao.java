@@ -11,7 +11,7 @@ public interface BookDao {
 
     List<Book> getNewReleaseBook();
     
-    Book getBookById(int id);
+//    Book getBookById(int id);
 
     int getQuantity();
     

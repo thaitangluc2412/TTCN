@@ -95,10 +95,10 @@ public class BookServiceImpl implements BookService {
 		return bookDao.getByAuthorId(Id);
 	}
 
-	@Override
-	public Book getBookById(int id) {
-		return bookDao.getBookById(id);
-	}
+//	@Override
+//	public Book getBookById(int id) {
+//		return bookDao.getBookById(id);
+//	}
 	
 	@Override
 	public int deleteByBookId(Integer bookId) {

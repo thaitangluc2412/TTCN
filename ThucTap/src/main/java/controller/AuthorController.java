@@ -61,8 +61,8 @@ public class AuthorController extends HttpServlet {
 	            BookServiceImpl bookService = new BookServiceImpl();
 	            List<Book> listBook = bookService.getByAuthorId(user.getUserId());
 	            OrderDetailServiceImpl orderDetailService = new OrderDetailServiceImpl();
-	            List<OrderDetail> listOrderDetail =orderDetailService.getSum();
-	            System.out.println(listOrderDetail);
+//	            List<OrderDetail> listOrderDetail =orderDetailService.getSum();
+//	            System.out.println(listOrderDetail);
 	            request.setAttribute("listBook", listBook);
 	        	request.getRequestDispatcher("AuthorProfit.jsp").forward(request, response);
 	        }

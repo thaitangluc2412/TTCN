@@ -182,10 +182,11 @@ public class HibernateBookDao extends AbstractHibernateDao implements BookDao {
 	}
 
 	@Override
+
 	public Book getById(int Id) {
-		// return openSession().createNativeQuery(Q_GET_BOOK_BY_ID, Book.class)
-		// .setParameter("bookId", Id, IntegerType.INSTANCE)
-		// .uniqueResult();
+//		return openSession().createNativeQuery(Q_GET_BOOK_BY_ID, Book.class)
+//				.setParameter("bookId", Id, IntegerType.INSTANCE)
+//				.uniqueResult();
 		return session.createNativeQuery(Q_GET_BOOK_BY_ID, Book.class)
 				.setParameter("bookId", Id, IntegerType.INSTANCE)
 				.uniqueResult();
@@ -241,13 +242,4 @@ public class HibernateBookDao extends AbstractHibernateDao implements BookDao {
 		transaction.commit();
 		return query;
 	}
-	
-	@Override
-	public Book getBookById(int id) {
-		return session.createNativeQuery(Q_GET_SINGLE_BY_ID, Book.class)
-				.setParameter("id", id, IntegerType.INSTANCE)
-				.uniqueResult();
-	}
-	
-	
 }

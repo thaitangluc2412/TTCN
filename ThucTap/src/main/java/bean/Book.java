@@ -43,6 +43,9 @@ public class Book {
 	@OneToMany(mappedBy = "book", cascade=CascadeType.REMOVE )
 	//@Cascade(value= {org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.DELETE})
 	private List<BookUser> bookUser;
+
+	@OneToMany(mappedBy = "book")
+	private List<OrderDetail> orderDetails;
 	
 	public Book() {
 	}
@@ -60,6 +63,14 @@ public class Book {
 		this.quantity = quantity;
 	}
 	
+	public List<OrderDetail> getOrderDetail() {
+		return orderDetails;
+	}
+
+	public void setOrderDetail(List<OrderDetail> orderDetail) {
+		this.orderDetails = orderDetail;
+	}
+
 	public List<BookUser> getBookUser() {
 		return bookUser;
 	}

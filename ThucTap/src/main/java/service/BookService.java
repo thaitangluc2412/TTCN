@@ -14,7 +14,7 @@ public interface BookService {
 
     List<Book> getAll();
     
-    Book getBookById(int id);
+//    Book getBookById(int id);
 
     List<Book> getNewReleaseBook();
 

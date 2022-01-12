@@ -44,7 +44,7 @@ public class TheBook extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String id =request.getParameter("Book");
         BookServiceImpl bookService = new BookServiceImpl();
-        Book book = bookService.getBookById(Integer.parseInt(id));
+        Book book = bookService.getById(Integer.parseInt(id));
         List<Book> listBook = bookService.getBookByCategoryId(book.getCategoryId().getCategoryID());
         request.setAttribute("book", book);
         request.setAttribute("listBook", listBook);

@@ -2,6 +2,7 @@ package bean;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "Order")
@@ -34,6 +35,9 @@ public class Order {
     @Column(name = "RecipientPhone")
     private String recipientPhone;
 
+    @OneToMany(mappedBy = "order")
+	private List<OrderDetail> orderDetails;
+    
     public Order() {
     }
 

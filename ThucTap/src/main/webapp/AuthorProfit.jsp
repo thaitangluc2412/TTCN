@@ -85,8 +85,8 @@
 									<th class="product-image">Image</th>
 									<th class="product-title">Title</th>
 									<th class="product-category">Category</th>
-									<th class="product-price">Price</th>
 									<th class="product-quantity">Quantity</th>
+									<th class="product-price">Price</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -111,18 +111,22 @@
 											<p>${book.categoryId.name}</p>
 											</p>
 										</td>
+										
+										<td class="product-quantity">
+											<p>
+											<c:set var="total" value="${0}"/>
+											<c:forEach items="${book.getOrderDetail()}" var="orderDetail">
+												<c:set var="total" value="${total + orderDetail.getQuantity()}" />
+											</c:forEach>
+												${total}
+											</p>
+										</td>
 										<td class="product-price">
 											<p>
-											<p>$ 10</p>
+											<p>${book.price*total} VND</p>
 											</p>
 	
 										</td>
-										<td class="product-quantity">
-											<p>
-											<p>34</p>
-											</p>
-										</td>
-										
 										
 									</tr>
 							</c:forEach>
