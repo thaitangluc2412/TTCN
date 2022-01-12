@@ -86,7 +86,7 @@
 									<th class="product-title">Title</th>
 									<th class="product-category">Category</th>
 									<th class="product-quantity">Quantity</th>
-									<th class="product-price">Price</th>
+									<th class="product-price">Total price</th>
 								</tr>
 							</thead>
 							<tbody>

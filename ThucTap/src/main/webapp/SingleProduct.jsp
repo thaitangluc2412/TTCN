@@ -124,8 +124,9 @@
 						<div class="single-product-categories">
 							<label>Categories:</label> <span>${book.categoryId.name}</span><br>
 							<label>Author:</label> <span> <c:forEach
-									items="${book.getBookUser()}" var="bookUser">
-									${bookUser.getUser().getName()}
+									items="${book.getBookUser()}" var="bookUser" varStatus="loop">
+									<a href="AuthorBookController?AuthorId=${bookUser.getUser().getUserId()}" class="open-comment-form">${bookUser.getUser().getName()}</a>
+									${loop.last ? '' : ','}
 								</c:forEach></span>
 						</div>
 						<div class="social-share">
@@ -162,46 +163,19 @@
 								<p>${book.description}</p>
 							</div>
 							<div role="tabpanel" class="tab-pane" id="data">
-								<div class="mb-3">
-									<div class="seller-details">
-										<label class="form-label">Customer Name</label>
-										<ul>
-											<li><i class="fa fa-star icolor"></i></li>
-											<li><i class="fa fa-star icolor"></i></li>
-											<li><i class="fa fa-star icolor"></i></li>
-											<li><i class="fa fa-star icolor"></i></li>
-											<li><i class="fa fa-star icolor"></i></li>
-										</ul>
-										<div class="form-label">I really recommend this book</div>
+								<c:forEach items="${book.getReviews()}" var="review">
+									<div class="mb-3">
+										<div class="seller-details">
+											<label class="form-label">${review.getUser().name}</label>
+											<ul>
+												<c:forEach var="i" begin="1" end="5">
+													<i class="fa fa-star ${i <= review.rating ? "icolor" : ""}"></i>
+												</c:forEach>
+											</ul>
+											<div class="form-label">${review.comment}</div>
+										</div>
 									</div>
-								</div>
-								<div class="mb-3">
-									<div class="seller-details">
-										<label class="form-label">Customer Name</label>
-										<ul>
-											<li><i class="fa fa-star icolor"></i></li>
-											<li><i class="fa fa-star icolor"></i></li>
-											<li><i class="fa fa-star icolor"></i></li>
-											<li><i class="fa fa-star icolor"></i></li>
-											<li><i class="fa fa-star icolor"></i></li>
-										</ul>
-										<div class="form-label">I really recommend this book</div>
-									</div>
-								</div>
-								<div class="mb-3">
-									<div class="seller-details">
-										<label class="form-label">Customer Name</label>
-										<ul>
-											<li><i class="fa fa-star icolor"></i></li>
-											<li><i class="fa fa-star icolor"></i></li>
-											<li><i class="fa fa-star icolor"></i></li>
-											<li><i class="fa fa-star icolor"></i></li>
-											<li><i class="fa fa-star icolor"></i></li>
-										</ul>
-										<div class="form-label">I really recommend this book</div>
-									</div>
-
-								</div>
+								</c:forEach>
 							</div>
 
 						</div>

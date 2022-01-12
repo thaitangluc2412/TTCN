@@ -28,13 +28,13 @@ import java.util.List;
 /*
  * Servlet implementation class BookController
  */
-@WebServlet("/AuthorController")
-public class AuthorController extends HttpServlet {
+@WebServlet("/AuthorBookController")
+public class AuthorBookController extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /*     * @see HttpServlet#HttpServlet()
      */
-    public AuthorController() {
+    public AuthorBookController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -46,27 +46,9 @@ public class AuthorController extends HttpServlet {
     protected void doGet(HttpServletRequest request,
                          HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        doPost(request,response);
+		
         
-		HttpSession session = request.getSession();
-		User user=(User)session.getAttribute("user");
-		if(user==null) {
-			response.sendRedirect("404.jsp");
-		}
-		else if( !user.getRole().toString().equals("Author") ) {
-			response.sendRedirect("404.jsp");
-		}
-		else {	
-	        String str =request.getParameter("Management");
-	        if(str.equals("Profit")) {
-	            BookServiceImpl bookService = new BookServiceImpl();
-	            List<Book> listBook = bookService.getByAuthorId(user.getUserId());
-	            request.setAttribute("listBook", listBook);
-	        	request.getRequestDispatcher("AuthorProfit.jsp").forward(request, response);
-	        }
-	        else if(str.equals("Review")) {
-	          
-	        }
-		}
     }
 
     /**
@@ -75,7 +57,15 @@ public class AuthorController extends HttpServlet {
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
-        doGet(request, response);
+    	int id =Integer.parseInt(request.getParameter("AuthorId"));
+        BookServiceImpl bookService = new BookServiceImpl();
+        List<Book> listBook = bookService.getByAuthorId(id);
+        UserServiceImpl userService = new UserServiceImpl();
+        User author = userService.getProfile(id);
+        request.setAttribute("author", author);
+        request.setAttribute("listBook", listBook);
+    	request.getRequestDispatcher("AuthorBook.jsp").forward(request, response);
+ 
     }
 
 }

@@ -47,6 +47,9 @@ public class Book {
 	@OneToMany(mappedBy = "book")
 	private List<OrderDetail> orderDetails;
 	
+	@OneToMany(mappedBy = "book")
+	private List<Review> reviews;
+	
 	public Book() {
 	}
 
@@ -63,6 +66,14 @@ public class Book {
 		this.quantity = quantity;
 	}
 	
+	public List<Review> getReviews() {
+		return reviews;
+	}
+
+	public void setReviews(List<Review> reviews) {
+		this.reviews = reviews;
+	}
+
 	public List<OrderDetail> getOrderDetail() {
 		return orderDetails;
 	}

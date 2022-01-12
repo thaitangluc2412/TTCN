@@ -148,10 +148,10 @@
 					<c:forEach items="${bookNewRelease}" var="bookNew">
 						<div class="col-md-4 col-sm-6" style="height: 500px">
 							<div class="single-banner" style="height:100%">
-								<a href="#" style="height: 90%"> <img src="${bookNew.image}" alt="" style="height: 100%; width: 100%">
+								<a href="TheBook?Book=${bookNew.bookId}" style="height: 90%"> <img src="${bookNew.image}" alt="" style="height: 100%; width: 100%">
 								</a>
 								<div class="banner-bottom text-center">
-									<a href="#">NEW RELEASE ${bookNew.publishDate.getYear()}</a>
+									<a href="TheBook?Book=${bookNew.bookId}">NEW RELEASE ${bookNew.publishDate.getYear()}</a>
 								</div>
 							</div>
 						</div>
