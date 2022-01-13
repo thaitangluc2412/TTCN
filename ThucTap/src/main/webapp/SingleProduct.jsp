@@ -7,7 +7,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<title>Product Details || Witter Multipage Responsive Template</title>
+<title>${book.title}</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- favicon -->
@@ -122,7 +122,7 @@
 							</button>
 						</div>
 						<div class="single-product-categories">
-							<label>Categories:</label> <span>${book.categoryId.name}</span><br>
+							<label>Categories:</label> <span><a href="Shopping?categoryID=${book.categoryId.getCategoryID()}" class="open-comment-form">${book.categoryId.name}</a></span><br>
 							<label>Author:</label> <span> <c:forEach
 									items="${book.getBookUser()}" var="bookUser" varStatus="loop">
 									<a href="AuthorBookController?AuthorId=${bookUser.getUser().getUserId()}" class="open-comment-form">${bookUser.getUser().getName()}</a>

@@ -85,8 +85,8 @@
 									<th class="product-image">Image</th>
 									<th class="product-title">Title</th>
 									<th class="product-category">Category</th>
-									<th class="product-quantity">Quantity</th>
-									<th class="product-price">Total price</th>
+									<th class="product-quantity">Sold</th>
+									<th class="product-price">Profit</th>
 								</tr>
 							</thead>
 							<tbody>
