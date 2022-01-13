@@ -76,12 +76,13 @@
 								alt="..." class="rounded-circle">
 						</div>
 						<div class="col-md-6 title-product d-flex align-items-center"
-							style="margin: 0; padding:0">
+							style="margin: 0; padding: 0">
 							<div>
 								<div>
-									<a href="#">${sessionScope.user.name} (${sessionScope.user.email})</a>
+									<a href="#">${sessionScope.user.name}
+										(${sessionScope.user.email})</a>
 								</div>
-								<div style="text-align:left">
+								<div style="text-align: left">
 									<a href="#">Logout</a>
 								</div>
 							</div>
@@ -90,63 +91,63 @@
 				</c:if>
 				<form>
 					<div class="form-group">
-						<input type="text" class="form-control" id="formGroupExampleInput"
-							placeholder="Name" value=${sessionScope.user.name}>
+						<input type="text" class="form-control" id="nameUser"
+							placeholder="Name" value="${user.name}">
 					</div>
 					<div class="row" style="margin-bottom: 15px">
 						<div class="col-8">
-							<input type="text" class="form-control" placeholder="Email" value=${sessionScope.user.email}>
+							<input type="text" class="form-control" placeholder="Email" id="emailUser"
+								value="${user.email}">
 						</div>
 						<div class="col-4">
 							<input type="text" class="form-control"
-								placeholder="Phone Number" value=${sessionScope.user.phoneNumber}>
+								placeholder="Phone Number" value="${user.phoneNumber}">
 						</div>
 					</div>
 					<div class="form-group">
-						<input type="text" class="form-control" id="formGroupExampleInput"
-							placeholder="Address" value=${sessionScope.user.address}>
+						<input type="text" class="form-control" id="addressUser"
+							placeholder="Address" value="${user.address}">
+					</div>
+					<label>Delivery Method</label>
+					<div class="text-left border p-3 font-weight-light rounded"
+						style="margin-bottom: 15px">
+						<div class="row">
+							<div class="col-md-6">
+								<input class="input-radio" type="radio" checked="">
+								<div class="d-inline ml-1">
+									<img
+										src="https://cuahangdongho.vn/wp-content/uploads/2020/05/pngtree-free-shipping-icon-png-image-1788614.jpg"
+										style="height: 25px">
+									<p class="d-inline">Giao hang tan noi</p>
+								</div>
+							</div>
+							<div class="col-md-offset-3 col-md-3">
+								<div class="d-inline text-right">Free shipping</div>
+							</div>
+						</div>
+					</div>
+					<label>Payment Method</label>
+					<div class="text-left border p-3 font-weight-light rounded"
+						style="margin-bottom: 15px">
+						<div class="row">
+							<div class="col-md-12">
+								<script
+									src="https://www.paypal.com/sdk/js?client-id=AXQGlWcpXdtKrqkkDU4KUHlqYX9NxtWA8uYqk53vcAU1xAckrBY-mbTYLW_1bXQYeWLDf7tekmPFQE53&currency=USD"></script>
+
+								<!-- Set up a container element for the button -->
+								<div id="paypal-button-container"></div>
+							</div>
+						</div>
 					</div>
 				</form>
-				<label>Delivery Method</label>
-				<div class="text-left border p-3 font-weight-light rounded"
-					style="margin-bottom: 15px">
-					<div class="row">
-						<div class="col-md-6">
-							<input class="input-radio" type="radio" checked="">
-							<div class="d-inline ml-1">
-								<img
-									src="https://cuahangdongho.vn/wp-content/uploads/2020/05/pngtree-free-shipping-icon-png-image-1788614.jpg"
-									style="height: 25px">
-								<p class="d-inline">Giao hang tan noi</p>
-							</div>
-						</div>
-						<div class="col-md-offset-3 col-md-3">
-							<div class="d-inline text-right">Free shipping</div>
-						</div>
-					</div>
-				</div>
-				<label>Payment Method</label>
-				<div class="text-left border p-3 font-weight-light rounded"
-					style="margin-bottom: 15px">
-					<div class="row">
-						<div class="col-md-8">
-							<input class="input-radio" type="radio" checked="">
-							<div class="d-inline ml-1">
-								<img
-									src="https://icons-for-free.com/iconfiles/png/512/payment+paypal+icon-1320192250069986144.png"
-									style="height: 25px">
-								<p class="d-inline">Pay before shipping (Paypal)</p>
-							</div>
-						</div>
-					</div>
-				</div>
 				<div style="margin-bottom: 15px">
 					<div class="d-inline">
 						<a href="Cart.jsp">Back to my cart</a>
 					</div>
-					<button type="submit" class="btn-lg btn-primary center"
-						style="position: absolute; right: 16px">Order</button>
 				</div>
+
+
+
 			</div>
 
 			<div class="col-md-offset-1 col-md-5"
@@ -178,14 +179,104 @@
 							<p>Subtotal:</p>
 						</div>
 						<div class="col-md-offset-5"></div>
-						<div class="col-md-3 subtotal2">3000000</div>
+						<div class="col-md-3 subtotal2" id="subtotalCart">3000000</div>
 					</div>
 				</div>
 
 			</div>
 		</div>
 	</div>
+	<!--  <script type="text/javascript">
+let productsInCart = JSON.parse(localStorage.getItem('shoppingCart'));
+if (!productsInCart) {
+	productsInCart = [];
+}
 
+const parentElement = document.querySelector('.cart-in-payment');
+const subtotal = document.querySelector('.subtotal');
+const subtotal2 = document.querySelector('.subtotal2');
+
+const countTheSumPrice = function() { // 4
+	let sum = 0;
+	productsInCart.forEach(item => {
+		sum += item.price;
+	});
+	return sum;
+}
+
+const updateShoppingCartHTML = function() {  // 3
+
+	let sumPrice = countTheSumPrice();
+	subtotal.textContent = sumPrice + '$'; 
+	subtotal2.textContent = sumPrice + '$'; 
+	localStorage.setItem('shoppingCart', JSON.stringify(productsInCart));
+    console.log(productsInCart[0].image);
+	if (productsInCart.length > 0) {
+		let result = productsInCart.map(product => {
+			return `<div class="row" style="margin-bottom: 10px">
+						<div class="col-2" style="height: 70px; width: 90px">
+							<a href="#"><img
+								src="${product.image}"
+								style="height: 100%"></a>
+						</div>
+						<div class="col-6 title-product d-flex align-items-center"
+							style="margin: 0">
+							<div>
+								<div>
+									<a href="TheBook?Book=${product.id}">${product.name}</a>
+								</div>
+								<div>
+									<p style="margin: 0; text-align: left">Quantity: ${product.count}</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-offset-1 col-3 d-flex align-items-center">
+							<p style="margin: 0">${product.price} $</p>
+						</div>
+					</div> `
+		});
+		parentElement.innerHTML = result.join('');
+		console.log(result.join(''));
+
+
+	}
+	else {
+		parentElement.innerHTML = ``;
+
+	}
+	
+}
+
+updateShoppingCartHTML();
+
+				paypal.Buttons({
+                	// Sets up the transaction when a payment button is clicked
+                	createOrder: function(data, actions) {
+                	  return actions.order.create({
+                		purchase_units: [{
+                		  amount: {
+                			value: countTheSumPrice()+''// Can reference variables or functions. Example: `value: document.getElementById('...').value`
+                		  }
+                		}]
+                	  });
+                	},
+
+                	// Finalize the transaction after payer approval
+                	onApprove: function(data, actions) {
+                	  return actions.order.capture().then(function(orderData) {
+                		// Successful capture! For dev/demo purposes:
+                			console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+                			var transaction = orderData.purchase_units[0].payments.captures[0];
+                			alert('Transaction '+ transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
+
+                		// When ready to go live, remove the alert and show a success message within this page. For example:
+                		// var element = document.getElementById('paypal-button-container');
+                		// element.innerHTML = '';
+                		// element.innerHTML = '<h3>Thank you for your payment!</h3>';
+                		// Or go to another URL:  actions.redirect('thank_you.html');
+                	  });
+                	}
+                  }).render('#paypal-button-container');</script> -->
 
 	<!-- all js here -->
 	<!-- jquery latest version -->
@@ -207,7 +298,10 @@
 	<script src="js/jquery.meanmenu.js"></script>
 	<!-- wow js -->
 	<script src="js/wow.min.js"></script>
+
+
 	<script src="js/myCart.js"></script>
+
 	<script>
 		new WOW().init();
 	</script>

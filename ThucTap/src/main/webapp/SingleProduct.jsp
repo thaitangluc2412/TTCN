@@ -137,12 +137,12 @@
 								<li><a href="#"><i class="flaticon-social-2"></i></a></li>
 							</ul>
 						</div>
-						<div id="product-comments-block-extra">
+						<!-- <div id="product-comments-block-extra">
 							<ul class="comments-advices">
-								<li><a href="#" class="open-comment-form">Write a
+								<li><a href="#" class="open-comment-form" title="Quick view" data-toggle="modal" data-target="#productModal">Write a
 										review</a></li>
 							</ul>
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</div>

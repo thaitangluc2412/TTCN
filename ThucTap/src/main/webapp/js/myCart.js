@@ -1,3 +1,4 @@
+
 let productsInCart = JSON.parse(localStorage.getItem('shoppingCart'));
 if (!productsInCart) {
 	productsInCart = [];
@@ -18,10 +19,9 @@ const countTheSumPrice = function() { // 4
 const updateShoppingCartHTML = function() {  // 3
 
 	let sumPrice = countTheSumPrice();
-	subtotal.textContent = sumPrice + '$'; 
-	subtotal2.textContent = sumPrice + '$'; 
+	subtotal.textContent = sumPrice + '$';
+	subtotal2.textContent = sumPrice + '$';
 	localStorage.setItem('shoppingCart', JSON.stringify(productsInCart));
-
 	if (productsInCart.length > 0) {
 		let result = productsInCart.map(product => {
 			return `<div class="row" style="margin-bottom: 10px">
@@ -54,7 +54,60 @@ const updateShoppingCartHTML = function() {  // 3
 		parentElement.innerHTML = ``;
 
 	}
-	
+
 }
 
-updateShoppingCartHTML()
+updateShoppingCartHTML();
+console.log(document.getElementById('addressUser').value);
+paypal.Buttons({
+	// Sets up the transaction when a payment button is clicked
+	createOrder: function(data, actions) {
+		return actions.order.create({
+			intent: 'CAPTURE',
+			payer: {
+				name: {
+					given_name: "Viet",
+					surname: "Nam"
+				},
+				address: {
+					address_line_1: "934A Big Avenue",
+					address_line_2: "Amish Country Byway",
+					admin_area_2: "Berlin",
+					admin_area_1: "Ohio",
+					postal_code: "44688",
+					country_code: "US"
+				},
+
+				email_address: document.getElementById('emailUser').value,
+				//		phone: {
+				//			phone_type: "MOBILE",
+				//			phone_number: {
+				//				national_number: "[[${user.phoneNumber}]]"
+				//			}
+				//		}
+			},
+			purchase_units: [{
+				amount: {
+					value: '88.40'// Can reference variables or functions. Example: `value: document.getElementById('...').value`
+				}
+			}]
+		});
+	},
+
+	// Finalize the transaction after payer approval
+	onApprove: function(data, actions) {
+		return actions.order.capture().then(function(orderData) {
+			// Successful capture! For dev/demo purposes:
+			console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+			var transaction = orderData.purchase_units[0].payments.captures[0];
+			localStorage.removeItem("shoppingCart");
+			window.location.replace("http://localhost:8084/ThucTap/ThankYou.jsp");
+
+			// When ready to go live, remove the alert and show a success message within this page. For example:
+			// var element = document.getElementById('paypal-button-container');
+			// element.innerHTML = '';
+			// element.innerHTML = '<h3>Thank you for your payment!</h3>';
+			// Or go to another URL:  actions.redirect('thank_you.html');
+		});
+	}
+}).render('#paypal-button-container');
