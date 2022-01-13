@@ -1,37 +1,18 @@
 package service;
 
-import bean.Review;
-import bean.ReviewDetailWithUserNameDto;
 import dao.HibernateReviewDao;
 import dao.ReviewDao;
-
-import java.util.List;
+import persistence.Review;
 
 public class ReviewServiceImpl implements ReviewService{
-
-    private final ReviewDao reviewDao;
+    private ReviewDao reviewDao;
 
     public ReviewServiceImpl() {
         reviewDao = new HibernateReviewDao();
     }
 
     @Override
-    public List<Review> getAll() {
-        return reviewDao.getAll();
-    }
-
-    @Override
-    public List<Review> getReviewByBookId(int bookId) {
-        return reviewDao.getReviewByBookId(bookId);
-    }
-
-    @Override
-    public List<Review> getReviewByUserId(int userId) {
-        return reviewDao.getReviewByUserId(userId);
-    }
-
-    @Override
-    public List<ReviewDetailWithUserNameDto> getLatestReviews() {
-        return reviewDao.getLatestReviews();
+    public boolean save(Review review) {
+        return reviewDao.save(review);
     }
 }
