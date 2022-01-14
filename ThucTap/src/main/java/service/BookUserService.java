@@ -1,5 +1,7 @@
 package service;
 
 public interface BookUserService {
-	int insertBookUser(String bookId, String userId);
+	int insertBookUser(int bookId, int userId);
+	
+	int deleteBookUser(int bookId);
 }

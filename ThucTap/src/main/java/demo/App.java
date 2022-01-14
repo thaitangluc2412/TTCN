@@ -26,6 +26,7 @@ public class App {
     private static LocalDate date = LocalDate.of(2020, 11, 21);
 
     public static void main(String[] args) {
+    	System.out.println(bookUserservice.deleteBookUser(16));
     	
     }
     private static <Element> void print(Collection<Element> elements) {

@@ -47,7 +47,16 @@ public class HibernateBookDao extends AbstractHibernateDao implements BookDao {
 	private static final String Q_GET_BOOK_BY_ID = "SELECT * FROM Book WHERE BookId = :bookId";
 
 	private static final String Q_DELETE_BOOK_ID = "DELETE FROM book WHERE BookId= :bookId";
+	private static final String Q_INSERT_BOOK = "INSERT INTO bookstore.book (CategoryID, Title, Description, Image, Price, PublishDate, Quantity)\n"
+			+ "VALUES (:categoryId, :title, :description, :image, :price, :publishDate, :quantity)";
 
+	private static final String Q_UPDATE_BOOK = "UPDATE bookstore.book SET CategoryID = :categoryId, \n"
+			+ "Title = :title, \n"
+			+ "Description = :description, \n"
+			+ "Image = :image, \n"
+			+ "Price = :price, PublishDate = :publishDate, Quantity = :quantity \n"
+			+ "WHERE BookID = :bookId";
+	
 	@Override
 	public List<Book> getAll() {
 		return openSession().createNativeQuery(Q_GET_ALL, Book.class).getResultList();
@@ -220,24 +229,49 @@ public class HibernateBookDao extends AbstractHibernateDao implements BookDao {
 	}
 
 	@Override
-	public int insertBook(String categoryId, String title, String description, String image, Double price,
+	public int insertBook(int categoryId, String title, String description, String image, Double price,
 			LocalDate publishDate, Integer quantity) {
 		Session session = openSession();
-		String Q_INSERT_BOOK = "INSERT INTO bookstore.book (CategoryID, Title, Description, Image, Price, PublishDate, Quantity)\n"
-				+ "VALUES (" + categoryId + ", '" + title + "', '" + description + "', '" + image + "', " + price
-				+ ", '" + publishDate + "', " + quantity + ")";
+		
 		Transaction transaction = session.beginTransaction();
 		int query;
-		// query = session.createNativeQuery(Q_INSERT_BOOK, Book.class)
-		// .setParameter("categoryId",categoryId, IntegerType.INSTANCE)
-		// .setParameter("title", title, StringType.INSTANCE)
-		// .setParameter("description", description)
-		// .setParameter("image", image)
-		// .setParameter("price", price)
-		// .setParameter("publishDate", DateUtils.toDate(publishDate))
-		// .setParameter("quantity", quantity)
-		// .executeUpdate();
-		query = session.createNativeQuery(Q_INSERT_BOOK, Book.class)
+		 query = session.createNativeQuery(Q_INSERT_BOOK, Book.class)
+				 .setParameter("categoryId",categoryId, IntegerType.INSTANCE)
+				 .setParameter("title", title, StringType.INSTANCE)
+				 .setParameter("description", description)
+				 .setParameter("image", image)
+				 .setParameter("price", price)
+				 .setParameter("publishDate", DateUtils.toDate(publishDate))
+				 .setParameter("quantity", quantity)
+				 .executeUpdate();
+//		query = session.createNativeQuery(Q_INSERT_BOOK, Book.class)
+//				.executeUpdate();
+		transaction.commit();
+		return query;
+	}
+	
+	@Override
+	public Book getBookById(int id) {
+		return session.createNativeQuery(Q_GET_SINGLE_BY_ID, Book.class)
+				.setParameter("id", id, IntegerType.INSTANCE)
+				.uniqueResult();
+	}
+	
+	@Override
+	public int updateBook(int categoryId, String title, String description, String image, Double price,
+			LocalDate publishDate, Integer quantity, int bookId) {
+		Session session = getCurrentSession();
+		Transaction transaction = session.beginTransaction();
+		int query;
+		query = session.createNativeQuery(Q_UPDATE_BOOK, Book.class)
+				.setParameter("categoryId", categoryId)
+				.setParameter("title", title)
+				.setParameter("description", description)
+				.setParameter("image", image)
+				.setParameter("price", price)
+				.setParameter("publishDate", DateUtils.toDate(publishDate))
+				.setParameter("quantity", quantity)
+				.setParameter("bookId", bookId)
 				.executeUpdate();
 		transaction.commit();
 		return query;

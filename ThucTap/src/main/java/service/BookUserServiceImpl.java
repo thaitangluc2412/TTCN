@@ -12,7 +12,12 @@ public class BookUserServiceImpl implements BookUserService{
 		bookUserDao = new HibernateBookUser();
 	}
 	@Override
-	public int insertBookUser(String bookId, String userId) {
+	public int insertBookUser(int bookId, int userId) {
 		return bookUserDao.insertBookUser(bookId, userId);
+	}
+	
+	@Override
+	public int deleteBookUser(int bookId) {
+		return bookUserDao.deleteBookUser(bookId);
 	}
 }

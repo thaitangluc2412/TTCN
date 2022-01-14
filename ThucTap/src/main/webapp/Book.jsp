@@ -146,7 +146,7 @@
 										</td>
 										<td class="product-edit">
 											<p>
-												<a href="#">Edit</a>
+												<a href="EditBook?bookId=${book.bookId}">Edit</a>
 											</p>
 										</td>
 										<td class="product-remove"><a
@@ -163,18 +163,18 @@
 							<ul class="pagination">
 								<c:if test="${currentPage != 1}">
 									<li class="page-item"><a class="page-link"
-										href="Admin?Management=Book&page=1">
+										href="Admin?Management=Book&page=1&searchBook=${searchBook}">
 											First </a></li>
 								</c:if>
 								<c:forEach var="page" begin="${maxLeft}" end="${maxRight}">
 									<li class="page-item ${page == currentPage ? "active" : "" } "><a
 										class="page-link"
-										href="Admin?Management=Book&page=${page}">
+										href="Admin?Management=Book&page=${page}&searchBook=${searchBook}">
 											${page} </a></li>
 								</c:forEach>
 								<c:if test="${currentPage != totalPages}">
 									<li class="page-item"><a class="page-link"
-										href="Admin?Management=Book&page=${totalPages}">
+										href="Admin?Management=Book&page=${totalPages}&searchBook=${searchBook}">
 											Last </a></li>
 								</c:if>
 							</ul>

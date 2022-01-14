@@ -56,5 +56,7 @@ public interface BookService {
 
     int deleteByBookId(Integer bookId);
     
-    int insertBook(String categoryId, String title, String description, String image, Double price, LocalDate publishDate, Integer quantity);
+    int insertBook(int categoryId, String title, String description, String image, Double price, LocalDate publishDate, Integer quantity);
+
+    int updateBook(int categoryId, String title, String description, String image, Double price, LocalDate publishDate, Integer quantity, int bookId);
 }

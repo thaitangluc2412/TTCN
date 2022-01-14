@@ -1,5 +1,7 @@
 package dao;
 
 public interface BookUserDao {
-	int insertBookUser(String bookId, String userId);
+	int insertBookUser(int bookId, int userId);
+	
+	int deleteBookUser(int bookId);
 }

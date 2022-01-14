@@ -2,7 +2,6 @@ package controller;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -21,29 +20,28 @@ import service.UserService;
 import service.UserServiceImpl;
 
 /**
- * Servlet implementation class SaveCreateNewBook
+ * Servlet implementation class SaveEditBook
  */
-@WebServlet("/SaveCreateNewBook")
-public class SaveCreateNewBook extends HttpServlet {
+@WebServlet("/SaveEditBook")
+public class SaveEditBook extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static BookService bookService = new BookServiceImpl();
 	private static BookUserService bookUserService = new BookUserServiceImpl();
 	private static UserService userService = new UserServiceImpl();
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public SaveEditBook() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 	/**
-	 * @see HttpServlet#HttpServlet()
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	public SaveCreateNewBook() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int bookId = Integer.parseInt(request.getParameter("bookId"));
 		int categoryId = Integer.parseInt(request.getParameter("categoryId"));
 		String title = request.getParameter("title");
 		String authors[] = request.getParameterValues("author");
@@ -55,21 +53,23 @@ public class SaveCreateNewBook extends HttpServlet {
 		Double price = Double.parseDouble(request.getParameter("price"));
 		String description = request.getParameter("description");
 		LocalDate publishDate = LocalDate.of(year, month, day);
-		bookService.insertBook(categoryId, title, description, image, price, publishDate, quantity);
+		
+		bookService.updateBook(categoryId, title, description, image, price, publishDate, quantity, bookId);
 		System.out.println(authors.length);
 
 		List<Book> books = bookService.getAll();
 		Book lastBook = books.get(books.size() - 1);
 		
 		List<User> users = userService.getAll();
+		bookUserService.deleteBookUser(bookId);
 		for (User user : users) {
 			for (String author : authors) {
 				if (user.getName().equals(author) && user.getRole().toString().equals("Author")) {
-					bookUserService.insertBookUser(lastBook.getBookId(), user.getUserId());		
+					bookUserService.insertBookUser(bookId, user.getUserId());		
 				}
 			}
-
 		}
+		System.out.println("bookId: " + bookId);
 		System.out.println("categoryId: " + categoryId);
 		System.out.println("title: " + title);
 		System.out.println("publishDate: " + publishDate);
@@ -82,11 +82,9 @@ public class SaveCreateNewBook extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

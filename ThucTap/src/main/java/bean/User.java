@@ -5,6 +5,7 @@ import javax.persistence.*;
 import org.hibernate.annotations.Cascade;
 
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "User")
@@ -155,6 +156,19 @@ public class User {
     
     public void setBookUsers(List<BookUser> bookUsers) {
 		this.bookUsers = bookUsers;
+	}
+    
+    @Override
+	public int hashCode() {
+		return Objects.hash(userId);
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if(!(o instanceof User)) return false;
+		User that = (User) o;
+		return this.getUserId() == that.getUserId();
 	}
 
     

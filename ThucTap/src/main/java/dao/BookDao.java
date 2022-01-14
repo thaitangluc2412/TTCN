@@ -11,7 +11,7 @@ public interface BookDao {
 
     List<Book> getNewReleaseBook();
     
-//    Book getBookById(int id);
+    Book getBookById(int id);
 
     int getQuantity();
     
@@ -41,5 +41,7 @@ public interface BookDao {
     
     int deleteByBookId(Integer bookId);
     
-    int insertBook(String categoryId, String title, String description, String image, Double price, LocalDate publishDate, Integer quantity);
+    int insertBook(int categoryId, String title, String description, String image, Double price, LocalDate publishDate, Integer quantity);
+
+    int updateBook(int categoryId, String title, String description, String image, Double price, LocalDate publishDate, Integer quantity, int bookId);
 }
