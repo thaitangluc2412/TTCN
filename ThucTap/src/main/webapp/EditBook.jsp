@@ -25,10 +25,13 @@
 	href="https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600&display=swap"
 	rel="stylesheet">
 
-<link rel="stylesheet" href="fonts/icomoon/style.css">
-
-<link rel="stylesheet" href="css/chosen.css">
-
+<link rel="stylesheet" href="css/chosen2.css">
+        
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min2.css">
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="css/style2.css">
 
 <!-- Style -->
 <link rel="stylesheet" href="css/style.css">

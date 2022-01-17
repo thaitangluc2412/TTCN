@@ -8,6 +8,10 @@
 <title>Creat An Account || Witter Multipage Responsive Template</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+	crossorigin="anonymous">
 <!-- favicon -->
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -54,6 +58,7 @@
 <link rel="stylesheet" href="css/responsive.css">
 <!-- modernizr css -->
 <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+<link rel="stylesheet" href="css/email.css">
 </head>
 <body>
 	<!--[if lt IE 8]>
@@ -75,13 +80,14 @@
 						method="post">
 						<h2 class="heading-title text-center">WELCOME</h2>
 						<input type="hidden" value="LOGIN" name="command">
-						<p class="form-row">
-							<input type="text" placeholder="Email address" name="username"
-								required>
+						<label style=" background-color: #FDCAC4;" for="WELCOME" class="error"></label> 
+						<label style=" background-color: #FDCAC4;" for="WELCOME" class="error2"></label> 
+						<p class="form-row">	
+							<input type="text" id="email" placeholder="Email address" name="username" required>
 						</p>
+						<br>
 						<p class="form-row">
-							<input type="password" placeholder="Password" name="password"
-								required>
+							<input type="password" id="pass" placeholder="Password" name="password"	required>
 						</p>
 						<p class="lost-password form-group">
 							<a href="Register.jsp" rel="nofollow">Don't have an account?</a>
@@ -135,5 +141,7 @@
 	<script src="lib/home.js" type="text/javascript"></script>
 	<!-- main js -->
 	<script src="js/main.js"></script>
+	<!-- email js -->
+	<script src="js/email.js"></script>
 </body>
 </html>

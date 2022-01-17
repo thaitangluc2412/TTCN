@@ -43,6 +43,12 @@ public class EditBook extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Integer bookId = Integer.parseInt(request.getParameter("bookId"));
+		int currentPage = 1;
+		String page = request.getParameter("page");
+		if (page != null) {
+			currentPage = Integer.valueOf(page);
+		}
+		request.setAttribute("page", currentPage);
 		request.setAttribute("bookId", bookId);
 		List<Category> categories = categoryService.getAll();
 		

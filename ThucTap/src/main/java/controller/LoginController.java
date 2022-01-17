@@ -48,9 +48,9 @@ public class LoginController extends HttpServlet {
         String password = request.getParameter("password");
         UserServiceImpl userService = new UserServiceImpl();
         User user = userService.getUser(username, password);
-        System.out.println(user.getRole());
         if (user == null) {
-            request.getRequestDispatcher("Login.jsp").forward(request, response);
+        	request.setAttribute("err", "err");            
+        	request.getRequestDispatcher("Login.jsp").forward(request, response);
         } else {
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
