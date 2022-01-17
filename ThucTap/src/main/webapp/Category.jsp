@@ -92,7 +92,7 @@
 	                                <tr>
 	                                    <td class="t-product-id">
 	                                        <p>
-	                                            <p>${category.categoryID}</p>
+	                                            <p>${category.categoryId}</p>
 	                                        </p>
 	                                    </td>
 	
@@ -103,15 +103,14 @@
 	                                    </td>
 	
 	                                    <td class="product-edit">
-	                                        <p>
-	                                            <a href="#">Edit</a>
-	                                        </p>
-	                                    </td>
-	                                    <td class="product-remove">
-	                                        <a href="#">
-	                                            <i class="flaticon-delete"></i>
-	                                        </a>
-	                                    </td>
+											<p>
+												<a href="EditCategory?categoryId=${category.categoryId}">Edit</a>
+											</p>
+										</td>
+										<td class="product-remove"><a
+											href="DeleteCategory?categoryId=${category.categoryId}"> <i
+												class="flaticon-delete"></i>
+										</a></td>
 	                                </tr>
                             	</c:forEach>
 
@@ -120,7 +119,7 @@
                         </table>
                     </div>
                     <div class="shopingcart-bottom-area">
-                        <a class="left-shoping-cart" href="#">CREATE NEW CATEGORY</a>
+                        <a class="left-shoping-cart" href="CreateNewCategory.jsp">CREATE NEW CATEGORY</a>
 
                     </div>
                 </div>

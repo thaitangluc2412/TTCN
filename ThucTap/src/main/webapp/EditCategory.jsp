@@ -1,15 +1,40 @@
+<%@page import="java.io.Console"%>
+<%@page import="bean.User"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!doctype html>
 <html class="no-js" lang="">
- 
+
 <head>
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <title>Home One || Witter Multipage Responsive Template</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link
+	href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap"
+	rel="stylesheet">
+
+<link
+	href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap"
+	rel="stylesheet">
+
+<link
+	href="https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600&display=swap"
+	rel="stylesheet">
+
+<link rel="stylesheet" href="css/chosen2.css">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="css/bootstrap.min2.css">
+
+<!-- Style -->
+<link rel="stylesheet" href="css/style2.css">
+
+<!-- Style -->
+<link rel="stylesheet" href="css/style.css">
 <!-- favicon -->
 <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
 <!-- Place favicon.ico in the root directory -->
@@ -20,6 +45,7 @@
 
 <!-- all css here -->
 <!-- bootstrap v3.3.6 css -->
+
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
@@ -52,52 +78,52 @@
 <link rel="stylesheet" href="css/responsive.css">
 <!-- modernizr css -->
 <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+
 </head>
 
 <body>
-	<!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-
 	<!-- Add your site or application content here -->
 	<jsp:include page="Header.jsp"></jsp:include>
-    <!--Header Area End-->
+	<!--Header Area End-->
 
-    <div class="shopping-cart-area section-padding">
+	<div class="shopping-cart-area section-padding">
 
-        <div class="container">
-            <div class="section-title2">
-                <h2 class="header-title">EDIT CATEGORY</h2>
+		<div class="container">
+			<div class="section-title2">
+				<h2 class="header-title">EDIT A BOOK</h2>
 
-            </div>
+			</div>
 
-            <div class="row">
+			<div class="row">
+				<div class="col-md-12">
+					<form action="SaveEditCategory">
+						<div class="shop-select">
+							<label>CategoryId<span class="required">*</span></label>
+							<p class="form-row">
+								<input type="text" name="categoryId" value="${category.categoryId}"
+									readonly><br> <br>
+							</p>
+						</div>
+						<div class="shop-select">
+							<label>Category Name<span class="required">*</span></label>
+							<p class="form-row">
+								<input type="text" placeholder="Category Name"
+									name="categoryName" value="${category.name}">
+							</p>
+						</div>
+						<div class="shopingcart-bottom-area">
+							<button type="submit" class="btn btn-default">Save</button>
+							<a class="left-shoping-cart" href="#">Cancel</a>
+						</div>
+					</form>
+				</div>
+			</div>
 
-                <div class="col-md-12">
-                    <form action="">
 
-
-                        <div class="shop-select">
-                            <label>Name</label> <span class="required">*</span></label>
-                            <p class="form-row">
-                                <input type="text" placeholder="Name" value="Truyện thiếu nhi">
-                            </p>
-                        </div>
-
-
-                        <div class="shopingcart-bottom-area">
-                            <a class="left-shoping-cart" href="#">Save</a>
-                            <a class="left-shoping-cart" href="#">Cancel</a>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-       
-
-    </div>
-   
+		</div>
+	</div>
+	</div>
+	</div>
 
 
 
@@ -137,6 +163,11 @@
 	<script src="lib/home.js" type="text/javascript"></script>
 	<!-- main js -->
 	<script src="js/main.js"></script>
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/chosen.jquery.min.js"></script>
+	<script src="js/main2.js"></script>
 </body>
 
 </html>

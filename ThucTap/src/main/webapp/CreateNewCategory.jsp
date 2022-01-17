@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!doctype html>
 <html class="no-js" lang="">
- 
+
 <head>
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -61,43 +61,40 @@
 
 	<!-- Add your site or application content here -->
 	<jsp:include page="Header.jsp"></jsp:include>
-    <!--Header Area End-->
+	<!--Header Area End-->
 
-    <div class="shopping-cart-area section-padding">
+	<div class="shopping-cart-area section-padding">
 
-        <div class="container">
-            <div class="section-title2">
-                <h2 class="header-title">CREATE A CATEGORY</h2>
+		<div class="container">
+			<div class="section-title2">
+				<h2 class="header-title">CREATE A CATEGORY</h2>
 
-            </div>
+			</div>
 
-            <div class="row">
+			<div class="row">
 
-                <div class="col-md-12">
-                    <form action="">
+				<div class="col-md-12">
+					<form action="SaveCreateNewCategory">
+						<div class="shop-select">
+							<label>Name</label> <span class="required">*</span></label>
+							<p class="form-row">
+								<input type="text" placeholder="Name" name="categoryName"
+									value="${categoryName}">
+							</p>
+						</div>
+						<div class="shopingcart-bottom-area">
+							<button type="submit" class="btn btn-default">Save</button>
+							<a class="left-shoping-cart" href="Admin?Management=Category">Cancel</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
 
 
-                        <div class="shop-select">
-                            <label>Name</label> <span class="required">*</span></label>
-                            <p class="form-row">
-                                <input type="text" placeholder="Name">
-                            </p>
-                        </div>
 
+	</div>
 
-                        <div class="shopingcart-bottom-area">
-                            <a class="left-shoping-cart" href="#">Save</a>
-                            <a class="left-shoping-cart" href="#">Cancel</a>
-                        </div>
-                       </form>
-                </div>
-            </div>
-        </div>
-
-        
-
-    </div>
-   
 
 
 

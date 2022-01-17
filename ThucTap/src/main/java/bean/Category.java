@@ -11,7 +11,7 @@ import javax.persistence.Table;
 public class Category {
 
     @Id
-    @Column(name = "CategoryID")
+    @Column(name = "CategoryId")
     private Integer categoryId;
 
     @Column(name = "Name")
@@ -20,17 +20,17 @@ public class Category {
     public Category() {
     }
 
-    public Category(Integer categoryID, String name) {
-        this.categoryId = categoryID;
+    public Category(Integer categoryId, String name) {
+        this.categoryId = categoryId;
         this.name = name;
     }
 
-    public Integer getCategoryID() {
+    public Integer getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryID(Integer categoryID) {
-        this.categoryId = categoryID;
+    public void setCategoryId(Integer categoryId) {
+        this.categoryId = categoryId;
     }
 
     public String getName() {
@@ -41,8 +41,9 @@ public class Category {
         this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return "Category [categoryID=" + categoryId + ", name=" + name + "]";
-    }
+	@Override
+	public String toString() {
+		return "Category [categoryId=" + categoryId + ", name=" + name + "]";
+	}
+    
 }
