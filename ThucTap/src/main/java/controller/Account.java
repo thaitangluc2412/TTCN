@@ -43,10 +43,10 @@ public class Account extends HttpServlet {
 		}
 		else {	
 //	        String id =request.getParameter("id");
-//	        UserServiceImpl userService = new UserServiceImpl();
-//	        User profile= userService.getProfile(id);
+	        UserServiceImpl userService = new UserServiceImpl();
+	        User profile= userService.getProfile( user.getUserId() );
 	        
-	        request.setAttribute("profile", user);
+	        request.setAttribute("profile", profile);
 	       
 	        request.getRequestDispatcher("MyAccount.jsp").forward(request, response);
         }
@@ -63,10 +63,11 @@ public class Account extends HttpServlet {
     	UserServiceImpl userService = new UserServiceImpl();
     	HttpSession session = request.getSession();
 		User user=(User)session.getAttribute("user");
-//    	userService.updatePassword(user.getUserId(), pw);
+    	userService.updatePassword(user.getUserId(), pw);
 //    	User userNew =userService.getProfile(user.getUserId());
 //    	session.setAttribute("user", userNew);
-//    	doGet(request, response);
+//    	session.se
+    	doGet(request, response);
     }
 
 }

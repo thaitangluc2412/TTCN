@@ -107,10 +107,10 @@
 									<c:forEach items="${categories}" var="category">
 										<c:choose>
 											<c:when test="${category.getName()==categoryPre.getName()}">
-												<option value="${category.categoryID}" selected>${category.getName()}</option>
+												<option value="${category.categoryId}" selected>${category.getName()}</option>
 											</c:when>
 											<c:otherwise>
-												<option value="${category.categoryID}">${category.getName()}</option>
+												<option value="${category.categoryId}">${category.getName()}</option>
 											</c:otherwise>
 										</c:choose>
 									</c:forEach>

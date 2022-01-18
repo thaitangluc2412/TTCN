@@ -19,5 +19,5 @@ public interface UserService {
     
 	User getProfile(Integer userId);
 	
-	void updatePassword(Integer id, String newPassword);
+	int updatePassword(Integer id, String newPassword);
 }

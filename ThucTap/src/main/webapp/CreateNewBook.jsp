@@ -118,7 +118,7 @@
 								name="categoryId">
 								<option>-- Chọn loại sách --</option>
 								<c:forEach items="${categories}" var="category">
-									<option value="${category.categoryID}">${category.getName()}</option>
+									<option value="${category.categoryId}">${category.getName()}</option>
 								</c:forEach>
 							</select>
 						</div>

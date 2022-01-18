@@ -52,7 +52,7 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
-	public void updatePassword(Integer id,String newPassword) {
-		userDao.updatePassword(id, newPassword);
+	public int updatePassword(Integer id,String newPassword) {
+		return userDao.updatePassword(id, newPassword);
 	}
 }

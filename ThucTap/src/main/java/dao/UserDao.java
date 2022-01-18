@@ -19,5 +19,5 @@ public interface UserDao {
 
 	User getProfile(Integer id);
 
-	void updatePassword(Integer id, String newPassword);
+	int updatePassword(Integer id, String newPassword);
 }

@@ -20,7 +20,7 @@ public class HibernateUserDao extends AbstractHibernateDao implements UserDao {
     private static final String Q_GET_AUTHOR = "SELECT * FROM User WHERE Role='Author'";
     private static final String Q_GET_CUSTOMER = "SELECT * FROM User WHERE Role='Customer'";
     private static final String Q_PROFILE = "SELECT * FROM User WHERE UserID= :userId";
-    private static final String Q_UPDATE_PASSWORD = "UPDATE User SET UserPassword = :newPassword WHERE UserID = :id";
+    private static final String Q_UPDATE_PASSWORD = "UPDATE bookstore.User SET UserPassword = :newPassword WHERE UserID = :id";
 
 
     @Override
@@ -68,17 +68,16 @@ public class HibernateUserDao extends AbstractHibernateDao implements UserDao {
     }
     
     @Override
-    @Transactional
-    
-    public void updatePassword(Integer id, String newPassword) {
+//    @Transactional
+    public int updatePassword(Integer id, String newPassword) {
     	Session session = getCurrentSession();
     	Transaction transaction = session.beginTransaction();
-    	User user= getProfile(id);
-    	
-    	user.setUserId(id);
-    	user.setUserPassword(newPassword);
-    	session.merge(user);
-    	transaction.commit();
+//    	User user= getProfile(id);
+//    	
+//    	user.setUserId(id);
+//    	user.setUserPassword(newPassword);
+//    	session.merge(user);
+//    	transaction.commit();
 //    	session.createNativeQuery(Q_UPDATE_PASSWORD,User.class).setParameter("newPassword", newPassword)
 //										        .setParameter("id", id)
 //										        .executeUpdate();
@@ -88,5 +87,14 @@ public class HibernateUserDao extends AbstractHibernateDao implements UserDao {
 //						        .setParameter("newPassword", newPassword)
 //						        .setParameter("id", id)
 //						        .executeUpdate();
+    	
+		int query;
+		query = session.createNativeQuery(Q_UPDATE_PASSWORD, User.class)
+				.setParameter("newPassword", newPassword)
+		        .setParameter("id", id)
+				.executeUpdate();
+		transaction.commit();
+		return query;
     }
+    
 }
