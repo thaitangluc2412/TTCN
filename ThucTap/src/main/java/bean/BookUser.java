@@ -8,7 +8,7 @@ import java.io.Serializable;
 public class BookUser {
     @EmbeddedId
     private Id id;
-    
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "BookID", referencedColumnName = "BookID", insertable = false, updatable = false)
     private Book book;
@@ -42,11 +42,11 @@ public class BookUser {
     }
 
     @Override
-	public String toString() {
-		return "BookUser [id=" + id + ", book=" + book +"]";
-	}
+    public String toString() {
+        return "BookUser [id=" + id + ", book=" + book + "]";
+    }
 
-	@Embeddable
+    @Embeddable
     public static class Id implements Serializable {
 
         private static final long serialVersionUID = -3772092037819807334L;
