@@ -8,6 +8,8 @@ public interface OrderDao {
     List<Order> getAll();
 
     List<Order> getOrder(int userId);
+    
+    Order getOrderByOrderId(int orderId);
 
     boolean save(Order order);
     

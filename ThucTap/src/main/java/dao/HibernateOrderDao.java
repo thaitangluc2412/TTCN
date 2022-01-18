@@ -14,6 +14,7 @@ public class HibernateOrderDao extends AbstractHibernateDao implements OrderDao 
 
     private static final String Q_GET_ALL = "SELECT * FROM `Order`";
     private static final String Q_GET_ODER_BY_USERID = "SELECT * FROM `Order` WHERE UserID = :userid";
+    private static final String Q_GET_ODER_BY_ORDERID = "SELECT * FROM `Order` WHERE OrderID = :orderid";
     
     private static final String Q_UPDATE_STATUS = "UPDATE bookstore.`order` SET status = :status\n"
     		+ "WHERE orderId = :orderId";
@@ -28,6 +29,13 @@ public class HibernateOrderDao extends AbstractHibernateDao implements OrderDao 
         return openSession().createNativeQuery(Q_GET_ODER_BY_USERID, Order.class)
                             .setParameter("userid", userId, IntegerType.INSTANCE)
                             .getResultList();
+    }
+    
+    @Override
+    public Order getOrderByOrderId(int orderId) {
+        return openSession().createNativeQuery(Q_GET_ODER_BY_ORDERID, Order.class)
+                            .setParameter("orderid", orderId, IntegerType.INSTANCE)
+                            .uniqueResult();
     }
 
     @Override

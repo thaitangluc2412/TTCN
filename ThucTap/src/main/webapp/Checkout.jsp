@@ -201,7 +201,8 @@
 							<p>Subtotal:</p>
 						</div>
 						<div class="col-md-offset-5"></div>
-						<div class="col-md-3 subtotal2" id="subtotalCart">$${sessionScope.subTotal}</div>
+						<input type="hidden" value="${sessionScope.subTotal}" id="subtotalCart">
+						<div class="col-md-3 subtotal2" >$${sessionScope.subTotal}</div>
 					</div>
 				</div>
 

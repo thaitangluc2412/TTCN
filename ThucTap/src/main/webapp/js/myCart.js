@@ -22,7 +22,7 @@ paypal.Buttons({
 			},
 			purchase_units: [{
 				amount: {
-					value: '88.40'// Can reference variables or functions. Example: `value: document.getElementById('...').value`
+					value: document.getElementById('subtotalCart').value + ''// Can reference variables or functions. Example: `value: document.getElementById('...').value`
 				}
 			}]
 		});

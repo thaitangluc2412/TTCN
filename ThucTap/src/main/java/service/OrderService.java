@@ -9,6 +9,8 @@ public interface OrderService {
 
     List<Order> getOrder(int userId);
 
+    Order getOrderByOrderId(int orderId);
+    
     boolean save(Order order);
     
     int updateStatus(int orderId, String status);

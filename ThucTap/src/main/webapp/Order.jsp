@@ -411,8 +411,8 @@ table.table .avatar {
 										</c:otherwise>
 									</c:choose></td>
 
-								<td><a href="#" class="view" title="View Details"
-									data-toggle="tooltip"><i class="material-icons">&#xE5C8;</i></a></td>
+								<td><a href="MyOrderDetail?orderId=${order.orderId}" class="view" title="View Details"
+									data-toggle="tooltip"><i class="fa fa-info-circle"></i></a></td>
 							</tr>
 						</c:forEach>
 					</tbody>
