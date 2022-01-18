@@ -175,7 +175,7 @@
 												<a href="TheBook?Book=${book.bookId}">${book.title}</a>
 											</div>
 											<div class="rating-icon" style="text-align: center">
-												<p style="color: #ba1e1e; margin-bottom: 0px">${book.price}</p>
+												<p style="color: #ba1e1e; margin-bottom: 0px">$${book.price}</p>
 												<div class="list-pro-rating">
 													<c:forEach var="i" begin="1" end="5">
 														<i class="fa fa-star ${i <= book.rating ? "icolor" : ""}"></i>

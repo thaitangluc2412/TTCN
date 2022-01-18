@@ -175,8 +175,8 @@
 								<p style="margin: 0">${product.book.price*product.quantity}$</p>
 							</div>
 						</div>
-				</div>
 				</c:forEach>
+				</div>
 				<div class="payment"
 					style="border-bottom: 2px solid #ddd; margin-bottom: 20px">
 					<div class="row">

@@ -50,7 +50,7 @@
 										<ul class="sub-menu">
 											<li><a href="Cart.jsp">MY CART</a></li>
 											<li><a href="CheckoutController">CHECK OUT</a></li>
-											<li><a href="CustomerOrder.jsp">MY ORDER</a>
+											<li><a href="MyOrder">MY ORDER</a>
 											<li><a href="Contact.jsp">CONTACT</a></li>
 										</ul></li>
 								</c:otherwise>

@@ -59,7 +59,7 @@ public class Payment extends HttpServlet {
 		
 		List<OrderDetail> cartList = (ArrayList<OrderDetail>) session.getAttribute("cartList");
 		
-		double totalPrice = (Double) session.getAttribute("subTotal");
+		int totalPrice = (Integer) session.getAttribute("subTotal");
 		String recipientName = request.getParameter("recipientName");
 		String recipientPhone = request.getParameter("recipientPhone");
 		String recipientAddress = request.getParameter("recipientAddress");
@@ -67,7 +67,7 @@ public class Payment extends HttpServlet {
 		Order order = new Order();
 		order.setUser(user);
 		order.setOrderDate(LocalDateTime.now());
-		order.setTotalPrice(totalPrice);
+		order.setTotalPrice(Double.valueOf(totalPrice));
 		order.setStatus(Status.Processing);
 		order.setShippingAddress(recipientAddress);
 		order.setRecipientName(recipientName);

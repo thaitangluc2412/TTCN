@@ -52,7 +52,6 @@
 <!-- modernizr css -->
 <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 <style>
-
 .table-responsive {
 	margin: 30px 0;
 }
@@ -231,8 +230,8 @@ table.table .avatar {
 	border-radius: 50%;
 	vertical-align: middle;
 	margin-right: 10px;
-	height:50px;
-	width:50px;
+	height: 50px;
+	width: 50px;
 }
 
 .status {
@@ -312,7 +311,7 @@ table.table .avatar {
 </head>
 <body>
 
-   <!--Header Area Start-->
+	<!--Header Area Start-->
 	<jsp:include page="Header.jsp" />
 	<!--Header Area End-->
 
@@ -354,28 +353,35 @@ table.table .avatar {
 				<table class="table table-striped table-hover">
 					<thead>
 						<tr>
-							<th>#</th>
-							<th>Customer</th>
-							<th>Location</th>
-							<th>Order Date</th>
+							<th>Order</th>
+							<th>Date</th>
+							<th>Address</th>
+							<th>Total</th>
 							<th>Status</th>
-							<th>Net Amount</th>
 							<th>Action</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>1</td>
-							<td><a href="#"><img src="//bizweb.dktcdn.net/thumb/large/100/282/917/products/9781507213872.jpg?v=1626157068000"
-									class="avatar" alt="Avatar"> Michael Holz</a></td>
-							<td>London</td>
-							<td>Jun 15, 2017</td>
-							<td><span class="status text-warning">&bull;</span>
-								Delivered</td>
-							<td>$254</td>
-							<td><a href="#" class="view" title="View Details"
-								data-toggle="tooltip"><i class="fa fa-info-circle"></i></a></td>
-						</tr>
+						<c:forEach items="${myOrder}" var="order">
+							<tr>
+								<td>${order.orderId}</td>
+								<td>${order.orderDate}</td>
+								<td>${order.shippingAddress}</td>
+								<td>$${order.totalPrice}</td>
+								<c:if test="${order.status == 'Processing'}">
+									<td><span class="status text-warning">&bull;</span>
+										Processing</td>
+								</c:if>
+								<c:if test="${order.status == 'Shipping'}">
+									<td><span class="status text-info">&bull;</span> Shipping</td>
+								</c:if>
+								<c:if test="${order.status == 'Delivered'}">
+									<td><span class="status text-success">&bull;</span> Delivered</td>
+								</c:if>
+								<td><a href="#" class="view" title="View Details"
+									data-toggle="tooltip"><i class="fa fa-info-circle"></i></a></td>
+							</tr>
+						</c:forEach>
 					</tbody>
 				</table>
 				<div class="clearfix">
