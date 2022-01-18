@@ -28,4 +28,9 @@ public class OrderServiceImpl implements OrderService{
     public boolean save(Order order) {
         return orderDao.save(order);
     }
+    
+    @Override
+    public int updateStatus(int orderId, String status) {
+    	return orderDao.updateStatus(orderId, status);
+    }
 }

@@ -81,14 +81,14 @@
 								</div>
 								<ul class="list-group category_block">
 									<li
-										class="list-group-item text-white ${categoryID == null || categoryID == '' ? "bg-secondary" : ""}"><a
+										class="list-group-item text-white ${categoryId == null || categoryId == '' ? "bg-secondary" : ""}"><a
 										href="Shopping?"> <i class="fa fa-angle-double-right"></i>
 											All
 									</a></li>
 									<c:forEach items="${listCategory}" var="category">
 										<li
-											class="list-group-item text-white ${category.categoryID == categoryID ? "bg-secondary" : ""}"><a
-											href="Shopping?categoryID=${category.categoryID}"> <i
+											class="list-group-item text-white ${category.categoryId == categoryId ? "bg-secondary" : ""}"><a
+											href="Shopping?categoryID=${category.categoryId}"> <i
 												class="fa fa-angle-double-right"></i> ${category.name}
 										</a></li>
 									</c:forEach>

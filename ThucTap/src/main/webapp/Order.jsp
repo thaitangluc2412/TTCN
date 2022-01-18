@@ -13,8 +13,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- favicon -->
 <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+<link rel="stylesheet"
+	href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+	integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+	crossorigin="anonymous" />
 <!-- Place favicon.ico in the root directory -->
 <!-- Google Fonts -->
+
 <link
 	href='https://fonts.googleapis.com/css?family=Poppins:400,700,600,500,300'
 	rel='stylesheet' type='text/css'>
@@ -52,9 +57,268 @@
 <!-- responsive css -->
 <link rel="stylesheet" href="css/responsive.css">
 <!-- modernizr css -->
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-</head>
+<style>
+.table-responsive {
+	margin: 30px 0;
+}
 
+.table-wrapper {
+	min-width: 1000px;
+	background: #fff;
+	padding: 20px 25px;
+	border-radius: 3px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+.table-wrapper .btn {
+	float: right;
+	color: #333;
+	background-color: #fff;
+	border-radius: 3px;
+	border: none;
+	outline: none !important;
+	margin-left: 10px;
+}
+
+.table-wrapper .btn:hover {
+	color: #333;
+	background: #f2f2f2;
+}
+
+.table-wrapper .btn.btn-primary {
+	color: #fff;
+	background: #03A9F4;
+}
+
+.table-wrapper .btn.btn-primary:hover {
+	background: #03a3e7;
+}
+
+.table-title .btn {
+	font-size: 13px;
+	border: none;
+}
+
+.table-title .btn i {
+	float: left;
+	font-size: 21px;
+	margin-right: 5px;
+}
+
+.table-title .btn span {
+	float: left;
+	margin-top: 2px;
+}
+
+.table-title {
+	color: #fff;
+	background: #4b5366;
+	padding: 16px 25px;
+	margin: -20px -25px 10px;
+	border-radius: 3px 3px 0 0;
+}
+
+.table-title h2 {
+	margin: 5px 0 0;
+	font-size: 24px;
+}
+
+.show-entries select.form-control {
+	width: 60px;
+	margin: 0 5px;
+}
+
+.table-filter .filter-group {
+	float: right;
+	margin-left: 15px;
+}
+
+.table-filter input, .table-filter select {
+	height: 34px;
+	border-radius: 3px;
+	border-color: #ddd;
+	box-shadow: none;
+}
+
+.table-filter {
+	padding: 5px 0 15px;
+	border-bottom: 1px solid #e9e9e9;
+	margin-bottom: 5px;
+}
+
+.table-filter .btn {
+	height: 34px;
+}
+
+.table-filter label {
+	font-weight: normal;
+	margin-left: 10px;
+}
+
+.table-filter select, .table-filter input {
+	display: inline-block;
+	margin-left: 5px;
+}
+
+.table-filter input {
+	width: 200px;
+	display: inline-block;
+}
+
+.filter-group select.form-control {
+	width: 110px;
+}
+
+.filter-icon {
+	float: right;
+	margin-top: 7px;
+}
+
+.filter-icon i {
+	font-size: 18px;
+	opacity: 0.7;
+}
+
+table.table tr th, table.table tr td {
+	border-color: #e9e9e9;
+	padding: 12px 15px;
+	vertical-align: middle;
+}
+
+table.table tr th:first-child {
+	width: 60px;
+}
+
+table.table tr th:last-child {
+	width: 80px;
+}
+
+table.table-striped tbody tr:nth-of-type(odd) {
+	background-color: #fcfcfc;
+}
+
+table.table-striped.table-hover tbody tr:hover {
+	background: #f5f5f5;
+}
+
+table.table th i {
+	font-size: 13px;
+	margin: 0 5px;
+	cursor: pointer;
+}
+
+table.table td a {
+	font-weight: bold;
+	color: #566787;
+	display: inline-block;
+	text-decoration: none;
+}
+
+table.table td a:hover {
+	color: #2196F3;
+}
+
+table.table td a.view {
+	width: 30px;
+	height: 30px;
+	color: #2196F3;
+	border: 2px solid;
+	border-radius: 30px;
+	text-align: center;
+}
+
+table.table td a.view i {
+	font-size: 22px;
+	margin: 2px 0 0 1px;
+}
+
+table.table .avatar {
+	border-radius: 50%;
+	vertical-align: middle;
+	margin-right: 10px;
+	width: 30px;
+}
+
+.status {
+	font-size: 30px;
+	margin: 2px 2px 0 0;
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 10px;
+}
+
+.text-success {
+	color: #10c469;
+}
+
+.text-info {
+	color: #62c9e8;
+}
+
+.text-warning {
+	color: #FFC107;
+}
+
+.text-danger {
+	color: #ff5b5b;
+}
+
+.pagination {
+	float: right;
+	margin: 0 0 5px;
+}
+
+.pagination li a {
+	border: none;
+	font-size: 13px;
+	min-width: 30px;
+	min-height: 30px;
+	color: #999;
+	margin: 0 2px;
+	line-height: 30px;
+	border-radius: 2px !important;
+	text-align: center;
+	padding: 0 6px;
+}
+
+.pagination li a:hover {
+	color: #666;
+}
+
+.pagination li.active a {
+	background: #03A9F4;
+}
+
+.pagination li.active a:hover {
+	background: #0397d6;
+}
+
+.pagination li.disabled i {
+	color: #ccc;
+}
+
+.pagination li i {
+	font-size: 16px;
+	padding-top: 6px
+}
+
+.hint-text {
+	float: left;
+	margin-top: 10px;
+	font-size: 13px;
+}
+</style>
+<script>
+	$(document).ready(function() {
+		$('[data-toggle="tooltip"]').tooltip();
+	});
+</script>
+</head>
 <body>
 	<!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -65,93 +329,109 @@
 	<jsp:include page="Header.jsp"></jsp:include>
 	<!--Header Area End-->
 
-
-
-
-	<div class="shopping-cart-area section-padding">
-
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="wishlist-table-area table-responsive">
-						<table>
-							<thead>
-								<tr>
-									<th class="product-id">ID</th>
-									<th class="product-image">Ordered By</th>
-									<th class="product-title">Quantity</th>
-									<th class="product-author">Total</th>
-									<th class="product-category">Payment Method</th>
-									<th class="product-edit">Status</th>
-									<th class="product-edit">Order Date</th>
-									<th class="product-quantity">Details</th>
-									<th class="product-quantity">Edit</th>
-									<th class="product-subtotal">Delete</th>
-								</tr>
-							</thead>
-							<tbody>
-
-								<c:forEach items="${listOrder}" var="order">
-									<tr>
-										<td class="order-id">
-											<p>
-											<p>${order.orderId}</p>
-											</p>
-										</td>
-	
-										<td class="customer-name">
-											<p>
-											<p>${order.user.name}</p>
-											</p>
-										</td>
-										<td class="customer-name">
-											<p>
-											<p>${order.orderId}</p>
-											</p>
-										</td>
-										<td class="customer-address">
-											<p>
-											<p>${order.totalPrice}</p>
-											</p>
-										</td>
-										<td class="customer-phone">
-											<p>
-											<p>Momo</p>
-											</p>
-	
-										</td>
-										<td class="customer-phone">
-											<p>
-											<p>${order.status}</p>
-											</p>
-	
-										</td>
-	
-										<td class="registered-date">
-											<p>
-											<p>${order.orderDate}</p>
-											</p>
-	
-										</td>
-										<td class="product-edit ">
-											<p>
-												<a href="# ">Details</a>
-											</p>
-										</td>
-										<td class="product-edit ">
-											<p>
-												<a href="# ">Edit</a>
-											</p>
-										</td>
-										<td class="product-remove "><a href="# "> <i
-												class="flaticon-delete "></i>
-										</a></td>
-									</tr>
-								</c:forEach>
-							</tbody>
-						</table>
+	<div class="container-xl">
+		<div class="table-responsive">
+			<div class="table-wrapper">
+				<div class="table-filter">
+					<div class="row">
+						<div class="col-sm-9">
+							<button type="button" class="btn btn-primary">
+								<i class="fa fa-search"></i>
+							</button>
+							<div class="filter-group">
+								<label>Name</label> <input type="text" class="form-control">
+							</div>
+							<div class="filter-group">
+								<label>Status</label> <select class="form-control">
+									<option>Any</option>
+									<option>Delivered</option>
+									<option>Shipping</option>
+									<option>Processing</option>
+								</select>
+							</div>
+							<span class="filter-icon"><i class="fa fa-filter"></i></span>
+						</div>
 					</div>
+				</div>
+				<table class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Customer</th>
+							<th>Location</th>
+							<th>Order Date</th>
+							<th>Status</th>
+							<th>Net Amount</th>
+							<th>Confirm</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${listOrder}" var="order">
+							<tr>
+								<td class="order-id">
+									<p>${order.orderId}</p>
+								</td>
 
+								<td class="customer-name"><a href="#"><img
+										src="https://www.w3schools.com/howto/img_avatar.png"
+										class="avatar" alt="Avatar">${order.user.name}</a></td>
+								<td>
+									<p>${order.shippingAddress}</p>
+								</td>
+
+
+								<td>${order.orderDate}</td>
+
+								<td><c:choose>
+										<c:when test="${order.getStatus().toString() == 'Delivered'}">
+											<span class="status text-success">&bull;</span>${order.status}
+									</c:when>
+										<c:when test="${order.getStatus().toString() == 'Processing'}">
+											<span class="status text-warning">&bull;</span>${order.status}
+									</c:when>
+										<c:otherwise>
+											<span class="status text-info">&bull;</span>${order.status}			
+									</c:otherwise>
+									</c:choose></td>
+
+								<td>${order.totalPrice}</td>
+
+								<td><c:choose>
+										<c:when test="${order.getStatus().toString() == 'Processing'}">
+											<a href="ConvertStatus?orderId=${order.orderId} "><img
+												src="img/remove.png"
+												class="avatar" alt="Avatar"> 
+											</a>
+										</c:when>
+										<c:otherwise>
+											<img
+												src="img/tick.png"
+												class="avatar" alt="Avatar">
+										</c:otherwise>
+									</c:choose></td>
+
+								<td><a href="#" class="view" title="View Details"
+									data-toggle="tooltip"><i class="material-icons">&#xE5C8;</i></a></td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+				<div class="clearfix">
+					<div class="hint-text">
+						Showing <b>5</b> out of <b>25</b> entries
+					</div>
+					<ul class="pagination">
+						<li class="page-item disabled"><a href="#">Previous</a></li>
+						<li class="page-item"><a href="#" class="page-link">1</a></li>
+						<li class="page-item"><a href="#" class="page-link">2</a></li>
+						<li class="page-item"><a href="#" class="page-link">3</a></li>
+						<li class="page-item active"><a href="#" class="page-link">4</a></li>
+						<li class="page-item"><a href="#" class="page-link">5</a></li>
+						<li class="page-item"><a href="#" class="page-link">6</a></li>
+						<li class="page-item"><a href="#" class="page-link">7</a></li>
+						<li class="page-item"><a href="#" class="page-link">Next</a></li>
+					</ul>
 				</div>
 			</div>
 		</div>

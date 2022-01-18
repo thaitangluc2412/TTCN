@@ -21,6 +21,7 @@ public class App {
     private static OrderDetailService orderDetailService = new OrderDetailServiceImpl();
 
     public static void main(String[] args) {
+<<<<<<< HEAD
         Order order = new Order();
         order.setUser(userService.getProfile(2));
         order.setOrderDate(LocalDateTime.now());
@@ -40,6 +41,10 @@ public class App {
         orderDetail.setBook(book);
         orderDetail.setQuantity(2);
         orderDetailService.save(orderDetail);
+=======
+    	System.out.println(orderService.updateStatus(3, "Processing"));
+    	
+>>>>>>> 448596a (luc)
     }
 
     private static <Element> void print(Collection<Element> elements) {

@@ -1,13 +1,16 @@
 package bean;
 
 import javax.persistence.*;
+
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
 @Table(name = "`order`")
 public class Order {
-
+	public static final String ORDER_STATUS = "status";
+	public static final String ORDER_ORDER_ID = "orderId";
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "OrderID")
@@ -18,7 +21,7 @@ public class Order {
     private User user;
 
     @Column(name = "OrderDate")
-    private LocalDateTime orderDate;
+    private LocalDate orderDate;
 
     @Column(name = "TotalPrice")
     private Double totalPrice;
@@ -44,7 +47,7 @@ public class Order {
 
     public Order(Integer orderId,
                  User user,
-                 LocalDateTime orderDate,
+                 LocalDate orderDate,
                  Double totalPrice,
                  Status status,
                  String shippingAddress,
@@ -76,11 +79,11 @@ public class Order {
         this.user = userId;
     }
 
-    public LocalDateTime getOrderDate() {
+    public LocalDate getOrderDate() {
         return orderDate;
     }
 
-    public void setOrderDate(LocalDateTime orderDate) {
+    public void setOrderDate(LocalDate orderDate) {
         this.orderDate = orderDate;
     }
 
@@ -139,6 +142,10 @@ public class Order {
     }
 
     public enum Status {
+<<<<<<< HEAD
         Delivered, Processing, Shipping
+=======
+    	Delivered, Processing, Shipping
+>>>>>>> 448596a (luc)
     }
 }
