@@ -87,18 +87,18 @@
 														<input type="text" placeholder="email" value="${profile.email}" readonly/>
 													</p>
 													<p class="form-row"><b>Name</b>
-														<input type="text" placeholder="name" value="${profile.name}" id="name">
+														<input type="text" placeholder="name" value="${profile.name}" id="name" name="name">
 													</p>
 													<p class="form-row"><b>Address</b>
-														<input type="text" placeholder="address" value="${profile.address}" id="address">
+														<input type="text" placeholder="address" value="${profile.address}" id="address" name="address">
 													</p>	
 													<p class="form-row"><b>Phone number</b>
-														<input type="text" placeholder="phone number" value="${profile.phoneNumber}" id="phone"/>
+														<input type="text" placeholder="phone number" value="${profile.phoneNumber}" id="phone" name="phoneNumber"/>
 													</p>
 													<p class="form-row"><b>Account number</b>
-														<input type="text" placeholder="account number" value="${profile.accountNumber}" id="account" />
+														<input type="text" placeholder="account number" value="${profile.accountNumber}" id="account" name="accountNumber" />
 													</p>
-													<button type="submit" name="Save"  class="btn button button-small" >
+													<button type="submit" name="SaveProfile"  class="btn button button-small" >
 														<span>
 															  Save
 															<i class="fa fa-chevron-right"></i>
@@ -159,7 +159,7 @@
 														<input type="password" placeholder="Confirm password" id="pwConfirm" name="updatePw" /><p id="pwConfirmErr" style="display:none;color:red;">*Do not match new password</p>
 													</p>
 													
-													<button type="submit" name="Save"  class="btn button button-small" >
+													<button type="submit" name="SavePw"  class="btn button button-small" >
 														<span>
 															  Save
 															<i class="fa fa-chevron-right"></i>

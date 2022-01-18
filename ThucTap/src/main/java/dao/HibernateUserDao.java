@@ -21,6 +21,7 @@ public class HibernateUserDao extends AbstractHibernateDao implements UserDao {
     private static final String Q_GET_CUSTOMER = "SELECT * FROM User WHERE Role='Customer'";
     private static final String Q_PROFILE = "SELECT * FROM User WHERE UserID= :userId";
     private static final String Q_UPDATE_PASSWORD = "UPDATE bookstore.User SET UserPassword = :newPassword WHERE UserID = :id";
+    private static final String Q_UPDATE_PROFILE = "UPDATE bookstore.User SET Name = :name, Address = :address, PhoneNumber = :phoneNumber, AccountNumber = :accountNumber WHERE UserID = :id";
 
 
     @Override
@@ -96,5 +97,22 @@ public class HibernateUserDao extends AbstractHibernateDao implements UserDao {
 		transaction.commit();
 		return query;
     }
+    
+    @Override
+//  @Transactional
+  public int updateProfile(String name,String address, String phoneNumber, String accountNumber,Integer id) {
+  	Session session = getCurrentSession();
+  	Transaction transaction = session.beginTransaction();
+		int query;
+		query = session.createNativeQuery(Q_UPDATE_PROFILE, User.class)
+				.setParameter("name", name)
+		        .setParameter("address", address)
+		        .setParameter("phoneNumber", phoneNumber)
+		        .setParameter("accountNumber", accountNumber)
+		        .setParameter("id", id)
+				.executeUpdate();
+		transaction.commit();
+		return query;
+  } 
     
 }

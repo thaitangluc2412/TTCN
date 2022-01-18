@@ -20,4 +20,6 @@ public interface UserService {
 	User getProfile(Integer userId);
 	
 	int updatePassword(Integer id, String newPassword);
+	
+	int updateProfile(String name, String address, String phoneNumber, String accountNumber, Integer id);
 }

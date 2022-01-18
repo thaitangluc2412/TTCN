@@ -58,16 +58,22 @@ public class Account extends HttpServlet {
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
-    	String pw = request.getParameter("updatePw");
-    	System.out.print(pw);
-    	UserServiceImpl userService = new UserServiceImpl();
     	HttpSession session = request.getSession();
-		User user=(User)session.getAttribute("user");
-    	userService.updatePassword(user.getUserId(), pw);
-//    	User userNew =userService.getProfile(user.getUserId());
-//    	session.setAttribute("user", userNew);
-//    	session.se
-    	doGet(request, response);
+    	User user=(User)session.getAttribute("user");
+    	if((request.getParameter("SavePw") == null)?false:true){
+	    	String pw = request.getParameter("updatePw");
+	    	UserServiceImpl userService = new UserServiceImpl();
+	    	userService.updatePassword(user.getUserId(), pw);
+    	}
+    	else if((request.getParameter("SaveProfile") == null)?false:true){
+    		String name = request.getParameter("name");
+    		String address = request.getParameter("address");
+    		String phoneNumber = request.getParameter("phoneNumber");
+    		String accountNumber = request.getParameter("accountNumber");
+	    	UserServiceImpl userService = new UserServiceImpl();
+	    	userService.updateProfile(name,address,phoneNumber,accountNumber,user.getUserId());
+    	}
+	    doGet(request, response);
     }
 
 }
