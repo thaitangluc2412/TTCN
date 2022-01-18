@@ -51,12 +51,12 @@ CREATE TABLE `Order`
 (
     OrderID         INT AUTO_INCREMENT,
     UserID          INT,
-    OrderDate       DATE                           NOT NULL,
-    TotalPrice      DOUBLE                         NOT NULL,
-    Status          ENUM ('Arrived', 'NotArrived') NOT NULL,
-    ShippingAddress VARCHAR(255)                   NOT NULL,
-    RecipientName   VARCHAR(255)                   NOT NULL,
-    RecipientPhone  VARCHAR(255)                   NOT NULL,
+    OrderDate       DATE                                         NOT NULL,
+    TotalPrice      DOUBLE                                       NOT NULL,
+    Status          ENUM ('Delivered', 'Processing', 'Shipping') NOT NULL,
+    ShippingAddress VARCHAR(255)                                 NOT NULL,
+    RecipientName   VARCHAR(255)                                 NOT NULL,
+    RecipientPhone  VARCHAR(255)                                 NOT NULL,
     CONSTRAINT PRIMARY KEY (OrderID),
     CONSTRAINT fk_Order_UserInfo FOREIGN KEY (UserID) REFERENCES User (UserID)
 );
