@@ -32,7 +32,8 @@ paypal.Buttons({
 	onApprove: function(data, actions) {
 		return actions.order.capture().then(function(orderData) {
 			// Successful capture! For dev/demo purposes:
-			window.location.replace("http://localhost:8084/ThucTap/Payment");
+			document.getElementById("myForm").submit();
+			//window.location.replace("http://localhost:8084/ThucTap/Payment");
 
 			// When ready to go live, remove the alert and show a success message within this page. For example:
 			// var element = document.getElementById('paypal-button-container');

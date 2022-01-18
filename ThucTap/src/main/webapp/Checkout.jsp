@@ -89,24 +89,24 @@
 						</div>
 					</div>
 				</c:if>
-				<form>
+				<form action="Payment" id="myForm">
 					<div class="form-group">
 						<input type="text" class="form-control" id="nameUser"
-							placeholder="Name" value="${user.name}" required>
+							placeholder="Name" value="${user.name}" name="recipientName" required>
 					</div>
 					<div class="row" style="margin-bottom: 15px">
 						<div class="col-8">
 							<input type="text" class="form-control" placeholder="Email"
-								id="emailUser" value="${user.email}" required>
+								id="emailUser" value="${user.email}" name="email" required>
 						</div>
 						<div class="col-4">
-							<input type="text" class="form-control"
+							<input type="text" class="form-control" name="recipientPhone"
 								placeholder="Phone Number" value="${user.phoneNumber}" required>
 						</div>
 					</div>
 					<div class="form-group">
 						<input type="text" class="form-control" id="addressUser"
-							placeholder="Address" value="${user.address}" required>
+							placeholder="Address" name="recipientAddress" value="${user.address}" required>
 					</div>
 					<label>Delivery Method</label>
 					<div class="text-left border p-3 font-weight-light rounded"

@@ -39,7 +39,10 @@ public class Payment extends HttpServlet {
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
 		List<OrderDetail> cartList = (ArrayList<OrderDetail>) session.getAttribute("cartList");
-		
+		int totalPrice = (Integer) session.getAttribute("subTotal");
+		String recipientName = request.getParameter("recipientName");
+		String recipientPhone = request.getParameter("recipientPhone");
+		String recipientAddress = request.getParameter("recipientAddress");
 		
 		
 		response.sendRedirect("ThankYou.jsp");
