@@ -14,7 +14,15 @@ public class OrderDetail {
     @JoinColumn(name = "OrderId", referencedColumnName = "OrderId", insertable = false, updatable = false)
     private Order order;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    public void setBook(Book book) {
+		this.book = book;
+	}
+
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
+	}
+
+	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "BookId", referencedColumnName = "BookId", insertable = false, updatable = false)
     private Book book;
 

@@ -164,41 +164,8 @@
 								style="margin-top: 20px">
 								<div class="row shop-single-product-area">
 									<c:forEach items="${listBookCurrentPage}" var="book">
-										<!--  				<div class="col-md-4 col-sm-6">
-											<div class="single-banner">
-												<div class="product-wrapper">
-													<a href="#" class="single-banner-image-wrapper"> <img
-														alt="" src="${book.image}">
-														<div class="price priceValue">${book.price}</div>
-													</a>
-													<div class="product-description">
-														<div class="functional-buttons">
-															<a href="#" title="Add to Cart" class="addToCart"
-																data-product-id="${book.bookId}"> <i
-																class="fa fa-shopping-cart"></i>
-															</a> <a href="#" title="Add to Wishlist"> <i
-																class="fa fa-heart-o"></i>
-															</a> <a href="#" title="Quick view" data-toggle="modal"
-																data-target="#productModal"> <i
-																class="fa fa-compress"></i>
-															</a>
-														</div>
-													</div>
-												</div>
-												<div class="banner-bottom text-center">
-													<div class="banner-bottom-title2">
-														${book.title}
-													</div>
-													<div class="rating-icon">
-														<i class="fa fa-star icolor"></i> <i
-															class="fa fa-star icolor"></i> <i
-															class="fa fa-star icolor"></i> <i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-													</div>
-												</div>
-											</div>
-										</div> -->
-										<div class="col-4 product-wapper">
+										<div class="col-4 product-wapper"
+											style="margin-bottom: 20px; border-bottom: 2px solid #ddd; border-right: 2px solid #ddd">
 											<div class="id-product hidden">${book.bookId}</div>
 											<div class="single-product-wrapper">
 												<a href="TheBook?Book=${book.bookId}"><img
@@ -216,11 +183,15 @@
 												</div>
 											</div>
 											<div class="col" style="text-align: center">
-												<button class="btn btn-info addToCart">
-													<i class="fa fa-shopping-cart addToCart"><span
-														class="addToCart" style="font-family: sans-serif">Add
-															to cart</span></i>
-												</button>
+												<a href="AddToCart?id=${book.bookId}"><button
+														class="btn btn-dark addToCart">
+														<i class="fa fa-shopping-cart addToCart"><span
+															class="addToCart" style="font-family: sans-serif">
+																Add to cart</span></i>
+													</button></a> <a href=""><button class="btn btn-success">
+														<i class="fa fa-shopping-bag "><span class=""
+															style="font-family: sans-serif"> Buy now</span></i>
+													</button></a>
 											</div>
 										</div>
 									</c:forEach>
@@ -233,8 +204,8 @@
 											<div class="id-product hidden">${book.bookId}</div>
 											<div class="col-xs-12 col-sm-5 col-md-4">
 												<div class="left-item">
-													<a href="TheBook?Book=${book.bookId}" title="${book.title}"> <img
-														src="${book.image}" alt="">
+													<a href="TheBook?Book=${book.bookId}" title="${book.title}">
+														<img src="${book.image}" alt="">
 													</a>
 												</div>
 											</div>
@@ -248,8 +219,8 @@
 													</div>
 													<div class="list-rating-icon">
 														<c:forEach var="i" begin="1" end="5">
-														<i class="fa fa-star ${i <= book.rating ? "icolor" : ""}"></i>
-													</c:forEach>
+															<i class="fa fa-star ${i <= book.rating ? "icolor" : ""}"></i>
+														</c:forEach>
 													</div>
 													<p>${book.description}</p>
 													<div class="availability addToCart">
@@ -321,7 +292,6 @@
 	<script src="js/jquery.meanmenu.js"></script>
 	<!-- wow js -->
 	<script src="js/wow.min.js"></script>
-	<script src="js/addToCart.js"></script>
 	<script>
 		new WOW().init();
 	</script>

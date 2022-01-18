@@ -92,21 +92,21 @@
 				<form>
 					<div class="form-group">
 						<input type="text" class="form-control" id="nameUser"
-							placeholder="Name" value="${user.name}">
+							placeholder="Name" value="${user.name}" required>
 					</div>
 					<div class="row" style="margin-bottom: 15px">
 						<div class="col-8">
-							<input type="text" class="form-control" placeholder="Email" id="emailUser"
-								value="${user.email}">
+							<input type="text" class="form-control" placeholder="Email"
+								id="emailUser" value="${user.email}" required>
 						</div>
 						<div class="col-4">
 							<input type="text" class="form-control"
-								placeholder="Phone Number" value="${user.phoneNumber}">
+								placeholder="Phone Number" value="${user.phoneNumber}" required>
 						</div>
 					</div>
 					<div class="form-group">
 						<input type="text" class="form-control" id="addressUser"
-							placeholder="Address" value="${user.address}">
+							placeholder="Address" value="${user.address}" required>
 					</div>
 					<label>Delivery Method</label>
 					<div class="text-left border p-3 font-weight-light rounded"
@@ -153,8 +153,30 @@
 			<div class="col-md-offset-1 col-md-5"
 				style="border-left: 2px solid #ddd">
 				<div class="cart-in-payment"
-					style="border-bottom: 2px solid #ddd; margin-bottom: 20px"></div>
-
+					style="border-bottom: 2px solid #ddd; margin-bottom: 20px">
+					<c:forEach items="${sessionScope.cartList}" var="product">
+						<div class="row" style="margin-bottom: 10px">
+							<div class="col-2" style="height: 70px; width: 90px">
+								<a href="#"><img src="${product.book.image}" style="height: 100%"></a>
+							</div>
+							<div class="col-6 title-product d-flex align-items-center"
+								style="margin: 0">
+								<div>
+									<div>
+										<a href="TheBook?Book=${product.book.bookId}">${product.book.title}</a>
+									</div>
+									<div>
+										<p style="margin: 0; text-align: left">Quantity:
+											${product.quantity}</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-offset-1 col-3 d-flex align-items-center">
+								<p style="margin: 0">${product.book.price*product.quantity}$</p>
+							</div>
+						</div>
+				</div>
+				</c:forEach>
 				<div class="payment"
 					style="border-bottom: 2px solid #ddd; margin-bottom: 20px">
 					<div class="row">
@@ -162,7 +184,7 @@
 							<p>Prediction cost:</p>
 						</div>
 						<div class="col-md-offset-5"></div>
-						<div class="col-md-3 subtotal">3000000</div>
+						<div class="col-md-3 subtotal">$${sessionScope.subTotal}</div>
 					</div>
 					<div class="row">
 						<div class="col-md-4">
@@ -179,104 +201,13 @@
 							<p>Subtotal:</p>
 						</div>
 						<div class="col-md-offset-5"></div>
-						<div class="col-md-3 subtotal2" id="subtotalCart">3000000</div>
+						<div class="col-md-3 subtotal2" id="subtotalCart">$${sessionScope.subTotal}</div>
 					</div>
 				</div>
 
 			</div>
 		</div>
 	</div>
-	<!--  <script type="text/javascript">
-let productsInCart = JSON.parse(localStorage.getItem('shoppingCart'));
-if (!productsInCart) {
-	productsInCart = [];
-}
-
-const parentElement = document.querySelector('.cart-in-payment');
-const subtotal = document.querySelector('.subtotal');
-const subtotal2 = document.querySelector('.subtotal2');
-
-const countTheSumPrice = function() { // 4
-	let sum = 0;
-	productsInCart.forEach(item => {
-		sum += item.price;
-	});
-	return sum;
-}
-
-const updateShoppingCartHTML = function() {  // 3
-
-	let sumPrice = countTheSumPrice();
-	subtotal.textContent = sumPrice + '$'; 
-	subtotal2.textContent = sumPrice + '$'; 
-	localStorage.setItem('shoppingCart', JSON.stringify(productsInCart));
-    console.log(productsInCart[0].image);
-	if (productsInCart.length > 0) {
-		let result = productsInCart.map(product => {
-			return `<div class="row" style="margin-bottom: 10px">
-						<div class="col-2" style="height: 70px; width: 90px">
-							<a href="#"><img
-								src="${product.image}"
-								style="height: 100%"></a>
-						</div>
-						<div class="col-6 title-product d-flex align-items-center"
-							style="margin: 0">
-							<div>
-								<div>
-									<a href="TheBook?Book=${product.id}">${product.name}</a>
-								</div>
-								<div>
-									<p style="margin: 0; text-align: left">Quantity: ${product.count}</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-offset-1 col-3 d-flex align-items-center">
-							<p style="margin: 0">${product.price} $</p>
-						</div>
-					</div> `
-		});
-		parentElement.innerHTML = result.join('');
-		console.log(result.join(''));
-
-
-	}
-	else {
-		parentElement.innerHTML = ``;
-
-	}
-	
-}
-
-updateShoppingCartHTML();
-
-				paypal.Buttons({
-                	// Sets up the transaction when a payment button is clicked
-                	createOrder: function(data, actions) {
-                	  return actions.order.create({
-                		purchase_units: [{
-                		  amount: {
-                			value: countTheSumPrice()+''// Can reference variables or functions. Example: `value: document.getElementById('...').value`
-                		  }
-                		}]
-                	  });
-                	},
-
-                	// Finalize the transaction after payer approval
-                	onApprove: function(data, actions) {
-                	  return actions.order.capture().then(function(orderData) {
-                		// Successful capture! For dev/demo purposes:
-                			console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
-                			var transaction = orderData.purchase_units[0].payments.captures[0];
-                			alert('Transaction '+ transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
-
-                		// When ready to go live, remove the alert and show a success message within this page. For example:
-                		// var element = document.getElementById('paypal-button-container');
-                		// element.innerHTML = '';
-                		// element.innerHTML = '<h3>Thank you for your payment!</h3>';
-                		// Or go to another URL:  actions.redirect('thank_you.html');
-                	  });
-                	}
-                  }).render('#paypal-button-container');</script> -->
 
 	<!-- all js here -->
 	<!-- jquery latest version -->

@@ -138,6 +138,6 @@ public class Order {
     }
 
     public enum Status {
-        Arrived, NotArrived
+        Delivered, Processing, Shipping
     }
 }

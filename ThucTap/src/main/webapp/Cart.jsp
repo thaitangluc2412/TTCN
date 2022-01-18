@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!doctype html>
 <html class="no-js" lang="">
 <head>
@@ -70,11 +71,53 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="wishlist-table-area table-responsive my-cart-product">
+						<table>
+							<thead>
+								<tr>
+									<th class="product-image">Image</th>
+									<th class="t-product-name">Product Name</th>
+									<th class="product-quantity">Quantity</th>
+									<th class="product-unit-price">Price</th>
+									<th class="product-remove">Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach items="${sessionScope.cartList}" var="product">
+									<tr>
+										<td class="product-image"><a href="#"> <img
+												src="${product.book.image}" alt="" class="rounded">
+										</a></td>
+										<td class="t-product-name">
+											<h3>
+												<a href="#">${product.book.title}</a>
+											</h3>
+										</td>
+										<td class="product-quantity product-cart-details"><a
+											href="ChangeQuantity?action=dec&id=${product.book.bookId}"><button
+													class="button-minus text-secondary" data-id="">-</button></a> <span
+											class="countOfProduct">${product.quantity}</span> <a
+											href="ChangeQuantity?action=inc&id=${product.book.bookId}"><button
+													class="button-plus text-secondary" data-id="">+</button></a></td>
+										<td class="product-quantity">
+											<p>$ ${product.book.price*product.quantity}</p>
+										</td>
+										<td class="product-buy"><a href="CheckoutController"><button
+													class="btn btn-success">
+													<i class="fa fa-shopping-bag "></i>
+												</button></a> <a href="DeleteInCart?id=${product.book.bookId}"><button
+													class="delete-in-cart btn btn-danger" data-id="">
+													<i class="flaticon-delete delete-in-cart" data-id=""></i>
+												</button></a></td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
 					</div>
 					<div class="shopingcart-bottom-area">
 						<a class="left-shoping-cart" href="Shopping">CONTINUE SHOPPING</a>
 						<div class="shopingcart-bottom-area pull-right">
-							<button type="button" class="btn-default clear-all-product-in-cart">CLEAR ALL</button>
+							<button type="button"
+								class="btn-default clear-all-product-in-cart">CLEAR ALL</button>
 						</div>
 					</div>
 				</div>
@@ -90,6 +133,9 @@
 				<div class="col-md-6 col-sm-6">
 					<div class="subtotal-main-area">
 						<div class="subtotal-area">
+							<h2>
+								SUBTOTAL<span>$ ${sessionScope.subTotal}</span>
+							</h2>
 						</div>
 						<a href="Checkout.jsp">CHECKOUT</a>
 					</div>
@@ -121,7 +167,6 @@
 	<script src="js/jquery.meanmenu.js"></script>
 	<!-- wow js -->
 	<script src="js/wow.min.js"></script>
-	<script src="js/addToCart.js"></script>
 	<script>
 		new WOW().init();
 	</script>

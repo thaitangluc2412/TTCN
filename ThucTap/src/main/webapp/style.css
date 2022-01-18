@@ -2980,7 +2980,7 @@ h3.widget-title-modal {
 
 
 .single-product-wrapper {
-	height: 60%;
+	height: 70%;
 }
 
 .image-product {
@@ -2995,3 +2995,8 @@ h3.widget-title-modal {
 	text-align: center;
 	margin: 10px;
 }
+
+.icon-color{
+	color:green;
+}
+

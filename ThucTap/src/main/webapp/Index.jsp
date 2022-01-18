@@ -311,7 +311,6 @@
 	<script src="js/jquery.meanmenu.js"></script>
 	<!-- wow js -->
 	<script src="js/wow.min.js"></script>
-	<script src="js/addToCart.js"></script>
 		new WOW().init();
 	</script>
 	<!-- scrollUp JS -->
