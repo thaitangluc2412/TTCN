@@ -1,3 +1,5 @@
+DROP SCHEMA IF EXISTS bookstore;
+
 CREATE SCHEMA bookstore;
 
 USE bookstore;
