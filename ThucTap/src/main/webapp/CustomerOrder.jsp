@@ -378,7 +378,7 @@ table.table .avatar {
 								<c:if test="${order.status == 'Delivered'}">
 									<td><span class="status text-success">&bull;</span> Delivered</td>
 								</c:if>
-								<td><a href="#" class="view" title="View Details"
+								<td><a href="" class="view" title="View Details"
 									data-toggle="tooltip"><i class="fa fa-info-circle"></i></a></td>
 							</tr>
 						</c:forEach>

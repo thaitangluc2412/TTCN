@@ -21,7 +21,7 @@ public class Order {
     private User user;
 
     @Column(name = "OrderDate")
-    private LocalDate orderDate;
+    private LocalDateTime orderDate;
 
     @Column(name = "TotalPrice")
     private Double totalPrice;
@@ -47,7 +47,7 @@ public class Order {
 
     public Order(Integer orderId,
                  User user,
-                 LocalDate orderDate,
+                 LocalDateTime orderDate,
                  Double totalPrice,
                  Status status,
                  String shippingAddress,
@@ -79,15 +79,16 @@ public class Order {
         this.user = userId;
     }
 
-    public LocalDate getOrderDate() {
-        return orderDate;
-    }
 
-    public void setOrderDate(LocalDate orderDate) {
-        this.orderDate = orderDate;
-    }
+    public LocalDateTime getOrderDate() {
+		return orderDate;
+	}
 
-    public Double getTotalPrice() {
+	public void setOrderDate(LocalDateTime orderDate) {
+		this.orderDate = orderDate;
+	}
+
+	public Double getTotalPrice() {
         return totalPrice;
     }
 
@@ -142,10 +143,6 @@ public class Order {
     }
 
     public enum Status {
-<<<<<<< HEAD
         Delivered, Processing, Shipping
-=======
-    	Delivered, Processing, Shipping
->>>>>>> 448596a (luc)
     }
 }
