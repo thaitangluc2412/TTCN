@@ -44,4 +44,6 @@ public interface BookDao {
     int insertBook(int categoryId, String title, String description, String image, Double price, LocalDate publishDate, Integer quantity);
 
     int updateBook(int categoryId, String title, String description, String image, Double price, LocalDate publishDate, Integer quantity, int bookId);
+
+    boolean decreaseBook(Book book, int value);
 }
