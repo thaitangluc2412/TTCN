@@ -10,7 +10,7 @@ public class CrudUtils {
     private static final SessionFactory factory = HibernateProvider.getSessionFactory();
 
     public static <E> boolean save(E e) {
-        Session session = factory.openSession();
+        Session session = factory.getCurrentSession();
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
@@ -27,7 +27,7 @@ public class CrudUtils {
     }
 
     public static <E> boolean update(E e) {
-        Session session = factory.openSession();
+        Session session = factory.getCurrentSession();
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();

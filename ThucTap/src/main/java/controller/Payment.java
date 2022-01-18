@@ -75,11 +75,13 @@ public class Payment extends HttpServlet {
 		orderService.save(order);
 
 		for(OrderDetail o : cartList) {
-			System.out.println(o);
 			Id id = new Id(order.getOrderId(), o.getBook().getBookId());
 			o.setId(id);
 			o.setOrder(order);
 			orderDetailService.save(o);
+			System.out.println(o);
+			bookService.decreaseBook(o.getBook(), o.getQuantity());
+		    
 		}
 		
 		response.sendRedirect("ThankYou.jsp");
