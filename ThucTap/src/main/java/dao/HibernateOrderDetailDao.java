@@ -1,8 +1,7 @@
 package dao;
 
 import bean.OrderDetail;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
+import utils.CrudUtils;
 
 import java.util.List;
 
@@ -23,19 +22,6 @@ public class HibernateOrderDetailDao extends AbstractHibernateDao implements Ord
 
     @Override
     public boolean save(OrderDetail orderDetail) {
-        Session session = openSession();
-        Transaction transaction = null;
-        try {
-            transaction = session.beginTransaction();
-            session.save(orderDetail);
-            transaction.commit();
-        } catch (Exception exception) {
-            exception.printStackTrace();
-            if (transaction != null) {
-                transaction.rollback();
-            }
-            return false;
-        }
-        return true;
+        return CrudUtils.save(orderDetail);
     }
 }

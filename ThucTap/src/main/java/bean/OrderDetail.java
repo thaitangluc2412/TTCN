@@ -14,18 +14,9 @@ public class OrderDetail {
     @JoinColumn(name = "OrderId", referencedColumnName = "OrderId", insertable = false, updatable = false)
     private Order order;
 
-    public void setBook(Book book) {
-		this.book = book;
-	}
-
-	public void setQuantity(Integer quantity) {
-		this.quantity = quantity;
-	}
-
-	@ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "BookId", referencedColumnName = "BookId", insertable = false, updatable = false)
     private Book book;
-
 
     @Column(name = "quantity")
     private Integer quantity;
@@ -33,15 +24,39 @@ public class OrderDetail {
     public OrderDetail() {
     }
 
+    public Id getId() {
+        return id;
+    }
+
+    public void setId(Id id) {
+        this.id = id;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+
     public Book getBook() {
-		return book;
-	}
+        return book;
+    }
 
-	public Integer getQuantity() {
-		return quantity;
-	}
+    public void setBook(Book book) {
+        this.book = book;
+    }
 
-	@Override
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    @Override
     public String toString() {
         return "OrderDetail{" +
                "id=" + id +

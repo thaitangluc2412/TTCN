@@ -52,25 +52,25 @@ public class BookUser {
         private static final long serialVersionUID = -3772092037819807334L;
 
         @Column(name = "BookID")
-        private Integer bookID;
+        private Integer bookId;
 
         @Column(name = "UserID")
-        private Integer userID;
+        private Integer userId;
 
-        public Integer getUserID() {
-            return userID;
+        public Integer getUserId() {
+            return userId;
         }
 
-        public void setUserID(Integer userID) {
-            this.userID = userID;
+        public void setUserId(Integer userId) {
+            this.userId = userId;
         }
 
-        public Integer getBookID() {
-            return bookID;
+        public Integer getBookId() {
+            return bookId;
         }
 
-        public void setBookID(Integer bookID) {
-            this.bookID = bookID;
+        public void setBookId(Integer bookId) {
+            this.bookId = bookId;
         }
     }
 }

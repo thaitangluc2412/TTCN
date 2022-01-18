@@ -2,6 +2,7 @@ package dao;
 
 import bean.Order;
 import org.hibernate.type.IntegerType;
+import utils.CrudUtils;
 
 import java.util.List;
 
@@ -20,5 +21,10 @@ public class HibernateOrderDao extends AbstractHibernateDao implements OrderDao 
         return openSession().createNativeQuery(Q_GET_ODER_BY_USERID, Order.class)
                             .setParameter("userid", userId, IntegerType.INSTANCE)
                             .getResultList();
+    }
+
+    @Override
+    public boolean save(Order order) {
+        return CrudUtils.save(order);
     }
 }

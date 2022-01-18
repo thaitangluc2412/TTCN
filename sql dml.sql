@@ -19,19 +19,6 @@ VALUES (1, 'Truyen Cuoi'),
        (4, 'Truyen Co Tinh'),
        (5, 'Truyen tinh cam');
 
-INSERT INTO `Order` (OrderID, UserID, OrderDate, TotalPrice, Status, ShippingAddress, RecipientName, RecipientPhone)
-VALUES (1, 2, '2021-12-5', 50000.00, 'Arrived', 'Cam Lo, Quang tri', 'Thai Tang Luc', '067761634988'),
-       (2, 2, '2021-12-5', 50000.00, 'Arrived', 'Cam Lo, Quang tri', 'Thai Tang Luc', '067761634988'),
-       (3, 5, '2021-12-5', 50000.00, 'Arrived', 'Cam Lo, Quang tri', 'Thai Tang Luc', '067761634988'),
-       (4, 2, '2021-12-5', 50000.00, 'Arrived', 'Cam Lo, Quang tri', 'Thai Tang Luc', '067761634988'),
-       (5, 5, '2021-12-5', 50000.00, 'Arrived', 'Cam Lo, Quang tri', 'Thai Tang Luc', '067761634988'),
-       (6, 2, '2021-12-5', 50000.00, 'Arrived', 'Cam Lo, Quang tri', 'Thai Tang Luc', '067761634988'),
-       (7, 5, '2021-12-5', 50000.00, 'Arrived', 'Cam Lo, Quang tri', 'Thai Tang Luc', '067761634988'),
-       (8, 2, '2021-12-5', 50000.00, 'Arrived', 'Cam Lo, Quang tri', 'Thai Tang Luc', '067761634988'),
-       (9, 2, '2021-12-5', 50000.00, 'Arrived', 'Cam Lo, Quang tri', 'Thai Tang Luc', '067761634988'),
-       (10, 5, '2021-12-5', 50000.00, 'Arrived', 'Cam Lo, Quang tri', 'Thai Tang Luc', '067761634988'),
-       (11, 5, '2021-12-5', 50000.00, 'Arrived', 'Cam Lo, Quang tri', 'Thai Tang Luc', '067761634988');
-
 INSERT INTO BookUser (BookId, UserId)
 VALUES (1, 3), (1, 6),
        (2, 7), (2, 3), (2, 6),

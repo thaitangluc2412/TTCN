@@ -23,4 +23,9 @@ public class OrderServiceImpl implements OrderService{
     public List<Order> getOrder(int userId) {
         return orderDao.getOrder(userId);
     }
+
+    @Override
+    public boolean save(Order order) {
+        return orderDao.save(order);
+    }
 }

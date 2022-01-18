@@ -5,10 +5,11 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Table(name = "Order")
+@Table(name = "`order`")
 public class Order {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "OrderID")
     private Integer orderId;
 
@@ -36,8 +37,8 @@ public class Order {
     private String recipientPhone;
 
     @OneToMany(mappedBy = "order")
-	private List<OrderDetail> orderDetails;
-    
+    private List<OrderDetail> orderDetails;
+
     public Order() {
     }
 
