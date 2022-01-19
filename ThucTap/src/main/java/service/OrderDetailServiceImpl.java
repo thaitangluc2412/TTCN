@@ -1,6 +1,7 @@
 package service;
 
 import bean.OrderDetail;
+import bean.OrderDetailDto;
 import dao.HibernateOrderDetailDao;
 import dao.OrderDetailDao;
 
@@ -27,5 +28,10 @@ public class OrderDetailServiceImpl implements OrderDetailService {
     @Override
     public boolean save(OrderDetail orderDetail) {
         return orderdetailDao.save(orderDetail);
+    }
+
+    @Override
+    public List<OrderDetailDto> getOrderDetailDtoByBookId(int bookId) {
+        return orderdetailDao.getOrderDetailDtoByBookId(bookId);
     }
 }

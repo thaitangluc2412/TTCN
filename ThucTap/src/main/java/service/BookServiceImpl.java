@@ -1,6 +1,7 @@
 package service;
 
 import bean.Book;
+import bean.BookDto;
 import dao.BookDao;
 import dao.HibernateBookDao;
 
@@ -115,4 +116,11 @@ public class BookServiceImpl implements BookService {
     public boolean decreaseBook(Book book, int value) {
         return bookDao.decreaseBook(book, value);
     }
+
+    @Override
+    public List<BookDto> getBookWithProfitByAuthorId(int authorId) {
+        return bookDao.getBookWithProfitByAuthorId(authorId);
+    }
+
+
 }

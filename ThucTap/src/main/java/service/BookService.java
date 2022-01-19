@@ -2,6 +2,7 @@ package service;
 
 
 import bean.Book;
+import bean.BookDto;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -62,4 +63,6 @@ public interface BookService {
     int updateBook(int categoryId, String title, String description, String image, Double price, LocalDate publishDate, Integer quantity, int bookId);
 
     boolean decreaseBook(Book book, int value);
+
+    List<BookDto> getBookWithProfitByAuthorId(int authorId);
 }

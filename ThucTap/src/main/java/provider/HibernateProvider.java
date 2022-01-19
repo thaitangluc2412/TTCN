@@ -58,7 +58,7 @@ public class HibernateProvider {
         props.put(Environment.URL, "jdbc:mysql://localhost:3306/bookstore");
         props.put(Environment.USER, "root");
 
-        props.put(Environment.PASS, "nguyenmanhviet");
+        props.put(Environment.PASS, "anhvu_pro123");
 
 
         props.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");

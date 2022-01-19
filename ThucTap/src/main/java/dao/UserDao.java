@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface UserDao {
     List<User> getAll();
-    
+
     List<User> getAuthor();
-    
+
     List<User> getCustomer();
 
     User getUser(String email, String password);
@@ -17,9 +17,9 @@ public interface UserDao {
 
     int getQuantityAuthor();
 
-	User getProfile(Integer id);
+    User getProfile(Integer id);
 
-	int updatePassword(Integer id, String newPassword);
+    int updatePassword(Integer id, String newPassword);
 
-	int updateProfile(String name, String address, String phoneNumber, String accountNumber, Integer id);
+    int updateProfile(String name, String address, String phoneNumber, String accountNumber, Integer id);
 }

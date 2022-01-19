@@ -1,8 +1,11 @@
 package dao;
 
 import bean.Book;
+import bean.BookDto;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.transform.Transformers;
+import org.hibernate.type.DoubleType;
 import org.hibernate.type.IntegerType;
 import org.hibernate.type.StringType;
 import utils.CrudUtils;
@@ -39,6 +42,24 @@ public class HibernateBookDao extends AbstractHibernateDao implements BookDao {
                                                 + "Image = :image, \n"
                                                 + "Price = :price, PublishDate = :publishDate, Quantity = :quantity \n"
                                                 + "WHERE BookID = :bookId";
+    private static final String Q_GET_BOOKDTO_BY_AUTHORID = "SELECT b.BookID                   bookId,\n" +
+                                                            "       b.Image                    image,\n" +
+                                                            "       b.Title                    title,\n" +
+                                                            "       c.Name                     category,\n" +
+                                                            "       sum(od.Quantity) * b.Price profit\n" +
+                                                            "FROM book b\n" +
+                                                            "JOIN bookuser bu\n" +
+                                                            "ON b.BookID = bu.BookID\n" +
+                                                            "JOIN user u\n" +
+                                                            "ON bu.UserID = u.UserID\n" +
+                                                            "JOIN orderdetail od\n" +
+                                                            "ON b.BookID = od.BookID\n" +
+                                                            "JOIN `order` o\n" +
+                                                            "ON od.OrderID = o.OrderID\n" +
+                                                            "JOIN category c\n" +
+                                                            "ON b.CategoryID = c.CategoryID\n" +
+                                                            "WHERE u.UserID = :userid\n" +
+                                                            "GROUP BY b.BookID";
     private final Session session = openSession();
 
     @Override
@@ -265,5 +286,19 @@ public class HibernateBookDao extends AbstractHibernateDao implements BookDao {
     public boolean decreaseBook(Book book, int value) {
         book.setQuantity(book.getQuantity() - value);
         return CrudUtils.update(book);
+    }
+
+    @SuppressWarnings({"unchecked", "deprecation"})
+    @Override
+    public List<BookDto> getBookWithProfitByAuthorId(int authorId) {
+        return openSession().createNativeQuery(Q_GET_BOOKDTO_BY_AUTHORID)
+                            .setParameter("userid", authorId)
+                            .addScalar("bookId", IntegerType.INSTANCE)
+                            .addScalar("image", StringType.INSTANCE)
+                            .addScalar("title", StringType.INSTANCE)
+                            .addScalar("category", StringType.INSTANCE)
+                            .addScalar("profit", DoubleType.INSTANCE)
+                            .setResultTransformer(Transformers.aliasToBean(BookDto.class))
+                            .getResultList();
     }
 }
