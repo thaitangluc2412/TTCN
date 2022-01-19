@@ -183,6 +183,7 @@ table.table tr th:first-child {
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	text-align:left;
 }
 
 .product-detail-info {

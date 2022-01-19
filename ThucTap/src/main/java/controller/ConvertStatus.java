@@ -31,10 +31,16 @@ public class ConvertStatus extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int orderId = Integer.parseInt(request.getParameter("orderId"));
 		String currentPage = request.getParameter("page");
-		System.out.println("#page : "+currentPage);
 		orderService.updateStatus(orderId, "Shipping");
-		request.setAttribute("currentPage", currentPage);
-		request.getRequestDispatcher("Admin?Management=Order&page="+currentPage).forward(request, response);
+		String customerId = request.getParameter("customerId");
+		if(customerId == null) {
+			request.setAttribute("currentPage", currentPage);
+			request.getRequestDispatcher("Admin?Management=Order&page="+currentPage).forward(request, response);
+		}
+		else {
+			request.setAttribute("currentPage", currentPage);
+			request.getRequestDispatcher("ViewOrderInCustomer?customerId=" + customerId + "&page="+currentPage).forward(request, response);
+		}
 	}
 
 	/**

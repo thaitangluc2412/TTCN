@@ -174,15 +174,12 @@ table.table tr th, table.table tr td {
 	vertical-align: middle;
 }
 
-table.table tr th:first-child {
-	width: 20px;
-}
-
 .product-detail-title {
 	width: 500px;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	text-align: left;
 }
 
 .product-detail-info {
@@ -237,8 +234,7 @@ table.table td a.view i {
 table.table .avatar {
 	vertical-align: middle;
 	margin-right: 10px;
-	height: 70px;
-	width: 70px;
+	width: 30px;
 }
 
 .status {
@@ -333,8 +329,58 @@ th {
 					<div class="row">
 						<div class="col-sm-4">
 							<h2>
-								Manage <b>Customer</b>
+								Manage <b>Customer / Order</b>
 							</h2>
+						</div>
+					</div>
+				</div>
+				<div class="table-filter">
+					<div class="row">
+						<div class="col-sm-9">
+							<form action="ViewOrderInCustomer" method="POST">
+								<button type="submit" class="btn btn-primary">
+									<i class="fa fa-search"></i>
+								</button>
+								<input type="hidden" value=${customerId } name="customerId">
+								<div class="filter-group">
+									<label>Status</label> <select class="form-control"
+										name="status">
+										<c:choose>
+											<c:when test="${status=='Any'}">
+												<option value="Any" selected>Any</option>
+											</c:when>
+											<c:otherwise>
+												<option value="Any">Any</option>
+											</c:otherwise>
+										</c:choose>
+										<c:choose>
+											<c:when test="${status=='Delivered'}">
+												<option value="Delivered" selected>Delivered</option>
+											</c:when>
+											<c:otherwise>
+												<option value="Delivered">Delivered</option>
+											</c:otherwise>
+										</c:choose>
+										<c:choose>
+											<c:when test="${status=='Shipping'}">
+												<option value="Shipping" selected>Shipping</option>
+											</c:when>
+											<c:otherwise>
+												<option value="Shipping">Shipping</option>
+											</c:otherwise>
+										</c:choose>
+										<c:choose>
+											<c:when test="${status=='Processing'}">
+												<option value="Processing" selected>Processing</option>
+											</c:when>
+											<c:otherwise>
+												<option value="Processing">Processing</option>
+											</c:otherwise>
+										</c:choose>
+									</select>
+								</div>
+								<span class="filter-icon"><i class="fa fa-filter"></i></span>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -342,36 +388,96 @@ th {
 					style="text-align: center">
 					<thead>
 						<tr>
-							<th>ID</th>
-							<th>Email</th>
-							<th>Name</th>
-							<th>Address</th>
-							<th>Phone</th>
-							<th>Order</th>
-							<th>Delete</th>
+							<th>#</th>
+							<th>Customer</th>
+							<th>Location</th>
+							<th>Order Date</th>
+							<th>Status</th>
+							<th>Net Amount</th>
+							<th>Confirm</th>
+							<th>Action</th>
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${listCustomer}" var="customer">
+						<c:forEach items="${listOrder}" var="order">
 							<tr>
-								<td>${customer.userId}</td>
-								<td>${customer.email}</td>
-								<td>${customer.name}</td>
-								<td>${customer.address}</td>
-								<td>${customer.phoneNumber}</td>
-								<td><a href="ViewOrderInCustomer?customerId=${customer.userId}"
+								<td class="order-id">
+									<p>${order.orderId}</p>
+								</td>
+
+								<td class="customer-name"><a href="#"><img
+										src="https://www.w3schools.com/howto/img_avatar.png"
+										class="avatar" alt="Avatar">${order.user.name}</a></td>
+								<td>
+									<p>${order.shippingAddress}</p>
+								</td>
+
+
+								<td>${order.orderDate}</td>
+
+								<td><c:choose>
+										<c:when test="${order.getStatus().toString() == 'Delivered'}">
+											<span class="status text-success">&bull;</span>${order.status}
+									</c:when>
+										<c:when test="${order.getStatus().toString() == 'Processing'}">
+											<span class="status text-warning">&bull;</span>${order.status}
+									</c:when>
+										<c:otherwise>
+											<span class="status text-info">&bull;</span>${order.status}			
+									</c:otherwise>
+									</c:choose></td>
+
+								<td>${order.totalPrice}</td>
+
+								<td><c:choose>
+										<c:when test="${order.getStatus().toString() == 'Processing'}">
+											<a
+												href="ConvertStatus?customerId=${customerId}&orderId=${order.orderId}&page=${currentPage}&searchName=${searchName}&status=${status}""><img
+												src="img/remove.png" class="avatar" alt="Avatar"> </a>
+										</c:when>
+										<c:otherwise>
+											<img src="img/tick.png" class="avatar" alt="Avatar">
+										</c:otherwise>
+									</c:choose></td>
+
+								<td><a href="MyOrderDetail?orderId=${order.orderId}"
 									class="view" title="View Details" data-toggle="tooltip"><i
-										class="fa fa-shopping-cart"></i></a></td>
-								<td><a href="DeleteCustomer?customerId=${customer.userId}"
-									class="view" title="View Details" data-toggle="tooltip"><i
-										class="flaticon-delete delete-in-cart"></i></a></td>
+										class="fa fa-info-circle"></i></a></td>
 							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
+				<nav class="d-flex justify-content-center"
+					aria-label="Page navigation example">
+					<ul class="pagination">
+						<c:if test="${currentPage != 1}">
+							<li class="page-item"><a class="page-link"
+								href="ViewOrderInCustomer?customerId=${customerId}&page=1&searchName=${searchName}&status=${status}">
+									First </a></li>
+						</c:if>
+						<c:forEach var="page" begin="${maxLeft}" end="${maxRight}">
+							<li class="page-item ${page == currentPage ? "active" : "" } "><a
+								class="page-link"
+								href="ViewOrderInCustomer?customerId=${customerId}&page=${page}&searchName=${searchName}&status=${status}">
+									${page} </a></li>
+						</c:forEach>
+						<c:if test="${currentPage != totalPages}">
+							<li class="page-item"><a class="page-link"
+								href="ViewOrderInCustomer?customerId=${customerId}&page=${totalPages}&searchName=${searchName}&status=${status}">
+									Last </a></li>
+						</c:if>
+					</ul>
+				</nav>
+				<div class="row">
+						<div class="col-sm-8">
+							<div class="shopingcart-bottom-area">
+								<a class="left-shoping-cart" href="javascript:history.back()">GO
+									BACK</a>
+							</div>
+						</div>
+					</div>
 			</div>
 		</div>
-	</div>
 	</div>
 	<!-- Footer Area Start -->
 	<jsp:include page="Footer.jsp"></jsp:include>
