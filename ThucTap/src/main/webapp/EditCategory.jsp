@@ -100,8 +100,8 @@
 						<div class="shop-select">
 							<label>CategoryId<span class="required">*</span></label>
 							<p class="form-row">
-								<input type="text" name="categoryId" value="${category.categoryId}"
-									readonly><br> <br>
+								<input type="text" name="categoryId"
+									value="${category.categoryId}" readonly><br> <br>
 							</p>
 						</div>
 						<div class="shop-select">
@@ -113,7 +113,8 @@
 						</div>
 						<div class="shopingcart-bottom-area">
 							<button type="submit" class="btn btn-default">Save</button>
-							<a class="left-shoping-cart" href="#">Cancel</a>
+							<a class="left-shoping-cart" href="javascript:history.back()">GO
+								BACK</a>
 						</div>
 					</form>
 				</div>

@@ -174,15 +174,12 @@ table.table tr th, table.table tr td {
 	vertical-align: middle;
 }
 
-table.table tr th:first-child {
-	width: 20px;
-}
-
 .product-detail-title {
 	width: 500px;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	text-align: left;
 }
 
 .product-detail-info {
@@ -325,66 +322,119 @@ th {
 	<!--Header Area Start-->
 	<jsp:include page="Header.jsp" />
 	<!--Header Area End-->
-	<div class="table-title">
-		<div class="row">
-			<div class="col-sm-4">
-				<h2 style="margin-left: 20px">
-					Manage <b>Category</b>
-				</h2>
-			</div>
-		</div>
-	</div>
-	<div class="d-flex justify-content-center">
-		<div class="shopingcart-bottom-area">
-			<a class="left-shoping-cart" href="CreateNewCategory.jsp">CREATE
-				NEW CATEGORY</a>
-		</div>
-	</div>
 
 	<div class="container-xl">
 		<div class="table-responsive">
 			<div class="table-wrapper">
-				<div class="row">
-					<div class="col-sm-2"></div>
-					<div class="col-sm-8">
-						<table class="table table-striped table-hover"
-							style="text-align: center">
-							<thead style="text-align: center">
-								<tr>
-									<th>Id</th>
-									<th>Category Name</th>
-									<th>Book</th>
-									<th>Edit</th>
-									<th>Delete</th>
-								</tr>
-							</thead>
-							<tbody>
-								<c:forEach items="${listCategory}" var="category">
-									<tr>
-										<td>${category.categoryId}</td>
-										<td>${category.name}</td>
-										<td><a href="ViewBookInCategory?categoryId=${category.categoryId}" class="view" title="View Details"
-											data-toggle="tooltip"><i class="fa fa-eye"></i></a></td>
-										<td><a
-											href="EditCategory?categoryId=${category.categoryId}"
-											title="
-											View Details" data-toggle="tooltip">
-												<i class="fa fa-edit "></i>
-										</a></td>
-										<td><a
-											href="DeleteCategory?categoryId=${category.categoryId}"
-											class="view" title="View Details" data-toggle="tooltip"><i
-												class="flaticon-delete delete-in-cart"></i></a></td>
-									</tr>
-								</c:forEach>
-							</tbody>
-						</table>
+				<div class="table-title">
+					<div class="row">
+						<div class="col-sm-4">
+							<h2>
+								Manage <b>Category / Book</b>
+							</h2>
+						</div>
 					</div>
-					<div class="col-sm-2"></div>
+				</div>
+
+
+				<div class="table-filter">
+					<div class="row">
+						<div class="col-sm-12">
+							<p>
+								Category: <span class="status text-success">
+									${category.name}</span>
+							</p>
+						</div>
+						<div class="col-sm-12">
+							<p>
+								Quantity book: <span class="status text-success">${listBook.size()}</span>
+							</p>
+						</div>
+					</div>
+
+					<div class="d-flex justify-content-center">
+						<form action="ViewBookInCategory?categoryId=${categoryId}" method="POST">
+							<div class="input-group" style="width: 500px">
+								<input type="search" class="form-control rounded w-75 p-3"
+									placeholder="Search" aria-label="Search"
+									aria-describedby="search-addon" name="searchBook"
+									value="${searchBook}" />
+								<button type="submit" class="btn btn-primary">search</button>
+							</div>
+						</form>
+					</div>
+
+					<table class="table table-striped table-hover"
+						style="text-align: center">
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>Product</th>
+								<th>Author</th>
+								<th>Price</th>
+								<th>Quantity</th>
+								<th>Last Updated</th>
+								<th>Edit</th>
+								<th>Delete</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach items="${listBookCurrentPage}" var="book">
+								<tr>
+									<td>${book.bookId}</td>
+									<td><div class="product-detail-title">
+											<a href="#"><img src="${book.image}" class="avatar"
+												alt="Avatar">${book.title}</a>
+										</div></td>
+									<td><c:forEach items="${book.getBookUser()}"
+											var="bookUser">
+										${bookUser.getUser().getName()}.
+									</c:forEach></td>
+									<td>$${book.getPrice()}</td>
+									<td>${book.getQuantity()}</td>
+									<td>${book.getPublishDate()}</td>
+									<td><a href="EditBook?bookId=${book.bookId}" class="view"
+										title="View Details" data-toggle="tooltip"><i
+											class="fa fa-edit "></i></a></td>
+									<td><a href="DeleteBook?bookId=${book.bookId}"
+										class="view" title="View Details" data-toggle="tooltip"><i
+											class="flaticon-delete delete-in-cart"></i></a></td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+					<nav class="d-flex justify-content-center"
+						aria-label="Page navigation example">
+						<ul class="pagination">
+							<c:if test="${currentPage != 1}">
+								<li class="page-item"><a class="page-link"
+									href="ViewBookInCategory?page=1&categoryId=${categoryId}&searchBook=${searchBook}">
+										First </a></li>
+							</c:if>
+							<c:forEach var="page" begin="${maxLeft}" end="${maxRight}">
+								<li class="page-item ${page == currentPage ? "active" : "" } "><a
+									class="page-link"
+									href="ViewBookInCategory?page=${page}&categoryId=${categoryId}&searchBook=${searchBook}">
+										${page} </a></li>
+							</c:forEach>
+							<c:if test="${currentPage != totalPages}">
+								<li class="page-item"><a class="page-link"
+									href="ViewBookInCategory?page=${totalPages}&categoryId=${categoryId}&searchBook=${searchBook}">
+										Last </a></li>
+							</c:if>
+						</ul>
+					</nav>
+					<div class="row">
+						<div class="col-sm-8">
+							<div class="shopingcart-bottom-area">
+								<a class="left-shoping-cart" href="javascript:history.back()">GO
+									BACK</a>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 	</div>
 	<!-- Footer Area Start -->
 	<jsp:include page="Footer.jsp"></jsp:include>
