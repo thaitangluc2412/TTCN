@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public class DateUtils {
 	private DateUtils() {
-		
+
 	}
 	public static java.sql.Date toDate(LocalDate localDate){
 		Objects.requireNonNull(localDate, "Localdate cannot be null");

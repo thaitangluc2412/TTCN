@@ -41,15 +41,14 @@ public class Book {
 	private Integer quantity;
 
 	@OneToMany(mappedBy = "book", cascade=CascadeType.REMOVE )
-	//@Cascade(value= {org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.DELETE})
 	private List<BookUser> bookUser;
 
 	@OneToMany(mappedBy = "book")
 	private List<OrderDetail> orderDetails;
-	
+
 	@OneToMany(mappedBy = "book")
 	private List<Review> reviews;
-	
+
 	public Book() {
 	}
 
@@ -65,7 +64,7 @@ public class Book {
 		this.publishDate = publishDate;
 		this.quantity = quantity;
 	}
-	
+
 	public List<Review> getReviews() {
 		return reviews;
 	}
@@ -85,7 +84,7 @@ public class Book {
 	public List<BookUser> getBookUser() {
 		return bookUser;
 	}
-	
+
 	public void setBookUser(List<BookUser> bookUser) {
 		this.bookUser = bookUser;
 	}

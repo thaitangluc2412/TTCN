@@ -45,8 +45,8 @@ CREATE TABLE BookUser
     BookID INT,
     UserID INT,
     CONSTRAINT PRIMARY KEY (BookID, UserID),
-    CONSTRAINT fk_BookDetail_UserInfo FOREIGN KEY (UserID) REFERENCES User (UserID),
-    CONSTRAINT fk_BookDetail_Book FOREIGN KEY (BookID) REFERENCES Book (BookID)
+    CONSTRAINT fk_BookUser_User FOREIGN KEY (UserID) REFERENCES User (UserID),
+    CONSTRAINT fk_BookUser_Book FOREIGN KEY (BookID) REFERENCES Book (BookID)
 );
 
 CREATE TABLE `Order`
@@ -60,7 +60,7 @@ CREATE TABLE `Order`
     RecipientName   VARCHAR(255)                                 NOT NULL,
     RecipientPhone  VARCHAR(255)                                 NOT NULL,
     CONSTRAINT PRIMARY KEY (OrderID),
-    CONSTRAINT fk_Order_UserInfo FOREIGN KEY (UserID) REFERENCES User (UserID)
+    CONSTRAINT fk_Order_User FOREIGN KEY (UserID) REFERENCES User (UserID)
 );
 
 CREATE TABLE OrderDetail
@@ -83,5 +83,5 @@ CREATE TABLE Review
     ReviewDate DATETIME NOT NULL,
     PRIMARY KEY (ReviewID),
     CONSTRAINT fk_Review_Book FOREIGN KEY (BookID) REFERENCES Book (BookID),
-    CONSTRAINT fk_Review_UserInfo FOREIGN KEY (UserID) REFERENCES User (UserID)
+    CONSTRAINT fk_Review_User FOREIGN KEY (UserID) REFERENCES User (UserID)
 );

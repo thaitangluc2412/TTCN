@@ -31,7 +31,7 @@ public class CrudUtils {
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
-            session.saveOrUpdate(e);
+            session.update(e);
             transaction.commit();
         } catch (Exception exception) {
             exception.printStackTrace();
@@ -44,7 +44,7 @@ public class CrudUtils {
     }
 
     public static <E> boolean delete(E e) {
-        Session session = factory.openSession();
+        Session session = factory.getCurrentSession();
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
