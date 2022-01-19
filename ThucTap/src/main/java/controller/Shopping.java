@@ -22,7 +22,7 @@ import service.CategoryServiceImpl;
 @WebServlet("/Shopping")
 public class Shopping extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private int rows = 12;
+	private int rows = 9;
 	private int window = 5;
 
 	/*

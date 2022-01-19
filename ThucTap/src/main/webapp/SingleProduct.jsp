@@ -122,7 +122,7 @@
 							</button>
 						</div>
 						<div class="single-product-categories">
-							<label>Categories:</label> <span><a href="Shopping?categoryID=${book.categoryId.getCategoryID()}" class="open-comment-form">${book.categoryId.name}</a></span><br>
+							<label>Categories:</label> <span><a href="Shopping?categoryID=${book.categoryId.getCategoryId()}" class="open-comment-form">${book.categoryId.name}</a></span><br>
 							<label>Author:</label> <span> <c:forEach
 									items="${book.getBookUser()}" var="bookUser" varStatus="loop">
 									<a href="AuthorBookController?AuthorId=${bookUser.getUser().getUserId()}" class="open-comment-form">${bookUser.getUser().getName()}</a>

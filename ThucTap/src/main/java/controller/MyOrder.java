@@ -20,40 +20,49 @@ import service.OrderServiceImpl;
 @WebServlet("/MyOrder")
 public class MyOrder extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public MyOrder() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		OrderServiceImpl orderService = new OrderServiceImpl();
-		
-		HttpSession session = request.getSession();
-		User user = (User) session.getAttribute("user");
-		
-		List<Order> myOrder = orderService.getOrder(user.getUserId());
-		
-		for(Order o : myOrder) {
-			System.out.println(o);
-		}
-		
-		request.setAttribute("myOrder", myOrder);
-		request.getRequestDispatcher("CustomerOrder.jsp").forward(request, response);
+	public MyOrder() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+		OrderServiceImpl orderService = new OrderServiceImpl();
+
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
+
+		if (user == null) {
+			response.sendRedirect("Login.jsp");
+		} else {
+			List<Order> myOrder = orderService.getOrder(user.getUserId());
+
+			for (Order o : myOrder) {
+				System.out.println(o);
+			}
+
+			request.setAttribute("myOrder", myOrder);
+			request.getRequestDispatcher("CustomerOrder.jsp").forward(request, response);
+		}
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

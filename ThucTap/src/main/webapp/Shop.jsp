@@ -99,20 +99,26 @@
 							<aside class="widget widget-seller">
 								<h2 class="sidebar-title">TOP SELLERS</h2>
 								<c:forEach items="${bookBestSeller}" var="bestSeller">
-									<div class="single-seller">
-										<div class="seller-img">
-											<img src="${bestSeller.image}" alt="" />
-										</div>
-										<div class="seller-details">
-											<a href="shop.html"><h5>${bestSeller.title}</h5></a>
-											<h5>${bestSeller.price}</h5>
-											<ul>
-												<li><i class="fa fa-star icolor"></i></li>
-												<li><i class="fa fa-star icolor"></i></li>
-												<li><i class="fa fa-star icolor"></i></li>
-												<li><i class="fa fa-star icolor"></i></li>
-												<li><i class="fa fa-star icolor"></i></li>
-											</ul>
+									<div class="row"
+										style="margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 10px; height: 100px">
+										<div class="col-sm-12 row">
+											<div class="col-sm-4">
+												<a href="#"><img src="${bestSeller.image}"
+													style="height: 80px; width: 70px"></a>
+											</div>
+											<div class="col-sm-8">
+												<div class="title-product">
+													<a href="TheBook?Book=${bestSeller.bookId}">${bestSeller.title}</a>
+												</div>
+												<div class="rating-icon" style="text-align: center">
+													<p style="color: #ba1e1e; margin-bottom: 0px">$${bestSeller.price}</p>
+													<div class="list-pro-rating">
+														<c:forEach var="i" begin="1" end="5">
+															<i class="fa fa-star ${i <= bestSeller.rating ? "icolor" : ""}"></i>
+														</c:forEach>
+													</div>
+												</div>
+											</div>
 										</div>
 									</div>
 								</c:forEach>
@@ -165,7 +171,7 @@
 								<div class="row shop-single-product-area">
 									<c:forEach items="${listBookCurrentPage}" var="book">
 										<div class="col-4 product-wapper"
-											style="margin-bottom: 20px; border-bottom: 2px solid #ddd; border-right: 2px solid #ddd">
+											style="margin-bottom: 20px; border-bottom: 2px solid #ddd; border-right: 2px solid #ddd; padding-bottom: 20px">
 											<div class="id-product hidden">${book.bookId}</div>
 											<div class="single-product-wrapper">
 												<a href="TheBook?Book=${book.bookId}"><img
@@ -224,11 +230,15 @@
 													</div>
 													<p>${book.description}</p>
 													<div class="availability addToCart">
-														<button class="btn btn-info addToCart">
-															<i class="fa fa-shopping-cart addToCart"><span
-																class="addToCart" style="font-family: sans-serif">Add
-																	to cart</span></i>
-														</button>
+														<a href="AddToCart?id=${book.bookId}"><button
+																class="btn btn-dark addToCart">
+																<i class="fa fa-shopping-cart addToCart"><span
+																	class="addToCart" style="font-family: sans-serif">
+																		Add to cart</span></i>
+															</button></a> <a href=""><button class="btn btn-success">
+																<i class="fa fa-shopping-bag "><span class=""
+																	style="font-family: sans-serif"> Buy now</span></i>
+															</button></a>
 													</div>
 												</div>
 											</div>

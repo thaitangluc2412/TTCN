@@ -274,7 +274,7 @@
 
 						<div class="shopingcart-bottom-area">
 							<button type="submit" class="btn btn-default">Save</button>
-							<a class="left-shoping-cart" href="#">Cancel</a>
+							<a class="left-shoping-cart" href="javascript:history.back()">GO BACK</a>
 						</div>
 				</div>
 			</div>

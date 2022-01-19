@@ -302,6 +302,10 @@ table.table .avatar {
 	margin-top: 10px;
 	font-size: 13px;
 }
+
+th {
+	text-align: center;
+}
 </style>
 <script>
 	$(document).ready(function() {
@@ -350,7 +354,8 @@ table.table .avatar {
 						</div>
 					</div>
 				</div>
-				<table class="table table-striped table-hover">
+				<table class="table table-striped table-hover"
+					style="text-align: center">
 					<thead>
 						<tr>
 							<th>Order</th>
@@ -376,10 +381,12 @@ table.table .avatar {
 									<td><span class="status text-info">&bull;</span> Shipping</td>
 								</c:if>
 								<c:if test="${order.status == 'Delivered'}">
-									<td><span class="status text-success">&bull;</span> Delivered</td>
+									<td><span class="status text-success">&bull;</span>
+										Delivered</td>
 								</c:if>
-								<td><a href="MyOrderDetail?orderId=${order.orderId}" class="view" title="View Details"
-									data-toggle="tooltip"><i class="fa fa-info-circle"></i></a></td>
+								<td><a href="MyOrderDetail?orderId=${order.orderId}"
+									class="view" title="View Details" data-toggle="tooltip"><i
+										class="fa fa-info-circle"></i></a></td>
 							</tr>
 						</c:forEach>
 					</tbody>

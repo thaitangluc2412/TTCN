@@ -13,6 +13,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
 <!-- Place favicon.ico in the root directory -->
 <!-- Google Fonts -->
+
 <link
 	href='https://fonts.googleapis.com/css?family=Poppins:400,700,600,500,300'
 	rel='stylesheet' type='text/css'>
@@ -147,11 +148,14 @@
 				<div class="banner-list">
 					<c:forEach items="${bookNewRelease}" var="bookNew">
 						<div class="col-md-4 col-sm-6" style="height: 500px">
-							<div class="single-banner" style="height:100%">
-								<a href="TheBook?Book=${bookNew.bookId}" style="height: 90%"> <img src="${bookNew.image}" alt="" style="height: 100%; width: 100%">
+							<div class="single-banner" style="height: 100%">
+								<a href="TheBook?Book=${bookNew.bookId}" style="height: 90%">
+									<img src="${bookNew.image}" alt=""
+									style="height: 100%; width: 100%">
 								</a>
 								<div class="banner-bottom text-center">
-									<a href="TheBook?Book=${bookNew.bookId}">NEW RELEASE ${bookNew.publishDate.getYear()}</a>
+									<a href="TheBook?Book=${bookNew.bookId}">NEW RELEASE
+										${bookNew.publishDate.getYear()}</a>
 								</div>
 							</div>
 						</div>
@@ -196,7 +200,7 @@
 										<a href="TheBook?Book=${book.bookId}">${book.title}</a>
 									</div>
 									<div class="rating-icon" style="text-align: center">
-										<p style="color: #ba1e1e; margin-bottom: 0px">${book.price}</p>
+										<p style="color: #ba1e1e; margin-bottom: 0px">$${book.price}</p>
 										<div class="list-pro-rating">
 											<c:forEach var="i" begin="1" end="5">
 												<i class="fa fa-star ${i <= book.rating ? "icolor" : ""}"></i>
@@ -204,11 +208,15 @@
 										</div>
 									</div>
 									<div class="col" style="text-align: center">
-										<button class="btn btn-info addToCart">
-											<i class="fa fa-shopping-cart addToCart"><span
-												class="addToCart" style="font-family: sans-serif">Add
-													to cart</span></i>
-										</button>
+										<a href="AddToCart?id=${book.bookId}"><button
+												class="btn btn-dark addToCart" style="color: #fff; background-color: #343a40">
+												<i class="fa fa-shopping-cart addToCart"><span
+													class="addToCart" style="font-family: sans-serif">
+														Add to cart</span></i>
+											</button></a> <a href=""><button class="btn btn-success">
+												<i class="fa fa-shopping-bag "><span class=""
+													style="font-family: sans-serif"> Buy now</span></i>
+											</button></a>
 									</div>
 								</div>
 							</c:forEach>
@@ -311,7 +319,7 @@
 	<script src="js/jquery.meanmenu.js"></script>
 	<!-- wow js -->
 	<script src="js/wow.min.js"></script>
-		new WOW().init();
+	new WOW().init();
 	</script>
 	<!-- scrollUp JS -->
 	<script src="js/jquery.scrollUp.min.js"></script>

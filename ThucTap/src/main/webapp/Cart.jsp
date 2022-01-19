@@ -51,99 +51,364 @@
 <link rel="stylesheet" href="css/responsive.css">
 <!-- modernizr css -->
 <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+<style>
+.table-responsive {
+	margin: 30px 0;
+}
+
+.table-wrapper {
+	min-width: 1000px;
+	background: #fff;
+	padding: 20px 25px;
+	border-radius: 3px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+.table-wrapper .btn {
+	float: right;
+	color: #333;
+	background-color: #fff;
+	border-radius: 3px;
+	border: none;
+	outline: none !important;
+	margin-left: 10px;
+}
+
+.table-wrapper .btn:hover {
+	color: #333;
+	background: #f2f2f2;
+}
+
+.table-wrapper .btn.btn-primary {
+	color: #fff;
+	background: #03A9F4;
+}
+
+.table-wrapper .btn.btn-primary:hover {
+	background: #03a3e7;
+}
+
+.table-title .btn {
+	font-size: 13px;
+	border: none;
+}
+
+.table-title .btn i {
+	float: left;
+	font-size: 21px;
+	margin-right: 5px;
+}
+
+.table-title .btn span {
+	float: left;
+	margin-top: 2px;
+}
+
+.table-title {
+	color: #fff;
+	background: #32b5f3;
+	padding: 16px 25px;
+	margin: -20px -25px 10px;
+	border-radius: 3px 3px 0 0;
+}
+
+.table-title h2 {
+	margin: 5px 0 0;
+	font-size: 24px;
+}
+
+.show-entries select.form-control {
+	width: 60px;
+	margin: 0 5px;
+}
+
+.table-filter .filter-group {
+	float: right;
+	margin-left: 15px;
+}
+
+.table-filter input, .table-filter select {
+	height: 34px;
+	border-radius: 3px;
+	border-color: #ddd;
+	box-shadow: none;
+}
+
+.table-filter {
+	padding: 5px 0 15px;
+	border-bottom: 1px solid #e9e9e9;
+	margin-bottom: 5px;
+}
+
+.table-filter .btn {
+	height: 34px;
+}
+
+.table-filter label {
+	font-weight: normal;
+	margin-left: 10px;
+}
+
+.table-filter select, .table-filter input {
+	display: inline-block;
+	margin-left: 5px;
+}
+
+.filter-group select.form-control {
+	width: 110px;
+}
+
+.filter-icon {
+	float: right;
+	margin-top: 7px;
+}
+
+.filter-icon i {
+	font-size: 18px;
+	opacity: 0.7;
+}
+
+table.table tr th, table.table tr td {
+	border-color: #e9e9e9;
+	padding: 12px 15px;
+	vertical-align: middle;
+}
+
+table.table tr th:first-child {
+	width: 500px;
+}
+
+.product-detail-title {
+	width: 500px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.product-detail-info {
+	border: 1px solid #ddd;
+	border-radius: 10px;
+	padding: 15px;
+}
+
+table.table tr th:last-child {
+	width: 80px;
+}
+
+table.table-striped tbody tr:nth-of-type(odd) {
+	background-color: #fcfcfc;
+}
+
+table.table-striped.table-hover tbody tr:hover {
+	background: #f5f5f5;
+}
+
+table.table th i {
+	font-size: 13px;
+	margin: 0 5px;
+	cursor: pointer;
+}
+
+table.table td a {
+	font-weight: bold;
+	color: #566787;
+	display: inline-block;
+	text-decoration: none;
+}
+
+table.table td a:hover {
+	color: #2196F3;
+}
+
+table.table td a button {
+	width: 30px;
+	height: 30px;
+	color: #2196F3;
+	border: 2px solid;
+	border-radius: 30px;
+	text-align: center;
+}
+
+table.table td a.view i {
+	font-size: 22px;
+	margin: 2px 0 0 1px;
+}
+
+table.table .avatar {
+	vertical-align: middle;
+	margin-right: 10px;
+	height: 70px;
+	width: 70px;
+}
+
+.status {
+	font-size: 30px;
+	margin: 2px 2px 0 0;
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 10px;
+}
+
+.text-success {
+	color: #10c469;
+}
+
+.text-info {
+	color: #62c9e8;
+}
+
+.text-warning {
+	color: #FFC107;
+}
+
+.text-danger {
+	color: #ff5b5b;
+}
+
+.pagination {
+	float: right;
+	margin: 0 0 5px;
+}
+
+.pagination li a {
+	border: none;
+	font-size: 13px;
+	min-width: 30px;
+	min-height: 30px;
+	color: #999;
+	margin: 0 2px;
+	line-height: 30px;
+	border-radius: 2px !important;
+	text-align: center;
+	padding: 0 6px;
+}
+
+.pagination li a:hover {
+	color: #666;
+}
+
+.pagination li.active a {
+	background: #03A9F4;
+}
+
+.pagination li.active a:hover {
+	background: #0397d6;
+}
+
+.pagination li.disabled i {
+	color: #ccc;
+}
+
+.pagination li i {
+	font-size: 16px;
+	padding-top: 6px
+}
+
+.hint-text {
+	float: left;
+	margin-top: 10px;
+	font-size: 13px;
+}
+
+th {
+	text-align: center;
+}
+</style>
+<script>
+	$(document).ready(function() {
+		$('[data-toggle="tooltip"]').tooltip();
+	});
+</script>
 </head>
 <body>
-	<!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
 
-	<!-- Add your site or application content here -->
 	<!--Header Area Start-->
-	<jsp:include page="Header.jsp"></jsp:include>
+	<jsp:include page="Header.jsp" />
 	<!--Header Area End-->
 
 	<!-- Breadcrumbs Area Start -->
 	<jsp:include page="BreadCrumbs.jsp"></jsp:include>
 	<!-- Breadcrumbs Area Start -->
-	<!-- Cart Area Start -->
-	<div class="shopping-cart-area section-padding">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="wishlist-table-area table-responsive my-cart-product">
-						<table>
-							<thead>
-								<tr>
-									<th class="product-image">Image</th>
-									<th class="t-product-name">Product Name</th>
-									<th class="product-quantity">Quantity</th>
-									<th class="product-unit-price">Price</th>
-									<th class="product-remove">Action</th>
-								</tr>
-							</thead>
-							<tbody>
-								<c:forEach items="${sessionScope.cartList}" var="product">
-									<tr>
-										<td class="product-image"><a href="#"> <img
-												src="${product.book.image}" alt="" class="rounded">
-										</a></td>
-										<td class="t-product-name">
-											<h3>
-												<a href="#">${product.book.title}</a>
-											</h3>
-										</td>
-										<td class="product-quantity product-cart-details"><a
-											href="ChangeQuantity?action=dec&id=${product.book.bookId}"><button
-													class="button-minus text-secondary" data-id="">-</button></a> <span
-											class="countOfProduct">${product.quantity}</span> <a
-											href="ChangeQuantity?action=inc&id=${product.book.bookId}"><button
-													class="button-plus text-secondary" data-id="">+</button></a></td>
-										<td class="product-quantity">
-											<p>$ ${product.book.price*product.quantity}</p>
-										</td>
-										<td class="product-buy"><a href="CheckoutController"><button
-													class="btn btn-success">
-													<i class="fa fa-shopping-bag "></i>
-												</button></a> <a href="DeleteInCart?id=${product.book.bookId}"><button
-													class="delete-in-cart btn btn-danger" data-id="">
-													<i class="flaticon-delete delete-in-cart" data-id=""></i>
-												</button></a></td>
-									</tr>
-								</c:forEach>
-							</tbody>
-						</table>
-					</div>
-					<div class="shopingcart-bottom-area">
-						<a class="left-shoping-cart" href="Shopping">CONTINUE SHOPPING</a>
-						<div class="shopingcart-bottom-area pull-right">
-							<button type="button"
-								class="btn-default clear-all-product-in-cart">CLEAR ALL</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Cart Area End -->
-	<!-- Discount Area Start -->
-	<div class="discount-area">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6 col-sm-6"></div>
-				<div class="col-md-6 col-sm-6">
-					<div class="subtotal-main-area">
-						<div class="subtotal-area">
+    
+	<div class="container-xl">
+		<div class="table-responsive">
+			<div class="table-wrapper">
+				<div class="table-title">
+					<div class="row">
+						<div class="col-sm-4">
 							<h2>
-								SUBTOTAL<span>$ ${sessionScope.subTotal}</span>
+								Your <b>Cart</b>
 							</h2>
 						</div>
-						<a href="Checkout.jsp">CHECKOUT</a>
+					</div>
+				</div>
+                
+				<table class="table table-striped table-hover" style="text-align: center">
+					<thead>
+						<tr>
+							<th>Product</th>
+							<th>Quantity</th>
+							<th>Price</th>
+							<th>Buy now</th>
+							<th>Delete</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${sessionScope.cartList}" var="product">
+							<tr>
+								<td><div class="product-detail-title">
+										<a href="#"><img src="${product.book.image}"
+											class="avatar" alt="Avatar">${product.book.title}</a>
+									</div></td>
+								<td class=""><a
+									href="ChangeQuantity?action=dec&id=${product.book.bookId}"><button
+											class="button-minus text-secondary" data-id="">-</button></a> <span
+									class="countOfProduct">${product.quantity}</span> <a
+									href="ChangeQuantity?action=inc&id=${product.book.bookId}"><button
+											class="button-plus text-secondary" data-id="">+</button></a></td>
+								<td>$${product.book.price}</td>
+								<td><a href="CheckoutController" class="view"
+									title="View Details" data-toggle="tooltip"><i
+										class="fa fa-shopping-bag "></i></a></td>
+								<td><a href="DeleteInCart?id=${product.book.bookId}"
+									class="view" title="View Details" data-toggle="tooltip"><i
+										class="flaticon-delete delete-in-cart"></i></a></td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+
+				<div class="row">
+					<div class="col-sm-8">
+						<div class="shopingcart-bottom-area">
+							<a class="left-shoping-cart" href="Shopping">CONTINUE
+								SHOPPING</a>
+						</div>
+					</div>
+					<div class="col-sm-4 row">
+						<div class="col-sm-12 row" style="margin-bottom: 20px">
+							<div class="col-sm-4">Shipping cost:</div>
+							<div class="col-sm-5"></div>
+							<div class="col-sm-3" style="color: red">$0</div>
+						</div>
+						<div class="col-sm-12 row" style="margin-bottom: 20px">
+							<div class="col-sm-4">Total:</div>
+							<div class="col-sm-5"></div>
+							<div class="col-sm-3" style="color: red">$${sessionScope.subTotal}</div>
+						</div>
+						<div class="col-sm-12 row">
+							<div class="col-sm-4"></div>
+							<div class="col-sm-2"></div>
+							<div class="col-sm-6">
+								<a href="Checkout.jsp"><button class="btn btn-primary">CHECKOUT</button></a>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- Discount Area End -->
+	</div>
 	<!-- Footer Area Start -->
 	<jsp:include page="Footer.jsp"></jsp:include>
 	<!-- Footer Area End -->

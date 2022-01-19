@@ -309,6 +309,10 @@ table.table .avatar {
 	margin-top: 10px;
 	font-size: 13px;
 }
+
+th {
+	text-align: center;
+}
 </style>
 <script>
 	$(document).ready(function() {
@@ -378,7 +382,8 @@ table.table .avatar {
 						</div>
 					</div>
 
-					<table class="table table-striped table-hover">
+					<table class="table table-striped table-hover"
+						style="text-align: center">
 						<thead>
 							<tr>
 								<th>Product</th>
@@ -403,9 +408,14 @@ table.table .avatar {
 					</table>
 
 					<div class="row">
-						<div class="col-sm-8"></div>
+						<div class="col-sm-8">
+							<div class="shopingcart-bottom-area">
+								<a class="left-shoping-cart" href="javascript:history.back()">GO
+									BACK</a>
+							</div>
+						</div>
 						<div class="col-sm-4 row">
-							<div class="col-sm-12 row" style="margin-bottom:20px">
+							<div class="col-sm-12 row" style="margin-bottom: 20px">
 								<div class="col-sm-4">Shipping cost:</div>
 								<div class="col-sm-5"></div>
 								<div class="col-sm-3" style="color: red">$0</div>
