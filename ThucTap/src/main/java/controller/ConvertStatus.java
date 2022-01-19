@@ -30,8 +30,11 @@ public class ConvertStatus extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int orderId = Integer.parseInt(request.getParameter("orderId"));
+		String currentPage = request.getParameter("page");
+		System.out.println("#page : "+currentPage);
 		orderService.updateStatus(orderId, "Shipping");
-		request.getRequestDispatcher("Admin?Management=Order").forward(request, response);
+		request.setAttribute("currentPage", currentPage);
+		request.getRequestDispatcher("Admin?Management=Order&page="+currentPage).forward(request, response);
 	}
 
 	/**

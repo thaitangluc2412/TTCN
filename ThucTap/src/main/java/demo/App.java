@@ -27,6 +27,7 @@ public class App {
 
         List<OrderDetailDto> orderDetailDtos = orderDetailService.getOrderDetailDtoByBookId(1);
         print(orderDetailDtos);
+
     }
 
     private static <Element> void print(Collection<Element> elements) {

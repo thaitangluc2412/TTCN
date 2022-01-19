@@ -335,21 +335,53 @@ table.table .avatar {
 				<div class="table-filter">
 					<div class="row">
 						<div class="col-sm-9">
-							<button type="button" class="btn btn-primary">
-								<i class="fa fa-search"></i>
-							</button>
-							<div class="filter-group">
-								<label>Name</label> <input type="text" class="form-control">
-							</div>
-							<div class="filter-group">
-								<label>Status</label> <select class="form-control">
-									<option>Any</option>
-									<option>Delivered</option>
-									<option>Shipping</option>
-									<option>Processing</option>
-								</select>
-							</div>
-							<span class="filter-icon"><i class="fa fa-filter"></i></span>
+							<form action="Admin?Management=Order" method="POST">
+								<button type="submit" class="btn btn-primary">
+									<i class="fa fa-search"></i>
+								</button>
+								<div class="filter-group">
+									<label>Name</label> <input type="text" name="searchName"
+										value="${searchName}" class="form-control">
+								</div>
+								<div class="filter-group">
+									<label>Status</label> <select class="form-control"
+										name="status">
+										<c:choose>
+											<c:when test="${status=='Any'}">
+												<option value="Any" selected>Any</option>
+											</c:when>
+											<c:otherwise>
+												<option value="Any">Any</option>
+											</c:otherwise>
+										</c:choose>
+										<c:choose>
+											<c:when test="${status=='Delivered'}">
+												<option value="Delivered" selected>Delivered</option>
+											</c:when>
+											<c:otherwise>
+												<option value="Delivered">Delivered</option>
+											</c:otherwise>
+										</c:choose>
+										<c:choose>
+											<c:when test="${status=='Shipping'}">
+												<option value="Shipping" selected>Shipping</option>
+											</c:when>
+											<c:otherwise>
+												<option value="Shipping">Shipping</option>
+											</c:otherwise>
+										</c:choose>
+										<c:choose>
+											<c:when test="${status=='Processing'}">
+												<option value="Processing" selected>Processing</option>
+											</c:when>
+											<c:otherwise>
+												<option value="Processing">Processing</option>
+											</c:otherwise>
+										</c:choose>
+									</select>
+								</div>
+								<span class="filter-icon"><i class="fa fa-filter"></i></span>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -396,43 +428,45 @@ table.table .avatar {
 									</c:choose></td>
 
 								<td>${order.totalPrice}</td>
-
+								
 								<td><c:choose>
 										<c:when test="${order.getStatus().toString() == 'Processing'}">
-											<a href="ConvertStatus?orderId=${order.orderId} "><img
-												src="img/remove.png"
-												class="avatar" alt="Avatar"> 
-											</a>
+											<a href="ConvertStatus?orderId=${order.orderId}&page=${currentPage}&searchName=${searchName}&status=${status}""><img
+												src="img/remove.png" class="avatar" alt="Avatar"> </a>
 										</c:when>
 										<c:otherwise>
-											<img
-												src="img/tick.png"
-												class="avatar" alt="Avatar">
+											<img src="img/tick.png" class="avatar" alt="Avatar">
 										</c:otherwise>
 									</c:choose></td>
 
-								<td><a href="MyOrderDetail?orderId=${order.orderId}" class="view" title="View Details"
-									data-toggle="tooltip"><i class="fa fa-info-circle"></i></a></td>
+								<td><a href="MyOrderDetail?orderId=${order.orderId}"
+									class="view" title="View Details" data-toggle="tooltip"><i
+										class="fa fa-info-circle"></i></a></td>
 							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
-				<div class="clearfix">
-					<div class="hint-text">
-						Showing <b>5</b> out of <b>25</b> entries
-					</div>
+				<nav class="d-flex justify-content-center"
+					aria-label="Page navigation example">
 					<ul class="pagination">
-						<li class="page-item disabled"><a href="#">Previous</a></li>
-						<li class="page-item"><a href="#" class="page-link">1</a></li>
-						<li class="page-item"><a href="#" class="page-link">2</a></li>
-						<li class="page-item"><a href="#" class="page-link">3</a></li>
-						<li class="page-item active"><a href="#" class="page-link">4</a></li>
-						<li class="page-item"><a href="#" class="page-link">5</a></li>
-						<li class="page-item"><a href="#" class="page-link">6</a></li>
-						<li class="page-item"><a href="#" class="page-link">7</a></li>
-						<li class="page-item"><a href="#" class="page-link">Next</a></li>
+						<c:if test="${currentPage != 1}">
+							<li class="page-item"><a class="page-link"
+								href="Admin?Management=Order&page=1&searchName=${searchName}&status=${status}">
+									First </a></li>
+						</c:if>
+						<c:forEach var="page" begin="${maxLeft}" end="${maxRight}">
+							<li class="page-item ${page == currentPage ? "active" : "" } "><a
+								class="page-link"
+								href="Admin?Management=Order&page=${page}&searchName=${searchName}&status=${status}">
+									${page} </a></li>
+						</c:forEach>
+						<c:if test="${currentPage != totalPages}">
+							<li class="page-item"><a class="page-link"
+								href="Admin?Management=Order&page=${totalPages}&searchName=${searchName}&status=${status}">
+									Last </a></li>
+						</c:if>
 					</ul>
-				</div>
+				</nav>
 			</div>
 		</div>
 	</div>
