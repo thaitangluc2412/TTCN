@@ -232,8 +232,6 @@ public class Admin extends HttpServlet {
 					listAllReview = reviewService.getAll();
 				}
 
-				System.out.println("last : " + listAllReview.get(listAllReview.size() - 1));
-
 //	        	int totalPages = (int) (Math.floor(listAllBook.size() / rows));
 				int totalPages = listAllReview.size() / rows;
 				if (totalPages * rows < listAllReview.size()) {
@@ -256,8 +254,6 @@ public class Admin extends HttpServlet {
 					}
 					maxRight = totalPages;
 				}
-
-				System.out.println("listReview : " + listReview);
 
 				request.setAttribute("searchBook", searchBook);
 				request.setAttribute("listReview", listReview);
