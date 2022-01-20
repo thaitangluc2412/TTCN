@@ -41,7 +41,7 @@ public class HibernateBookDao extends AbstractHibernateDao implements BookDao {
 			+ "Price = :price, PublishDate = :publishDate, Quantity = :quantity \n" + "WHERE BookID = :bookId";
 	private static final String Q_GET_BOOKDTO_BY_AUTHORID = "SELECT b.BookID                   bookId,\n"
 			+ "       b.Image                    image,\n" + "       b.Title                    title,\n"
-			+ "       c.Name                     category,\n" + "       sum(od.Quantity) * b.Price profit\n"
+			+ "       c.Name                     category,\n" + "       sum(od.Quantity) * b.Price*0.2 profit \n"
 			+ "FROM book b\n" + "JOIN bookuser bu\n" + "ON b.BookID = bu.BookID\n" + "JOIN user u\n"
 			+ "ON bu.UserID = u.UserID\n" + "JOIN orderdetail od\n" + "ON b.BookID = od.BookID\n" + "JOIN `order` o\n"
 			+ "ON od.OrderID = o.OrderID\n" + "JOIN category c\n" + "ON b.CategoryID = c.CategoryID\n"
@@ -129,7 +129,6 @@ public class HibernateBookDao extends AbstractHibernateDao implements BookDao {
     
     private final Session session = openSession();
     
-
 	@Override
 	public List<Book> getAll() {
 		return openSession().createNativeQuery(Q_GET_ALL, Book.class).getResultList();
@@ -298,14 +297,14 @@ public class HibernateBookDao extends AbstractHibernateDao implements BookDao {
 				+ id + " LIMIT " + strimStart + ", " + rows;
 		return openSession().createNativeQuery(Q_GET_BOOK_BY_AUTHOR_ID_CURRENT_PAGE, Book.class).getResultList();
 	}
-	
+
 	@Override
 	public List<Book> getByAuthorIdAndTitle(int id, String searchKey) {
 		return openSession().createNativeQuery(Q_GET_BOOK_BY_AUTHOR_ID_AND_TITLE, Book.class)
 				.setParameter("id", id, IntegerType.INSTANCE)
-				.setParameter("searchKey","%" + searchKey + "%", StringType.INSTANCE).getResultList();
+				.setParameter("searchKey", "%" + searchKey + "%", StringType.INSTANCE).getResultList();
 	}
-	
+
 	@Override
 	public List<Book> getByAuthorIdAndTitleCurrentPage(int trimStart, int rows, int id, String searchKey) {
 		return openSession().createNativeQuery(Q_GET_BOOK_BY_AUTHOR_ID_AND_TITLE_CURRENTPAGE, Book.class)
