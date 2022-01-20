@@ -331,9 +331,17 @@ th {
 		<div class="row">
 			<div class="col-sm-4">
 				<h2 style="margin-left: 20px">
-					Manage <b>REVENUE</b>
+					Manage <b>AUTHOR / REVENUE</b>
 				</h2>
 			</div>
+		</div>
+
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<p>
+				Author: <span class="status text-success"> ${author.name}</span>
+			</p>
 		</div>
 	</div>
 
@@ -342,7 +350,8 @@ th {
 		<div class="table-responsive">
 			<div class="table-wrapper">
 				<div class="d-flex justify-content-center">
-					<form action="Admin?Management=Revenue" method="POST">
+					<form action="ViewRevenueInAuthor?authorId=${authorId}"
+						method="POST">
 						<div style="width: 300px; display: inline-block;">
 							Start Date <input type="date" name="startDate"
 								value="${startDate}" />
@@ -384,18 +393,18 @@ th {
 					<ul class="pagination">
 						<c:if test="${currentPage != 1}">
 							<li class="page-item"><a class="page-link"
-								href="Admin?Management=Revenue&page=1&startDate=${startDate}&endDate=${endDate}">
+								href="ViewRevenueInAuhor?authorId=${authorId}&page=1&startDate=${startDate}&endDate=${endDate}">
 									First </a></li>
 						</c:if>
 						<c:forEach var="page" begin="${maxLeft}" end="${maxRight}">
 							<li class="page-item ${page == currentPage ? "active" : "" } "><a
 								class="page-link"
-								href="Admin?Management=Revenue&page=${page}&startDate=${startDate}&endDate=${endDate}">
+								href="ViewRevenueInAuhor?authorId=${authorId}&page=${page}&startDate=${startDate}&endDate=${endDate}">
 									${page} </a></li>
 						</c:forEach>
 						<c:if test="${currentPage != totalPages}">
 							<li class="page-item"><a class="page-link"
-								href="Admin?Management=Revenue&page=${totalPages}&startDate=${startDate}&endDate=${endDate}">
+								href="ViewRevenueInAuhor?authorId=${authorId}&page=${totalPages}&startDate=${startDate}&endDate=${endDate}">
 									Last </a></li>
 						</c:if>
 					</ul>

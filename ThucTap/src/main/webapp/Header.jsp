@@ -32,8 +32,8 @@
 											<li><a href="Admin?Management=Author">AUTHOR</a></li>
 											<li><a href="Admin?Management=Order">ORDER</a></li>
 											<li><a href="Admin?Management=Review">REVIEW</a></li>
-											<li><a href="Contact.jsp">CONTACT</a></li>
 											<li><a href="Admin?Management=Revenue">REVENUE</a></li>
+											<li><a href="Contact.jsp">CONTACT</a></li>
 										</ul></li>
 								</c:when>
 								<c:when test="${sessionScope.user.role == 'Author'}">

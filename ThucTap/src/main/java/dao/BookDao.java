@@ -56,6 +56,12 @@ public interface BookDao {
 
     List<BookDto> getBookWithProfitByAuthorId(int authorId);
     
+    List<BookDto> getBookWithProfitByAuthorIdCurrentPage(int trimStart, int rows, int authorId);
+    
+    List<BookDto> getBookWithProfitByAuthorIdBetweenTime(LocalDate startDate, LocalDate endDate, int authorId);
+    
+    List<BookDto> getBookWithProfitByAuthorIdBetweenTimeCurrentPage(int trimStart, int rows, LocalDate startDate, LocalDate endDate, int authorId);
+    
     List<BookDto> getBookWithProfit();
 
     List<BookDto> getBookWithProfitBetweenTime(LocalDate startDate, LocalDate endDate);

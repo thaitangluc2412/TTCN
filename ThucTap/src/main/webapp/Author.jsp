@@ -362,7 +362,7 @@ th {
 								<td>${author.phoneNumber}</td>
 								<td><a href="ViewBookInAuthor?authorId=${author.userId}" class="view" title="View Details"
 									data-toggle="tooltip"><i class="fa fa-eye"></i></a></td>
-								<td><a href="#" class="view" title="View Details"
+								<td><a href="ViewRevenueInAuthor?authorId=${author.userId}" class="view" title="View Details"
 									data-toggle="tooltip"><i class="fa fa-money"></i></a></td>
 								<td><a href="DeleteCustomer?customerId=${customer.userId}"
 									class="view" title="View Details" data-toggle="tooltip"><i

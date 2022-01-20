@@ -39,14 +39,45 @@ public class HibernateBookDao extends AbstractHibernateDao implements BookDao {
 	private static final String Q_UPDATE_BOOK = "UPDATE bookstore.book SET CategoryID = :categoryId, \n"
 			+ "Title = :title, \n" + "Description = :description, \n" + "Image = :image, \n"
 			+ "Price = :price, PublishDate = :publishDate, Quantity = :quantity \n" + "WHERE BookID = :bookId";
-	private static final String Q_GET_BOOKDTO_BY_AUTHORID = "SELECT b.BookID                   bookId,\n"
-			+ "       b.Image                    image,\n" + "       b.Title                    title,\n"
-			+ "       c.Name                     category,\n" + "       sum(od.Quantity) * b.Price*0.2 profit \n"
-			+ "FROM book b\n" + "JOIN bookuser bu\n" + "ON b.BookID = bu.BookID\n" + "JOIN user u\n"
-			+ "ON bu.UserID = u.UserID\n" + "JOIN orderdetail od\n" + "ON b.BookID = od.BookID\n" + "JOIN `order` o\n"
-			+ "ON od.OrderID = o.OrderID\n" + "JOIN category c\n" + "ON b.CategoryID = c.CategoryID\n"
-			+ "WHERE u.UserID = :userid\n" + "GROUP BY b.BookID";
+	private static final String Q_GET_ALL_BOOKDTO_BY_AUTHORID = "SELECT book.BookID as BookID, book.image as Image, book.Title as Title, category.name as Category, b.quantitySold as Total, (book.Price*b.quantitySold)/(SELECT COUNT(*) as quantityAuthor\r\n"
+			+ "FROM bookuser\r\n" + "WHERE bookID = book.bookId\r\n" + "GROUP BY BookID) as Profit, bookuser.userId\r\n"
+			+ "FROM book JOIN category ON book.CategoryID = category.CategoryID\r\n"
+			+ "JOIN bookuser ON book.BookID = bookuser.BookID\r\n"
+			+ "JOIN (SELECT BookID, SUM(Quantity) as quantitySold, `order`.OrderDate as OrderDate \r\n"
+			+ "      FROM orderdetail JOIN `order` \r\n" + "      ON orderdetail.OrderID = `order`.OrderID\r\n"
+			+ "      GROUP BY BookID) b\r\n" + "ON book.BookID = b.BookID\r\n" + "WHERE userId = :authorId";
+
+	private static final String Q_GET_ALL_BOOKDTO_BY_AUTHORID_CURRENTPAGE = "SELECT book.BookID as BookID, book.image as Image, book.Title as Title, category.name as Category, b.quantitySold as Total, (book.Price*b.quantitySold)/(SELECT COUNT(*) as quantityAuthor\r\n"
+			+ "FROM bookuser\r\n" + "WHERE bookID = book.bookId\r\n" + "GROUP BY BookID) as Profit\r\n"
+			+ "FROM book JOIN category ON book.CategoryID = category.CategoryID\r\n"
+			+ "JOIN bookuser ON book.BookID = bookuser.BookID\r\n"
+			+ "JOIN (SELECT BookID, SUM(Quantity) as quantitySold, `order`.OrderDate as OrderDate \r\n"
+			+ "      FROM orderdetail JOIN `order` \r\n" + "      ON orderdetail.OrderID = `order`.OrderID\r\n"
+			+ "      GROUP BY BookID) b\r\n" + "ON book.BookID = b.BookID\r\n"
+			+ "WHERE userId = :authorId LIMIT :trimStart, :rows";
+
+	private static final String Q_GET_ALL_BOOKDTO_BY_AUTHORID_BETWEEN_TIME = "SELECT book.BookID as BookID, book.image as Image, book.Title as Title, category.name as Category, b.quantitySold as Total, (book.Price*b.quantitySold)/(SELECT COUNT(*) as quantityAuthor\r\n"
+			+ "FROM bookuser\r\n" + "WHERE bookID = book.bookId\r\n"
+			+ "GROUP BY BookID) as Profit\r\n"
+			+ "FROM book JOIN category ON book.CategoryID = category.CategoryID\r\n"
+			+ "JOIN bookuser ON book.BookID = bookuser.BookID\r\n"
+			+ "JOIN (SELECT BookID, SUM(Quantity) as quantitySold, `order`.OrderDate as OrderDate \r\n"
+			+ "      FROM orderdetail JOIN `order` \r\n" + "      ON orderdetail.OrderID = `order`.OrderID\r\n"
+			+ "      GROUP BY BookID) b\r\n" + "ON book.BookID = b.BookID\r\n"
+			+ "WHERE userId = :authorId AND b.OrderDate BETWEEN :startDate AND :endDate ";
+
+	private static final String Q_GET_ALL_BOOKDTO_BY_AUTHORID_BETWEEN_TIME_CURRENTPAGE = "SELECT book.BookID as BookID, book.image as Image, book.Title as Title, category.name as Category, b.quantitySold as Total, (book.Price*b.quantitySold)/(SELECT COUNT(*) as quantityAuthor\r\n"
+			+ "FROM bookuser\r\n" + "WHERE bookID = book.bookId\r\n"
+			+ "GROUP BY BookID) as Profit\r\n"
+			+ "FROM book JOIN category ON book.CategoryID = category.CategoryID\r\n"
+			+ "JOIN bookuser ON book.BookID = bookuser.BookID\r\n"
+			+ "JOIN (SELECT BookID, SUM(Quantity) as quantitySold, `order`.OrderDate as OrderDate \r\n"
+			+ "      FROM orderdetail JOIN `order` \r\n" + "      ON orderdetail.OrderID = `order`.OrderID\r\n"
+			+ "      GROUP BY BookID) b\r\n" + "ON book.BookID = b.BookID\r\n"
+			+ "WHERE userId = :authorId AND b.OrderDate BETWEEN :startDate AND :endDate LIMIT :trimStart, :rows";
+
 	private static final String Q_GET_BOOK_BY_AUTHOR_ID_AND_TITLE = "SELECT b.* FROM bookuser bu JOIN book b ON bu.bookID = b.bookId WHERE bu.UserID = :id AND b.Title LIKE :searchKey";
+
 	private static final String Q_GET_BOOK_BY_AUTHOR_ID_AND_TITLE_CURRENTPAGE = "SELECT b.* FROM bookuser bu JOIN book b ON bu.bookID = b.bookId WHERE bu.UserID = :id AND b.Title LIKE :searchKey LIMIT :trimStart, :rows";
 
 	private static final String Q_GET_ALL_BOOKDTO = "SELECT book.BookID as BookID, book.image as Image, book.Title as Title, category.name as Category, b.quantitySold as Total, book.Price*b.quantitySold as Profit \r\n"
@@ -316,10 +347,47 @@ public class HibernateBookDao extends AbstractHibernateDao implements BookDao {
 	@SuppressWarnings({ "unchecked", "deprecation" })
 	@Override
 	public List<BookDto> getBookWithProfitByAuthorId(int authorId) {
-		return openSession().createNativeQuery(Q_GET_BOOKDTO_BY_AUTHORID).setParameter("userid", authorId)
+		return openSession().createNativeQuery(Q_GET_ALL_BOOKDTO_BY_AUTHORID).setParameter("authorId", authorId)
 				.addScalar("bookId", IntegerType.INSTANCE).addScalar("image", StringType.INSTANCE)
 				.addScalar("title", StringType.INSTANCE).addScalar("category", StringType.INSTANCE)
 				.addScalar("total", IntegerType.INSTANCE).addScalar("profit", DoubleType.INSTANCE)
+				.setResultTransformer(Transformers.aliasToBean(BookDto.class)).getResultList();
+	}
+
+	@SuppressWarnings({ "unchecked", "deprecation" })
+	@Override
+	public List<BookDto> getBookWithProfitByAuthorIdCurrentPage(int trimStart, int rows, int authorId) {
+		return openSession().createNativeQuery(Q_GET_ALL_BOOKDTO_BY_AUTHORID_CURRENTPAGE)
+				.setParameter("authorId", authorId).setParameter("trimStart", trimStart).setParameter("rows", rows)
+				.addScalar("bookId", IntegerType.INSTANCE).addScalar("image", StringType.INSTANCE)
+				.addScalar("title", StringType.INSTANCE).addScalar("category", StringType.INSTANCE)
+				.addScalar("total", IntegerType.INSTANCE).addScalar("profit", DoubleType.INSTANCE)
+				.setResultTransformer(Transformers.aliasToBean(BookDto.class)).getResultList();
+	}
+
+	@SuppressWarnings({ "unchecked", "deprecation" })
+	@Override
+	public List<BookDto> getBookWithProfitByAuthorIdBetweenTime(LocalDate startDate, LocalDate endDate, int authorId) {
+		return openSession().createNativeQuery(Q_GET_ALL_BOOKDTO_BY_AUTHORID_BETWEEN_TIME)
+				.addScalar("bookId", IntegerType.INSTANCE).setParameter("authorId", authorId)
+				.addScalar("image", StringType.INSTANCE).addScalar("title", StringType.INSTANCE)
+				.addScalar("category", StringType.INSTANCE).addScalar("total", IntegerType.INSTANCE)
+				.addScalar("profit", DoubleType.INSTANCE).setParameter("startDate", DateUtils.toDate(startDate))
+				.setParameter("endDate", DateUtils.toDate(endDate))
+				.setResultTransformer(Transformers.aliasToBean(BookDto.class)).getResultList();
+	}
+
+	@SuppressWarnings({ "unchecked", "deprecation" })
+	@Override
+	public List<BookDto> getBookWithProfitByAuthorIdBetweenTimeCurrentPage(int trimStart, int rows, LocalDate startDate,
+			LocalDate endDate, int authorId) {
+		return openSession().createNativeQuery(Q_GET_ALL_BOOKDTO_BY_AUTHORID_BETWEEN_TIME_CURRENTPAGE)
+				.addScalar("bookId", IntegerType.INSTANCE).setParameter("authorId", authorId)
+				.setParameter("trimStart", trimStart).setParameter("rows", rows).addScalar("image", StringType.INSTANCE)
+				.addScalar("title", StringType.INSTANCE).addScalar("category", StringType.INSTANCE)
+				.addScalar("total", IntegerType.INSTANCE).addScalar("profit", DoubleType.INSTANCE)
+				.setParameter("startDate", DateUtils.toDate(startDate))
+				.setParameter("endDate", DateUtils.toDate(endDate))
 				.setResultTransformer(Transformers.aliasToBean(BookDto.class)).getResultList();
 	}
 

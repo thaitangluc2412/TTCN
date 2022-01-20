@@ -157,4 +157,23 @@ public class BookServiceImpl implements BookService {
     public List<BookDto> getBookWithProfitCurrentPage(int trimStart, int rows) {
     	return bookDao.getBookWithProfitCurrentPage(trimStart, rows);
     }
+
+	@Override
+	public List<BookDto> getBookWithProfitByAuthorIdCurrentPage(int trimStart, int rows, int authorId) {
+		// TODO Auto-generated method stub
+		return bookDao.getBookWithProfitByAuthorIdCurrentPage(trimStart, rows, authorId);
+	}
+
+	@Override
+	public List<BookDto> getBookWithProfitByAuthorIdBetweenTime(LocalDate startDate, LocalDate endDate, int authorId) {
+		// TODO Auto-generated method stub
+		return bookDao.getBookWithProfitByAuthorIdBetweenTime(startDate, endDate, authorId);
+	}
+
+	@Override
+	public List<BookDto> getBookWithProfitByAuthorIdBetweenTimeCurrentPage(int trimStart, int rows, LocalDate startDate,
+			LocalDate endDate, int authorId) {
+		// TODO Auto-generated method stub
+		return bookDao.getBookWithProfitByAuthorIdBetweenTimeCurrentPage(trimStart, rows, startDate, endDate, authorId);
+	}
 }
