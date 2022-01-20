@@ -383,7 +383,7 @@ th {
 				<nav class="d-flex justify-content-center"
 					aria-label="Page navigation example">
 					<ul class="pagination">
-						<c:if test="${currentPage != 1 && totalPages > 5}">
+						<c:if test="${currentPage != 1}">
 							<li class="page-item"><a class="page-link"
 								href="Admin?Management=Revenue&page=1&startDate=${startDate}&endDate=${endDate}">
 									First </a></li>
@@ -394,9 +394,9 @@ th {
 								href="Admin?Management=Revenue&page=${page}&startDate=${startDate}&endDate=${endDate}">
 									${page} </a></li>
 						</c:forEach>
-						<c:if test="${currentPage != totalPages && totalPages > 5}">
+						<c:if test="${currentPage != totalPages}">
 							<li class="page-item"><a class="page-link"
-								href="Admin?Management=Revenue&page=${page}&startDate=${startDate}&endDate=${endDate}">
+								href="Admin?Management=Revenue&page=${totalPages}&startDate=${startDate}&endDate=${endDate}">
 									Last </a></li>
 						</c:if>
 					</ul>

@@ -295,11 +295,15 @@ public class Admin extends HttpServlet {
 					listAllBookDto = bookService.getBookWithProfit();
 				}
 				
+				
 				int totalPages = listAllBookDto.size() / rows;
-				if (totalPages * rows < listBookDto.size()) {
+				
+				
+				if (totalPages * rows < listAllBookDto.size()) {
 					++totalPages;
 				}
 
+				
 				int maxLeft = (int) (currentPage - Math.floor(window / 2));
 				int maxRight = (int) (currentPage + Math.floor(window / 2));
 
@@ -317,6 +321,11 @@ public class Admin extends HttpServlet {
 					maxRight = totalPages;
 				}
 
+				for(BookDto b : listBookDto) {
+					System.out.println(b);
+				}
+				
+				
 				request.setAttribute("startDate", startDate);
 				request.setAttribute("endDate", endDate);
 				request.setAttribute("listBookDto", listBookDto);
