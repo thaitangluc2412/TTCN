@@ -326,19 +326,31 @@ th {
 	<!--Header Area Start-->
 	<jsp:include page="Header.jsp" />
 	<!--Header Area End-->
-
+	<div class="table-title">
+		<div class="row">
+			<div class="col-sm-4">
+				<h2>
+					Manage <b>Review</b>
+				</h2>
+			</div>
+		</div>
+	</div>
+	<div class="d-flex justify-content-center">
+		<form action="Admin?Management=Review" method="POST">
+			<div class="input-group" style="width: 500px">
+				<input type="search" class="form-control rounded w-75 p-3"
+					placeholder="Search" aria-label="Search"
+					aria-describedby="search-addon" name="searchBook"
+					value="${searchBook}" />
+				<button type="submit" class="btn btn-outline-primary">search</button>
+			</div>
+		</form>
+	</div>
 	<div class="container-xl">
 		<div class="table-responsive">
 			<div class="table-wrapper">
-				<div class="table-title">
-					<div class="row">
-						<div class="col-sm-4">
-							<h2>
-								Manage <b>Review</b>
-							</h2>
-						</div>
-					</div>
-				</div>
+
+
 				<table class="table table-striped table-hover"
 					style="text-align: center">
 					<thead>
@@ -364,13 +376,34 @@ th {
 								<td>${review.user.name}</td>
 								<td>${review.comment}</td>
 								<td>${review.reviewDate}</td>
-								<td><a href="#"
-									class="view" title="View Details" data-toggle="tooltip"><i
+								<td><a href="#" class="view" title="View Details"
+									data-toggle="tooltip"><i
 										class="flaticon-delete delete-in-cart"></i></a></td>
 							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
+				<nav class="d-flex justify-content-center"
+					aria-label="Page navigation example">
+					<ul class="pagination">
+						<c:if test="${currentPage != 1}">
+							<li class="page-item"><a class="page-link"
+								href="Admin?Management=Review&page=1&searchBook=${searchBook}">
+									First </a></li>
+						</c:if>
+						<c:forEach var="page" begin="${maxLeft}" end="${maxRight}">
+							<li class="page-item ${page == currentPage ? "active" : "" } "><a
+								class="page-link"
+								href="Admin?Management=Review&page=${page}&searchBook=${searchBook}">
+									${page} </a></li>
+						</c:forEach>
+						<c:if test="${currentPage != totalPages}">
+							<li class="page-item"><a class="page-link"
+								href="Admin?Management=Review&page=${totalPages}&searchBook=${searchBook}">
+									Last </a></li>
+						</c:if>
+					</ul>
+				</nav>
 			</div>
 		</div>
 	</div>

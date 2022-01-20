@@ -34,4 +34,20 @@ public class ReviewServiceImpl implements ReviewService{
     public List<ReviewDetailWithUserNameDto> getLatestReviews() {
         return reviewDao.getLatestReviews();
     }
+    
+    @Override
+    public List<Review> getReviewByBookTitle(String title) {
+    	return reviewDao.getReviewByBookTitle(title);
+    }
+    
+    @Override
+    public List<Review> getByTitleCurrentPage(int trimStart, int rows, String title) {
+    	return reviewDao.getByTitleCurrentPage(trimStart, rows, title);
+    }
+    
+    @Override
+    public List<Review> getReviewCurrentPage(int trimStart, int rows) {
+    	return reviewDao.getReviewCurrentPage(trimStart, rows);
+    }
+    
 }

@@ -39,6 +39,7 @@ public class Admin extends HttpServlet {
 	private static OrderService orderService = new OrderServiceImpl();
 	private static BookService bookService = new BookServiceImpl();
 	private static CategoryService categoryService = new CategoryServiceImpl();
+	private static ReviewServiceImpl reviewService = new ReviewServiceImpl();
 	private int rows = 6;
 	private int window = 5;
 
@@ -210,10 +211,62 @@ public class Admin extends HttpServlet {
 				request.getRequestDispatcher("Order.jsp").forward(request, response);
 
 			} else if (str.equals("Review")) {
-				ReviewServiceImpl reviewService = new ReviewServiceImpl();
-				List<Review> listReview = reviewService.getAll();
+				int currentPage = 1;
+				String page = request.getParameter("page");
+				if (page != null) {
+					currentPage = Integer.valueOf(page);
+				}
+
+				System.out.println("currentpage : " + currentPage);
+
+				int trimStart = (currentPage - 1) * rows;
+
+				List<Review> listReview = new ArrayList<>();
+				List<Review> listAllReview = new ArrayList<>();
+				String searchBook = request.getParameter("searchBook");
+				if (searchBook != null && !searchBook.equals("")) {
+					listReview = reviewService.getByTitleCurrentPage(trimStart, rows, searchBook);
+					listAllReview = reviewService.getReviewByBookTitle(searchBook);
+				} else {
+					listReview = reviewService.getReviewCurrentPage(trimStart, rows);
+					listAllReview = reviewService.getAll();
+				}
+
+				System.out.println("last : " + listAllReview.get(listAllReview.size() - 1));
+
+//	        	int totalPages = (int) (Math.floor(listAllBook.size() / rows));
+				int totalPages = listAllReview.size() / rows;
+				if (totalPages * rows < listAllReview.size()) {
+					++totalPages;
+				}
+
+				int maxLeft = (int) (currentPage - Math.floor(window / 2));
+				int maxRight = (int) (currentPage + Math.floor(window / 2));
+
+				if (maxLeft < 1) {
+					maxLeft = 1;
+					maxRight = window;
+				}
+
+				if (maxRight > totalPages) {
+					maxLeft = totalPages - (window - 1);
+
+					if (maxLeft < 1) {
+						maxLeft = 1;
+					}
+					maxRight = totalPages;
+				}
+
+				System.out.println("listReview : " + listReview);
+
+				request.setAttribute("searchBook", searchBook);
 				request.setAttribute("listReview", listReview);
+				request.setAttribute("currentPage", currentPage);
+				request.setAttribute("totalPages", totalPages);
+				request.setAttribute("maxLeft", maxLeft);
+				request.setAttribute("maxRight", maxRight);
 				request.getRequestDispatcher("Review.jsp").forward(request, response);
+							
 			} else if (str.equals("Revenue")) {
 				int currentPage = 1;
 				String page = request.getParameter("page");

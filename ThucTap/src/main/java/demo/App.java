@@ -2,6 +2,7 @@ package demo;
 
 import bean.BookDto;
 import bean.OrderDetailDto;
+import bean.Review;
 import service.*;
 
 import java.time.LocalDate;
@@ -26,7 +27,7 @@ public class App {
         // System.out.println(book);
         // bookService.decreaseBook(book, 1);
         // System.out.println(book);
-        List<BookDto> books = bookService.getBookWithProfitBetweenTimeCurrentPage(3,2,startDate, endDate);
+        List<Review> books = reviewService.getReviewByBookTitle("a");
         print(books);
 
     }

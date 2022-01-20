@@ -13,4 +13,10 @@ public interface ReviewService {
     List<Review> getReviewByUserId(int userId);
 
     List<ReviewDetailWithUserNameDto> getLatestReviews();
+    
+    List<Review> getReviewByBookTitle(String title);
+    
+    List<Review> getReviewCurrentPage(int trimStart, int rows);
+    
+    List<Review> getByTitleCurrentPage(int trimStart, int rows, String title);
 }

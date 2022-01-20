@@ -1,5 +1,6 @@
 package dao;
 
+import bean.Book;
 import bean.Review;
 import bean.ReviewDetailWithUserNameDto;
 import org.hibernate.transform.Transformers;
@@ -27,6 +28,19 @@ public class HibernateReviewDao extends AbstractHibernateDao implements ReviewDa
                                                        "ON rv.BookID = bk.BookID\n" +
                                                        "ORDER BY rv.ReviewDate DESC\n" +
                                                        "LIMIT 2";
+    
+    private static final String Q_GET_REVIEW_BY_BOOK_TITLE = "SELECT review.* FROM Review\n"
+    													+ "JOIN book\n"
+    													+ "On Review.BookId = Book.bookId\n"
+    													+ "WHERE Book.title Like :title";
+    
+    private static final String Q_GET_CURRENT_PAGE = "SELECT * FROM Review LIMIT :trimStart , :rows";
+    
+    private static final String Q_GET_BY_TITLE_CURRENT_PAGE = "SELECT review.* FROM Review\n"
+														+ "JOIN book\n"
+														+ "On Review.BookId = Book.bookId\n"
+														+ "WHERE Book.title Like :title\n"
+														+ "LIMIT :trimStart , :rows";
 
     @Override
     public List<Review> getAll() {
@@ -59,5 +73,27 @@ public class HibernateReviewDao extends AbstractHibernateDao implements ReviewDa
                             .addScalar("Image", StringType.INSTANCE)
                             .setResultTransformer(Transformers.aliasToBean(ReviewDetailWithUserNameDto.class))
                             .getResultList();
+    }
+    
+    @Override
+    public List<Review> getReviewByBookTitle(String title) {
+    	return openSession().createNativeQuery(Q_GET_REVIEW_BY_BOOK_TITLE, Review.class)
+                .setParameter("title", "%" + title + "%", StringType.INSTANCE)
+                .getResultList();
+    }
+    
+    @Override
+    public List<Review> getReviewCurrentPage(int trimStart, int rows) {
+    	return openSession().createNativeQuery(Q_GET_CURRENT_PAGE, Review.class)
+				.setParameter("trimStart", trimStart, IntegerType.INSTANCE)
+				.setParameter("rows", rows, IntegerType.INSTANCE).getResultList();
+    }
+    
+    @Override
+    public List<Review> getByTitleCurrentPage(int trimStart, int rows, String title) {
+    	return openSession().createNativeQuery(Q_GET_BY_TITLE_CURRENT_PAGE, Review.class)
+				.setParameter("title", "%" + title + "%", StringType.INSTANCE)
+				.setParameter("trimStart", trimStart, IntegerType.INSTANCE)
+				.setParameter("rows", rows, IntegerType.INSTANCE).getResultList();
     }
 }
