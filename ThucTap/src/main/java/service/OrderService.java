@@ -43,4 +43,8 @@ public interface OrderService {
 			int customerId);
 
 	List<Order> getByNameStatusWithCustomerId(String status, String name, int customerId);
+	
+	List<Order> getByDate(String vector);
+
+	List<Order> getByDateCurrentPage(String vector, int trimStart, int rows);
 }

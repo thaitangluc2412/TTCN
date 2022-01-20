@@ -115,4 +115,14 @@ public class OrderServiceImpl implements OrderService {
 		// TODO Auto-generated method stub
 		return orderDao.getByNameStatusCurrentPageWithCustomerId(customerId, customerId, status, name, customerId);
 	}
+
+	@Override
+	public List<Order> getByDate(String vector) {
+		return orderDao.getByDate(vector);
+	}
+
+	@Override
+	public List<Order> getByDateCurrentPage(String vector, int trimStart, int rows) {
+		return orderDao.getByDateCurrentPage(vector, trimStart, rows);	
+	}
 }

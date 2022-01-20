@@ -61,6 +61,9 @@ public class HibernateOrderDao extends AbstractHibernateDao implements OrderDao 
 
 	private static final String Q_GET_BY_NAME_STATUS_WITH_CUSTOMER_ID = "SELECT `order`.* FROM `order`\n"
 			+ "JOIN User ON `order`.UserId = User.UserId\n" + "WHERE User.Name LIKE :name AND Status = :status  AND `order`.UserId = :customerId";
+	
+	private static final String Q_GET_BY_DATE = "SELECT * FROM `order` ORDER BY `OrderDate` :vector";
+	private static final String Q_GET_BY_DATE_CURRENT_PAGE = "SELECT * FROM `order` ORDER BY `OrderDate` :vector LIMIT :trimStart, :rows";
 
 	@Override
 	public List<Order> getAll() {
@@ -203,5 +206,19 @@ public class HibernateOrderDao extends AbstractHibernateDao implements OrderDao 
 				.setParameter("status", status, StringType.INSTANCE)
 				.setParameter("name", "%" + name + "%", StringType.INSTANCE)
 				.setParameter("customerId", customerId, IntegerType.INSTANCE).getResultList();
+	}
+	
+	@Override
+	public List<Order> getByDate(String vector) {
+		return openSession().createNativeQuery(Q_GET_BY_DATE, Order.class)
+				.setParameter("vector", vector, StringType.INSTANCE).getResultList();
+	}
+	
+	@Override
+	public List<Order> getByDateCurrentPage(String vector,int trimStart, int rows) {
+		return openSession().createNativeQuery(Q_GET_BY_DATE_CURRENT_PAGE, Order.class)
+				.setParameter("vector", vector, StringType.INSTANCE)
+				.setParameter("trimStart", trimStart, IntegerType.INSTANCE)
+				.setParameter("rows", rows, IntegerType.INSTANCE).getResultList();
 	}
 }

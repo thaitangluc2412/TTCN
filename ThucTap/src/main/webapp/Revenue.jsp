@@ -332,7 +332,7 @@ table.table .avatar {
 		<div class="row">
 			<div class="col-sm-4">
 				<h2 style="margin-left: 20px">
-					Manage <b>Order</b>
+					Manage <b>Revenue</b>
 				</h2>
 			</div>
 		</div>
