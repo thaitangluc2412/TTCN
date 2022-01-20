@@ -26,7 +26,7 @@ public class HibernateReviewDao extends AbstractHibernateDao implements ReviewDa
                                                        "JOIN book bk\n" +
                                                        "ON rv.BookID = bk.BookID\n" +
                                                        "ORDER BY rv.ReviewDate DESC\n" +
-                                                       "LIMIT 3";
+                                                       "LIMIT 2";
 
     @Override
     public List<Review> getAll() {

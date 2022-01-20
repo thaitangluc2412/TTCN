@@ -55,6 +55,14 @@ public interface BookService {
     Book getById(int Id);
     
     List<Book> getByAuthorId(int Id);
+    
+    List<Book> getByAuthorIdCurrentPage(int strimStart, int rows, int id);
+    
+    List<Book> getByAuthorIdAndTitle(int id, String searchKey);
+    
+    List<Book> getByAuthorIdAndTitleCurrentPage(int trimStart, int rows, int id, String searchKey);
+    
+    
 
     int deleteByBookId(Integer bookId);
     

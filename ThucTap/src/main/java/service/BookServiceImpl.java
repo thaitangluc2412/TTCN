@@ -122,5 +122,25 @@ public class BookServiceImpl implements BookService {
         return bookDao.getBookWithProfitByAuthorId(authorId);
     }
 
+	@Override
+	public List<Book> getByAuthorIdAndTitle(int id, String searchKey) {
+		// TODO Auto-generated method stub
+		return bookDao.getByAuthorIdAndTitle(id, searchKey);
+	}
+
+	@Override
+	public List<Book> getByAuthorIdAndTitleCurrentPage(int trimStart, int rows, int id, String searchKey) {
+		// TODO Auto-generated method stub
+		return bookDao.getByAuthorIdAndTitleCurrentPage(trimStart, rows, id, searchKey);
+	}
+
+	@Override
+	public List<Book> getByAuthorIdCurrentPage(int strimStart, int rows, int id) {
+		// TODO Auto-generated method stub
+		return bookDao.getByAuthorIdCurrentPage(strimStart, rows, id);
+	}
+
+	
+	
 
 }

@@ -97,6 +97,35 @@
 						</div>
 						<div class="shop-widget-bottom">
 							<aside class="widget widget-seller">
+								<h2 class="sidebar-title">OUR REVIEW</h2>
+								<c:forEach items="${reviewByName}" var="review">
+									<div class="row"
+										style="margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 10px; height: 100px">
+										<div class="col-sm-12 row">
+											<div class="col-sm-4">
+												<a href="#"><img src="https://cdn.pixabay.com/photo/2020/07/14/13/07/icon-5404125_1280.png"
+													style="height: 60px; width: 70px"></a>
+											</div>
+											<div class="col-sm-8">
+												<div class="title-product" style="margin-left: 0; text-align: left">
+													<a href="#">${review.comment}</a>
+												</div>
+												<div class="rating-icon" style="text-align: left">
+													<p style="color: #ba1e1e; margin-bottom: 0px">${review.name}</p>
+													<div class="list-pro-rating">
+														<c:forEach var="i" begin="1" end="5">
+															<i class="fa fa-star ${i <= review.rating ? "icolor" : ""}"></i>
+														</c:forEach>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</c:forEach>
+							</aside>
+						</div>
+						<div class="shop-widget-bottom">
+							<aside class="widget widget-seller">
 								<h2 class="sidebar-title">TOP SELLERS</h2>
 								<c:forEach items="${bookBestSeller}" var="bestSeller">
 									<div class="row"

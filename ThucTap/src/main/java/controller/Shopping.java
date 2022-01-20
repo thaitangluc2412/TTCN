@@ -13,8 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import bean.Book;
 import bean.Category;
+import bean.ReviewDetailWithUserNameDto;
 import service.BookServiceImpl;
 import service.CategoryServiceImpl;
+import service.ReviewServiceImpl;
 
 /*
  * Servlet implementation class BookController
@@ -51,6 +53,9 @@ public class Shopping extends HttpServlet {
 		}
 		BookServiceImpl bookService = new BookServiceImpl();
 		CategoryServiceImpl categoryService = new CategoryServiceImpl();
+		ReviewServiceImpl reviewService = new ReviewServiceImpl();
+		
+		List<ReviewDetailWithUserNameDto> listReview = reviewService.getLatestReviews();
 //        HashMap<Category, Integer> categoryMap = new HashMap<>();
 		List<Category> listCategory = categoryService.getAll();
 //        for(Category category : listCategory) {
@@ -117,6 +122,7 @@ public class Shopping extends HttpServlet {
 		request.setAttribute("searchBook", searchKey);
 		request.setAttribute("bookBestSeller", bookBestSeller);
 		request.setAttribute("listCategory", listCategory);
+		request.setAttribute("reviewByName", listReview);
 		request.getRequestDispatcher("Shop.jsp").forward(request, response);
 	}
 

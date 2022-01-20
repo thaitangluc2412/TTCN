@@ -73,19 +73,41 @@
 		<div class="container">
 			<div class="row product-detail-wapper">
 				<div class="col-md-6 col-sm-7">
-					<div class="single-product-image-inner">
+					<div class="single-product-image-inner row">
 						<!-- Tab panes -->
-						<div class="tab-content">
+						<div class="tab-content col-sm-9">
 							<div class="id-product hidden">${book.bookId}</div>
 							<div class="title-product hidden">${book.title}</div>
-							<div role="tabpanel" class="tab-pane active" id="one">
+							<div role="tabpanel" class="tab-pane active" id="one"
+								style="height: 400px">
 								<a class="venobox" href="${book.image}" data-gall="gallery"
-									title=""> <img src="${book.image}" alt="">
+									title=""> <img src="${book.image}" alt=""
+									style="height: 100%; width: 100%">
+								</a>
+							</div>
+						</div>
+						<div class=" col-sm-3" style="height: 400px;">
+							<div class="row" style="height: 31%; margin-bottom: 10px;">
+								<a class="venobox" href="${book.image}" data-gall="gallery"
+									title="" style="height: 100%; width: 100%"> <img
+									src="${book.image}" alt="" style="height: 100%; width: 100%">
+								</a>
+							</div>
+							<div class="row" style="height: 31%; margin-bottom: 10px;">
+								<a class="venobox" href="${book.image}" data-gall="gallery"
+									title="" style="height: 100%; width: 100%"> <img
+									src="${book.image}" alt="" style="height: 100%; width: 100%">
+								</a>
+							</div>
+							<div class="row" style="height: 31%">
+								<a class="venobox" href="${book.image}" data-gall="gallery"
+									title="" style="height: 100%; width: 100%"> <img
+									src="${book.image}" alt="" style="height: 100%; width: 100%">
 								</a>
 							</div>
 						</div>
 						<!-- Nav tabs -->
-						<ul class="product-tabs" role="tablist">
+						<!--  	<ul class="product-tabs" role="tablist">
 							<li role="presentation" class="active"><a class="venobox"
 								href="${book.image}" aria-controls="one" role="tab"
 								data-toggle="tab"><img src="${book.image}"
@@ -99,7 +121,8 @@
 								data-toggle="tab"><img src=${book.image
 									}
 									style="width: 150px; height: 160px;" alt=""></a></li>
-						</ul>
+						</ul> -->
+
 					</div>
 				</div>
 				<div class="col-md-6 col-sm-5">
@@ -114,18 +137,26 @@
 						<div class="single-product-price" style="margin-bottom: 10px">
 							<h3>${book.price}</h3>
 						</div>
-						<div class="product-attributes clearfix">
-							<button class="btn btn-info addToCart">
-								<i class="fa fa-shopping-cart addToCart"><span
-									class="addToCart" style="font-family: sans-serif">Add to
-										cart</span></i>
-							</button>
+						<div class="col" style="text-align: left; margin-bottom: 10px;">
+							<a href="AddToCart?id=${book.bookId}"><button
+									class="btn btn-dark addToCart">
+									<i class="fa fa-shopping-cart addToCart"><span
+										class="addToCart" style="font-family: sans-serif"> Add
+											to cart</span></i>
+								</button></a> <a href=""><button class="btn btn-success">
+									<i class="fa fa-shopping-bag "><span class=""
+										style="font-family: sans-serif"> Buy now</span></i>
+								</button></a>
 						</div>
 						<div class="single-product-categories">
-							<label>Categories:</label> <span><a href="Shopping?categoryID=${book.categoryId.getCategoryId()}" class="open-comment-form">${book.categoryId.name}</a></span><br>
-							<label>Author:</label> <span> <c:forEach
-									items="${book.getBookUser()}" var="bookUser" varStatus="loop">
-									<a href="AuthorBookController?AuthorId=${bookUser.getUser().getUserId()}" class="open-comment-form">${bookUser.getUser().getName()}</a>
+							<label>Categories:</label> <span><a
+								href="Shopping?categoryID=${book.categoryId.getCategoryId()}"
+								class="open-comment-form">${book.categoryId.name}</a></span><br> <label>Author:</label>
+							<span> <c:forEach items="${book.getBookUser()}"
+									var="bookUser" varStatus="loop">
+									<a
+										href="AuthorBookController?AuthorId=${bookUser.getUser().getUserId()}"
+										class="open-comment-form">${bookUser.getUser().getName()}</a>
 									${loop.last ? '' : ','}
 								</c:forEach></span>
 						</div>
@@ -146,7 +177,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row" style="margin-top: -40px">
 				<div class="col-md-9">
 					<div class="p-details-tab-content">
 						<div class="p-details-tab">
@@ -192,7 +223,8 @@
 			<div class="row">
 				<div class="related-product indicator-style">
 					<c:forEach items="${listBook}" var="book">
-						<div class="col-4 product-wapper" style="max-width: 80%; height:450px">
+						<div class="col-4 product-wapper"
+							style="max-width: 80%; height: 450px">
 							<div class="id-product hidden">${book.bookId}</div>
 							<div class="single-product-wrapper">
 								<a href="TheBook?Book=${book.bookId}"><img
@@ -210,11 +242,15 @@
 								</div>
 							</div>
 							<div class="col" style="text-align: center">
-								<button class="btn btn-info addToCart">
-									<i class="fa fa-shopping-cart addToCart"><span
-										class="addToCart" style="font-family: sans-serif">Add
-											to cart</span></i>
-								</button>
+								<a href="AddToCart?id=${book.bookId}" ><button
+										class="btn btn-dark addToCart" style="margin-bottom: 5px;">
+										<i class="fa fa-shopping-cart addToCart"><span
+											class="addToCart" style="font-family: sans-serif"> Add
+												to cart</span></i>
+									</button></a> <a href=""><button class="btn btn-success">
+										<i class="fa fa-shopping-bag "><span class=""
+											style="font-family: sans-serif"> Buy now</span></i>
+									</button></a>
 							</div>
 						</div>
 					</c:forEach>

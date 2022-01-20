@@ -174,10 +174,6 @@ table.table tr th, table.table tr td {
 	vertical-align: middle;
 }
 
-table.table tr th:first-child {
-	width: 20px;
-}
-
 .product-detail-title {
 	width: 500px;
 	white-space: nowrap;
@@ -334,46 +330,108 @@ th {
 					<div class="row">
 						<div class="col-sm-4">
 							<h2>
-								Manage <b>Review</b>
+								Manage <b>Author / Book</b>
 							</h2>
 						</div>
 					</div>
 				</div>
-				<table class="table table-striped table-hover"
-					style="text-align: center">
-					<thead>
-						<tr>
-							<th>ID</th>
-							<th>Product</th>
-							<th>Rating</th>
-							<th>Customer</th>
-							<th>Comment</th>
-							<th>Review On</th>
-							<th>Delete</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach items="${listReview}" var="review">
+
+
+				<div class="table-filter">
+					<div class="row">
+						<div class="col-sm-12">
+							<p>
+								Author: <span class="status text-success">
+									${author.name}</span>
+							</p>
+						</div>
+						<div class="col-sm-12">
+							<p>
+								Quantity book: <span class="status text-success">${listBook.size()}</span>
+							</p>
+						</div>
+					</div>
+
+					<div class="d-flex justify-content-center">
+						<form action="ViewBookInAuthor?authorId=${authorId}" method="POST">
+							<div class="input-group" style="width: 500px">
+								<input type="search" class="form-control rounded w-75 p-3"
+									placeholder="Search" aria-label="Search"
+									aria-describedby="search-addon" name="searchBook"
+									value="${searchBook}" />
+								<button type="submit" class="btn btn-primary">search</button>
+							</div>
+						</form>
+					</div>
+
+					<table class="table table-striped table-hover"
+						style="text-align: center">
+						<thead>
 							<tr>
-								<td>${review.reviewId}</td>
-								<td><div class="product-detail-title">
-										<a href="#"><img src="${review.book.image}" class="avatar"
-											alt="Avatar">${review.book.title}</a>
-									</div></td>
-								<td>${review.rating}</td>
-								<td>${review.user.name}</td>
-								<td>${review.comment}</td>
-								<td>${review.reviewDate}</td>
-								<td><a href="#"
-									class="view" title="View Details" data-toggle="tooltip"><i
-										class="flaticon-delete delete-in-cart"></i></a></td>
+								<th>ID</th>
+								<th>Product</th>
+								<th>Category</th>
+								<th>Price</th>
+								<th>Quantity</th>
+								<th>Last Updated</th>
+								<th>Edit</th>
+								<th>Delete</th>
 							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
+						</thead>
+						<tbody>
+							<c:forEach items="${listBookCurrentPage}" var="book">
+								<tr>
+									<td>${book.bookId}</td>
+									<td><div class="product-detail-title">
+											<a href="#"><img src="${book.image}" class="avatar"
+												alt="Avatar">${book.title}</a>
+										</div></td>
+									<td>${book.categoryId.name}</td>
+									<td>$${book.getPrice()}</td>
+									<td>${book.getQuantity()}</td>
+									<td>${book.getPublishDate()}</td>
+									<td><a href="EditBook?bookId=${book.bookId}" class="view"
+										title="View Details" data-toggle="tooltip"><i
+											class="fa fa-edit "></i></a></td>
+									<td><a href="DeleteBook?bookId=${book.bookId}"
+										class="view" title="View Details" data-toggle="tooltip"><i
+											class="flaticon-delete delete-in-cart"></i></a></td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+					<nav class="d-flex justify-content-center"
+						aria-label="Page navigation example">
+						<ul class="pagination">
+							<c:if test="${currentPage != 1}">
+								<li class="page-item"><a class="page-link"
+									href="ViewBookInAuthor?page=1&authorId=${authorId}&searchBook=${searchBook}">
+										First </a></li>
+							</c:if>
+							<c:forEach var="page" begin="${maxLeft}" end="${maxRight}">
+								<li class="page-item ${page == currentPage ? "active" : "" } "><a
+									class="page-link"
+									href="ViewBookInAuthor?page=${page}&authorId=${authorId}&searchBook=${searchBook}">
+										${page} </a></li>
+							</c:forEach>
+							<c:if test="${currentPage != totalPages}">
+								<li class="page-item"><a class="page-link"
+									href="ViewBookInAuthor?page=${totalPages}&authorId=${authorId}&searchBook=${searchBook}">
+										Last </a></li>
+							</c:if>
+						</ul>
+					</nav>
+					<div class="row">
+						<div class="col-sm-8">
+							<div class="shopingcart-bottom-area">
+								<a class="left-shoping-cart" href="javascript:history.back()">GO
+									BACK</a>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
-	</div>
 	</div>
 	<!-- Footer Area Start -->
 	<jsp:include page="Footer.jsp"></jsp:include>
