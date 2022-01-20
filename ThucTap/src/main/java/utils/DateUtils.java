@@ -1,6 +1,7 @@
 package utils;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class DateUtils {
@@ -11,4 +12,5 @@ public class DateUtils {
 		Objects.requireNonNull(localDate, "Localdate cannot be null");
 		return java.sql.Date.valueOf(localDate);
 	}
+	
 }

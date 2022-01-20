@@ -55,5 +55,13 @@ public interface BookDao {
     boolean decreaseBook(Book book, int value);
 
     List<BookDto> getBookWithProfitByAuthorId(int authorId);
+    
+    List<BookDto> getBookWithProfit();
 
+    List<BookDto> getBookWithProfitBetweenTime(LocalDate startDate, LocalDate endDate);
+    
+    List<BookDto> getBookWithProfitBetweenTimeCurrentPage(int trimStart, int rows, LocalDate startDate, LocalDate endDate);
+    
+    List<BookDto> getBookWithProfitCurrentPage(int trimStart, int rows);
+    
 }

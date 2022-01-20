@@ -53,7 +53,7 @@ CREATE TABLE `Order`
 (
     OrderID         INT AUTO_INCREMENT,
     UserID          INT,
-    OrderDate       DATE                                         NOT NULL,
+    OrderDate       DATETIME                                     NOT NULL,
     TotalPrice      DOUBLE                                       NOT NULL,
     Status          ENUM ('Delivered', 'Processing', 'Shipping') NOT NULL,
     ShippingAddress VARCHAR(255)                                 NOT NULL,

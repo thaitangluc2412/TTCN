@@ -1,6 +1,5 @@
 package service;
 
-
 import bean.Book;
 import bean.BookDto;
 
@@ -8,14 +7,14 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface BookService {
-	
-    String ASC = "ASC";
-    String DESC = "DESC";
-    String TITLE = "Title";
-    String PRICE = "Price";
 
-    List<Book> getAll();
-    
+	String ASC = "ASC";
+	String DESC = "DESC";
+	String TITLE = "Title";
+	String PRICE = "Price";
+
+	List<Book> getAll();
+
 //    Book getBookById(int id);
 
     List<Book> getNewReleaseBook();
@@ -73,4 +72,14 @@ public interface BookService {
     boolean decreaseBook(Book book, int value);
 
     List<BookDto> getBookWithProfitByAuthorId(int authorId);
+
+	List<BookDto> getBookWithProfit();
+
+	List<BookDto> getBookWithProfitBetweenTime(LocalDate startDate, LocalDate endDate);
+
+	List<BookDto> getBookWithProfitBetweenTimeCurrentPage(int trimStart, int rows, LocalDate startDate,
+			LocalDate endDate);
+
+	List<BookDto> getBookWithProfitCurrentPage(int trimStart, int rows);
+
 }

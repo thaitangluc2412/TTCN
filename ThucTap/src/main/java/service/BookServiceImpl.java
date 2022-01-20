@@ -124,23 +124,37 @@ public class BookServiceImpl implements BookService {
 
 	@Override
 	public List<Book> getByAuthorIdAndTitle(int id, String searchKey) {
-		// TODO Auto-generated method stub
 		return bookDao.getByAuthorIdAndTitle(id, searchKey);
 	}
 
 	@Override
 	public List<Book> getByAuthorIdAndTitleCurrentPage(int trimStart, int rows, int id, String searchKey) {
-		// TODO Auto-generated method stub
 		return bookDao.getByAuthorIdAndTitleCurrentPage(trimStart, rows, id, searchKey);
 	}
 
 	@Override
 	public List<Book> getByAuthorIdCurrentPage(int strimStart, int rows, int id) {
-		// TODO Auto-generated method stub
 		return bookDao.getByAuthorIdCurrentPage(strimStart, rows, id);
 	}
 
-	
-	
-
+    @Override
+    public List<BookDto> getBookWithProfit() {
+    	return bookDao.getBookWithProfit();
+    }
+    
+    @Override
+    public List<BookDto> getBookWithProfitBetweenTime(LocalDate startDate, LocalDate endDate) {
+    	return bookDao.getBookWithProfitBetweenTime(startDate, endDate);
+    }
+    
+    @Override
+    public List<BookDto> getBookWithProfitBetweenTimeCurrentPage(int trimStart, int rows, LocalDate startDate,
+    		LocalDate endDate) {
+    	return bookDao.getBookWithProfitBetweenTimeCurrentPage(trimStart, rows, startDate, endDate);
+    }
+    
+    @Override
+    public List<BookDto> getBookWithProfitCurrentPage(int trimStart, int rows) {
+    	return bookDao.getBookWithProfitCurrentPage(trimStart, rows);
+    }
 }
