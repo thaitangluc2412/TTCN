@@ -26,6 +26,7 @@
 								<c:when test="${sessionScope.user.role == 'Admin'}">
 									<li><a href="#">MANAGEMENT</a>
 										<ul class="sub-menu">
+											<li><a href="Admin?Management=Revenue">REVENUE</a></li>
 											<li><a href="Admin?Management=Book">BOOK</a></li>
 											<li><a href="Admin?Management=Category">CATEGORY</a></li>
 											<li><a href="Admin?Management=Customer">CUSTOMER</a></li>
