@@ -183,7 +183,7 @@ table.table tr th:first-child {
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	text-align:left;
+	text-align: left;
 }
 
 .product-detail-info {
@@ -391,6 +391,7 @@ th {
 								<th>Price</th>
 								<th>Quantity</th>
 								<th>Total</th>
+								<th>Review</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -403,6 +404,15 @@ th {
 									<td>$${orderDetail.book.price}</td>
 									<td>${orderDetail.quantity}</td>
 									<td>$${orderDetail.quantity*orderDetail.book.price}</td>
+									<td><a href="#" class="view ratingProduct"
+										onclick="writeRating(this)" data-target="#productModal"
+										title="Quick view" data-toggle="modal"
+										data-id="${orderDetail.book.bookId}"
+										data-description="${orderDetail.book.description}"
+										data-image="${orderDetail.book.image}"
+										data-title="${orderDetail.book.title}"
+										data-price="${orderDetail.book.price}"><i
+											class="fa fa-comments"></i></a></td>
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -432,6 +442,106 @@ th {
 			</div>
 		</div>
 	</div>
+	<div class="modal fade" id="productModal" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="modal-product">
+						<div class="product-images" style="height: 400px">
+							<div class="main-image images" style="height:100%">
+								<img id="imageProduct" alt="" src="img/quick-view.jpg" style="height:100%; width:100%">
+							</div>
+						</div>
+						<div class="product-info">
+							<h1 class="product-detail-title" id="titleProduct">Frame Princes Cut Diamond</h1>
+							<div class="price-box">
+								<p class="s-price">
+									<span class="special-price"><span class="amount" id="priceProduct">$280.00</span></span>
+								</p>
+							</div>
+							<div class="quick-desc" id="descriptionProduct">Lorem ipsum dolor sit amet,
+								consectetur adipiscing elit. Nam fringilla augue nec est
+								tristique auctor. Donec non est at libero vulputate rutrum.
+								Morbi ornare lectus quis justo gravida semper. Nulla tellus mi,
+								vulputate adipiscing cursus eu, suscipit id nulla.</div>
+							<form action="ReviewProduct" method="POST" id="form">
+								<input type="hidden" value="1" name="productId" id="productId">
+								<input type="hidden" name="rating" id="rating">
+								<div class="quick-add-to-cart" , style="text-align: center">
+									<span onmouseover="starmark(this)" onclick="starmark(this)"
+										id="1one" style="font-size: 40px; cursor: pointer;"
+										class="fa fa-star checked"></span> <span
+										onmouseover="starmark(this)" onclick="starmark(this)"
+										id="2one" style="font-size: 40px; cursor: pointer;"
+										class="fa fa-star "></span> <span onmouseover="starmark(this)"
+										onclick="starmark(this)" id="3one"
+										style="font-size: 40px; cursor: pointer;" class="fa fa-star "></span>
+									<span onmouseover="starmark(this)" onclick="starmark(this)"
+										id="4one" style="font-size: 40px; cursor: pointer;"
+										class="fa fa-star"></span> <span onmouseover="starmark(this)"
+										onclick="starmark(this)" id="5one"
+										style="font-size: 40px; cursor: pointer;" class="fa fa-star"></span>
+									<br />
+									<textarea style="margin-top: 5px;" class="form-control"
+										rows="3" id="comment" placeholder="Enter your review"
+										name="reviewText"></textarea>
+
+									<button onclick="result()" type="submit"
+										style="margin-top: 10px; margin-left: 5px;"
+										class="btn btn-lg btn-success">Write Review</button>
+								</div>
+							</form>
+
+						</div>
+						<!-- .product-info -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		function writeRating(item) {
+			document.getElementById("imageProduct").src = item.dataset.image;
+			document.getElementById("titleProduct").innerHTML = item.dataset.title;
+			document.getElementById("priceProduct").innerHTML = item.dataset.price + "$";
+			document.getElementById("descriptionProduct").innerHTML = item.dataset.description;
+			document.getElementById("productId").value = item.dataset.id;
+        
+		}
+
+		var count;
+
+		function starmark(item) {
+			count = item.id[0];
+			sessionStorage.starRating = count;
+			var subid = item.id.substring(1);
+			for (var i = 0; i < 5; i++) {
+				if (i < count) {
+					document.getElementById((i + 1) + subid).style.color = "orange";
+				} else {
+					document.getElementById((i + 1) + subid).style.color = "black";
+				}
+
+			}
+
+		}
+
+		function result() {
+			//Rating : Count
+			//Review : Comment(id)
+			alert("Rating : " + count + "\nReview : "
+					+ document.getElementById("comment").value);
+			document.getElementById("rating").value = count;
+			document.getElementById("form").submit();
+
+		}
+	</script>
 	<!-- Footer Area Start -->
 	<jsp:include page="Footer.jsp"></jsp:include>
 	<!-- Footer Area End -->

@@ -78,50 +78,14 @@
 									class="flaticon-people"></i></a></li>
 						</c:if>
 						<li class="shoping-cart"><a href="#" class="quantity-product">
-								<i class="flaticon-shop"></i> <span>${sessionScope.cartList == null ? 0 : sessionScope.cartList.size()}</span>
+								<i class="flaticon-shop"></i> <span></span>
 						</a>
-							<div class="add-to-cart-product">
-								<c:forEach items="${sessionScope.cartList}" var="product">
-									<div class="row cart-product">
-										<div class="cart-product-image" style="margin-left: 10px">
-											<a href="single-product.html"> <img
-												src="${product.book.image}" alt="">
-											</a>
-										</div>
-										<div class="cart-product-info title-product">
-											<p style="margin-bottom: 5px">
-												<a href="single-product.html"> ${product.book.title}</a>
-											</p>
-											<span class="cart-price">$ ${product.book.price}</span>
-											<div style="margin-top: 2px; text-transform: lowercase;">
-												<span class="countOfProduct" style="text-transform: capitalize;">Quantity: ${product.quantity}</span>
-											</div>
-										</div>
-										<div class="cart-product-remove deleteProduct">
-											<a href="DeleteInCart?id=${product.book.bookId}"> <i
-												class="fa fa-times deleteProduct" data-id=""></i>
-											</a>
-										</div>
-									</div>
-								</c:forEach>
-								<div class="total-cart-price">
-									<div class="cart-product-line">
-										<span>Total</span> <span class="total">$
-											${sessionScope.subTotal}</span>
-									</div>
-								</div>
-								<div class="cart-checkout">
-									<a href="CheckoutController"> Check out <i
-										class="fa fa-chevron-right"></i>
-									</a>
-								</div>
-							</div></li>
+							<div class="add-to-cart-product"></div></li>
 					</ul>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 </div>
 
 <!-- Mobile Menu Start -->

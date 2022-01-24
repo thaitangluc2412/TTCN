@@ -214,7 +214,7 @@
 		<!-- wow js -->
         <script src="js/wow.min.js"></script>	
         <script src="js/confirmPassword.js"></script>
-        
+        <script src="js/addToCart.js"></script>
 		<script>
 			new WOW().init();
 		</script>

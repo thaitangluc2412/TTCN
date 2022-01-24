@@ -52,273 +52,10 @@
 <!-- modernizr css -->
 <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 <style>
-.table-responsive {
-	margin: 30px 0;
-}
-
-.table-wrapper {
-	min-width: 1000px;
-	background: #fff;
-	padding: 20px 25px;
-	border-radius: 3px;
-	box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
-}
-
-.table-wrapper .btn {
-	float: right;
-	color: #333;
-	background-color: #fff;
-	border-radius: 3px;
-	border: none;
-	outline: none !important;
-	margin-left: 10px;
-}
-
-.table-wrapper .btn:hover {
-	color: #333;
-	background: #f2f2f2;
-}
-
-.table-wrapper .btn.btn-primary {
-	color: #fff;
-	background: #03A9F4;
-}
-
-.table-wrapper .btn.btn-primary:hover {
-	background: #03a3e7;
-}
-
-.table-title .btn {
-	font-size: 13px;
-	border: none;
-}
-
-.table-title .btn i {
-	float: left;
-	font-size: 21px;
-	margin-right: 5px;
-}
-
-.table-title .btn span {
-	float: left;
-	margin-top: 2px;
-}
-
-.table-title {
-	color: #fff;
-	background: #32b5f3;
-	padding: 16px 25px;
-	margin: -20px -25px 10px;
-	border-radius: 3px 3px 0 0;
-}
-
-.table-title h2 {
-	margin: 5px 0 0;
-	font-size: 24px;
-}
-
-.show-entries select.form-control {
-	width: 60px;
-	margin: 0 5px;
-}
-
-.table-filter .filter-group {
-	float: right;
-	margin-left: 15px;
-}
-
-.table-filter input, .table-filter select {
-	height: 34px;
-	border-radius: 3px;
-	border-color: #ddd;
-	box-shadow: none;
-}
-
-.table-filter {
-	padding: 5px 0 15px;
-	border-bottom: 1px solid #e9e9e9;
-	margin-bottom: 5px;
-}
-
-.table-filter .btn {
-	height: 34px;
-}
-
-.table-filter label {
-	font-weight: normal;
-	margin-left: 10px;
-}
-
-.table-filter select, .table-filter input {
-	display: inline-block;
-	margin-left: 5px;
-}
-
-.filter-group select.form-control {
-	width: 110px;
-}
-
-.filter-icon {
-	float: right;
-	margin-top: 7px;
-}
-
-.filter-icon i {
-	font-size: 18px;
-	opacity: 0.7;
-}
-
-table.table tr th, table.table tr td {
-	border-color: #e9e9e9;
-	padding: 12px 15px;
-	vertical-align: middle;
-}
-
-table.table tr th:first-child {
-	width: 20px;
-}
-
-.product-detail-title {
-	width: 500px;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-}
-
-.product-detail-info {
-	border: 1px solid #ddd;
-	border-radius: 10px;
-	padding: 15px;
-}
-
-table.table tr th:last-child {
-	width: 80px;
-}
-
-table.table-striped tbody tr:nth-of-type(odd) {
-	background-color: #fcfcfc;
-}
-
-table.table-striped.table-hover tbody tr:hover {
-	background: #f5f5f5;
-}
-
-table.table th i {
-	font-size: 13px;
-	margin: 0 5px;
-	cursor: pointer;
-}
-
-table.table td a {
-	font-weight: bold;
-	color: #566787;
-	display: inline-block;
-	text-decoration: none;
-}
-
-table.table td a:hover {
-	color: #2196F3;
-}
-
-table.table td a button {
-	width: 30px;
-	height: 30px;
-	color: #2196F3;
-	border: 2px solid;
-	border-radius: 30px;
-	text-align: center;
-}
-
-table.table td a.view i {
-	font-size: 22px;
-	margin: 2px 0 0 1px;
-}
-
-table.table .avatar {
-	vertical-align: middle;
-	margin-right: 10px;
-	height: 70px;
-	width: 70px;
-}
-
-.status {
-	font-size: 30px;
-	margin: 2px 2px 0 0;
-	display: inline-block;
-	vertical-align: middle;
-	line-height: 10px;
-}
-
-.text-success {
-	color: #10c469;
-}
-
-.text-info {
-	color: #62c9e8;
-}
-
-.text-warning {
-	color: #FFC107;
-}
-
-.text-danger {
-	color: #ff5b5b;
-}
-
-.pagination {
-	float: right;
-	margin: 0 0 5px;
-}
-
-.pagination li a {
-	border: none;
-	font-size: 13px;
-	min-width: 30px;
-	min-height: 30px;
-	color: #999;
-	margin: 0 2px;
-	line-height: 30px;
-	border-radius: 2px !important;
-	text-align: center;
-	padding: 0 6px;
-}
-
-.pagination li a:hover {
-	color: #666;
-}
-
-.pagination li.active a {
-	background: #03A9F4;
-}
-
-.pagination li.active a:hover {
-	background: #0397d6;
-}
-
-.pagination li.disabled i {
-	color: #ccc;
-}
-
-.pagination li i {
-	font-size: 16px;
-	padding-top: 6px
-}
-
-.hint-text {
-	float: left;
-	margin-top: 10px;
-	font-size: 13px;
-}
-
-th {
-	text-align: center;
+.checked {
+	color: orange;
 }
 </style>
-<script>
-	$(document).ready(function() {
-		$('[data-toggle="tooltip"]').tooltip();
-	});
-</script>
 </head>
 <body>
 
@@ -326,88 +63,137 @@ th {
 	<jsp:include page="Header.jsp" />
 	<!--Header Area End-->
 
-	<div class="container-xl">
-		<div class="table-responsive">
-			<div class="table-wrapper">
-				<div class="table-title">
-					<div class="row">
-						<div class="col-sm-4">
-							<h2>
-								Manage <b>Review</b>
-							</h2>
+
+	<a href="#" title="Quick view" data-toggle="modal"
+		data-target="#productModal" data-id="1"> <i class="fa fa-compress"></i>
+	</a>
+
+		<!-- Modal -->
+		<div class="modal fade" id="productModal" tabindex="-1" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="modal-product">
+							<div class="product-images">
+								<div class="main-image images">
+									<img alt="" src="img/quick-view.jpg">
+								</div>
+							</div>
+							<div class="product-info">
+								<h1>Frame Princes Cut Diamond</h1>
+								<div class="price-box">
+									<p class="s-price">
+										<span class="special-price"><span class="amount">$280.00</span></span>
+									</p>
+								</div>
+								<div class="quick-desc">Lorem ipsum dolor sit amet,
+									consectetur adipiscing elit. Nam fringilla augue nec est
+									tristique auctor. Donec non est at libero vulputate rutrum.
+									Morbi ornare lectus quis justo gravida semper. Nulla tellus mi,
+									vulputate adipiscing cursus eu, suscipit id nulla.</div>
+								<form action="ReviewProduct" method="POST" id="form">
+								    <input type="hidden" value="1" name="productId" id="productId">
+								    <input type="hidden" name="rating" id="rating">
+									<div class="quick-add-to-cart", style="text-align: center">
+										<span onmouseover="starmark(this)" onclick="starmark(this)"
+											id="1one" style="font-size: 40px; cursor: pointer;"
+											class="fa fa-star checked"></span> <span
+											onmouseover="starmark(this)" onclick="starmark(this)"
+											id="2one" style="font-size: 40px; cursor: pointer;"
+											class="fa fa-star "></span> <span
+											onmouseover="starmark(this)" onclick="starmark(this)"
+											id="3one" style="font-size: 40px; cursor: pointer;"
+											class="fa fa-star "></span> <span
+											onmouseover="starmark(this)" onclick="starmark(this)"
+											id="4one" style="font-size: 40px; cursor: pointer;"
+											class="fa fa-star"></span> <span onmouseover="starmark(this)"
+											onclick="starmark(this)" id="5one"
+											style="font-size: 40px; cursor: pointer;" class="fa fa-star"></span>
+										<br />
+										<textarea style="margin-top: 5px;" class="form-control"
+											rows="3" id="comment" placeholder="Enter your review" name="reviewText"></textarea>
+
+										<button onclick="result()" type="submit"
+											style="margin-top: 10px; margin-left: 5px;"
+											class="btn btn-lg btn-success">Write Review</button>
+									</div>
+								</form>
+
+							</div>
+							<!-- .product-info -->
 						</div>
 					</div>
 				</div>
-				<table class="table table-striped table-hover"
-					style="text-align: center">
-					<thead>
-						<tr>
-							<th>ID</th>
-							<th>Product</th>
-							<th>Rating</th>
-							<th>Customer</th>
-							<th>Comment</th>
-							<th>Review On</th>
-							<th>Delete</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach items="${listReview}" var="review">
-							<tr>
-								<td>${review.reviewId}</td>
-								<td><div class="product-detail-title">
-										<a href="#"><img src="${review.book.image}" class="avatar"
-											alt="Avatar">${review.book.title}</a>
-									</div></td>
-								<td>${review.rating}</td>
-								<td>${review.user.name}</td>
-								<td>${review.comment}</td>
-								<td>${review.reviewDate}</td>
-								<td><a href="#"
-									class="view" title="View Details" data-toggle="tooltip"><i
-										class="flaticon-delete delete-in-cart"></i></a></td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
 			</div>
 		</div>
-	</div>
-	</div>
-	<!-- Footer Area Start -->
-	<jsp:include page="Footer.jsp"></jsp:include>
-	<!-- Footer Area End -->
-	<!-- all js here -->
-	<!-- jquery latest version -->
-	<script src="js/vendor/jquery-1.12.0.min.js"></script>
-	<!-- bootstrap js -->
-	<script src="js/bootstrap.min.js"></script>
-	<!-- owl.carousel js -->
-	<script src="js/owl.carousel.min.js"></script>
-	<!-- jquery-ui js -->
-	<script src="js/jquery-ui.min.js"></script>
-	<!-- jquery Counterup js -->
-	<script src="js/jquery.counterup.min.js"></script>
-	<script src="js/waypoints.min.js"></script>
-	<!-- jquery countdown js -->
-	<script src="js/jquery.countdown.min.js"></script>
-	<!-- jquery countdown js -->
-	<script type="text/javascript" src="venobox/venobox.min.js"></script>
-	<!-- jquery Meanmenu js -->
-	<script src="js/jquery.meanmenu.js"></script>
-	<!-- wow js -->
-	<script src="js/wow.min.js"></script>
-	<script>
-		new WOW().init();
-	</script>
-	<!-- scrollUp JS -->
-	<script src="js/jquery.scrollUp.min.js"></script>
-	<!-- plugins js -->
-	<script src="js/plugins.js"></script>
-	<!-- Nivo slider js -->
-	<script src="lib/js/jquery.nivo.slider.js" type="text/javascript"></script>
-	<script src="lib/home.js" type="text/javascript"></script>
-	<!-- main js -->
-	<script src="js/main.js"></script>
+		<script>
+			var count;
+
+			function starmark(item) {
+				count = item.id[0];
+				sessionStorage.starRating = count;
+				var subid = item.id.substring(1);
+				for (var i = 0; i < 5; i++) {
+					if (i < count) {
+						document.getElementById((i + 1) + subid).style.color = "orange";
+					} else {
+						document.getElementById((i + 1) + subid).style.color = "black";
+					}
+
+				}
+
+			}
+
+			function result() {
+				//Rating : Count
+				//Review : Comment(id)
+				alert("Rating : " + count + "\nReview : "
+						+ document.getElementById("comment").value);
+				document.getElementById("rating").value = count;
+				document.getElementById("form").submit();
+				
+			}
+		</script>
+		<!-- Footer Area Start -->
+		<jsp:include page="Footer.jsp"></jsp:include>
+		<!-- Footer Area End -->
+		<!-- all js here -->
+		<!-- jquery latest version -->
+		<script src="js/vendor/jquery-1.12.0.min.js"></script>
+		<!-- bootstrap js -->
+		<script src="js/bootstrap.min.js"></script>
+		<!-- owl.carousel js -->
+		<script src="js/owl.carousel.min.js"></script>
+		<!-- jquery-ui js -->
+		<script src="js/jquery-ui.min.js"></script>
+		<!-- jquery Counterup js -->
+		<script src="js/jquery.counterup.min.js"></script>
+		<script src="js/waypoints.min.js"></script>
+		<!-- jquery countdown js -->
+		<script src="js/jquery.countdown.min.js"></script>
+		<!-- jquery countdown js -->
+		<script type="text/javascript" src="venobox/venobox.min.js"></script>
+		<!-- jquery Meanmenu js -->
+		<script src="js/jquery.meanmenu.js"></script>
+		<!-- wow js -->
+		<script src="js/wow.min.js"></script>
+		<script>
+			new WOW().init();
+		</script>
+		<!-- scrollUp JS -->
+		<script src="js/jquery.scrollUp.min.js"></script>
+		<!-- plugins js -->
+		<script src="js/plugins.js"></script>
+		<!-- Nivo slider js -->
+		<script src="lib/js/jquery.nivo.slider.js" type="text/javascript"></script>
+		<script src="lib/home.js" type="text/javascript"></script>
+		<!-- main js -->
+		<script src="js/main.js"></script>
 </body>
 </html>

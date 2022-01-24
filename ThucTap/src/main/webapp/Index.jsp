@@ -200,7 +200,7 @@
 										<a href="TheBook?Book=${book.bookId}">${book.title}</a>
 									</div>
 									<div class="rating-icon" style="text-align: center">
-										<p style="color: #ba1e1e; margin-bottom: 0px">$${book.price}</p>
+										<p style="color: #ba1e1e; margin-bottom: 0px">${book.price}</p>
 										<div class="list-pro-rating">
 											<c:forEach var="i" begin="1" end="5">
 												<i class="fa fa-star ${i <= book.rating ? "icolor" : ""}"></i>
@@ -208,12 +208,13 @@
 										</div>
 									</div>
 									<div class="col" style="text-align: center">
-										<a href="AddToCart?id=${book.bookId}"><button
-												class="btn btn-dark addToCart" style="color: #fff; background-color: #343a40">
-												<i class="fa fa-shopping-cart addToCart"><span
-													class="addToCart" style="font-family: sans-serif">
-														Add to cart</span></i>
-											</button></a> <a href=""><button class="btn btn-success">
+										<button class="btn btn-dark addToCart"
+											style="color: #fff; background-color: #343a40">
+											<i class="fa fa-shopping-cart addToCart"><span
+												class="addToCart" style="font-family: sans-serif">
+													Add to cart</span></i>
+										</button>
+										<a href=""><button class="btn btn-success">
 												<i class="fa fa-shopping-bag "><span class=""
 													style="font-family: sans-serif"> Buy now</span></i>
 											</button></a>
@@ -319,6 +320,7 @@
 	<script src="js/jquery.meanmenu.js"></script>
 	<!-- wow js -->
 	<script src="js/wow.min.js"></script>
+	<script src="js/addToCart.js"></script>
 	new WOW().init();
 	</script>
 	<!-- scrollUp JS -->

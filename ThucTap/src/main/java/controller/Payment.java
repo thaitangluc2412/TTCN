@@ -52,29 +52,43 @@ public class Payment extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		BookServiceImpl bookService = new BookServiceImpl();
+		String[] bookNQuantity = request.getParameterValues("bookNQuantity");
 
+		List<OrderDetail> listBook = new ArrayList<>();
+		
+		double totalPrice = 0;
+		
+		for(String book : bookNQuantity) {
+			OrderDetail order = new OrderDetail();
+			order.setBook(bookService.getById(Integer.parseInt(book.split("/")[0])));
+			order.setQuantity(Integer.parseInt(book.split("/")[1]));
+			totalPrice += bookService.getById(Integer.parseInt(book.split("/")[0])).getPrice()*Integer.parseInt(book.split("/")[1]);
+			listBook.add(order);
+		}
+		
+		
+		
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
-		
-		List<OrderDetail> cartList = (ArrayList<OrderDetail>) session.getAttribute("cartList");
-		
-		int totalPrice = (Integer) session.getAttribute("subTotal");
+//		
+//		
+//		int totalPrice = (Integer) session.getAttribute("subTotal");
 		String recipientName = request.getParameter("recipientName");
 		String recipientPhone = request.getParameter("recipientPhone");
 		String recipientAddress = request.getParameter("recipientAddress");
-
+//
 		Order order = new Order();
 		order.setUser(user);
 		order.setOrderDate(LocalDateTime.now());
-		order.setTotalPrice(Double.valueOf(totalPrice));
+		order.setTotalPrice(totalPrice);
 		order.setStatus(Status.Processing);
 		order.setShippingAddress(recipientAddress);
 		order.setRecipientName(recipientName);
 		order.setRecipientPhone(recipientPhone);
 		orderService.save(order);
-
-		for(OrderDetail o : cartList) {
+//
+		for(OrderDetail o : listBook) {
 			Id id = new Id(order.getOrderId(), o.getBook().getBookId());
 			o.setId(id);
 			o.setOrder(order);
@@ -83,7 +97,7 @@ public class Payment extends HttpServlet {
 			bookService.decreaseBook(o.getBook(), o.getQuantity());
 		    
 		}
-		
+//		
 		response.sendRedirect("ThankYou.jsp");
 	}
 

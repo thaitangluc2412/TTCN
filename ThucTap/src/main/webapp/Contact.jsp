@@ -196,5 +196,6 @@
 		</script>		
 		<!-- main js -->
         <script src="js/main.js"></script>
+        <script src="js/addToCart.js"></script>
     </body>
 </html>

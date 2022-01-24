@@ -154,28 +154,6 @@
 				style="border-left: 2px solid #ddd">
 				<div class="cart-in-payment"
 					style="border-bottom: 2px solid #ddd; margin-bottom: 20px">
-					<c:forEach items="${sessionScope.cartList}" var="product">
-						<div class="row" style="margin-bottom: 10px">
-							<div class="col-2" style="height: 70px; width: 90px">
-								<a href="#"><img src="${product.book.image}" style="height: 100%"></a>
-							</div>
-							<div class="col-6 title-product d-flex align-items-center"
-								style="margin: 0">
-								<div>
-									<div>
-										<a href="TheBook?Book=${product.book.bookId}">${product.book.title}</a>
-									</div>
-									<div>
-										<p style="margin: 0; text-align: left">Quantity:
-											${product.quantity}</p>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-offset-1 col-3 d-flex align-items-center">
-								<p style="margin: 0">${product.book.price*product.quantity}$</p>
-							</div>
-						</div>
-				</c:forEach>
 				</div>
 				<div class="payment"
 					style="border-bottom: 2px solid #ddd; margin-bottom: 20px">
@@ -184,7 +162,7 @@
 							<p>Prediction cost:</p>
 						</div>
 						<div class="col-md-offset-5"></div>
-						<div class="col-md-3 subtotal">$${sessionScope.subTotal}</div>
+						<div class="col-md-3 subtotal">$</div>
 					</div>
 					<div class="row">
 						<div class="col-md-4">
@@ -201,8 +179,7 @@
 							<p>Subtotal:</p>
 						</div>
 						<div class="col-md-offset-5"></div>
-						<input type="hidden" value="${sessionScope.subTotal}" id="subtotalCart">
-						<div class="col-md-3 subtotal2" >$${sessionScope.subTotal}</div>
+						<div class="col-md-3 subtotal2">$</div>
 					</div>
 				</div>
 

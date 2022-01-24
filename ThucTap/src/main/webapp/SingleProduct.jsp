@@ -138,12 +138,12 @@
 							<h3>${book.price}</h3>
 						</div>
 						<div class="col" style="text-align: left; margin-bottom: 10px;">
-							<a href="AddToCart?id=${book.bookId}"><button
-									class="btn btn-dark addToCart">
-									<i class="fa fa-shopping-cart addToCart"><span
-										class="addToCart" style="font-family: sans-serif"> Add
-											to cart</span></i>
-								</button></a> <a href=""><button class="btn btn-success">
+							<button class="btn btn-dark addToCart">
+								<i class="fa fa-shopping-cart addToCart"><span
+									class="addToCart" style="font-family: sans-serif"> Add
+										to cart</span></i>
+							</button>
+							<a href=""><button class="btn btn-success">
 									<i class="fa fa-shopping-bag "><span class=""
 										style="font-family: sans-serif"> Buy now</span></i>
 								</button></a>
@@ -242,12 +242,13 @@
 								</div>
 							</div>
 							<div class="col" style="text-align: center">
-								<a href="AddToCart?id=${book.bookId}" ><button
-										class="btn btn-dark addToCart" style="margin-bottom: 5px;">
-										<i class="fa fa-shopping-cart addToCart"><span
-											class="addToCart" style="font-family: sans-serif"> Add
-												to cart</span></i>
-									</button></a> <a href=""><button class="btn btn-success">
+								<button class="btn btn-dark addToCart"
+									style="margin-bottom: 5px;">
+									<i class="fa fa-shopping-cart addToCart"><span
+										class="addToCart" style="font-family: sans-serif"> Add
+											to cart</span></i>
+								</button>
+								<a href=""><button class="btn btn-success">
 										<i class="fa fa-shopping-bag "><span class=""
 											style="font-family: sans-serif"> Buy now</span></i>
 									</button></a>

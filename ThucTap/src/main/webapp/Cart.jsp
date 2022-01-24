@@ -183,6 +183,7 @@ table.table tr th:first-child {
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	text-align: left;
 }
 
 .product-detail-info {
@@ -329,7 +330,7 @@ th {
 	<!-- Breadcrumbs Area Start -->
 	<jsp:include page="BreadCrumbs.jsp"></jsp:include>
 	<!-- Breadcrumbs Area Start -->
-    
+
 	<div class="container-xl">
 		<div class="table-responsive">
 			<div class="table-wrapper">
@@ -342,42 +343,43 @@ th {
 						</div>
 					</div>
 				</div>
-                
-				<table class="table table-striped table-hover" style="text-align: center">
-					<thead>
-						<tr>
-							<th>Product</th>
-							<th>Quantity</th>
-							<th>Price</th>
-							<th>Buy now</th>
-							<th>Delete</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach items="${sessionScope.cartList}" var="product">
+				<div class="my-cart-product">
+					<table class="table table-striped table-hover"
+						style="text-align: center">
+						<thead>
 							<tr>
-								<td><div class="product-detail-title">
-										<a href="#"><img src="${product.book.image}"
-											class="avatar" alt="Avatar">${product.book.title}</a>
-									</div></td>
-								<td class=""><a
-									href="ChangeQuantity?action=dec&id=${product.book.bookId}"><button
-											class="button-minus text-secondary" data-id="">-</button></a> <span
-									class="countOfProduct">${product.quantity}</span> <a
-									href="ChangeQuantity?action=inc&id=${product.book.bookId}"><button
-											class="button-plus text-secondary" data-id="">+</button></a></td>
-								<td>$${product.book.price}</td>
-								<td><a href="CheckoutController" class="view"
-									title="View Details" data-toggle="tooltip"><i
-										class="fa fa-shopping-bag "></i></a></td>
-								<td><a href="DeleteInCart?id=${product.book.bookId}"
-									class="view" title="View Details" data-toggle="tooltip"><i
-										class="flaticon-delete delete-in-cart"></i></a></td>
+								<th>Product</th>
+								<th>Quantity</th>
+								<th>Price</th>
+								<th>Buy now</th>
+								<th>Delete</th>
 							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
-
+						</thead>
+						<tbody>
+							<c:forEach items="${sessionScope.cartList}" var="product">
+								<tr>
+									<td><div class="product-detail-title">
+											<a href="#"><img src="${product.book.image}"
+												class="avatar" alt="Avatar">${product.book.title}</a>
+										</div></td>
+									<td class=""><a
+										href="ChangeQuantity?action=dec&id=${product.book.bookId}"><button
+												class="button-minus text-secondary" data-id="">-</button></a> <span
+										class="countOfProduct">${product.quantity}</span> <a
+										href="ChangeQuantity?action=inc&id=${product.book.bookId}"><button
+												class="button-plus text-secondary" data-id="">+</button></a></td>
+									<td>$${product.book.price}</td>
+									<td><a href="CheckoutController" class="view"
+										title="View Details" data-toggle="tooltip"><i
+											class="fa fa-shopping-bag "></i></a></td>
+									<td><a href="DeleteInCart?id=${product.book.bookId}"
+										class="view" title="View Details" data-toggle="tooltip"><i
+											class="flaticon-delete delete-in-cart"></i></a></td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
 				<div class="row">
 					<div class="col-sm-8">
 						<div class="shopingcart-bottom-area">
@@ -394,7 +396,7 @@ th {
 						<div class="col-sm-12 row" style="margin-bottom: 20px">
 							<div class="col-sm-4">Total:</div>
 							<div class="col-sm-5"></div>
-							<div class="col-sm-3" style="color: red">$${sessionScope.subTotal}</div>
+							<div class="col-sm-3 subtotal-area" style="color: red">$${sessionScope.subTotal}</div>
 						</div>
 						<div class="col-sm-12 row">
 							<div class="col-sm-4"></div>
@@ -432,6 +434,7 @@ th {
 	<script src="js/jquery.meanmenu.js"></script>
 	<!-- wow js -->
 	<script src="js/wow.min.js"></script>
+	<script src="js/addToCart.js"></script>
 	<script>
 		new WOW().init();
 	</script>

@@ -1,6 +1,6 @@
 /**
- * 
- */
+* 
+*/
 /**
  * 
  */
@@ -18,7 +18,7 @@ const quantityProduct = document.querySelector(".quantity-product");
 const productDetail = document.querySelector(".product-detail-wapper");
 const products3 = document.querySelector('.my-cart-product');
 const subtotal = document.querySelector('.subtotal-area');
-const clearAll = document.querySelector('.clear-all-product-in-cart');
+
 
 
 
@@ -109,51 +109,41 @@ function updateProductsInCart(product) { // 2
 const updateMyCart = function() {
 
 	let sumPrice2 = countTheSumPrice();
-     
-    if(subtotal) {
-       subtotal.innerHTML = `<h2>
-	   SUBTOTAL<span >$ ${sumPrice2}</span>
-   </h2>`;
+
+	if (subtotal) {
+		subtotal.innerHTML = `$` + `${sumPrice2}`;
 	}
 
 	if (products3) {
 		if (productsInCart.length > 0) {
 			let result = productsInCart.map(product => {
 				return `<tr>
-            <td class="product-image"><a href="#"> <img
-                    src="${product.image}" alt="" class="rounded">
-            </a></td>
-            <td class="t-product-name">
-                <h3>
-                    <a href="#">${product.name}</a>
-                </h3>
-            </td>
-            <td class="product-unit-price">
-                <p>$ ${product.basePrice}</p>
-            </td>
-            <td class="product-quantity product-cart-details"><button class="button-minus text-secondary" data-id=${product.id}>-</button>
+				<td><div class="product-detail-title">
+				<a href="#"><img src="${product.image}"
+					class="avatar" alt="Avatar">${product.name}</a>
+			</div></td>
+           <td class="product-quantity product-cart-details"><button class="button-minus text-secondary" data-id=${product.id}>-</button>
             <span class="countOfProduct">${product.count}</span>
             <button class="button-plus text-secondary" data-id=${product.id}>+</button></td>
-            <td class="product-quantity">
-                <p>$ ${product.price}</p>
-            </td>
-            <td class="product-remove"><button class="delete-in-cart btn btn-danger" data-id=${product.id} ><i
-                    class="flaticon-delete delete-in-cart" data-id=${product.id}></i>
-            </button></td>
+            <td>$${product.price}</td>
+            <td><a href="CheckoutController" class="view"
+										title="View Details" data-toggle="tooltip"><i
+											class="fa fa-shopping-bag"></i></a></td>
+		    <td><button class="text-secondary delete-in-cart" data-id=${product.id}><i class="flaticon-delete delete-in-cart" data-id=${product.id}></i></button></td>								
         </tr> `
 			});
-			products3.innerHTML = `<table>
-        <thead>
-            <tr>
-                <th class="product-image">Image</th>
-                <th class="t-product-name">Product Name</th>
-                <th class="product-unit-price">Unit Price</th>
-                <th class="product-quantity">Quantity</th>
-                <th class="product-subtotal">Subtotal</th>
-                <th class="product-remove">Remove</th>
-            </tr>
-        </thead>
-        <tbody>` + result.join('') + `</tbody>
+			products3.innerHTML = `<table class="table table-striped table-hover"
+			style="text-align: center">
+			<thead>
+				<tr>
+					<th>Product</th>
+					<th>Quantity</th>
+					<th>Price</th>
+					<th>Buy now</th>
+					<th>Delete</th>
+				</tr>
+			</thead>
+			<tbody>` + result.join('') + `</tbody>
         </table>`;
 
 
@@ -276,7 +266,7 @@ if (products3) {
 	products3.addEventListener('click', (e) => { // Last
 		const isPlusButton = e.target.classList.contains('button-plus');
 		const isMinusButton = e.target.classList.contains('button-minus');
-		
+
 		if (isPlusButton || isMinusButton) {
 			for (let i = 0; i < productsInCart.length; i++) {
 				if (productsInCart[i].id == e.target.dataset.id) {
@@ -298,7 +288,7 @@ if (products3) {
 	});
 }
 
-if(products3) {
+if (products3) {
 	products3.addEventListener('click', (e) => { // Last
 		const isDeleteButton2 = e.target.classList.contains('delete-in-cart');
 		if (isDeleteButton2) {
@@ -312,12 +302,12 @@ if(products3) {
 	});
 }
 
-if(products3){
-	
-	clearAll.addEventListener('click', (e) => {
-		productsInCart = [];
-		updateShoppingCartHTML()
-	});
+if (products3) {
+
+//	clearAll.addEventListener('click', (e) => {
+//		productsInCart = [];
+//		updateShoppingCartHTML()
+//	});
 }
 
 

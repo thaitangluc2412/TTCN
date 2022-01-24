@@ -103,11 +103,13 @@
 										style="margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 10px; height: 100px">
 										<div class="col-sm-12 row">
 											<div class="col-sm-4">
-												<a href="#"><img src="https://cdn.pixabay.com/photo/2020/07/14/13/07/icon-5404125_1280.png"
+												<a href="#"><img
+													src="https://cdn.pixabay.com/photo/2020/07/14/13/07/icon-5404125_1280.png"
 													style="height: 60px; width: 70px"></a>
 											</div>
 											<div class="col-sm-8">
-												<div class="title-product" style="margin-left: 0; text-align: left">
+												<div class="title-product"
+													style="margin-left: 0; text-align: left">
 													<a href="#">${review.comment}</a>
 												</div>
 												<div class="rating-icon" style="text-align: left">
@@ -210,7 +212,7 @@
 												<a href="TheBook?Book=${book.bookId}">${book.title}</a>
 											</div>
 											<div class="rating-icon" style="text-align: center">
-												<p style="color: #ba1e1e; margin-bottom: 0px">$${book.price}</p>
+												<p style="color: #ba1e1e; margin-bottom: 0px">${book.price}</p>
 												<div class="list-pro-rating">
 													<c:forEach var="i" begin="1" end="5">
 														<i class="fa fa-star ${i <= book.rating ? "icolor" : ""}"></i>
@@ -218,12 +220,12 @@
 												</div>
 											</div>
 											<div class="col" style="text-align: center">
-												<a href="AddToCart?id=${book.bookId}"><button
-														class="btn btn-dark addToCart">
-														<i class="fa fa-shopping-cart addToCart"><span
-															class="addToCart" style="font-family: sans-serif">
-																Add to cart</span></i>
-													</button></a> <a href=""><button class="btn btn-success">
+												<button class="btn btn-dark addToCart">
+													<i class="fa fa-shopping-cart addToCart"><span
+														class="addToCart" style="font-family: sans-serif">
+															Add to cart</span></i>
+												</button>
+												<a href=""><button class="btn btn-success">
 														<i class="fa fa-shopping-bag "><span class=""
 															style="font-family: sans-serif"> Buy now</span></i>
 													</button></a>
@@ -259,12 +261,12 @@
 													</div>
 													<p>${book.description}</p>
 													<div class="availability addToCart">
-														<a href="AddToCart?id=${book.bookId}"><button
-																class="btn btn-dark addToCart">
-																<i class="fa fa-shopping-cart addToCart"><span
-																	class="addToCart" style="font-family: sans-serif">
-																		Add to cart</span></i>
-															</button></a> <a href=""><button class="btn btn-success">
+														<button class="btn btn-dark addToCart">
+															<i class="fa fa-shopping-cart addToCart"><span
+																class="addToCart" style="font-family: sans-serif">
+																	Add to cart</span></i>
+														</button>
+														<a href=""><button class="btn btn-success">
 																<i class="fa fa-shopping-bag "><span class=""
 																	style="font-family: sans-serif"> Buy now</span></i>
 															</button></a>
@@ -331,6 +333,7 @@
 	<script src="js/jquery.meanmenu.js"></script>
 	<!-- wow js -->
 	<script src="js/wow.min.js"></script>
+	<script src="js/addToCart.js"></script>
 	<script>
 		new WOW().init();
 	</script>
