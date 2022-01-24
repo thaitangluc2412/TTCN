@@ -7,85 +7,78 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface BookService {
+    List<Book> getAll();
 
-	String ASC = "ASC";
-	String DESC = "DESC";
-	String TITLE = "Title";
-	String PRICE = "Price";
+    List<Book> getNewReleaseBook();
 
-	List<Book> getAll();
+    int getQuantity();
 
-//    Book getBookById(int id);
+    List<Book> get2BookSeller();
 
-	List<Book> getNewReleaseBook();
+    /**
+     * Gets all book.
+     *
+     * @param orderBy   order by BookService.TITLE or BookService.PRICE
+     * @param orderType order type BookService.ASC or BookService.DESC
+     * @return all books
+     */
+    List<Book> getAll(String orderBy, boolean orderType);
 
-	int getQuantity();
+    List<Book> getByTitle(String title);
 
-	List<Book> get2BookSeller();
+    List<Book> getByTitleCurrentPage(int trimStart, int rows, String title);
 
-	/**
-	 * Gets all book.
-	 *
-	 * @param orderBy   order by BookService.TITLE or BookService.PRICE
-	 * @param orderType order type BookService.ASC or BookService.DESC
-	 * @return all books
-	 */
-	List<Book> getAll(String orderBy, boolean orderType);
+    List<Book> getByTitleAndCategory(String title, int categoryID);
 
-	List<Book> getByTitle(String title);
+    List<Book> getByTitleAndCategoryCurrentPage(int trimStart, int rows, String title, int categoryID);
 
-	List<Book> getByTitleCurrentPage(int trimStart, int rows, String title);
+    List<Book> getByTitleAndCurrentPage(int trimStart, int rows, String title);
 
-	List<Book> getByTitleAndCategory(String title, int categoryID);
+    List<Book> getBookByCategoryId(Integer categoryId);
 
-	List<Book> getByTitleAndCategoryCurrentPage(int trimStart, int rows, String title, int categoryID);
+    List<Book> getBookCategoryOrderBy(Integer categoryId, String orderBy, boolean orderType);
 
-	List<Book> getByTitleAndCurrentPage(int trimStart, int rows, String title);
+    List<Book> getBookCurrentPage(int trimStart, int rows);
 
-	List<Book> getBookByCategoryId(Integer categoryId);
+    List<Book> getBookByCategoryIDCurrentPage(int trimStart, int rows, int categoryID);
 
-	List<Book> getBookCategoryOrderBy(Integer categoryId, String orderBy, boolean orderType);
+    Book getById(int Id);
 
-	List<Book> getBookCurrentPage(int trimStart, int rows);
+    List<Book> getByAuthorId(int Id);
 
-	List<Book> getBookByCategoryIDCurrentPage(int trimStart, int rows, int categoryID);
+    List<Book> getByAuthorIdCurrentPage(int strimStart, int rows, int id);
 
-	Book getById(int Id);
+    List<Book> getByAuthorIdAndTitle(int id, String searchKey);
 
-	List<Book> getByAuthorId(int Id);
+    List<Book> getByAuthorIdAndTitleCurrentPage(int trimStart, int rows, int id, String searchKey);
 
-	List<Book> getByAuthorIdCurrentPage(int strimStart, int rows, int id);
+    int deleteByBookId(Integer bookId);
 
-	List<Book> getByAuthorIdAndTitle(int id, String searchKey);
+    int insertBook(int categoryId, String title, String description, String image, Double price, LocalDate publishDate,
+                   Integer quantity);
 
-	List<Book> getByAuthorIdAndTitleCurrentPage(int trimStart, int rows, int id, String searchKey);
+    int updateBook(int categoryId, String title, String description, String image, Double price, LocalDate publishDate,
+                   Integer quantity, int bookId);
 
-	int deleteByBookId(Integer bookId);
+    boolean decreaseBook(Book book, int value);
 
-	int insertBook(int categoryId, String title, String description, String image, Double price, LocalDate publishDate,
-			Integer quantity);
+    List<BookDto> getBookWithProfitByAuthorId(int authorId);
 
-	int updateBook(int categoryId, String title, String description, String image, Double price, LocalDate publishDate,
-			Integer quantity, int bookId);
+    List<BookDto> getBookWithProfitByAuthorIdCurrentPage(int trimStart, int rows, int authorId);
 
-	boolean decreaseBook(Book book, int value);
+    List<BookDto> getBookWithProfitByAuthorIdBetweenTime(LocalDate startDate, LocalDate endDate, int authorId);
 
-	List<BookDto> getBookWithProfitByAuthorId(int authorId);
+    List<BookDto> getBookWithProfitByAuthorIdBetweenTimeCurrentPage(int trimStart, int rows, LocalDate startDate,
+                                                                    LocalDate endDate, int authorId);
 
-	List<BookDto> getBookWithProfitByAuthorIdCurrentPage(int trimStart, int rows, int authorId);
+    List<BookDto> getBookWithProfit();
 
-	List<BookDto> getBookWithProfitByAuthorIdBetweenTime(LocalDate startDate, LocalDate endDate, int authorId);
+    List<BookDto> getBookWithProfitBetweenTime(LocalDate startDate, LocalDate endDate);
 
-	List<BookDto> getBookWithProfitByAuthorIdBetweenTimeCurrentPage(int trimStart, int rows, LocalDate startDate,
-			LocalDate endDate, int authorId);
+    List<BookDto> getBookWithProfitBetweenTimeCurrentPage(int trimStart, int rows, LocalDate startDate,
+                                                          LocalDate endDate);
 
-	List<BookDto> getBookWithProfit();
+    List<BookDto> getBookWithProfitCurrentPage(int trimStart, int rows);
 
-	List<BookDto> getBookWithProfitBetweenTime(LocalDate startDate, LocalDate endDate);
-
-	List<BookDto> getBookWithProfitBetweenTimeCurrentPage(int trimStart, int rows, LocalDate startDate,
-			LocalDate endDate);
-
-	List<BookDto> getBookWithProfitCurrentPage(int trimStart, int rows);
-
+    boolean updateBookRating(Book book, int rating);
 }

@@ -1,9 +1,6 @@
 package bean;
 
 import javax.persistence.*;
-
-import org.hibernate.annotations.Cascade;
-
 import java.util.List;
 import java.util.Objects;
 
@@ -43,9 +40,7 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Order> orders;
 
-    
-    @OneToMany(mappedBy = "user", cascade=CascadeType.REMOVE )
-    //@Cascade(value= {org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.DELETE})
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
     private List<BookUser> bookUsers;
 
     public User() {
@@ -67,15 +62,6 @@ public class User {
         this.phoneNumber = phoneNumber;
         this.accountNumber = accountNumber;
         this.role = role;
-    }
-
-    public Integer getUserId() {
-        return userId;
-    }
-    
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
     }
 
     public String getEmail() {
@@ -149,38 +135,44 @@ public class User {
     public void setOrders(List<Order> orders) {
         this.orders = orders;
     }
-    
+
     public List<BookUser> getBookUsers() {
-		return bookUsers;
-	}
-    
+        return bookUsers;
+    }
+
     public void setBookUsers(List<BookUser> bookUsers) {
-		this.bookUsers = bookUsers;
-	}
-    
+        this.bookUsers = bookUsers;
+    }
+
     @Override
-	public int hashCode() {
-		return Objects.hash(userId);
-	}
-	
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) return true;
-		if(!(o instanceof User)) return false;
-		User that = (User) o;
-		return this.getUserId() == that.getUserId();
-	}
+    public int hashCode() {
+        return Objects.hash(userId);
+    }
 
-    
-	@Override
-	public String toString() {
-		return "User [userId=" + userId + ", email=" + email + ", userPassword=" + userPassword + ", name=" + name
-				+ ", address=" + address + ", phoneNumber=" + phoneNumber + ", accountNumber=" + accountNumber
-				+ ", role=" + role + ", bookUsers=" + bookUsers + "]";
-	}
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User)) return false;
+        User that = (User) o;
+        return Objects.equals(this.getUserId(), that.getUserId());
+    }
 
+    public Integer getUserId() {
+        return userId;
+    }
 
-	public enum Role {
-        Admin, Author, Customer
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    @Override
+    public String toString() {
+        return "User [userId=" + userId + ", email=" + email + ", userPassword=" + userPassword + ", name=" + name
+               + ", address=" + address + ", phoneNumber=" + phoneNumber + ", accountNumber=" + accountNumber
+               + ", role=" + role + ", bookUsers=" + bookUsers + "]";
+    }
+
+    public enum Role {
+        Admin, Author, Customer, Shipper
     }
 }

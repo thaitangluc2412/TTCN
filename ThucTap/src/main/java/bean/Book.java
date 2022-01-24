@@ -2,8 +2,6 @@ package bean;
 
 import javax.persistence.*;
 
-import org.hibernate.annotations.Cascade;
-
 import java.time.LocalDate;
 import java.util.List;
 
@@ -149,8 +147,8 @@ public class Book {
 		return category;
 	}
 
-	public void setCategoryId(Category categoryId) {
-		this.category = categoryId;
+	public void setCategoryId(Category category) {
+		this.category = category;
 	}
 
 	public Integer getBookId() {

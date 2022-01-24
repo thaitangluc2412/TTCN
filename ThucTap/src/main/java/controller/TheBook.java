@@ -8,18 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import bean.Book;
-import bean.Category;
-import bean.Order;
-import bean.Review;
-import bean.User;
 import service.BookServiceImpl;
-import service.CategoryServiceImpl;
-import service.OrderServiceImpl;
-import service.ReviewServiceImpl;
-import service.UserServiceImpl;
 
 /*
  * Servlet implementation class BookController

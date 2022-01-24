@@ -1,18 +1,19 @@
 package service;
 
-import java.util.List;
-
 import bean.Category;
 import bean.CategoryDto;
 import dao.CategoryDao;
 import dao.HibernateCategoryDao;
+import utils.QueryUtils;
+
+import java.util.List;
 
 public class CategoryServiceImpl implements CategoryService {
 
     private final CategoryDao categoryDao;
 
     public CategoryServiceImpl() {
-    	categoryDao = new HibernateCategoryDao();
+        categoryDao = new HibernateCategoryDao();
     }
 
     @Override
@@ -22,28 +23,30 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public List<CategoryDto> getCategoryById() {
-    	
-    	return categoryDao.getCategoryById();
+
+        return categoryDao.getCategoryById();
     }
-    
+
     @Override
     public int updateCategory(int categoryId, String categoryName) {
-    	return categoryDao.updateCategory(categoryId, categoryName);
+        return categoryDao.updateCategory(categoryId, categoryName);
     }
-    
+
     @Override
     public Category getById(int categoryId) {
 
-    	return categoryDao.getById(categoryId);
+        return categoryDao.getById(categoryId);
     }
-    
+
     @Override
-    public int deleteById(int categoryId) {
-    	return categoryDao.deleteById(categoryId);
+    public boolean deleteById(int categoryId) {
+        // return categoryDao.deleteById(categoryId);
+        Category category = getById(categoryId);
+        return QueryUtils.delete(category);
     }
-    
+
     @Override
     public int insertCategory(String categoryName) {
-    	return categoryDao.insertCategory(categoryName);
+        return categoryDao.insertCategory(categoryName);
     }
 }

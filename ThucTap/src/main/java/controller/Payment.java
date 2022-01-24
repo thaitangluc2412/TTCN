@@ -1,9 +1,12 @@
 package controller;
 
-import java.io.IOException;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+import bean.Order;
+import bean.Order.Status;
+import bean.OrderDetail;
+import bean.OrderDetail.Id;
+import bean.OrderDetail.ReviewStatus;
+import bean.User;
+import service.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,21 +14,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import bean.Book;
-import bean.Order;
-import bean.OrderDetail;
-import bean.User;
-import bean.Order.Status;
-import bean.OrderDetail.Id;
-import service.BookService;
-import service.BookServiceImpl;
-import service.OrderDetailService;
-import service.OrderDetailServiceImpl;
-import service.OrderService;
-import service.OrderServiceImpl;
-import service.UserService;
-import service.UserServiceImpl;
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Servlet implementation class Payment
@@ -92,10 +84,10 @@ public class Payment extends HttpServlet {
 			Id id = new Id(order.getOrderId(), o.getBook().getBookId());
 			o.setId(id);
 			o.setOrder(order);
+			o.setReviewStatus(ReviewStatus.NotReview);
 			orderDetailService.save(o);
 			System.out.println(o);
 			bookService.decreaseBook(o.getBook(), o.getQuantity());
-		    
 		}
 //		
 		response.sendRedirect("ThankYou.jsp");

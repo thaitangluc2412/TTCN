@@ -1,13 +1,14 @@
 package dao;
 
 import bean.OrderDetail;
+import bean.OrderDetail.Id;
 import bean.OrderDetailDto;
 import org.hibernate.transform.Transformers;
 import org.hibernate.type.DoubleType;
 import org.hibernate.type.IntegerType;
 import org.hibernate.type.LocalDateTimeType;
 import org.hibernate.type.StringType;
-import utils.CrudUtils;
+import utils.QueryUtils;
 
 import java.util.List;
 
@@ -40,7 +41,7 @@ public class HibernateOrderDetailDao extends AbstractHibernateDao implements Ord
 
     @Override
     public boolean save(OrderDetail orderDetail) {
-        return CrudUtils.save(orderDetail);
+        return QueryUtils.save(orderDetail);
     }
 
     @SuppressWarnings({"unchecked", "deprecation"})
@@ -54,5 +55,10 @@ public class HibernateOrderDetailDao extends AbstractHibernateDao implements Ord
                             .addScalar("profit", DoubleType.INSTANCE)
                             .setResultTransformer(Transformers.aliasToBean(OrderDetailDto.class))
                             .getResultList();
+    }
+
+    @Override
+    public OrderDetail getById(Id id) {
+        return QueryUtils.query(session -> session.get(OrderDetail.class, id));
     }
 }

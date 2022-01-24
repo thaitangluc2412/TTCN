@@ -11,8 +11,6 @@ public interface BookDao {
     List<Book> getAll();
 
     List<Book> getNewReleaseBook();
-    
-    Book getBookById(int id);
 
     int getQuantity();
     
@@ -69,5 +67,6 @@ public interface BookDao {
     List<BookDto> getBookWithProfitBetweenTimeCurrentPage(int trimStart, int rows, LocalDate startDate, LocalDate endDate);
     
     List<BookDto> getBookWithProfitCurrentPage(int trimStart, int rows);
-    
+
+    boolean updateBookRating(Book book, int rating);
 }

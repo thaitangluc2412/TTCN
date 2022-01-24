@@ -2,7 +2,7 @@ package bean;
 
 import java.time.LocalDateTime;
 
-public class ReviewDetailWithUserNameDto {
+public class ReviewDto {
     private String name;
     private String comment;
     private Integer rating;
@@ -10,14 +10,14 @@ public class ReviewDetailWithUserNameDto {
     private String title;
     private String image;
 
-    public ReviewDetailWithUserNameDto() {
+    public ReviewDto() {
     }
 
-    public ReviewDetailWithUserNameDto(String name,
-                                       String comment,
-                                       Integer rating,
-                                       LocalDateTime reviewDate,
-                                       String title, String image) {
+    public ReviewDto(String name,
+                     String comment,
+                     Integer rating,
+                     LocalDateTime reviewDate,
+                     String title, String image) {
         this.name = name;
         this.comment = comment;
         this.rating = rating;

@@ -1,13 +1,13 @@
 package demo;
 
-import bean.BookDto;
-import bean.OrderDetailDto;
-import bean.Review;
+import bean.Book;
+import bean.OrderDetail;
+import bean.OrderDetail.Id;
+import bean.OrderDetail.ReviewStatus;
 import service.*;
 
 import java.time.LocalDate;
 import java.util.Collection;
-import java.util.List;
 
 public class App {
 
@@ -23,13 +23,15 @@ public class App {
     private static LocalDate endDate = LocalDate.of(2023, 1, 1);
 
     public static void main(String[] args) {
-        // Book book = bookService.getById(1);
-        // System.out.println(book);
-        // bookService.decreaseBook(book, 1);
-        // System.out.println(book);
-        List<Review> books = reviewService.getReviewByBookTitle("a");
-        print(books);
+        // update book rating
+        Book book = bookService.getById(1);
+        bookService.updateBookRating(book, 3);
 
+        // get orderdetail by bookId and orderId
+        OrderDetail orderDetail = orderDetailService.getById(new Id(1, 1));
+
+        // update review status orderdetail
+        orderDetailService.updateStatus(orderDetail, ReviewStatus.Reviewed);
     }
 
     private static <Element> void print(Collection<Element> elements) {

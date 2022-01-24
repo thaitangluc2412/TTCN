@@ -67,8 +67,8 @@ CREATE TABLE OrderDetail
 (
     OrderID      INT,
     BookID       INT,
-    Quantity     INT     NOT NULL,
-    ReviewStatus BOOLEAN NOT NULL DEFAULT FALSE,
+    Quantity     INT                            NOT NULL,
+    ReviewStatus ENUM ('NotReview', 'Reviewed') NOT NULL DEFAULT 'NotReview',
     PRIMARY KEY (orderID, BookID),
     CONSTRAINT fk_OrderDetail_Order FOREIGN KEY (OrderID) REFERENCES `Order` (OrderID),
     CONSTRAINT fk_OrderDetail_Book FOREIGN KEY (BookID) REFERENCES `Book` (BookID)

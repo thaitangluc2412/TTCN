@@ -158,7 +158,12 @@ public class BookServiceImpl implements BookService {
     	return bookDao.getBookWithProfitCurrentPage(trimStart, rows);
     }
 
-	@Override
+    @Override
+    public boolean updateBookRating(Book book, int rating) {
+        return bookDao.updateBookRating(book, rating);
+    }
+
+    @Override
 	public List<BookDto> getBookWithProfitByAuthorIdCurrentPage(int trimStart, int rows, int authorId) {
 		// TODO Auto-generated method stub
 		return bookDao.getBookWithProfitByAuthorIdCurrentPage(trimStart, rows, authorId);

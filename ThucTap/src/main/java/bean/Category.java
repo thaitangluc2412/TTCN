@@ -1,9 +1,7 @@
 package bean;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 
 @Entity
@@ -16,6 +14,9 @@ public class Category {
 
     @Column(name = "Name")
     private String name;
+
+    @OneToMany(mappedBy = "category", cascade = CascadeType.REMOVE)
+    List<Book> books;
 
     public Category() {
     }

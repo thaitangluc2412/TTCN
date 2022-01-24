@@ -1,7 +1,7 @@
 package dao;
 
 import bean.Review;
-import bean.ReviewDetailWithUserNameDto;
+import bean.ReviewDto;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ public interface ReviewDao {
 
     List<Review> getReviewByUserId(int userId);
 
-    List<ReviewDetailWithUserNameDto> getLatestReviews();
+    List<ReviewDto> getLatestReviews();
     
     List<Review> getReviewByBookTitle(String title);
     

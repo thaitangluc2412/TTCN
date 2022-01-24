@@ -1,9 +1,12 @@
 package service;
 
 import bean.OrderDetail;
+import bean.OrderDetail.Id;
+import bean.OrderDetail.ReviewStatus;
 import bean.OrderDetailDto;
 import dao.HibernateOrderDetailDao;
 import dao.OrderDetailDao;
+import utils.QueryUtils;
 
 import java.util.List;
 
@@ -33,5 +36,16 @@ public class OrderDetailServiceImpl implements OrderDetailService {
     @Override
     public List<OrderDetailDto> getOrderDetailDtoByBookId(int bookId) {
         return orderdetailDao.getOrderDetailDtoByBookId(bookId);
+    }
+
+    @Override
+    public OrderDetail getById(Id id) {
+        return orderdetailDao.getById(id);
+    }
+
+    @Override
+    public boolean updateStatus(OrderDetail orderDetail, ReviewStatus reviewStatus) {
+        orderDetail.setReviewStatus(reviewStatus);
+        return QueryUtils.update(orderDetail);
     }
 }

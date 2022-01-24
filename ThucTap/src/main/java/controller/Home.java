@@ -1,7 +1,7 @@
 package controller;
 
 import bean.Book;
-import bean.ReviewDetailWithUserNameDto;
+import bean.ReviewDto;
 import service.BookServiceImpl;
 import service.ReviewServiceImpl;
 import service.UserServiceImpl;
@@ -40,7 +40,7 @@ public class Home extends HttpServlet {
         ReviewServiceImpl reviewService = new ReviewServiceImpl();
         List<Book> bookNewRelease = bookService.getNewReleaseBook();
         List<Book> listBook = bookService.getAll();
-        List<ReviewDetailWithUserNameDto> listReview = reviewService.getLatestReviews();
+        List<ReviewDto> listReview = reviewService.getLatestReviews();
         int quantityBook = bookService.getQuantity();
         int quantityUser = userService.getQuantityUser();
         int quantityAuthor = userService.getQuantityAuthor();

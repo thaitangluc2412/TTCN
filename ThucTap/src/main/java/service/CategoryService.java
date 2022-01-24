@@ -1,9 +1,9 @@
 package service;
 
-import java.util.List;
-
 import bean.Category;
 import bean.CategoryDto;
+
+import java.util.List;
 
 public interface CategoryService {
     List<Category> getAll();
@@ -14,7 +14,7 @@ public interface CategoryService {
     
     Category getById(int categoryId);
     
-    int deleteById(int categoryId);
+    boolean deleteById(int categoryId);
     
     int insertCategory(String categoryName);
 }

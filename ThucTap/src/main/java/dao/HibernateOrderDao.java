@@ -1,7 +1,5 @@
 package dao;
 
-import bean.Book;
-import bean.Category;
 import bean.Order;
 
 import org.hibernate.Session;
@@ -9,7 +7,7 @@ import org.hibernate.Transaction;
 import org.hibernate.type.IntegerType;
 import org.hibernate.type.StringType;
 
-import utils.CrudUtils;
+import utils.QueryUtils;
 
 import java.util.List;
 
@@ -84,7 +82,7 @@ public class HibernateOrderDao extends AbstractHibernateDao implements OrderDao 
 
 	@Override
 	public boolean save(Order order) {
-		return CrudUtils.save(order);
+		return QueryUtils.save(order);
 	}
 
 	@Override

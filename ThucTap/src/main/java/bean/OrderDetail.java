@@ -21,6 +21,10 @@ public class OrderDetail {
     @Column(name = "quantity")
     private Integer quantity;
 
+    @Column(name = "ReviewStatus")
+    @Enumerated(EnumType.STRING)
+    private ReviewStatus reviewStatus;
+
     public OrderDetail() {
     }
 
@@ -56,14 +60,20 @@ public class OrderDetail {
         this.quantity = quantity;
     }
 
+    public ReviewStatus getReviewStatus() {
+        return reviewStatus;
+    }
+
+    public void setReviewStatus(ReviewStatus reviewStatus) {
+        this.reviewStatus = reviewStatus;
+    }
+
     @Override
     public String toString() {
-        return "OrderDetail{" +
-               "id=" + id +
-               ", order=" + order +
-               ", book=" + book +
-               ", quantity=" + quantity +
-               '}';
+        return getClass().getSimpleName() + "(" +
+               "EmbeddedId = " + id + ", " +
+               "quantity = " + quantity + ", " +
+               "reviewStatus = " + reviewStatus + ")";
     }
 
     @Embeddable
@@ -103,7 +113,13 @@ public class OrderDetail {
 
         @Override
         public String toString() {
-            return "Id [orderId=" + orderId + ", bookId=" + bookId + "]";
+            return getClass().getSimpleName() + "(" +
+                   "orderId = " + orderId + ", " +
+                   "bookId = " + bookId + ")";
         }
+    }
+
+    public enum ReviewStatus {
+        NotReview, Reviewed
     }
 }

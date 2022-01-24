@@ -5,9 +5,29 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import provider.HibernateProvider;
 
-public class CrudUtils {
+import java.util.function.Function;
+
+public class QueryUtils {
 
     private static final SessionFactory factory = HibernateProvider.getSessionFactory();
+
+    public static <R> R query(Function<Session, R> function) {
+        Session session = factory.getCurrentSession();
+        Transaction transaction = null;
+        R r;
+        try {
+            transaction = session.beginTransaction();
+            r = function.apply(session);
+            transaction.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            return null;
+        }
+        return r;
+    }
 
     public static <E> boolean save(E e) {
         Session session = factory.getCurrentSession();

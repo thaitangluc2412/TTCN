@@ -1,12 +1,12 @@
 package dao;
 
 import bean.Review;
-import bean.ReviewDetailWithUserNameDto;
+import bean.ReviewDto;
 import org.hibernate.transform.Transformers;
 import org.hibernate.type.IntegerType;
 import org.hibernate.type.LocalDateTimeType;
 import org.hibernate.type.StringType;
-import utils.CrudUtils;
+import utils.QueryUtils;
 
 import java.util.List;
 
@@ -63,7 +63,7 @@ public class HibernateReviewDao extends AbstractHibernateDao implements ReviewDa
 
     @SuppressWarnings({"unchecked", "deprecation"})
     @Override
-    public List<ReviewDetailWithUserNameDto> getLatestReviews() {
+    public List<ReviewDto> getLatestReviews() {
         return openSession().createNativeQuery(Q_GET_LASTEST_REVIEW)
                             .addScalar("Name", StringType.INSTANCE)
                             .addScalar("Comment", StringType.INSTANCE)
@@ -71,7 +71,7 @@ public class HibernateReviewDao extends AbstractHibernateDao implements ReviewDa
                             .addScalar("ReviewDate", LocalDateTimeType.INSTANCE)
                             .addScalar("Title", StringType.INSTANCE)
                             .addScalar("Image", StringType.INSTANCE)
-                            .setResultTransformer(Transformers.aliasToBean(ReviewDetailWithUserNameDto.class))
+                            .setResultTransformer(Transformers.aliasToBean(ReviewDto.class))
                             .getResultList();
     }
     
@@ -99,6 +99,6 @@ public class HibernateReviewDao extends AbstractHibernateDao implements ReviewDa
 
     @Override
     public boolean save(Review review) {
-        return CrudUtils.save(review);
+        return QueryUtils.save(review);
     }
 }
