@@ -44,7 +44,12 @@ public class ReviewServiceImpl implements ReviewService{
     public List<Review> getByTitleCurrentPage(int trimStart, int rows, String title) {
     	return reviewDao.getByTitleCurrentPage(trimStart, rows, title);
     }
-    
+
+    @Override
+    public boolean save(Review review) {
+        return reviewDao.save(review);
+    }
+
     @Override
     public List<Review> getReviewCurrentPage(int trimStart, int rows) {
     	return reviewDao.getReviewCurrentPage(trimStart, rows);

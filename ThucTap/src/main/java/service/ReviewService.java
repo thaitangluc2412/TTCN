@@ -19,4 +19,6 @@ public interface ReviewService {
     List<Review> getReviewCurrentPage(int trimStart, int rows);
     
     List<Review> getByTitleCurrentPage(int trimStart, int rows, String title);
+
+    boolean save(Review review);
 }

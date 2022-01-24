@@ -1,12 +1,12 @@
 package dao;
 
-import bean.Book;
 import bean.Review;
 import bean.ReviewDetailWithUserNameDto;
 import org.hibernate.transform.Transformers;
 import org.hibernate.type.IntegerType;
 import org.hibernate.type.LocalDateTimeType;
 import org.hibernate.type.StringType;
+import utils.CrudUtils;
 
 import java.util.List;
 
@@ -95,5 +95,10 @@ public class HibernateReviewDao extends AbstractHibernateDao implements ReviewDa
 				.setParameter("title", "%" + title + "%", StringType.INSTANCE)
 				.setParameter("trimStart", trimStart, IntegerType.INSTANCE)
 				.setParameter("rows", rows, IntegerType.INSTANCE).getResultList();
+    }
+
+    @Override
+    public boolean save(Review review) {
+        return CrudUtils.save(review);
     }
 }

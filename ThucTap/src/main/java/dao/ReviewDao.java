@@ -1,10 +1,9 @@
 package dao;
 
-import java.util.List;
-
-import bean.Book;
 import bean.Review;
 import bean.ReviewDetailWithUserNameDto;
+
+import java.util.List;
 
 public interface ReviewDao {
     List<Review> getAll();
@@ -20,4 +19,6 @@ public interface ReviewDao {
     List<Review> getReviewCurrentPage(int trimStart, int rows);
     
     List<Review> getByTitleCurrentPage(int trimStart, int rows, String title);
+
+    boolean save(Review review);
 }
