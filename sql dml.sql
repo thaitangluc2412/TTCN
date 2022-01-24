@@ -13,15 +13,21 @@ VALUES ('thaitangluc2412@gmail.com', '1234', 'Thai Luc', 'Quang Tri', '068734968
        ('tacgia5@gmail.com', '1234', 'Tac Gia 5', 'Viet Nam', '114', '037486164967', 'Author'),
        ('tacgia6@gmail.com', '1234', 'Tac Gia 6', 'Viet Nam', '114', '037486164967', 'Author'),
        ('tacgia7@gmail.com', '1234', 'Tac Gia 7', 'Viet Nam', '114', '037486164967', 'Author'),
-       ('tacgia8@gmail.com', '1234', 'Tac Gia 8', 'Viet Nam', '114', '037486164967', 'Author');
+       ('tacgia8@gmail.com', '1234', 'Tac Gia 8', 'Viet Nam', '114', '037486164967', 'Author'),
+       ('customer1@gmail.com', '1234', 'Customer 1', 'Viet Nam', '115', '037486164967', 'Customer'),
+       ('customer2@gmail.com', '1234', 'Customer 2', 'Viet Nam', '115', '037486164967', 'Customer'),
+       ('customer3@gmail.com', '1234', 'Customer 3', 'Viet Nam', '115', '037486164967', 'Customer'),
+       ('customer4@gmail.com', '1234', 'Customer 4', 'Viet Nam', '115', '037486164967', 'Customer'),
+       ('customer5@gmail.com', '1234', 'Customer 5', 'Viet Nam', '115', '037486164967', 'Customer'),
+       ('customer6@gmail.com', '1234', 'Customer 6', 'Viet Nam', '115', '037486164967', 'Customer');
 
 
 INSERT INTO Category (CategoryID, Name)
-VALUES (1, 'Truyen Cuoi'),
-       (2, 'Truyen Ma'),
-       (3, 'Truyen Kinh Di'),
-       (4, 'Truyen Co Tinh'),
-       (5, 'Truyen tinh cam');
+VALUES (1, 'Action and Adventure'),
+       (2, 'Comic Book or Graphic Novel'),
+       (3, 'Detective and Mystery'),
+       (4, 'Horror'),
+       (5, 'Fantasy');
 
 INSERT INTO bookstore.book (BookID, CategoryID, Title, Description, Rating, Image, Price, PublishDate, Quantity)
 VALUES  (1, 3, 'Volant Journals Pocket Ruled Forget.Blue Amber.Yellow', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est magni unde vel.', 5, '//bizweb.dktcdn.net/thumb/large/100/282/917/products/8058647620565.jpg?v=1641371913000', 43, '2003-01-28', 11),
@@ -894,25 +900,721 @@ VALUES  (1, 3),
         (428, 13),
         (430, 13);
 
-INSERT INTO Review(ReviewId, BookId, UserId, Comment, Rating, ReviewDate)
-VALUES (1, 1, 2, 'Truyen hay', 4, '2020-12-15'),
-       (2, 1, 5, 'Truyen hay', 4, '2020-12-15'),
-       (3, 2, 2, 'Truyen hay', 4, '2020-12-15'),
-       (4, 2, 5, 'Truyen hay', 4, '2020-12-15'),
-       (5, 3, 2, 'Truyen hay', 4, '2020-12-15'),
-       (6, 3, 5, 'Truyen hay', 4, '2020-12-15'),
-       (7, 4, 2, 'Truyen hay', 4, '2020-12-15'),
-       (8, 4, 5, 'Truyen hay', 4, '2020-12-15'),
-       (9, 5, 2, 'Truyen hay', 4, '2020-12-15'),
-       (10, 5, 5, 'Truyen hay', 4, '2020-12-15'),
-       (11, 6, 2, 'Truyen hay', 4, '2020-12-15'),
-       (12, 6, 5, 'Truyen hay', 4, '2020-12-15'),
-       (14, 7, 5, 'Truyen hay', 4, '2020-12-15'),
-       (13, 7, 2, 'Truyen hay', 4, '2020-12-15'),
-       (15, 8, 2, 'Truyen hay', 4, '2020-12-15'),
-       (16, 8, 5, 'Truyen hay', 4, '2020-12-15'),
-       (17, 9, 2, 'Truyen hay', 4, '2020-12-15'),
-       (18, 9, 5, 'Truyen hay', 4, '2020-12-15');
+INSERT INTO bookstore.review (ReviewID, BookID, UserID, Comment, Rating, ReviewDate)
+VALUES  (1, 1, 16, 'Dodie Smith''s novel I Capture the Castle is a journey through the mind of a young writer as she attempts to chronicle her daily life. Seventeen-year-old Cassandra Mortmain has recently learned to speed-write, and she decides to work on her writing skills ', 5, '2020-02-25 04:09:52'),
+        (2, 2, 5, 'Journey To Juno is the second book of the Galaxy Zack series. It is just as good as the first one. It''s awesome!
+
+Zack joins the Sprockets Academy Explorers Club at school. They fly on a special trip to Juno, a new planet no one has ever visited. Zack get', 2, '2020-06-13 10:42:09'),
+        (3, 3, 16, 'Dodie Smith''s novel I Capture the Castle is a journey through the mind of a young writer as she attempts to chronicle her daily life. Seventeen-year-old Cassandra Mortmain has recently learned to speed-write, and she decides to work on her writing skills ', 3, '2020-04-16 09:47:08'),
+        (4, 4, 14, 'This was a really fast read– a memoir in bite-size segments . . . almost like diary entries. I liked it! I could relate to much of the writing angst and decisions about stepping away from the novel writing. Not sure I’d recommend it for non-writers though', 2, '2020-09-13 11:10:35'),
+        (5, 5, 5, 'I thought this was YA, but there’s so much sex . . . I wouldn’t recommend it for teens. Pearl does a good job dealing with the tough topic of rape and abuse. It was a book that I couldn’t put down. That said it could have been 80 pages shorter.', 2, '2019-11-19 03:52:36'),
+        (6, 6, 15, 'Breen makes a great point that social media is here to stay and that getting some influence over our kids’ opinions about how to behave online should start early while they’re still listening to us more than they’re listening to their friends. Great advic', 3, '2019-12-12 06:26:41'),
+        (7, 7, 18, 'Excellent collection of essays. This is one I wish I had read, I think, but I really enjoyed the audio. I may read it, too, at some point in the future. I do that sometimes.', 5, '2020-06-18 15:10:02'),
+        (8, 8, 19, 'Journey To Juno is the second book of the Galaxy Zack series. It is just as good as the first one. It''s awesome!
+
+Zack joins the Sprockets Academy Explorers Club at school. They fly on a special trip to Juno, a new planet no one has ever visited. Zack get', 5, '2020-07-24 18:27:48'),
+        (9, 9, 16, 'I was fascinated by this memoir about a man who discovered the world outside of his very strict religious sect. What’s hard for me with memoirs like Deen’s is the all-or-nothing conclusion that seems to arise about Judaism. But knowing the way Deen was li', 3, '2020-08-19 15:19:02'),
+        (10, 10, 2, 'I admire Organ’s ability to write about faith in such a relatable and vulnerable way, and it makes me wonder if I could do the same one day. Really good read.', 4, '2020-04-28 12:03:15'),
+        (11, 11, 2, 'This was a really fast read– a memoir in bite-size segments . . . almost like diary entries. I liked it! I could relate to much of the writing angst and decisions about stepping away from the novel writing. Not sure I’d recommend it for non-writers though', 2, '2019-11-14 20:40:19'),
+        (12, 12, 17, 'Every day, people around the world use maps. Whether it is an airplane pilot or businessman, housewife or museum group, maps have always and will continue to provide useful information for all.
+
+Mapping the World talks about the uses of maps, as well as h', 5, '2020-09-16 00:16:39'),
+        (13, 13, 16, 'This was a really fast read– a memoir in bite-size segments . . . almost like diary entries. I liked it! I could relate to much of the writing angst and decisions about stepping away from the novel writing. Not sure I’d recommend it for non-writers though', 2, '2020-06-22 12:46:49'),
+        (14, 14, 2, 'I was fascinated by this memoir about a man who discovered the world outside of his very strict religious sect. What’s hard for me with memoirs like Deen’s is the all-or-nothing conclusion that seems to arise about Judaism. But knowing the way Deen was li', 2, '2020-02-13 22:52:06'),
+        (15, 15, 17, 'I admire Organ’s ability to write about faith in such a relatable and vulnerable way, and it makes me wonder if I could do the same one day. Really good read.', 3, '2020-02-19 12:56:38'),
+        (16, 16, 2, 'Every day, people around the world use maps. Whether it is an airplane pilot or businessman, housewife or museum group, maps have always and will continue to provide useful information for all.
+
+Mapping the World talks about the uses of maps, as well as h', 2, '2020-04-21 10:18:48'),
+        (17, 17, 15, 'Really liked the first 30 pages or so, but had to skim the rest.', 5, '2019-10-21 12:10:06'),
+        (18, 18, 14, 'This book was about a bird who didn''t yet know how to fly.
+
+The bird has to decide if it will try to fly, but it was not sure if it wants to. The bird thought, "If I never forever endeavor" then I won''t ever learn. On one wing, he worries he might fail an', 5, '2020-01-19 16:55:36'),
+        (19, 19, 14, 'I liked this book. People who are interested in national disasters and US history as well as immigration will most probably be interested in reading this book.
+
+Readers can gain knowledge of what it was like to work in New York City in the early 1900s. On', 3, '2019-10-31 04:32:41'),
+        (20, 20, 15, 'The atmosphere of loneliness in this book and the general apathy of the main character, Anna, should have turned me off, but there was something that keep drawing me back to this book. (And it wasn’t just the sex.)  I recommend it, but I can’t exactly say', 2, '2020-03-30 11:29:49'),
+        (21, 21, 19, 'Journey To Juno is the second book of the Galaxy Zack series. It is just as good as the first one. It''s awesome!
+
+Zack joins the Sprockets Academy Explorers Club at school. They fly on a special trip to Juno, a new planet no one has ever visited. Zack get', 3, '2019-11-27 19:24:30'),
+        (22, 22, 18, 'I admire Organ’s ability to write about faith in such a relatable and vulnerable way, and it makes me wonder if I could do the same one day. Really good read.', 3, '2020-02-04 19:19:26'),
+        (23, 23, 17, 'Every day, people around the world use maps. Whether it is an airplane pilot or businessman, housewife or museum group, maps have always and will continue to provide useful information for all.
+
+Mapping the World talks about the uses of maps, as well as h', 3, '2020-02-04 20:35:38'),
+        (24, 24, 5, 'Every day, people around the world use maps. Whether it is an airplane pilot or businessman, housewife or museum group, maps have always and will continue to provide useful information for all.
+
+Mapping the World talks about the uses of maps, as well as h', 4, '2020-09-23 14:05:41'),
+        (25, 25, 17, 'I admire Organ’s ability to write about faith in such a relatable and vulnerable way, and it makes me wonder if I could do the same one day. Really good read.', 5, '2020-09-06 15:34:37'),
+        (26, 26, 16, 'Journey To Juno is the second book of the Galaxy Zack series. It is just as good as the first one. It''s awesome!
+
+Zack joins the Sprockets Academy Explorers Club at school. They fly on a special trip to Juno, a new planet no one has ever visited. Zack get', 2, '2020-01-22 00:45:06'),
+        (27, 27, 19, 'About Marsupials is the title so the book is about...marsupials, of course. It''s non-fiction. I really think everyone would like the book. I think someone who likes animals would especially like to read it.
+
+The glossary of facts in the back of About Mars', 4, '2020-06-01 01:12:15'),
+        (28, 28, 5, 'I liked this book. People who are interested in national disasters and US history as well as immigration will most probably be interested in reading this book.
+
+Readers can gain knowledge of what it was like to work in New York City in the early 1900s. On', 4, '2019-12-10 20:16:17'),
+        (29, 29, 15, 'About Marsupials is the title so the book is about...marsupials, of course. It''s non-fiction. I really think everyone would like the book. I think someone who likes animals would especially like to read it.
+
+The glossary of facts in the back of About Mars', 4, '2020-05-24 14:52:54'),
+        (30, 30, 2, 'Journey To Juno is the second book of the Galaxy Zack series. It is just as good as the first one. It''s awesome!
+
+Zack joins the Sprockets Academy Explorers Club at school. They fly on a special trip to Juno, a new planet no one has ever visited. Zack get', 2, '2020-07-14 17:21:53'),
+        (31, 31, 16, 'Excellent collection of essays. This is one I wish I had read, I think, but I really enjoyed the audio. I may read it, too, at some point in the future. I do that sometimes.', 5, '2020-01-12 19:32:51'),
+        (32, 32, 2, 'I thought this was YA, but there’s so much sex . . . I wouldn’t recommend it for teens. Pearl does a good job dealing with the tough topic of rape and abuse. It was a book that I couldn’t put down. That said it could have been 80 pages shorter.', 3, '2020-02-10 14:07:46'),
+        (33, 33, 18, 'Excellent collection of essays. This is one I wish I had read, I think, but I really enjoyed the audio. I may read it, too, at some point in the future. I do that sometimes.', 4, '2019-12-01 11:19:37'),
+        (34, 34, 18, 'Excellent collection of essays. This is one I wish I had read, I think, but I really enjoyed the audio. I may read it, too, at some point in the future. I do that sometimes.', 4, '2020-08-24 11:26:27'),
+        (35, 35, 2, 'The atmosphere of loneliness in this book and the general apathy of the main character, Anna, should have turned me off, but there was something that keep drawing me back to this book. (And it wasn’t just the sex.)  I recommend it, but I can’t exactly say', 2, '2020-06-14 17:55:33'),
+        (36, 36, 17, 'The atmosphere of loneliness in this book and the general apathy of the main character, Anna, should have turned me off, but there was something that keep drawing me back to this book. (And it wasn’t just the sex.)  I recommend it, but I can’t exactly say', 3, '2020-07-11 01:55:37'),
+        (37, 37, 2, 'I liked this book. People who are interested in national disasters and US history as well as immigration will most probably be interested in reading this book.
+
+Readers can gain knowledge of what it was like to work in New York City in the early 1900s. On', 4, '2020-03-24 15:02:51'),
+        (38, 38, 5, 'One of the best, most clear set of reasons and reflections I’ve ever read about why Jews should be proud of Judaism. I’m a little bit obsessed with Rabbi Sacks. Everything he writes is brilliant.', 4, '2019-11-04 16:36:01'),
+        (39, 39, 19, 'I admire Organ’s ability to write about faith in such a relatable and vulnerable way, and it makes me wonder if I could do the same one day. Really good read.', 4, '2020-08-10 11:16:05'),
+        (40, 40, 18, 'I appreciated Frankenstein''s Cat for its fascinating explanation about the often baffling subject of bioengineering and its sister sciences. Emily Anthes explains the many sides of today''s modern technology, such as gene modification, cloning, pharmaceuti', 3, '2020-09-22 12:35:29'),
+        (41, 41, 18, 'I thought this was YA, but there’s so much sex . . . I wouldn’t recommend it for teens. Pearl does a good job dealing with the tough topic of rape and abuse. It was a book that I couldn’t put down. That said it could have been 80 pages shorter.', 4, '2020-09-11 09:20:16'),
+        (42, 42, 17, 'About Marsupials is the title so the book is about...marsupials, of course. It''s non-fiction. I really think everyone would like the book. I think someone who likes animals would especially like to read it.
+
+The glossary of facts in the back of About Mars', 2, '2020-01-14 00:34:27'),
+        (43, 43, 15, 'Breen makes a great point that social media is here to stay and that getting some influence over our kids’ opinions about how to behave online should start early while they’re still listening to us more than they’re listening to their friends. Great advic', 2, '2020-01-11 11:47:55'),
+        (44, 44, 14, 'The atmosphere of loneliness in this book and the general apathy of the main character, Anna, should have turned me off, but there was something that keep drawing me back to this book. (And it wasn’t just the sex.)  I recommend it, but I can’t exactly say', 3, '2019-10-19 17:15:24'),
+        (45, 45, 19, 'Every day, people around the world use maps. Whether it is an airplane pilot or businessman, housewife or museum group, maps have always and will continue to provide useful information for all.
+
+Mapping the World talks about the uses of maps, as well as h', 3, '2020-04-19 02:04:09'),
+        (46, 46, 19, 'I liked this book. People who are interested in national disasters and US history as well as immigration will most probably be interested in reading this book.
+
+Readers can gain knowledge of what it was like to work in New York City in the early 1900s. On', 5, '2019-11-26 19:56:24'),
+        (47, 47, 19, 'I admire Organ’s ability to write about faith in such a relatable and vulnerable way, and it makes me wonder if I could do the same one day. Really good read.', 5, '2020-04-28 03:16:38'),
+        (48, 48, 2, 'The atmosphere of loneliness in this book and the general apathy of the main character, Anna, should have turned me off, but there was something that keep drawing me back to this book. (And it wasn’t just the sex.)  I recommend it, but I can’t exactly say', 2, '2020-08-24 03:30:35'),
+        (49, 49, 2, 'This was a really fast read– a memoir in bite-size segments . . . almost like diary entries. I liked it! I could relate to much of the writing angst and decisions about stepping away from the novel writing. Not sure I’d recommend it for non-writers though', 5, '2020-07-11 11:34:07'),
+        (50, 50, 14, 'This was a really fast read– a memoir in bite-size segments . . . almost like diary entries. I liked it! I could relate to much of the writing angst and decisions about stepping away from the novel writing. Not sure I’d recommend it for non-writers though', 5, '2020-04-13 02:40:46'),
+        (51, 51, 18, 'Every day, people around the world use maps. Whether it is an airplane pilot or businessman, housewife or museum group, maps have always and will continue to provide useful information for all.
+
+Mapping the World talks about the uses of maps, as well as h', 4, '2020-02-21 08:15:01'),
+        (52, 52, 2, 'I admire Organ’s ability to write about faith in such a relatable and vulnerable way, and it makes me wonder if I could do the same one day. Really good read.', 4, '2020-08-27 09:15:06'),
+        (53, 53, 5, 'Journey To Juno is the second book of the Galaxy Zack series. It is just as good as the first one. It''s awesome!
+
+Zack joins the Sprockets Academy Explorers Club at school. They fly on a special trip to Juno, a new planet no one has ever visited. Zack get', 4, '2020-09-05 17:38:23'),
+        (54, 54, 14, 'I appreciated Frankenstein''s Cat for its fascinating explanation about the often baffling subject of bioengineering and its sister sciences. Emily Anthes explains the many sides of today''s modern technology, such as gene modification, cloning, pharmaceuti', 3, '2020-09-30 13:10:00'),
+        (55, 55, 19, 'I was fascinated by this memoir about a man who discovered the world outside of his very strict religious sect. What’s hard for me with memoirs like Deen’s is the all-or-nothing conclusion that seems to arise about Judaism. But knowing the way Deen was li', 2, '2020-06-21 08:02:09'),
+        (56, 56, 17, 'I liked this book. People who are interested in national disasters and US history as well as immigration will most probably be interested in reading this book.
+
+Readers can gain knowledge of what it was like to work in New York City in the early 1900s. On', 3, '2020-08-31 19:09:30'),
+        (57, 57, 2, 'I was fascinated by this memoir about a man who discovered the world outside of his very strict religious sect. What’s hard for me with memoirs like Deen’s is the all-or-nothing conclusion that seems to arise about Judaism. But knowing the way Deen was li', 3, '2020-07-09 02:43:07'),
+        (58, 58, 14, 'I liked this book. People who are interested in national disasters and US history as well as immigration will most probably be interested in reading this book.
+
+Readers can gain knowledge of what it was like to work in New York City in the early 1900s. On', 4, '2020-02-23 22:55:56'),
+        (59, 59, 19, 'Really liked the first 30 pages or so, but had to skim the rest.', 3, '2020-05-10 19:13:43'),
+        (60, 60, 19, 'I liked this book. People who are interested in national disasters and US history as well as immigration will most probably be interested in reading this book.
+
+Readers can gain knowledge of what it was like to work in New York City in the early 1900s. On', 3, '2020-06-01 05:16:54'),
+        (61, 61, 14, 'This was a really fast read– a memoir in bite-size segments . . . almost like diary entries. I liked it! I could relate to much of the writing angst and decisions about stepping away from the novel writing. Not sure I’d recommend it for non-writers though', 3, '2020-07-15 15:54:12'),
+        (62, 62, 5, 'Breen makes a great point that social media is here to stay and that getting some influence over our kids’ opinions about how to behave online should start early while they’re still listening to us more than they’re listening to their friends. Great advic', 4, '2020-03-17 03:14:56'),
+        (63, 63, 19, 'I liked this book. People who are interested in national disasters and US history as well as immigration will most probably be interested in reading this book.
+
+Readers can gain knowledge of what it was like to work in New York City in the early 1900s. On', 5, '2019-10-27 06:02:47'),
+        (64, 64, 17, 'Dodie Smith''s novel I Capture the Castle is a journey through the mind of a young writer as she attempts to chronicle her daily life. Seventeen-year-old Cassandra Mortmain has recently learned to speed-write, and she decides to work on her writing skills ', 4, '2020-04-01 01:37:02'),
+        (65, 65, 2, 'The atmosphere of loneliness in this book and the general apathy of the main character, Anna, should have turned me off, but there was something that keep drawing me back to this book. (And it wasn’t just the sex.)  I recommend it, but I can’t exactly say', 3, '2020-08-18 02:24:59'),
+        (66, 66, 17, 'Really liked the first 30 pages or so, but had to skim the rest.', 4, '2019-12-07 08:33:33'),
+        (67, 67, 16, 'The atmosphere of loneliness in this book and the general apathy of the main character, Anna, should have turned me off, but there was something that keep drawing me back to this book. (And it wasn’t just the sex.)  I recommend it, but I can’t exactly say', 5, '2020-01-03 10:39:05'),
+        (68, 68, 18, 'Journey To Juno is the second book of the Galaxy Zack series. It is just as good as the first one. It''s awesome!
+
+Zack joins the Sprockets Academy Explorers Club at school. They fly on a special trip to Juno, a new planet no one has ever visited. Zack get', 2, '2020-08-12 08:50:43'),
+        (69, 69, 18, 'This book was about a bird who didn''t yet know how to fly.
+
+The bird has to decide if it will try to fly, but it was not sure if it wants to. The bird thought, "If I never forever endeavor" then I won''t ever learn. On one wing, he worries he might fail an', 4, '2020-09-13 15:52:36'),
+        (70, 70, 19, 'Dodie Smith''s novel I Capture the Castle is a journey through the mind of a young writer as she attempts to chronicle her daily life. Seventeen-year-old Cassandra Mortmain has recently learned to speed-write, and she decides to work on her writing skills ', 3, '2019-12-18 09:06:28'),
+        (71, 71, 19, 'The atmosphere of loneliness in this book and the general apathy of the main character, Anna, should have turned me off, but there was something that keep drawing me back to this book. (And it wasn’t just the sex.)  I recommend it, but I can’t exactly say', 2, '2020-09-02 17:07:06'),
+        (72, 72, 5, 'Breen makes a great point that social media is here to stay and that getting some influence over our kids’ opinions about how to behave online should start early while they’re still listening to us more than they’re listening to their friends. Great advic', 3, '2019-10-29 00:41:17'),
+        (73, 73, 18, 'Excellent collection of essays. This is one I wish I had read, I think, but I really enjoyed the audio. I may read it, too, at some point in the future. I do that sometimes.', 4, '2020-06-27 21:53:39'),
+        (74, 74, 2, 'I thought this was YA, but there’s so much sex . . . I wouldn’t recommend it for teens. Pearl does a good job dealing with the tough topic of rape and abuse. It was a book that I couldn’t put down. That said it could have been 80 pages shorter.', 5, '2020-01-21 06:08:37'),
+        (75, 75, 18, 'This book was about a bird who didn''t yet know how to fly.
+
+The bird has to decide if it will try to fly, but it was not sure if it wants to. The bird thought, "If I never forever endeavor" then I won''t ever learn. On one wing, he worries he might fail an', 2, '2020-03-11 05:40:48'),
+        (76, 76, 15, 'Breen makes a great point that social media is here to stay and that getting some influence over our kids’ opinions about how to behave online should start early while they’re still listening to us more than they’re listening to their friends. Great advic', 4, '2020-03-06 22:44:47'),
+        (77, 77, 19, 'I was fascinated by this memoir about a man who discovered the world outside of his very strict religious sect. What’s hard for me with memoirs like Deen’s is the all-or-nothing conclusion that seems to arise about Judaism. But knowing the way Deen was li', 2, '2019-11-25 07:39:44'),
+        (78, 78, 16, 'One of the best, most clear set of reasons and reflections I’ve ever read about why Jews should be proud of Judaism. I’m a little bit obsessed with Rabbi Sacks. Everything he writes is brilliant.', 4, '2020-01-03 13:52:11'),
+        (79, 79, 19, 'One of the best, most clear set of reasons and reflections I’ve ever read about why Jews should be proud of Judaism. I’m a little bit obsessed with Rabbi Sacks. Everything he writes is brilliant.', 4, '2020-01-11 10:56:36'),
+        (80, 80, 19, 'Dodie Smith''s novel I Capture the Castle is a journey through the mind of a young writer as she attempts to chronicle her daily life. Seventeen-year-old Cassandra Mortmain has recently learned to speed-write, and she decides to work on her writing skills ', 2, '2020-07-30 13:50:52'),
+        (81, 81, 19, 'This was a really fast read– a memoir in bite-size segments . . . almost like diary entries. I liked it! I could relate to much of the writing angst and decisions about stepping away from the novel writing. Not sure I’d recommend it for non-writers though', 2, '2020-08-23 00:44:43'),
+        (82, 82, 14, 'I admire Organ’s ability to write about faith in such a relatable and vulnerable way, and it makes me wonder if I could do the same one day. Really good read.', 2, '2020-06-17 04:23:41'),
+        (83, 83, 5, 'I appreciated Frankenstein''s Cat for its fascinating explanation about the often baffling subject of bioengineering and its sister sciences. Emily Anthes explains the many sides of today''s modern technology, such as gene modification, cloning, pharmaceuti', 2, '2020-09-10 04:45:48'),
+        (84, 84, 5, 'Every day, people around the world use maps. Whether it is an airplane pilot or businessman, housewife or museum group, maps have always and will continue to provide useful information for all.
+
+Mapping the World talks about the uses of maps, as well as h', 5, '2019-10-27 04:49:07'),
+        (85, 85, 18, 'This was a really fast read– a memoir in bite-size segments . . . almost like diary entries. I liked it! I could relate to much of the writing angst and decisions about stepping away from the novel writing. Not sure I’d recommend it for non-writers though', 4, '2019-12-30 10:48:44'),
+        (86, 86, 14, 'One of the best, most clear set of reasons and reflections I’ve ever read about why Jews should be proud of Judaism. I’m a little bit obsessed with Rabbi Sacks. Everything he writes is brilliant.', 3, '2020-05-16 11:18:34'),
+        (87, 87, 17, 'Excellent collection of essays. This is one I wish I had read, I think, but I really enjoyed the audio. I may read it, too, at some point in the future. I do that sometimes.', 3, '2020-03-19 16:17:21'),
+        (88, 88, 15, 'About Marsupials is the title so the book is about...marsupials, of course. It''s non-fiction. I really think everyone would like the book. I think someone who likes animals would especially like to read it.
+
+The glossary of facts in the back of About Mars', 2, '2020-03-26 01:31:24'),
+        (89, 89, 18, 'I was fascinated by this memoir about a man who discovered the world outside of his very strict religious sect. What’s hard for me with memoirs like Deen’s is the all-or-nothing conclusion that seems to arise about Judaism. But knowing the way Deen was li', 4, '2020-02-12 21:20:27'),
+        (90, 90, 19, 'Excellent collection of essays. This is one I wish I had read, I think, but I really enjoyed the audio. I may read it, too, at some point in the future. I do that sometimes.', 4, '2020-08-05 08:04:12'),
+        (91, 91, 5, 'I admire Organ’s ability to write about faith in such a relatable and vulnerable way, and it makes me wonder if I could do the same one day. Really good read.', 4, '2020-03-27 01:08:06'),
+        (92, 92, 19, 'Journey To Juno is the second book of the Galaxy Zack series. It is just as good as the first one. It''s awesome!
+
+Zack joins the Sprockets Academy Explorers Club at school. They fly on a special trip to Juno, a new planet no one has ever visited. Zack get', 3, '2020-04-29 16:52:21'),
+        (93, 93, 19, 'I appreciated Frankenstein''s Cat for its fascinating explanation about the often baffling subject of bioengineering and its sister sciences. Emily Anthes explains the many sides of today''s modern technology, such as gene modification, cloning, pharmaceuti', 2, '2020-08-25 18:36:47'),
+        (94, 94, 2, 'Really liked the first 30 pages or so, but had to skim the rest.', 2, '2020-07-20 18:40:17'),
+        (95, 95, 19, 'Excellent collection of essays. This is one I wish I had read, I think, but I really enjoyed the audio. I may read it, too, at some point in the future. I do that sometimes.', 3, '2020-09-11 07:22:41'),
+        (96, 96, 15, 'This was a really fast read– a memoir in bite-size segments . . . almost like diary entries. I liked it! I could relate to much of the writing angst and decisions about stepping away from the novel writing. Not sure I’d recommend it for non-writers though', 2, '2020-05-25 04:44:19'),
+        (97, 97, 2, 'This was a really fast read– a memoir in bite-size segments . . . almost like diary entries. I liked it! I could relate to much of the writing angst and decisions about stepping away from the novel writing. Not sure I’d recommend it for non-writers though', 2, '2020-02-06 21:47:27'),
+        (98, 98, 16, 'Breen makes a great point that social media is here to stay and that getting some influence over our kids’ opinions about how to behave online should start early while they’re still listening to us more than they’re listening to their friends. Great advic', 4, '2020-07-11 21:12:31'),
+        (99, 99, 15, 'Excellent collection of essays. This is one I wish I had read, I think, but I really enjoyed the audio. I may read it, too, at some point in the future. I do that sometimes.', 3, '2020-08-28 11:53:19'),
+        (100, 100, 14, 'I was fascinated by this memoir about a man who discovered the world outside of his very strict religious sect. What’s hard for me with memoirs like Deen’s is the all-or-nothing conclusion that seems to arise about Judaism. But knowing the way Deen was li', 2, '2019-12-26 12:56:49'),
+        (101, 101, 15, 'Journey To Juno is the second book of the Galaxy Zack series. It is just as good as the first one. It''s awesome!
+
+Zack joins the Sprockets Academy Explorers Club at school. They fly on a special trip to Juno, a new planet no one has ever visited. Zack get', 4, '2020-08-25 08:22:14'),
+        (102, 102, 16, 'I was fascinated by this memoir about a man who discovered the world outside of his very strict religious sect. What’s hard for me with memoirs like Deen’s is the all-or-nothing conclusion that seems to arise about Judaism. But knowing the way Deen was li', 5, '2020-05-22 08:05:08'),
+        (103, 103, 15, 'I was fascinated by this memoir about a man who discovered the world outside of his very strict religious sect. What’s hard for me with memoirs like Deen’s is the all-or-nothing conclusion that seems to arise about Judaism. But knowing the way Deen was li', 2, '2019-11-21 20:55:59'),
+        (104, 104, 18, 'One of the best, most clear set of reasons and reflections I’ve ever read about why Jews should be proud of Judaism. I’m a little bit obsessed with Rabbi Sacks. Everything he writes is brilliant.', 4, '2020-05-11 21:47:48'),
+        (105, 105, 19, 'The atmosphere of loneliness in this book and the general apathy of the main character, Anna, should have turned me off, but there was something that keep drawing me back to this book. (And it wasn’t just the sex.)  I recommend it, but I can’t exactly say', 3, '2020-02-01 21:40:04'),
+        (106, 106, 2, 'Every day, people around the world use maps. Whether it is an airplane pilot or businessman, housewife or museum group, maps have always and will continue to provide useful information for all.
+
+Mapping the World talks about the uses of maps, as well as h', 2, '2020-09-16 04:48:09'),
+        (107, 107, 18, 'This book was about a bird who didn''t yet know how to fly.
+
+The bird has to decide if it will try to fly, but it was not sure if it wants to. The bird thought, "If I never forever endeavor" then I won''t ever learn. On one wing, he worries he might fail an', 4, '2020-06-27 08:10:29'),
+        (108, 108, 15, 'About Marsupials is the title so the book is about...marsupials, of course. It''s non-fiction. I really think everyone would like the book. I think someone who likes animals would especially like to read it.
+
+The glossary of facts in the back of About Mars', 5, '2020-04-18 22:16:10'),
+        (109, 109, 2, 'I appreciated Frankenstein''s Cat for its fascinating explanation about the often baffling subject of bioengineering and its sister sciences. Emily Anthes explains the many sides of today''s modern technology, such as gene modification, cloning, pharmaceuti', 5, '2020-06-26 12:10:59'),
+        (110, 110, 17, 'Dodie Smith''s novel I Capture the Castle is a journey through the mind of a young writer as she attempts to chronicle her daily life. Seventeen-year-old Cassandra Mortmain has recently learned to speed-write, and she decides to work on her writing skills ', 2, '2020-01-26 05:38:06'),
+        (111, 111, 16, 'Breen makes a great point that social media is here to stay and that getting some influence over our kids’ opinions about how to behave online should start early while they’re still listening to us more than they’re listening to their friends. Great advic', 2, '2019-10-31 17:42:02'),
+        (112, 112, 15, 'I was fascinated by this memoir about a man who discovered the world outside of his very strict religious sect. What’s hard for me with memoirs like Deen’s is the all-or-nothing conclusion that seems to arise about Judaism. But knowing the way Deen was li', 3, '2020-06-23 23:50:17'),
+        (113, 113, 15, 'I appreciated Frankenstein''s Cat for its fascinating explanation about the often baffling subject of bioengineering and its sister sciences. Emily Anthes explains the many sides of today''s modern technology, such as gene modification, cloning, pharmaceuti', 3, '2019-10-28 10:25:25'),
+        (114, 114, 18, 'Dodie Smith''s novel I Capture the Castle is a journey through the mind of a young writer as she attempts to chronicle her daily life. Seventeen-year-old Cassandra Mortmain has recently learned to speed-write, and she decides to work on her writing skills ', 4, '2020-02-03 08:37:09'),
+        (115, 115, 18, 'Dodie Smith''s novel I Capture the Castle is a journey through the mind of a young writer as she attempts to chronicle her daily life. Seventeen-year-old Cassandra Mortmain has recently learned to speed-write, and she decides to work on her writing skills ', 4, '2020-03-03 17:05:42'),
+        (116, 116, 15, 'This was a really fast read– a memoir in bite-size segments . . . almost like diary entries. I liked it! I could relate to much of the writing angst and decisions about stepping away from the novel writing. Not sure I’d recommend it for non-writers though', 5, '2020-03-23 08:42:56'),
+        (117, 117, 16, 'I thought this was YA, but there’s so much sex . . . I wouldn’t recommend it for teens. Pearl does a good job dealing with the tough topic of rape and abuse. It was a book that I couldn’t put down. That said it could have been 80 pages shorter.', 4, '2020-02-15 11:00:48'),
+        (118, 118, 5, 'The atmosphere of loneliness in this book and the general apathy of the main character, Anna, should have turned me off, but there was something that keep drawing me back to this book. (And it wasn’t just the sex.)  I recommend it, but I can’t exactly say', 2, '2020-05-20 09:43:31'),
+        (119, 119, 19, 'This book was about a bird who didn''t yet know how to fly.
+
+The bird has to decide if it will try to fly, but it was not sure if it wants to. The bird thought, "If I never forever endeavor" then I won''t ever learn. On one wing, he worries he might fail an', 5, '2020-07-03 08:34:53'),
+        (120, 120, 19, 'About Marsupials is the title so the book is about...marsupials, of course. It''s non-fiction. I really think everyone would like the book. I think someone who likes animals would especially like to read it.
+
+The glossary of facts in the back of About Mars', 2, '2019-10-26 10:05:57'),
+        (121, 121, 5, 'About Marsupials is the title so the book is about...marsupials, of course. It''s non-fiction. I really think everyone would like the book. I think someone who likes animals would especially like to read it.
+
+The glossary of facts in the back of About Mars', 4, '2020-05-03 00:40:34'),
+        (122, 122, 17, 'I admire Organ’s ability to write about faith in such a relatable and vulnerable way, and it makes me wonder if I could do the same one day. Really good read.', 3, '2020-07-13 17:16:19'),
+        (123, 123, 14, 'This was a really fast read– a memoir in bite-size segments . . . almost like diary entries. I liked it! I could relate to much of the writing angst and decisions about stepping away from the novel writing. Not sure I’d recommend it for non-writers though', 3, '2020-06-02 08:38:04'),
+        (124, 124, 5, 'I appreciated Frankenstein''s Cat for its fascinating explanation about the often baffling subject of bioengineering and its sister sciences. Emily Anthes explains the many sides of today''s modern technology, such as gene modification, cloning, pharmaceuti', 2, '2019-10-27 17:08:33'),
+        (125, 125, 18, 'About Marsupials is the title so the book is about...marsupials, of course. It''s non-fiction. I really think everyone would like the book. I think someone who likes animals would especially like to read it.
+
+The glossary of facts in the back of About Mars', 2, '2020-06-02 21:56:55'),
+        (126, 126, 16, 'Every day, people around the world use maps. Whether it is an airplane pilot or businessman, housewife or museum group, maps have always and will continue to provide useful information for all.
+
+Mapping the World talks about the uses of maps, as well as h', 4, '2020-03-20 21:53:08'),
+        (127, 127, 19, 'This book was about a bird who didn''t yet know how to fly.
+
+The bird has to decide if it will try to fly, but it was not sure if it wants to. The bird thought, "If I never forever endeavor" then I won''t ever learn. On one wing, he worries he might fail an', 3, '2020-03-08 06:39:57'),
+        (128, 128, 16, 'About Marsupials is the title so the book is about...marsupials, of course. It''s non-fiction. I really think everyone would like the book. I think someone who likes animals would especially like to read it.
+
+The glossary of facts in the back of About Mars', 4, '2020-09-17 20:05:50'),
+        (129, 129, 14, 'About Marsupials is the title so the book is about...marsupials, of course. It''s non-fiction. I really think everyone would like the book. I think someone who likes animals would especially like to read it.
+
+The glossary of facts in the back of About Mars', 5, '2020-01-03 06:14:55'),
+        (130, 130, 16, 'I liked this book. People who are interested in national disasters and US history as well as immigration will most probably be interested in reading this book.
+
+Readers can gain knowledge of what it was like to work in New York City in the early 1900s. On', 4, '2019-11-14 02:49:29'),
+        (131, 131, 17, 'I was fascinated by this memoir about a man who discovered the world outside of his very strict religious sect. What’s hard for me with memoirs like Deen’s is the all-or-nothing conclusion that seems to arise about Judaism. But knowing the way Deen was li', 2, '2020-08-14 19:15:10'),
+        (132, 132, 19, 'Breen makes a great point that social media is here to stay and that getting some influence over our kids’ opinions about how to behave online should start early while they’re still listening to us more than they’re listening to their friends. Great advic', 5, '2019-11-11 03:05:34'),
+        (133, 133, 19, 'Journey To Juno is the second book of the Galaxy Zack series. It is just as good as the first one. It''s awesome!
+
+Zack joins the Sprockets Academy Explorers Club at school. They fly on a special trip to Juno, a new planet no one has ever visited. Zack get', 2, '2020-06-24 06:36:34'),
+        (134, 134, 19, 'I admire Organ’s ability to write about faith in such a relatable and vulnerable way, and it makes me wonder if I could do the same one day. Really good read.', 3, '2020-06-18 08:52:13'),
+        (135, 135, 19, 'I liked this book. People who are interested in national disasters and US history as well as immigration will most probably be interested in reading this book.
+
+Readers can gain knowledge of what it was like to work in New York City in the early 1900s. On', 3, '2020-06-23 12:49:13'),
+        (136, 136, 14, 'I appreciated Frankenstein''s Cat for its fascinating explanation about the often baffling subject of bioengineering and its sister sciences. Emily Anthes explains the many sides of today''s modern technology, such as gene modification, cloning, pharmaceuti', 3, '2020-01-25 01:20:23'),
+        (137, 137, 17, 'I was fascinated by this memoir about a man who discovered the world outside of his very strict religious sect. What’s hard for me with memoirs like Deen’s is the all-or-nothing conclusion that seems to arise about Judaism. But knowing the way Deen was li', 5, '2019-11-07 13:09:49'),
+        (138, 138, 16, 'I thought this was YA, but there’s so much sex . . . I wouldn’t recommend it for teens. Pearl does a good job dealing with the tough topic of rape and abuse. It was a book that I couldn’t put down. That said it could have been 80 pages shorter.', 2, '2020-01-07 23:02:48'),
+        (139, 139, 19, 'I thought this was YA, but there’s so much sex . . . I wouldn’t recommend it for teens. Pearl does a good job dealing with the tough topic of rape and abuse. It was a book that I couldn’t put down. That said it could have been 80 pages shorter.', 4, '2020-06-21 23:15:00'),
+        (140, 140, 14, 'Breen makes a great point that social media is here to stay and that getting some influence over our kids’ opinions about how to behave online should start early while they’re still listening to us more than they’re listening to their friends. Great advic', 2, '2020-05-26 17:49:06'),
+        (141, 141, 5, 'This was a really fast read– a memoir in bite-size segments . . . almost like diary entries. I liked it! I could relate to much of the writing angst and decisions about stepping away from the novel writing. Not sure I’d recommend it for non-writers though', 4, '2020-08-11 20:39:00'),
+        (142, 142, 19, 'The atmosphere of loneliness in this book and the general apathy of the main character, Anna, should have turned me off, but there was something that keep drawing me back to this book. (And it wasn’t just the sex.)  I recommend it, but I can’t exactly say', 3, '2019-11-11 12:20:54'),
+        (143, 143, 17, 'The atmosphere of loneliness in this book and the general apathy of the main character, Anna, should have turned me off, but there was something that keep drawing me back to this book. (And it wasn’t just the sex.)  I recommend it, but I can’t exactly say', 5, '2019-11-25 15:11:00'),
+        (144, 144, 14, 'This was a really fast read– a memoir in bite-size segments . . . almost like diary entries. I liked it! I could relate to much of the writing angst and decisions about stepping away from the novel writing. Not sure I’d recommend it for non-writers though', 4, '2020-02-28 22:45:24'),
+        (145, 145, 2, 'This was a really fast read– a memoir in bite-size segments . . . almost like diary entries. I liked it! I could relate to much of the writing angst and decisions about stepping away from the novel writing. Not sure I’d recommend it for non-writers though', 2, '2020-04-18 21:28:25'),
+        (146, 146, 5, 'One of the best, most clear set of reasons and reflections I’ve ever read about why Jews should be proud of Judaism. I’m a little bit obsessed with Rabbi Sacks. Everything he writes is brilliant.', 4, '2019-12-29 10:47:45'),
+        (147, 147, 16, 'I liked this book. People who are interested in national disasters and US history as well as immigration will most probably be interested in reading this book.
+
+Readers can gain knowledge of what it was like to work in New York City in the early 1900s. On', 4, '2020-05-10 17:34:31'),
+        (148, 148, 19, 'Journey To Juno is the second book of the Galaxy Zack series. It is just as good as the first one. It''s awesome!
+
+Zack joins the Sprockets Academy Explorers Club at school. They fly on a special trip to Juno, a new planet no one has ever visited. Zack get', 3, '2020-08-21 15:54:05'),
+        (149, 149, 17, 'I liked this book. People who are interested in national disasters and US history as well as immigration will most probably be interested in reading this book.
+
+Readers can gain knowledge of what it was like to work in New York City in the early 1900s. On', 4, '2020-06-21 18:45:28'),
+        (150, 150, 19, 'This book was about a bird who didn''t yet know how to fly.
+
+The bird has to decide if it will try to fly, but it was not sure if it wants to. The bird thought, "If I never forever endeavor" then I won''t ever learn. On one wing, he worries he might fail an', 3, '2019-11-20 11:30:09'),
+        (151, 151, 17, 'Really liked the first 30 pages or so, but had to skim the rest.', 4, '2020-05-28 22:10:20'),
+        (152, 152, 18, 'I thought this was YA, but there’s so much sex . . . I wouldn’t recommend it for teens. Pearl does a good job dealing with the tough topic of rape and abuse. It was a book that I couldn’t put down. That said it could have been 80 pages shorter.', 4, '2020-09-02 06:06:30'),
+        (153, 153, 15, 'I appreciated Frankenstein''s Cat for its fascinating explanation about the often baffling subject of bioengineering and its sister sciences. Emily Anthes explains the many sides of today''s modern technology, such as gene modification, cloning, pharmaceuti', 4, '2020-03-20 03:14:44'),
+        (154, 154, 16, 'I admire Organ’s ability to write about faith in such a relatable and vulnerable way, and it makes me wonder if I could do the same one day. Really good read.', 5, '2019-11-30 17:51:47'),
+        (155, 155, 2, 'Excellent collection of essays. This is one I wish I had read, I think, but I really enjoyed the audio. I may read it, too, at some point in the future. I do that sometimes.', 5, '2020-01-13 14:38:35'),
+        (156, 156, 5, 'I was fascinated by this memoir about a man who discovered the world outside of his very strict religious sect. What’s hard for me with memoirs like Deen’s is the all-or-nothing conclusion that seems to arise about Judaism. But knowing the way Deen was li', 4, '2020-06-29 12:09:23'),
+        (157, 157, 2, 'This was a really fast read– a memoir in bite-size segments . . . almost like diary entries. I liked it! I could relate to much of the writing angst and decisions about stepping away from the novel writing. Not sure I’d recommend it for non-writers though', 5, '2020-06-12 00:16:22'),
+        (158, 158, 14, 'I liked this book. People who are interested in national disasters and US history as well as immigration will most probably be interested in reading this book.
+
+Readers can gain knowledge of what it was like to work in New York City in the early 1900s. On', 5, '2020-03-06 06:54:49'),
+        (159, 159, 18, 'About Marsupials is the title so the book is about...marsupials, of course. It''s non-fiction. I really think everyone would like the book. I think someone who likes animals would especially like to read it.
+
+The glossary of facts in the back of About Mars', 5, '2020-05-25 23:29:09'),
+        (160, 160, 2, 'One of the best, most clear set of reasons and reflections I’ve ever read about why Jews should be proud of Judaism. I’m a little bit obsessed with Rabbi Sacks. Everything he writes is brilliant.', 2, '2020-08-05 17:00:23'),
+        (161, 161, 2, 'Journey To Juno is the second book of the Galaxy Zack series. It is just as good as the first one. It''s awesome!
+
+Zack joins the Sprockets Academy Explorers Club at school. They fly on a special trip to Juno, a new planet no one has ever visited. Zack get', 2, '2020-08-20 00:21:26'),
+        (162, 162, 15, 'This was a really fast read– a memoir in bite-size segments . . . almost like diary entries. I liked it! I could relate to much of the writing angst and decisions about stepping away from the novel writing. Not sure I’d recommend it for non-writers though', 2, '2020-07-23 15:01:27'),
+        (163, 163, 17, 'This was a really fast read– a memoir in bite-size segments . . . almost like diary entries. I liked it! I could relate to much of the writing angst and decisions about stepping away from the novel writing. Not sure I’d recommend it for non-writers though', 2, '2020-04-26 18:09:38'),
+        (164, 164, 14, 'Excellent collection of essays. This is one I wish I had read, I think, but I really enjoyed the audio. I may read it, too, at some point in the future. I do that sometimes.', 2, '2020-07-24 02:53:51'),
+        (165, 165, 19, 'Breen makes a great point that social media is here to stay and that getting some influence over our kids’ opinions about how to behave online should start early while they’re still listening to us more than they’re listening to their friends. Great advic', 5, '2020-06-19 23:43:21'),
+        (166, 166, 18, 'Excellent collection of essays. This is one I wish I had read, I think, but I really enjoyed the audio. I may read it, too, at some point in the future. I do that sometimes.', 2, '2020-04-11 09:13:41'),
+        (167, 167, 2, 'Every day, people around the world use maps. Whether it is an airplane pilot or businessman, housewife or museum group, maps have always and will continue to provide useful information for all.
+
+Mapping the World talks about the uses of maps, as well as h', 2, '2020-02-17 09:54:16'),
+        (168, 168, 19, 'About Marsupials is the title so the book is about...marsupials, of course. It''s non-fiction. I really think everyone would like the book. I think someone who likes animals would especially like to read it.
+
+The glossary of facts in the back of About Mars', 4, '2020-01-03 09:51:37'),
+        (169, 169, 19, 'I appreciated Frankenstein''s Cat for its fascinating explanation about the often baffling subject of bioengineering and its sister sciences. Emily Anthes explains the many sides of today''s modern technology, such as gene modification, cloning, pharmaceuti', 4, '2020-04-25 22:45:27'),
+        (170, 170, 17, 'This book was about a bird who didn''t yet know how to fly.
+
+The bird has to decide if it will try to fly, but it was not sure if it wants to. The bird thought, "If I never forever endeavor" then I won''t ever learn. On one wing, he worries he might fail an', 2, '2019-10-25 16:01:48'),
+        (171, 171, 16, 'I was fascinated by this memoir about a man who discovered the world outside of his very strict religious sect. What’s hard for me with memoirs like Deen’s is the all-or-nothing conclusion that seems to arise about Judaism. But knowing the way Deen was li', 2, '2019-11-13 22:42:03'),
+        (172, 172, 15, 'About Marsupials is the title so the book is about...marsupials, of course. It''s non-fiction. I really think everyone would like the book. I think someone who likes animals would especially like to read it.
+
+The glossary of facts in the back of About Mars', 2, '2019-12-05 18:37:04'),
+        (173, 173, 2, 'This book was about a bird who didn''t yet know how to fly.
+
+The bird has to decide if it will try to fly, but it was not sure if it wants to. The bird thought, "If I never forever endeavor" then I won''t ever learn. On one wing, he worries he might fail an', 5, '2020-09-01 06:14:42'),
+        (174, 174, 19, 'Really liked the first 30 pages or so, but had to skim the rest.', 5, '2019-11-19 07:35:35'),
+        (175, 175, 15, 'Really liked the first 30 pages or so, but had to skim the rest.', 3, '2020-02-07 23:10:47'),
+        (176, 176, 16, 'Every day, people around the world use maps. Whether it is an airplane pilot or businessman, housewife or museum group, maps have always and will continue to provide useful information for all.
+
+Mapping the World talks about the uses of maps, as well as h', 4, '2020-06-25 12:35:53'),
+        (177, 177, 2, 'This was a really fast read– a memoir in bite-size segments . . . almost like diary entries. I liked it! I could relate to much of the writing angst and decisions about stepping away from the novel writing. Not sure I’d recommend it for non-writers though', 5, '2020-01-28 14:37:24'),
+        (178, 178, 14, 'The atmosphere of loneliness in this book and the general apathy of the main character, Anna, should have turned me off, but there was something that keep drawing me back to this book. (And it wasn’t just the sex.)  I recommend it, but I can’t exactly say', 2, '2020-07-21 16:42:22'),
+        (179, 179, 19, 'Excellent collection of essays. This is one I wish I had read, I think, but I really enjoyed the audio. I may read it, too, at some point in the future. I do that sometimes.', 4, '2019-10-21 08:57:41'),
+        (180, 180, 2, 'I thought this was YA, but there’s so much sex . . . I wouldn’t recommend it for teens. Pearl does a good job dealing with the tough topic of rape and abuse. It was a book that I couldn’t put down. That said it could have been 80 pages shorter.', 3, '2020-05-04 19:51:04'),
+        (181, 181, 2, 'I was fascinated by this memoir about a man who discovered the world outside of his very strict religious sect. What’s hard for me with memoirs like Deen’s is the all-or-nothing conclusion that seems to arise about Judaism. But knowing the way Deen was li', 5, '2020-03-21 11:34:56'),
+        (182, 182, 15, 'I admire Organ’s ability to write about faith in such a relatable and vulnerable way, and it makes me wonder if I could do the same one day. Really good read.', 2, '2020-07-27 13:51:03'),
+        (183, 183, 18, 'I admire Organ’s ability to write about faith in such a relatable and vulnerable way, and it makes me wonder if I could do the same one day. Really good read.', 4, '2020-03-10 12:35:04'),
+        (184, 184, 14, 'Breen makes a great point that social media is here to stay and that getting some influence over our kids’ opinions about how to behave online should start early while they’re still listening to us more than they’re listening to their friends. Great advic', 3, '2019-11-27 04:02:11'),
+        (185, 185, 14, 'I liked this book. People who are interested in national disasters and US history as well as immigration will most probably be interested in reading this book.
+
+Readers can gain knowledge of what it was like to work in New York City in the early 1900s. On', 2, '2020-07-03 16:17:04'),
+        (186, 186, 18, 'I liked this book. People who are interested in national disasters and US history as well as immigration will most probably be interested in reading this book.
+
+Readers can gain knowledge of what it was like to work in New York City in the early 1900s. On', 2, '2020-07-04 06:45:53'),
+        (187, 187, 15, 'About Marsupials is the title so the book is about...marsupials, of course. It''s non-fiction. I really think everyone would like the book. I think someone who likes animals would especially like to read it.
+
+The glossary of facts in the back of About Mars', 2, '2019-11-14 14:42:38'),
+        (188, 188, 2, 'I thought this was YA, but there’s so much sex . . . I wouldn’t recommend it for teens. Pearl does a good job dealing with the tough topic of rape and abuse. It was a book that I couldn’t put down. That said it could have been 80 pages shorter.', 4, '2020-03-30 21:25:56'),
+        (189, 189, 17, 'Dodie Smith''s novel I Capture the Castle is a journey through the mind of a young writer as she attempts to chronicle her daily life. Seventeen-year-old Cassandra Mortmain has recently learned to speed-write, and she decides to work on her writing skills ', 4, '2019-12-08 23:12:30'),
+        (190, 190, 17, 'I thought this was YA, but there’s so much sex . . . I wouldn’t recommend it for teens. Pearl does a good job dealing with the tough topic of rape and abuse. It was a book that I couldn’t put down. That said it could have been 80 pages shorter.', 2, '2020-07-02 20:50:45'),
+        (191, 191, 18, 'Every day, people around the world use maps. Whether it is an airplane pilot or businessman, housewife or museum group, maps have always and will continue to provide useful information for all.
+
+Mapping the World talks about the uses of maps, as well as h', 3, '2020-05-01 09:04:27'),
+        (192, 192, 18, 'Every day, people around the world use maps. Whether it is an airplane pilot or businessman, housewife or museum group, maps have always and will continue to provide useful information for all.
+
+Mapping the World talks about the uses of maps, as well as h', 2, '2020-09-21 06:45:41'),
+        (193, 193, 17, 'Journey To Juno is the second book of the Galaxy Zack series. It is just as good as the first one. It''s awesome!
+
+Zack joins the Sprockets Academy Explorers Club at school. They fly on a special trip to Juno, a new planet no one has ever visited. Zack get', 3, '2020-04-27 09:08:25'),
+        (194, 194, 5, 'About Marsupials is the title so the book is about...marsupials, of course. It''s non-fiction. I really think everyone would like the book. I think someone who likes animals would especially like to read it.
+
+The glossary of facts in the back of About Mars', 5, '2020-04-19 02:45:26'),
+        (195, 195, 17, 'I thought this was YA, but there’s so much sex . . . I wouldn’t recommend it for teens. Pearl does a good job dealing with the tough topic of rape and abuse. It was a book that I couldn’t put down. That said it could have been 80 pages shorter.', 5, '2019-11-25 04:40:39'),
+        (196, 196, 14, 'I liked this book. People who are interested in national disasters and US history as well as immigration will most probably be interested in reading this book.
+
+Readers can gain knowledge of what it was like to work in New York City in the early 1900s. On', 3, '2020-08-02 02:02:52'),
+        (197, 197, 17, 'Excellent collection of essays. This is one I wish I had read, I think, but I really enjoyed the audio. I may read it, too, at some point in the future. I do that sometimes.', 3, '2019-12-09 22:05:18'),
+        (198, 198, 17, 'Really liked the first 30 pages or so, but had to skim the rest.', 4, '2020-01-23 19:33:56'),
+        (199, 199, 16, 'Really liked the first 30 pages or so, but had to skim the rest.', 2, '2020-01-31 17:01:05'),
+        (200, 200, 18, 'I was fascinated by this memoir about a man who discovered the world outside of his very strict religious sect. What’s hard for me with memoirs like Deen’s is the all-or-nothing conclusion that seems to arise about Judaism. But knowing the way Deen was li', 5, '2020-04-13 15:05:41'),
+        (201, 201, 16, 'I liked this book. People who are interested in national disasters and US history as well as immigration will most probably be interested in reading this book.
+
+Readers can gain knowledge of what it was like to work in New York City in the early 1900s. On', 2, '2020-08-10 02:45:22'),
+        (202, 202, 18, 'Breen makes a great point that social media is here to stay and that getting some influence over our kids’ opinions about how to behave online should start early while they’re still listening to us more than they’re listening to their friends. Great advic', 4, '2020-08-10 01:52:15'),
+        (203, 203, 17, 'Every day, people around the world use maps. Whether it is an airplane pilot or businessman, housewife or museum group, maps have always and will continue to provide useful information for all.
+
+Mapping the World talks about the uses of maps, as well as h', 2, '2020-09-13 15:28:11'),
+        (204, 204, 19, 'I appreciated Frankenstein''s Cat for its fascinating explanation about the often baffling subject of bioengineering and its sister sciences. Emily Anthes explains the many sides of today''s modern technology, such as gene modification, cloning, pharmaceuti', 2, '2020-08-16 05:18:37'),
+        (205, 205, 5, 'I thought this was YA, but there’s so much sex . . . I wouldn’t recommend it for teens. Pearl does a good job dealing with the tough topic of rape and abuse. It was a book that I couldn’t put down. That said it could have been 80 pages shorter.', 4, '2020-10-01 07:21:13'),
+        (206, 206, 5, 'I was fascinated by this memoir about a man who discovered the world outside of his very strict religious sect. What’s hard for me with memoirs like Deen’s is the all-or-nothing conclusion that seems to arise about Judaism. But knowing the way Deen was li', 4, '2020-09-03 20:51:50'),
+        (207, 207, 16, 'Really liked the first 30 pages or so, but had to skim the rest.', 2, '2019-12-03 06:23:08'),
+        (208, 208, 14, 'The atmosphere of loneliness in this book and the general apathy of the main character, Anna, should have turned me off, but there was something that keep drawing me back to this book. (And it wasn’t just the sex.)  I recommend it, but I can’t exactly say', 3, '2020-07-07 21:31:43'),
+        (209, 209, 16, 'About Marsupials is the title so the book is about...marsupials, of course. It''s non-fiction. I really think everyone would like the book. I think someone who likes animals would especially like to read it.
+
+The glossary of facts in the back of About Mars', 4, '2020-03-21 03:15:25'),
+        (210, 210, 18, 'Every day, people around the world use maps. Whether it is an airplane pilot or businessman, housewife or museum group, maps have always and will continue to provide useful information for all.
+
+Mapping the World talks about the uses of maps, as well as h', 3, '2020-04-24 19:00:28'),
+        (211, 211, 17, 'I liked this book. People who are interested in national disasters and US history as well as immigration will most probably be interested in reading this book.
+
+Readers can gain knowledge of what it was like to work in New York City in the early 1900s. On', 3, '2019-12-22 06:33:34'),
+        (212, 212, 16, 'I was fascinated by this memoir about a man who discovered the world outside of his very strict religious sect. What’s hard for me with memoirs like Deen’s is the all-or-nothing conclusion that seems to arise about Judaism. But knowing the way Deen was li', 4, '2020-09-20 19:10:26'),
+        (213, 213, 16, 'Journey To Juno is the second book of the Galaxy Zack series. It is just as good as the first one. It''s awesome!
+
+Zack joins the Sprockets Academy Explorers Club at school. They fly on a special trip to Juno, a new planet no one has ever visited. Zack get', 2, '2020-07-10 02:40:14'),
+        (214, 214, 15, 'This book was about a bird who didn''t yet know how to fly.
+
+The bird has to decide if it will try to fly, but it was not sure if it wants to. The bird thought, "If I never forever endeavor" then I won''t ever learn. On one wing, he worries he might fail an', 2, '2020-05-16 19:49:02'),
+        (215, 215, 19, 'Really liked the first 30 pages or so, but had to skim the rest.', 2, '2020-05-27 18:11:03'),
+        (216, 216, 19, 'This book was about a bird who didn''t yet know how to fly.
+
+The bird has to decide if it will try to fly, but it was not sure if it wants to. The bird thought, "If I never forever endeavor" then I won''t ever learn. On one wing, he worries he might fail an', 3, '2020-06-18 03:04:03'),
+        (217, 217, 15, 'Dodie Smith''s novel I Capture the Castle is a journey through the mind of a young writer as she attempts to chronicle her daily life. Seventeen-year-old Cassandra Mortmain has recently learned to speed-write, and she decides to work on her writing skills ', 2, '2019-12-20 08:30:06'),
+        (218, 218, 2, 'Really liked the first 30 pages or so, but had to skim the rest.', 4, '2020-08-15 13:12:20'),
+        (219, 219, 15, 'Really liked the first 30 pages or so, but had to skim the rest.', 4, '2020-01-11 12:24:51'),
+        (220, 220, 16, 'One of the best, most clear set of reasons and reflections I’ve ever read about why Jews should be proud of Judaism. I’m a little bit obsessed with Rabbi Sacks. Everything he writes is brilliant.', 4, '2019-12-05 06:50:29'),
+        (221, 221, 16, 'Really liked the first 30 pages or so, but had to skim the rest.', 4, '2019-11-15 14:54:35'),
+        (222, 222, 19, 'Every day, people around the world use maps. Whether it is an airplane pilot or businessman, housewife or museum group, maps have always and will continue to provide useful information for all.
+
+Mapping the World talks about the uses of maps, as well as h', 5, '2019-12-12 16:34:17'),
+        (223, 223, 17, 'Really liked the first 30 pages or so, but had to skim the rest.', 2, '2020-03-01 22:27:09'),
+        (224, 224, 5, 'Every day, people around the world use maps. Whether it is an airplane pilot or businessman, housewife or museum group, maps have always and will continue to provide useful information for all.
+
+Mapping the World talks about the uses of maps, as well as h', 2, '2020-02-21 04:43:22'),
+        (225, 225, 17, 'Really liked the first 30 pages or so, but had to skim the rest.', 2, '2020-03-16 17:37:28'),
+        (226, 226, 18, 'I liked this book. People who are interested in national disasters and US history as well as immigration will most probably be interested in reading this book.
+
+Readers can gain knowledge of what it was like to work in New York City in the early 1900s. On', 3, '2020-02-13 06:41:55'),
+        (227, 227, 19, 'Excellent collection of essays. This is one I wish I had read, I think, but I really enjoyed the audio. I may read it, too, at some point in the future. I do that sometimes.', 3, '2020-08-13 09:36:13'),
+        (228, 228, 15, 'The atmosphere of loneliness in this book and the general apathy of the main character, Anna, should have turned me off, but there was something that keep drawing me back to this book. (And it wasn’t just the sex.)  I recommend it, but I can’t exactly say', 4, '2019-11-09 17:07:18'),
+        (229, 229, 14, 'I liked this book. People who are interested in national disasters and US history as well as immigration will most probably be interested in reading this book.
+
+Readers can gain knowledge of what it was like to work in New York City in the early 1900s. On', 3, '2020-01-07 02:47:32'),
+        (230, 230, 17, 'I liked this book. People who are interested in national disasters and US history as well as immigration will most probably be interested in reading this book.
+
+Readers can gain knowledge of what it was like to work in New York City in the early 1900s. On', 2, '2019-12-29 16:30:17'),
+        (231, 231, 19, 'One of the best, most clear set of reasons and reflections I’ve ever read about why Jews should be proud of Judaism. I’m a little bit obsessed with Rabbi Sacks. Everything he writes is brilliant.', 4, '2020-03-08 18:27:36'),
+        (232, 232, 15, 'I admire Organ’s ability to write about faith in such a relatable and vulnerable way, and it makes me wonder if I could do the same one day. Really good read.', 3, '2020-03-27 00:14:34'),
+        (233, 233, 15, 'Breen makes a great point that social media is here to stay and that getting some influence over our kids’ opinions about how to behave online should start early while they’re still listening to us more than they’re listening to their friends. Great advic', 3, '2020-07-24 08:35:22'),
+        (234, 234, 2, 'Excellent collection of essays. This is one I wish I had read, I think, but I really enjoyed the audio. I may read it, too, at some point in the future. I do that sometimes.', 3, '2020-03-02 23:08:05'),
+        (235, 235, 2, 'Breen makes a great point that social media is here to stay and that getting some influence over our kids’ opinions about how to behave online should start early while they’re still listening to us more than they’re listening to their friends. Great advic', 2, '2020-05-27 14:04:18'),
+        (236, 236, 18, 'Really liked the first 30 pages or so, but had to skim the rest.', 4, '2020-04-21 09:44:37'),
+        (237, 237, 16, 'I thought this was YA, but there’s so much sex . . . I wouldn’t recommend it for teens. Pearl does a good job dealing with the tough topic of rape and abuse. It was a book that I couldn’t put down. That said it could have been 80 pages shorter.', 3, '2020-05-25 09:07:20'),
+        (238, 238, 2, 'I thought this was YA, but there’s so much sex . . . I wouldn’t recommend it for teens. Pearl does a good job dealing with the tough topic of rape and abuse. It was a book that I couldn’t put down. That said it could have been 80 pages shorter.', 5, '2019-10-25 11:26:07'),
+        (239, 239, 2, 'The atmosphere of loneliness in this book and the general apathy of the main character, Anna, should have turned me off, but there was something that keep drawing me back to this book. (And it wasn’t just the sex.)  I recommend it, but I can’t exactly say', 4, '2020-03-05 04:57:40'),
+        (240, 240, 18, 'I thought this was YA, but there’s so much sex . . . I wouldn’t recommend it for teens. Pearl does a good job dealing with the tough topic of rape and abuse. It was a book that I couldn’t put down. That said it could have been 80 pages shorter.', 4, '2020-01-15 22:09:17'),
+        (241, 241, 16, 'Dodie Smith''s novel I Capture the Castle is a journey through the mind of a young writer as she attempts to chronicle her daily life. Seventeen-year-old Cassandra Mortmain has recently learned to speed-write, and she decides to work on her writing skills ', 2, '2020-08-08 12:53:10'),
+        (242, 242, 14, 'Journey To Juno is the second book of the Galaxy Zack series. It is just as good as the first one. It''s awesome!
+
+Zack joins the Sprockets Academy Explorers Club at school. They fly on a special trip to Juno, a new planet no one has ever visited. Zack get', 2, '2020-04-11 17:54:09'),
+        (243, 243, 5, 'I admire Organ’s ability to write about faith in such a relatable and vulnerable way, and it makes me wonder if I could do the same one day. Really good read.', 3, '2019-12-01 11:45:05'),
+        (244, 244, 18, 'Really liked the first 30 pages or so, but had to skim the rest.', 5, '2020-09-24 22:14:59'),
+        (245, 245, 5, 'Dodie Smith''s novel I Capture the Castle is a journey through the mind of a young writer as she attempts to chronicle her daily life. Seventeen-year-old Cassandra Mortmain has recently learned to speed-write, and she decides to work on her writing skills ', 5, '2020-04-09 11:10:56'),
+        (246, 246, 14, 'One of the best, most clear set of reasons and reflections I’ve ever read about why Jews should be proud of Judaism. I’m a little bit obsessed with Rabbi Sacks. Everything he writes is brilliant.', 4, '2020-05-28 11:08:20'),
+        (247, 247, 19, 'Breen makes a great point that social media is here to stay and that getting some influence over our kids’ opinions about how to behave online should start early while they’re still listening to us more than they’re listening to their friends. Great advic', 4, '2020-05-30 22:25:13'),
+        (248, 248, 15, 'Excellent collection of essays. This is one I wish I had read, I think, but I really enjoyed the audio. I may read it, too, at some point in the future. I do that sometimes.', 2, '2019-12-02 13:03:07'),
+        (249, 249, 18, 'The atmosphere of loneliness in this book and the general apathy of the main character, Anna, should have turned me off, but there was something that keep drawing me back to this book. (And it wasn’t just the sex.)  I recommend it, but I can’t exactly say', 2, '2020-09-01 13:18:15'),
+        (250, 250, 2, 'I was fascinated by this memoir about a man who discovered the world outside of his very strict religious sect. What’s hard for me with memoirs like Deen’s is the all-or-nothing conclusion that seems to arise about Judaism. But knowing the way Deen was li', 4, '2020-02-22 05:20:26'),
+        (251, 251, 14, 'Every day, people around the world use maps. Whether it is an airplane pilot or businessman, housewife or museum group, maps have always and will continue to provide useful information for all.
+
+Mapping the World talks about the uses of maps, as well as h', 5, '2020-01-28 07:13:34'),
+        (252, 252, 15, 'I admire Organ’s ability to write about faith in such a relatable and vulnerable way, and it makes me wonder if I could do the same one day. Really good read.', 4, '2020-04-15 06:09:35'),
+        (253, 253, 2, 'The atmosphere of loneliness in this book and the general apathy of the main character, Anna, should have turned me off, but there was something that keep drawing me back to this book. (And it wasn’t just the sex.)  I recommend it, but I can’t exactly say', 5, '2020-04-09 04:06:49'),
+        (254, 254, 16, 'I liked this book. People who are interested in national disasters and US history as well as immigration will most probably be interested in reading this book.
+
+Readers can gain knowledge of what it was like to work in New York City in the early 1900s. On', 5, '2020-03-31 17:12:33'),
+        (255, 255, 19, 'I liked this book. People who are interested in national disasters and US history as well as immigration will most probably be interested in reading this book.
+
+Readers can gain knowledge of what it was like to work in New York City in the early 1900s. On', 4, '2020-09-11 12:04:48'),
+        (256, 256, 17, 'The atmosphere of loneliness in this book and the general apathy of the main character, Anna, should have turned me off, but there was something that keep drawing me back to this book. (And it wasn’t just the sex.)  I recommend it, but I can’t exactly say', 3, '2020-05-21 20:55:55'),
+        (257, 257, 19, 'I appreciated Frankenstein''s Cat for its fascinating explanation about the often baffling subject of bioengineering and its sister sciences. Emily Anthes explains the many sides of today''s modern technology, such as gene modification, cloning, pharmaceuti', 4, '2020-04-16 05:50:57'),
+        (258, 258, 17, 'Journey To Juno is the second book of the Galaxy Zack series. It is just as good as the first one. It''s awesome!
+
+Zack joins the Sprockets Academy Explorers Club at school. They fly on a special trip to Juno, a new planet no one has ever visited. Zack get', 2, '2020-09-21 05:31:59'),
+        (259, 259, 14, 'Excellent collection of essays. This is one I wish I had read, I think, but I really enjoyed the audio. I may read it, too, at some point in the future. I do that sometimes.', 4, '2020-09-01 13:06:55'),
+        (260, 260, 16, 'Every day, people around the world use maps. Whether it is an airplane pilot or businessman, housewife or museum group, maps have always and will continue to provide useful information for all.
+
+Mapping the World talks about the uses of maps, as well as h', 2, '2020-07-21 08:54:53'),
+        (261, 261, 19, 'Every day, people around the world use maps. Whether it is an airplane pilot or businessman, housewife or museum group, maps have always and will continue to provide useful information for all.
+
+Mapping the World talks about the uses of maps, as well as h', 4, '2019-10-23 09:56:21'),
+        (262, 262, 18, 'Really liked the first 30 pages or so, but had to skim the rest.', 2, '2020-06-28 20:56:34'),
+        (263, 263, 17, 'Every day, people around the world use maps. Whether it is an airplane pilot or businessman, housewife or museum group, maps have always and will continue to provide useful information for all.
+
+Mapping the World talks about the uses of maps, as well as h', 5, '2020-01-14 18:53:19'),
+        (264, 264, 5, 'Really liked the first 30 pages or so, but had to skim the rest.', 2, '2020-07-17 09:51:53'),
+        (265, 265, 18, 'Breen makes a great point that social media is here to stay and that getting some influence over our kids’ opinions about how to behave online should start early while they’re still listening to us more than they’re listening to their friends. Great advic', 5, '2020-08-08 06:28:43'),
+        (266, 266, 5, 'This book was about a bird who didn''t yet know how to fly.
+
+The bird has to decide if it will try to fly, but it was not sure if it wants to. The bird thought, "If I never forever endeavor" then I won''t ever learn. On one wing, he worries he might fail an', 3, '2020-04-21 07:01:24'),
+        (267, 267, 5, 'This was a really fast read– a memoir in bite-size segments . . . almost like diary entries. I liked it! I could relate to much of the writing angst and decisions about stepping away from the novel writing. Not sure I’d recommend it for non-writers though', 5, '2020-06-26 23:51:37'),
+        (268, 268, 2, 'I was fascinated by this memoir about a man who discovered the world outside of his very strict religious sect. What’s hard for me with memoirs like Deen’s is the all-or-nothing conclusion that seems to arise about Judaism. But knowing the way Deen was li', 2, '2020-03-17 19:04:13'),
+        (269, 269, 18, 'This book was about a bird who didn''t yet know how to fly.
+
+The bird has to decide if it will try to fly, but it was not sure if it wants to. The bird thought, "If I never forever endeavor" then I won''t ever learn. On one wing, he worries he might fail an', 4, '2019-12-22 21:17:56'),
+        (270, 270, 5, 'I liked this book. People who are interested in national disasters and US history as well as immigration will most probably be interested in reading this book.
+
+Readers can gain knowledge of what it was like to work in New York City in the early 1900s. On', 5, '2019-10-29 16:27:58'),
+        (271, 271, 17, 'Every day, people around the world use maps. Whether it is an airplane pilot or businessman, housewife or museum group, maps have always and will continue to provide useful information for all.
+
+Mapping the World talks about the uses of maps, as well as h', 5, '2020-03-31 07:27:46'),
+        (272, 272, 14, 'About Marsupials is the title so the book is about...marsupials, of course. It''s non-fiction. I really think everyone would like the book. I think someone who likes animals would especially like to read it.
+
+The glossary of facts in the back of About Mars', 4, '2020-03-08 11:20:47'),
+        (273, 273, 19, 'Breen makes a great point that social media is here to stay and that getting some influence over our kids’ opinions about how to behave online should start early while they’re still listening to us more than they’re listening to their friends. Great advic', 4, '2020-09-02 18:14:22'),
+        (274, 274, 14, 'Excellent collection of essays. This is one I wish I had read, I think, but I really enjoyed the audio. I may read it, too, at some point in the future. I do that sometimes.', 3, '2020-02-22 04:26:00'),
+        (275, 275, 15, 'I admire Organ’s ability to write about faith in such a relatable and vulnerable way, and it makes me wonder if I could do the same one day. Really good read.', 5, '2020-06-14 04:44:41'),
+        (276, 276, 5, 'Journey To Juno is the second book of the Galaxy Zack series. It is just as good as the first one. It''s awesome!
+
+Zack joins the Sprockets Academy Explorers Club at school. They fly on a special trip to Juno, a new planet no one has ever visited. Zack get', 4, '2020-06-14 11:33:21'),
+        (277, 277, 19, 'Really liked the first 30 pages or so, but had to skim the rest.', 3, '2020-07-29 05:55:03'),
+        (278, 278, 18, 'This was a really fast read– a memoir in bite-size segments . . . almost like diary entries. I liked it! I could relate to much of the writing angst and decisions about stepping away from the novel writing. Not sure I’d recommend it for non-writers though', 3, '2020-06-04 11:21:26'),
+        (279, 279, 15, 'I admire Organ’s ability to write about faith in such a relatable and vulnerable way, and it makes me wonder if I could do the same one day. Really good read.', 2, '2020-01-12 11:23:05'),
+        (280, 280, 15, 'This book was about a bird who didn''t yet know how to fly.
+
+The bird has to decide if it will try to fly, but it was not sure if it wants to. The bird thought, "If I never forever endeavor" then I won''t ever learn. On one wing, he worries he might fail an', 3, '2020-09-04 16:49:30'),
+        (281, 281, 15, 'About Marsupials is the title so the book is about...marsupials, of course. It''s non-fiction. I really think everyone would like the book. I think someone who likes animals would especially like to read it.
+
+The glossary of facts in the back of About Mars', 2, '2020-05-19 23:38:06'),
+        (282, 282, 17, 'Journey To Juno is the second book of the Galaxy Zack series. It is just as good as the first one. It''s awesome!
+
+Zack joins the Sprockets Academy Explorers Club at school. They fly on a special trip to Juno, a new planet no one has ever visited. Zack get', 2, '2020-04-30 09:36:39'),
+        (283, 283, 17, 'Every day, people around the world use maps. Whether it is an airplane pilot or businessman, housewife or museum group, maps have always and will continue to provide useful information for all.
+
+Mapping the World talks about the uses of maps, as well as h', 4, '2020-02-13 16:47:35'),
+        (284, 284, 19, 'Every day, people around the world use maps. Whether it is an airplane pilot or businessman, housewife or museum group, maps have always and will continue to provide useful information for all.
+
+Mapping the World talks about the uses of maps, as well as h', 4, '2019-12-07 10:25:29'),
+        (285, 285, 17, 'Dodie Smith''s novel I Capture the Castle is a journey through the mind of a young writer as she attempts to chronicle her daily life. Seventeen-year-old Cassandra Mortmain has recently learned to speed-write, and she decides to work on her writing skills ', 4, '2020-06-14 08:03:29'),
+        (286, 286, 15, 'The atmosphere of loneliness in this book and the general apathy of the main character, Anna, should have turned me off, but there was something that keep drawing me back to this book. (And it wasn’t just the sex.)  I recommend it, but I can’t exactly say', 2, '2019-12-27 23:09:13'),
+        (287, 287, 5, 'I appreciated Frankenstein''s Cat for its fascinating explanation about the often baffling subject of bioengineering and its sister sciences. Emily Anthes explains the many sides of today''s modern technology, such as gene modification, cloning, pharmaceuti', 3, '2020-05-27 22:28:38'),
+        (288, 288, 5, 'About Marsupials is the title so the book is about...marsupials, of course. It''s non-fiction. I really think everyone would like the book. I think someone who likes animals would especially like to read it.
+
+The glossary of facts in the back of About Mars', 3, '2020-04-14 20:22:15'),
+        (289, 289, 16, 'Dodie Smith''s novel I Capture the Castle is a journey through the mind of a young writer as she attempts to chronicle her daily life. Seventeen-year-old Cassandra Mortmain has recently learned to speed-write, and she decides to work on her writing skills ', 4, '2020-07-24 06:21:24'),
+        (290, 290, 17, 'Breen makes a great point that social media is here to stay and that getting some influence over our kids’ opinions about how to behave online should start early while they’re still listening to us more than they’re listening to their friends. Great advic', 2, '2020-09-27 00:14:54'),
+        (291, 291, 16, 'This was a really fast read– a memoir in bite-size segments . . . almost like diary entries. I liked it! I could relate to much of the writing angst and decisions about stepping away from the novel writing. Not sure I’d recommend it for non-writers though', 4, '2020-04-16 06:38:36'),
+        (292, 292, 16, 'One of the best, most clear set of reasons and reflections I’ve ever read about why Jews should be proud of Judaism. I’m a little bit obsessed with Rabbi Sacks. Everything he writes is brilliant.', 4, '2019-12-28 12:55:15'),
+        (293, 293, 19, 'One of the best, most clear set of reasons and reflections I’ve ever read about why Jews should be proud of Judaism. I’m a little bit obsessed with Rabbi Sacks. Everything he writes is brilliant.', 3, '2020-07-02 18:11:13'),
+        (294, 294, 18, 'The atmosphere of loneliness in this book and the general apathy of the main character, Anna, should have turned me off, but there was something that keep drawing me back to this book. (And it wasn’t just the sex.)  I recommend it, but I can’t exactly say', 5, '2020-06-13 09:41:17'),
+        (295, 295, 18, 'Excellent collection of essays. This is one I wish I had read, I think, but I really enjoyed the audio. I may read it, too, at some point in the future. I do that sometimes.', 3, '2020-06-27 10:07:40'),
+        (296, 296, 16, 'This was a really fast read– a memoir in bite-size segments . . . almost like diary entries. I liked it! I could relate to much of the writing angst and decisions about stepping away from the novel writing. Not sure I’d recommend it for non-writers though', 5, '2020-05-18 06:44:18'),
+        (297, 297, 17, 'Really liked the first 30 pages or so, but had to skim the rest.', 3, '2020-05-13 18:15:16'),
+        (298, 298, 16, 'I admire Organ’s ability to write about faith in such a relatable and vulnerable way, and it makes me wonder if I could do the same one day. Really good read.', 4, '2020-05-06 08:26:41'),
+        (299, 299, 15, 'Really liked the first 30 pages or so, but had to skim the rest.', 4, '2020-08-20 12:06:37'),
+        (300, 300, 2, 'I admire Organ’s ability to write about faith in such a relatable and vulnerable way, and it makes me wonder if I could do the same one day. Really good read.', 4, '2019-11-20 08:52:34'),
+        (301, 301, 15, 'Excellent collection of essays. This is one I wish I had read, I think, but I really enjoyed the audio. I may read it, too, at some point in the future. I do that sometimes.', 4, '2019-12-23 17:22:04'),
+        (302, 302, 15, 'Excellent collection of essays. This is one I wish I had read, I think, but I really enjoyed the audio. I may read it, too, at some point in the future. I do that sometimes.', 2, '2020-04-09 22:38:34'),
+        (303, 303, 17, 'Journey To Juno is the second book of the Galaxy Zack series. It is just as good as the first one. It''s awesome!
+
+Zack joins the Sprockets Academy Explorers Club at school. They fly on a special trip to Juno, a new planet no one has ever visited. Zack get', 4, '2019-11-22 02:29:14'),
+        (304, 304, 15, 'Really liked the first 30 pages or so, but had to skim the rest.', 5, '2020-02-19 04:15:02'),
+        (305, 305, 16, 'I appreciated Frankenstein''s Cat for its fascinating explanation about the often baffling subject of bioengineering and its sister sciences. Emily Anthes explains the many sides of today''s modern technology, such as gene modification, cloning, pharmaceuti', 2, '2020-03-02 21:59:22'),
+        (306, 306, 17, 'The atmosphere of loneliness in this book and the general apathy of the main character, Anna, should have turned me off, but there was something that keep drawing me back to this book. (And it wasn’t just the sex.)  I recommend it, but I can’t exactly say', 4, '2020-06-30 02:40:35'),
+        (307, 307, 18, 'Every day, people around the world use maps. Whether it is an airplane pilot or businessman, housewife or museum group, maps have always and will continue to provide useful information for all.
+
+Mapping the World talks about the uses of maps, as well as h', 3, '2020-07-24 12:27:41'),
+        (308, 308, 18, 'I liked this book. People who are interested in national disasters and US history as well as immigration will most probably be interested in reading this book.
+
+Readers can gain knowledge of what it was like to work in New York City in the early 1900s. On', 5, '2020-08-08 05:37:33'),
+        (309, 309, 5, 'This book was about a bird who didn''t yet know how to fly.
+
+The bird has to decide if it will try to fly, but it was not sure if it wants to. The bird thought, "If I never forever endeavor" then I won''t ever learn. On one wing, he worries he might fail an', 2, '2020-09-05 04:14:38'),
+        (310, 310, 15, 'Every day, people around the world use maps. Whether it is an airplane pilot or businessman, housewife or museum group, maps have always and will continue to provide useful information for all.
+
+Mapping the World talks about the uses of maps, as well as h', 3, '2020-05-22 01:19:00'),
+        (311, 311, 19, 'Journey To Juno is the second book of the Galaxy Zack series. It is just as good as the first one. It''s awesome!
+
+Zack joins the Sprockets Academy Explorers Club at school. They fly on a special trip to Juno, a new planet no one has ever visited. Zack get', 4, '2020-09-15 22:13:29'),
+        (312, 312, 16, 'I thought this was YA, but there’s so much sex . . . I wouldn’t recommend it for teens. Pearl does a good job dealing with the tough topic of rape and abuse. It was a book that I couldn’t put down. That said it could have been 80 pages shorter.', 5, '2020-09-29 12:49:10'),
+        (313, 313, 18, 'I admire Organ’s ability to write about faith in such a relatable and vulnerable way, and it makes me wonder if I could do the same one day. Really good read.', 5, '2019-11-15 19:15:19'),
+        (314, 314, 2, 'Excellent collection of essays. This is one I wish I had read, I think, but I really enjoyed the audio. I may read it, too, at some point in the future. I do that sometimes.', 2, '2020-09-27 21:36:03'),
+        (315, 315, 2, 'This book was about a bird who didn''t yet know how to fly.
+
+The bird has to decide if it will try to fly, but it was not sure if it wants to. The bird thought, "If I never forever endeavor" then I won''t ever learn. On one wing, he worries he might fail an', 4, '2020-07-08 12:03:34'),
+        (316, 316, 14, 'Dodie Smith''s novel I Capture the Castle is a journey through the mind of a young writer as she attempts to chronicle her daily life. Seventeen-year-old Cassandra Mortmain has recently learned to speed-write, and she decides to work on her writing skills ', 2, '2020-01-13 10:19:26'),
+        (317, 317, 5, 'I admire Organ’s ability to write about faith in such a relatable and vulnerable way, and it makes me wonder if I could do the same one day. Really good read.', 4, '2020-03-03 20:28:45'),
+        (318, 318, 17, 'I was fascinated by this memoir about a man who discovered the world outside of his very strict religious sect. What’s hard for me with memoirs like Deen’s is the all-or-nothing conclusion that seems to arise about Judaism. But knowing the way Deen was li', 5, '2020-04-13 04:00:32'),
+        (319, 319, 18, 'The atmosphere of loneliness in this book and the general apathy of the main character, Anna, should have turned me off, but there was something that keep drawing me back to this book. (And it wasn’t just the sex.)  I recommend it, but I can’t exactly say', 5, '2020-06-10 19:57:50'),
+        (320, 320, 19, 'I thought this was YA, but there’s so much sex . . . I wouldn’t recommend it for teens. Pearl does a good job dealing with the tough topic of rape and abuse. It was a book that I couldn’t put down. That said it could have been 80 pages shorter.', 3, '2020-07-06 16:00:01'),
+        (321, 321, 18, 'Dodie Smith''s novel I Capture the Castle is a journey through the mind of a young writer as she attempts to chronicle her daily life. Seventeen-year-old Cassandra Mortmain has recently learned to speed-write, and she decides to work on her writing skills ', 3, '2020-06-01 02:59:08'),
+        (322, 322, 19, 'This book was about a bird who didn''t yet know how to fly.
+
+The bird has to decide if it will try to fly, but it was not sure if it wants to. The bird thought, "If I never forever endeavor" then I won''t ever learn. On one wing, he worries he might fail an', 2, '2020-02-02 04:19:22'),
+        (323, 323, 17, 'This was a really fast read– a memoir in bite-size segments . . . almost like diary entries. I liked it! I could relate to much of the writing angst and decisions about stepping away from the novel writing. Not sure I’d recommend it for non-writers though', 3, '2020-08-23 22:48:32'),
+        (324, 324, 19, 'I admire Organ’s ability to write about faith in such a relatable and vulnerable way, and it makes me wonder if I could do the same one day. Really good read.', 3, '2020-08-06 16:58:35'),
+        (325, 325, 5, 'Journey To Juno is the second book of the Galaxy Zack series. It is just as good as the first one. It''s awesome!
+
+Zack joins the Sprockets Academy Explorers Club at school. They fly on a special trip to Juno, a new planet no one has ever visited. Zack get', 5, '2020-02-28 15:15:44'),
+        (326, 326, 2, 'I thought this was YA, but there’s so much sex . . . I wouldn’t recommend it for teens. Pearl does a good job dealing with the tough topic of rape and abuse. It was a book that I couldn’t put down. That said it could have been 80 pages shorter.', 2, '2020-07-14 13:15:14'),
+        (327, 327, 16, 'Really liked the first 30 pages or so, but had to skim the rest.', 2, '2020-07-31 08:11:27'),
+        (328, 328, 15, 'Excellent collection of essays. This is one I wish I had read, I think, but I really enjoyed the audio. I may read it, too, at some point in the future. I do that sometimes.', 2, '2020-05-01 17:51:38'),
+        (329, 329, 5, 'Every day, people around the world use maps. Whether it is an airplane pilot or businessman, housewife or museum group, maps have always and will continue to provide useful information for all.
+
+Mapping the World talks about the uses of maps, as well as h', 4, '2020-01-11 11:49:29'),
+        (330, 330, 14, 'I liked this book. People who are interested in national disasters and US history as well as immigration will most probably be interested in reading this book.
+
+Readers can gain knowledge of what it was like to work in New York City in the early 1900s. On', 2, '2020-08-21 10:57:54'),
+        (331, 331, 2, 'I thought this was YA, but there’s so much sex . . . I wouldn’t recommend it for teens. Pearl does a good job dealing with the tough topic of rape and abuse. It was a book that I couldn’t put down. That said it could have been 80 pages shorter.', 3, '2020-02-03 02:10:12'),
+        (332, 332, 5, 'Journey To Juno is the second book of the Galaxy Zack series. It is just as good as the first one. It''s awesome!
+
+Zack joins the Sprockets Academy Explorers Club at school. They fly on a special trip to Juno, a new planet no one has ever visited. Zack get', 4, '2020-06-25 21:16:17'),
+        (333, 333, 14, 'Every day, people around the world use maps. Whether it is an airplane pilot or businessman, housewife or museum group, maps have always and will continue to provide useful information for all.
+
+Mapping the World talks about the uses of maps, as well as h', 4, '2020-06-23 19:56:27'),
+        (334, 334, 16, 'Journey To Juno is the second book of the Galaxy Zack series. It is just as good as the first one. It''s awesome!
+
+Zack joins the Sprockets Academy Explorers Club at school. They fly on a special trip to Juno, a new planet no one has ever visited. Zack get', 3, '2020-02-05 12:37:02'),
+        (335, 335, 19, 'I thought this was YA, but there’s so much sex . . . I wouldn’t recommend it for teens. Pearl does a good job dealing with the tough topic of rape and abuse. It was a book that I couldn’t put down. That said it could have been 80 pages shorter.', 4, '2020-02-20 03:13:58'),
+        (336, 336, 14, 'The atmosphere of loneliness in this book and the general apathy of the main character, Anna, should have turned me off, but there was something that keep drawing me back to this book. (And it wasn’t just the sex.)  I recommend it, but I can’t exactly say', 2, '2020-02-07 12:52:37'),
+        (337, 337, 17, 'I was fascinated by this memoir about a man who discovered the world outside of his very strict religious sect. What’s hard for me with memoirs like Deen’s is the all-or-nothing conclusion that seems to arise about Judaism. But knowing the way Deen was li', 3, '2020-01-29 07:30:57'),
+        (338, 338, 16, 'Dodie Smith''s novel I Capture the Castle is a journey through the mind of a young writer as she attempts to chronicle her daily life. Seventeen-year-old Cassandra Mortmain has recently learned to speed-write, and she decides to work on her writing skills ', 4, '2019-11-11 11:23:07'),
+        (339, 339, 18, 'The atmosphere of loneliness in this book and the general apathy of the main character, Anna, should have turned me off, but there was something that keep drawing me back to this book. (And it wasn’t just the sex.)  I recommend it, but I can’t exactly say', 3, '2020-03-14 21:46:55'),
+        (340, 340, 17, 'This was a really fast read– a memoir in bite-size segments . . . almost like diary entries. I liked it! I could relate to much of the writing angst and decisions about stepping away from the novel writing. Not sure I’d recommend it for non-writers though', 5, '2020-04-02 23:03:28'),
+        (341, 341, 16, 'Dodie Smith''s novel I Capture the Castle is a journey through the mind of a young writer as she attempts to chronicle her daily life. Seventeen-year-old Cassandra Mortmain has recently learned to speed-write, and she decides to work on her writing skills ', 3, '2020-08-03 21:28:24'),
+        (342, 342, 15, 'Journey To Juno is the second book of the Galaxy Zack series. It is just as good as the first one. It''s awesome!
+
+Zack joins the Sprockets Academy Explorers Club at school. They fly on a special trip to Juno, a new planet no one has ever visited. Zack get', 4, '2020-08-24 06:46:05'),
+        (343, 343, 19, 'Excellent collection of essays. This is one I wish I had read, I think, but I really enjoyed the audio. I may read it, too, at some point in the future. I do that sometimes.', 3, '2020-06-03 19:59:29'),
+        (344, 344, 18, 'Breen makes a great point that social media is here to stay and that getting some influence over our kids’ opinions about how to behave online should start early while they’re still listening to us more than they’re listening to their friends. Great advic', 5, '2020-03-05 10:30:43'),
+        (345, 345, 5, 'I thought this was YA, but there’s so much sex . . . I wouldn’t recommend it for teens. Pearl does a good job dealing with the tough topic of rape and abuse. It was a book that I couldn’t put down. That said it could have been 80 pages shorter.', 3, '2020-02-09 12:28:11'),
+        (346, 346, 2, 'I admire Organ’s ability to write about faith in such a relatable and vulnerable way, and it makes me wonder if I could do the same one day. Really good read.', 2, '2020-01-11 08:46:55'),
+        (347, 347, 17, 'Really liked the first 30 pages or so, but had to skim the rest.', 5, '2020-08-26 06:12:52'),
+        (348, 348, 16, 'I thought this was YA, but there’s so much sex . . . I wouldn’t recommend it for teens. Pearl does a good job dealing with the tough topic of rape and abuse. It was a book that I couldn’t put down. That said it could have been 80 pages shorter.', 5, '2019-12-17 19:45:21'),
+        (349, 349, 5, 'The atmosphere of loneliness in this book and the general apathy of the main character, Anna, should have turned me off, but there was something that keep drawing me back to this book. (And it wasn’t just the sex.)  I recommend it, but I can’t exactly say', 2, '2020-01-23 10:03:56'),
+        (350, 350, 18, 'About Marsupials is the title so the book is about...marsupials, of course. It''s non-fiction. I really think everyone would like the book. I think someone who likes animals would especially like to read it.
+
+The glossary of facts in the back of About Mars', 2, '2020-09-05 09:39:12'),
+        (351, 351, 14, 'I admire Organ’s ability to write about faith in such a relatable and vulnerable way, and it makes me wonder if I could do the same one day. Really good read.', 5, '2020-04-17 15:15:02'),
+        (352, 352, 5, 'I thought this was YA, but there’s so much sex . . . I wouldn’t recommend it for teens. Pearl does a good job dealing with the tough topic of rape and abuse. It was a book that I couldn’t put down. That said it could have been 80 pages shorter.', 5, '2020-08-19 01:09:08'),
+        (353, 353, 15, 'The atmosphere of loneliness in this book and the general apathy of the main character, Anna, should have turned me off, but there was something that keep drawing me back to this book. (And it wasn’t just the sex.)  I recommend it, but I can’t exactly say', 4, '2020-01-28 03:11:24'),
+        (354, 354, 17, 'About Marsupials is the title so the book is about...marsupials, of course. It''s non-fiction. I really think everyone would like the book. I think someone who likes animals would especially like to read it.
+
+The glossary of facts in the back of About Mars', 5, '2020-06-26 18:21:47'),
+        (355, 355, 5, 'Dodie Smith''s novel I Capture the Castle is a journey through the mind of a young writer as she attempts to chronicle her daily life. Seventeen-year-old Cassandra Mortmain has recently learned to speed-write, and she decides to work on her writing skills ', 5, '2019-12-01 15:29:24'),
+        (356, 356, 2, 'I thought this was YA, but there’s so much sex . . . I wouldn’t recommend it for teens. Pearl does a good job dealing with the tough topic of rape and abuse. It was a book that I couldn’t put down. That said it could have been 80 pages shorter.', 2, '2020-09-08 04:57:27'),
+        (357, 357, 14, 'Breen makes a great point that social media is here to stay and that getting some influence over our kids’ opinions about how to behave online should start early while they’re still listening to us more than they’re listening to their friends. Great advic', 3, '2019-10-21 22:56:02'),
+        (358, 358, 15, 'Excellent collection of essays. This is one I wish I had read, I think, but I really enjoyed the audio. I may read it, too, at some point in the future. I do that sometimes.', 3, '2020-01-30 08:59:24'),
+        (359, 359, 2, 'Journey To Juno is the second book of the Galaxy Zack series. It is just as good as the first one. It''s awesome!
+
+Zack joins the Sprockets Academy Explorers Club at school. They fly on a special trip to Juno, a new planet no one has ever visited. Zack get', 5, '2020-09-24 22:30:06'),
+        (360, 360, 14, 'Breen makes a great point that social media is here to stay and that getting some influence over our kids’ opinions about how to behave online should start early while they’re still listening to us more than they’re listening to their friends. Great advic', 4, '2019-11-30 14:09:21'),
+        (361, 361, 19, 'One of the best, most clear set of reasons and reflections I’ve ever read about why Jews should be proud of Judaism. I’m a little bit obsessed with Rabbi Sacks. Everything he writes is brilliant.', 3, '2020-01-31 04:50:23'),
+        (362, 362, 15, 'This book was about a bird who didn''t yet know how to fly.
+
+The bird has to decide if it will try to fly, but it was not sure if it wants to. The bird thought, "If I never forever endeavor" then I won''t ever learn. On one wing, he worries he might fail an', 5, '2020-07-01 12:57:54'),
+        (363, 363, 17, 'I was fascinated by this memoir about a man who discovered the world outside of his very strict religious sect. What’s hard for me with memoirs like Deen’s is the all-or-nothing conclusion that seems to arise about Judaism. But knowing the way Deen was li', 5, '2020-02-09 01:39:23'),
+        (364, 364, 14, 'I thought this was YA, but there’s so much sex . . . I wouldn’t recommend it for teens. Pearl does a good job dealing with the tough topic of rape and abuse. It was a book that I couldn’t put down. That said it could have been 80 pages shorter.', 4, '2020-08-08 01:47:14'),
+        (365, 365, 16, 'This book was about a bird who didn''t yet know how to fly.
+
+The bird has to decide if it will try to fly, but it was not sure if it wants to. The bird thought, "If I never forever endeavor" then I won''t ever learn. On one wing, he worries he might fail an', 3, '2020-08-13 10:20:17'),
+        (366, 366, 15, 'I liked this book. People who are interested in national disasters and US history as well as immigration will most probably be interested in reading this book.
+
+Readers can gain knowledge of what it was like to work in New York City in the early 1900s. On', 2, '2019-11-06 22:31:43'),
+        (367, 367, 19, 'Dodie Smith''s novel I Capture the Castle is a journey through the mind of a young writer as she attempts to chronicle her daily life. Seventeen-year-old Cassandra Mortmain has recently learned to speed-write, and she decides to work on her writing skills ', 4, '2020-04-09 17:11:00'),
+        (368, 368, 18, 'I admire Organ’s ability to write about faith in such a relatable and vulnerable way, and it makes me wonder if I could do the same one day. Really good read.', 2, '2020-03-25 00:49:56'),
+        (369, 369, 15, 'Journey To Juno is the second book of the Galaxy Zack series. It is just as good as the first one. It''s awesome!
+
+Zack joins the Sprockets Academy Explorers Club at school. They fly on a special trip to Juno, a new planet no one has ever visited. Zack get', 2, '2020-08-13 04:20:05'),
+        (370, 370, 17, 'Journey To Juno is the second book of the Galaxy Zack series. It is just as good as the first one. It''s awesome!
+
+Zack joins the Sprockets Academy Explorers Club at school. They fly on a special trip to Juno, a new planet no one has ever visited. Zack get', 2, '2019-11-21 08:22:39'),
+        (371, 371, 14, 'Journey To Juno is the second book of the Galaxy Zack series. It is just as good as the first one. It''s awesome!
+
+Zack joins the Sprockets Academy Explorers Club at school. They fly on a special trip to Juno, a new planet no one has ever visited. Zack get', 5, '2020-07-10 10:34:44'),
+        (372, 372, 18, 'One of the best, most clear set of reasons and reflections I’ve ever read about why Jews should be proud of Judaism. I’m a little bit obsessed with Rabbi Sacks. Everything he writes is brilliant.', 2, '2020-07-22 08:06:31'),
+        (373, 373, 19, 'I thought this was YA, but there’s so much sex . . . I wouldn’t recommend it for teens. Pearl does a good job dealing with the tough topic of rape and abuse. It was a book that I couldn’t put down. That said it could have been 80 pages shorter.', 2, '2019-11-11 04:01:47'),
+        (374, 374, 15, 'Excellent collection of essays. This is one I wish I had read, I think, but I really enjoyed the audio. I may read it, too, at some point in the future. I do that sometimes.', 3, '2020-04-15 05:32:33'),
+        (375, 375, 5, 'This book was about a bird who didn''t yet know how to fly.
+
+The bird has to decide if it will try to fly, but it was not sure if it wants to. The bird thought, "If I never forever endeavor" then I won''t ever learn. On one wing, he worries he might fail an', 5, '2020-02-21 04:22:32'),
+        (376, 376, 16, 'This book was about a bird who didn''t yet know how to fly.
+
+The bird has to decide if it will try to fly, but it was not sure if it wants to. The bird thought, "If I never forever endeavor" then I won''t ever learn. On one wing, he worries he might fail an', 3, '2019-12-25 05:49:15'),
+        (377, 377, 16, 'I appreciated Frankenstein''s Cat for its fascinating explanation about the often baffling subject of bioengineering and its sister sciences. Emily Anthes explains the many sides of today''s modern technology, such as gene modification, cloning, pharmaceuti', 5, '2020-10-01 00:54:07'),
+        (378, 378, 16, 'I was fascinated by this memoir about a man who discovered the world outside of his very strict religious sect. What’s hard for me with memoirs like Deen’s is the all-or-nothing conclusion that seems to arise about Judaism. But knowing the way Deen was li', 4, '2020-01-11 11:35:09'),
+        (379, 379, 16, 'I thought this was YA, but there’s so much sex . . . I wouldn’t recommend it for teens. Pearl does a good job dealing with the tough topic of rape and abuse. It was a book that I couldn’t put down. That said it could have been 80 pages shorter.', 5, '2020-03-19 21:03:04'),
+        (380, 380, 14, 'I liked this book. People who are interested in national disasters and US history as well as immigration will most probably be interested in reading this book.
+
+Readers can gain knowledge of what it was like to work in New York City in the early 1900s. On', 5, '2019-12-24 12:57:53'),
+        (381, 381, 17, 'Excellent collection of essays. This is one I wish I had read, I think, but I really enjoyed the audio. I may read it, too, at some point in the future. I do that sometimes.', 2, '2020-02-07 04:55:36'),
+        (382, 382, 19, 'The atmosphere of loneliness in this book and the general apathy of the main character, Anna, should have turned me off, but there was something that keep drawing me back to this book. (And it wasn’t just the sex.)  I recommend it, but I can’t exactly say', 4, '2019-10-19 18:09:32'),
+        (383, 383, 5, 'One of the best, most clear set of reasons and reflections I’ve ever read about why Jews should be proud of Judaism. I’m a little bit obsessed with Rabbi Sacks. Everything he writes is brilliant.', 2, '2020-06-03 21:37:39'),
+        (384, 384, 15, 'I was fascinated by this memoir about a man who discovered the world outside of his very strict religious sect. What’s hard for me with memoirs like Deen’s is the all-or-nothing conclusion that seems to arise about Judaism. But knowing the way Deen was li', 4, '2020-02-24 04:12:42'),
+        (385, 385, 2, 'Excellent collection of essays. This is one I wish I had read, I think, but I really enjoyed the audio. I may read it, too, at some point in the future. I do that sometimes.', 4, '2019-10-21 06:33:57'),
+        (386, 386, 18, 'One of the best, most clear set of reasons and reflections I’ve ever read about why Jews should be proud of Judaism. I’m a little bit obsessed with Rabbi Sacks. Everything he writes is brilliant.', 5, '2020-07-06 05:10:58'),
+        (387, 387, 19, 'This book was about a bird who didn''t yet know how to fly.
+
+The bird has to decide if it will try to fly, but it was not sure if it wants to. The bird thought, "If I never forever endeavor" then I won''t ever learn. On one wing, he worries he might fail an', 5, '2020-03-19 03:23:48'),
+        (388, 388, 14, 'Really liked the first 30 pages or so, but had to skim the rest.', 4, '2020-02-29 07:03:58'),
+        (389, 389, 15, 'Dodie Smith''s novel I Capture the Castle is a journey through the mind of a young writer as she attempts to chronicle her daily life. Seventeen-year-old Cassandra Mortmain has recently learned to speed-write, and she decides to work on her writing skills ', 4, '2020-02-12 02:57:37'),
+        (390, 390, 16, 'I was fascinated by this memoir about a man who discovered the world outside of his very strict religious sect. What’s hard for me with memoirs like Deen’s is the all-or-nothing conclusion that seems to arise about Judaism. But knowing the way Deen was li', 2, '2019-11-05 22:05:55'),
+        (391, 391, 16, 'The atmosphere of loneliness in this book and the general apathy of the main character, Anna, should have turned me off, but there was something that keep drawing me back to this book. (And it wasn’t just the sex.)  I recommend it, but I can’t exactly say', 5, '2019-10-29 17:50:58'),
+        (392, 392, 16, 'I admire Organ’s ability to write about faith in such a relatable and vulnerable way, and it makes me wonder if I could do the same one day. Really good read.', 5, '2020-06-26 09:58:09'),
+        (393, 393, 18, 'This book was about a bird who didn''t yet know how to fly.
+
+The bird has to decide if it will try to fly, but it was not sure if it wants to. The bird thought, "If I never forever endeavor" then I won''t ever learn. On one wing, he worries he might fail an', 4, '2020-01-26 14:57:57'),
+        (394, 394, 17, 'Every day, people around the world use maps. Whether it is an airplane pilot or businessman, housewife or museum group, maps have always and will continue to provide useful information for all.
+
+Mapping the World talks about the uses of maps, as well as h', 4, '2020-06-04 13:04:51'),
+        (395, 395, 2, 'Really liked the first 30 pages or so, but had to skim the rest.', 4, '2020-09-04 09:40:02'),
+        (396, 396, 2, 'About Marsupials is the title so the book is about...marsupials, of course. It''s non-fiction. I really think everyone would like the book. I think someone who likes animals would especially like to read it.
+
+The glossary of facts in the back of About Mars', 2, '2020-08-26 14:34:32'),
+        (397, 397, 17, 'I appreciated Frankenstein''s Cat for its fascinating explanation about the often baffling subject of bioengineering and its sister sciences. Emily Anthes explains the many sides of today''s modern technology, such as gene modification, cloning, pharmaceuti', 3, '2020-01-15 14:31:58'),
+        (398, 398, 17, 'The atmosphere of loneliness in this book and the general apathy of the main character, Anna, should have turned me off, but there was something that keep drawing me back to this book. (And it wasn’t just the sex.)  I recommend it, but I can’t exactly say', 3, '2020-08-22 16:32:34'),
+        (399, 399, 16, 'Every day, people around the world use maps. Whether it is an airplane pilot or businessman, housewife or museum group, maps have always and will continue to provide useful information for all.
+
+Mapping the World talks about the uses of maps, as well as h', 3, '2020-09-09 07:16:40'),
+        (400, 400, 5, 'Every day, people around the world use maps. Whether it is an airplane pilot or businessman, housewife or museum group, maps have always and will continue to provide useful information for all.
+
+Mapping the World talks about the uses of maps, as well as h', 2, '2020-07-03 17:08:30'),
+        (401, 401, 16, 'The atmosphere of loneliness in this book and the general apathy of the main character, Anna, should have turned me off, but there was something that keep drawing me back to this book. (And it wasn’t just the sex.)  I recommend it, but I can’t exactly say', 3, '2019-12-12 07:31:52'),
+        (402, 402, 18, 'One of the best, most clear set of reasons and reflections I’ve ever read about why Jews should be proud of Judaism. I’m a little bit obsessed with Rabbi Sacks. Everything he writes is brilliant.', 5, '2019-12-22 05:37:55'),
+        (403, 403, 5, 'Excellent collection of essays. This is one I wish I had read, I think, but I really enjoyed the audio. I may read it, too, at some point in the future. I do that sometimes.', 4, '2020-03-09 05:48:21'),
+        (404, 404, 18, 'Dodie Smith''s novel I Capture the Castle is a journey through the mind of a young writer as she attempts to chronicle her daily life. Seventeen-year-old Cassandra Mortmain has recently learned to speed-write, and she decides to work on her writing skills ', 4, '2020-07-12 04:17:57'),
+        (405, 405, 17, 'Journey To Juno is the second book of the Galaxy Zack series. It is just as good as the first one. It''s awesome!
+
+Zack joins the Sprockets Academy Explorers Club at school. They fly on a special trip to Juno, a new planet no one has ever visited. Zack get', 2, '2019-12-15 14:43:52'),
+        (406, 406, 17, 'This was a really fast read– a memoir in bite-size segments . . . almost like diary entries. I liked it! I could relate to much of the writing angst and decisions about stepping away from the novel writing. Not sure I’d recommend it for non-writers though', 2, '2020-09-19 13:38:01'),
+        (407, 407, 15, 'I appreciated Frankenstein''s Cat for its fascinating explanation about the often baffling subject of bioengineering and its sister sciences. Emily Anthes explains the many sides of today''s modern technology, such as gene modification, cloning, pharmaceuti', 5, '2020-06-02 19:38:34'),
+        (408, 408, 16, 'One of the best, most clear set of reasons and reflections I’ve ever read about why Jews should be proud of Judaism. I’m a little bit obsessed with Rabbi Sacks. Everything he writes is brilliant.', 3, '2020-01-03 14:22:38'),
+        (409, 409, 5, 'I was fascinated by this memoir about a man who discovered the world outside of his very strict religious sect. What’s hard for me with memoirs like Deen’s is the all-or-nothing conclusion that seems to arise about Judaism. But knowing the way Deen was li', 4, '2020-09-28 23:27:33'),
+        (410, 410, 17, 'This was a really fast read– a memoir in bite-size segments . . . almost like diary entries. I liked it! I could relate to much of the writing angst and decisions about stepping away from the novel writing. Not sure I’d recommend it for non-writers though', 4, '2020-08-25 00:31:20'),
+        (411, 411, 17, 'Really liked the first 30 pages or so, but had to skim the rest.', 2, '2020-04-01 10:19:43'),
+        (412, 412, 15, 'I liked this book. People who are interested in national disasters and US history as well as immigration will most probably be interested in reading this book.
+
+Readers can gain knowledge of what it was like to work in New York City in the early 1900s. On', 2, '2020-09-09 04:06:51'),
+        (413, 413, 19, 'The atmosphere of loneliness in this book and the general apathy of the main character, Anna, should have turned me off, but there was something that keep drawing me back to this book. (And it wasn’t just the sex.)  I recommend it, but I can’t exactly say', 2, '2019-12-17 06:45:10'),
+        (414, 414, 5, 'Journey To Juno is the second book of the Galaxy Zack series. It is just as good as the first one. It''s awesome!
+
+Zack joins the Sprockets Academy Explorers Club at school. They fly on a special trip to Juno, a new planet no one has ever visited. Zack get', 4, '2019-11-16 03:08:41'),
+        (415, 415, 15, 'I thought this was YA, but there’s so much sex . . . I wouldn’t recommend it for teens. Pearl does a good job dealing with the tough topic of rape and abuse. It was a book that I couldn’t put down. That said it could have been 80 pages shorter.', 5, '2020-04-08 15:54:17'),
+        (416, 416, 19, 'I thought this was YA, but there’s so much sex . . . I wouldn’t recommend it for teens. Pearl does a good job dealing with the tough topic of rape and abuse. It was a book that I couldn’t put down. That said it could have been 80 pages shorter.', 5, '2020-01-10 20:28:34'),
+        (417, 417, 2, 'This was a really fast read– a memoir in bite-size segments . . . almost like diary entries. I liked it! I could relate to much of the writing angst and decisions about stepping away from the novel writing. Not sure I’d recommend it for non-writers though', 5, '2020-02-23 13:57:48'),
+        (418, 418, 14, 'Every day, people around the world use maps. Whether it is an airplane pilot or businessman, housewife or museum group, maps have always and will continue to provide useful information for all.
+
+Mapping the World talks about the uses of maps, as well as h', 2, '2020-06-23 20:43:27'),
+        (419, 419, 18, 'Journey To Juno is the second book of the Galaxy Zack series. It is just as good as the first one. It''s awesome!
+
+Zack joins the Sprockets Academy Explorers Club at school. They fly on a special trip to Juno, a new planet no one has ever visited. Zack get', 5, '2020-08-03 01:03:54'),
+        (420, 420, 15, 'About Marsupials is the title so the book is about...marsupials, of course. It''s non-fiction. I really think everyone would like the book. I think someone who likes animals would especially like to read it.
+
+The glossary of facts in the back of About Mars', 3, '2020-02-13 04:37:27'),
+        (421, 421, 16, 'The atmosphere of loneliness in this book and the general apathy of the main character, Anna, should have turned me off, but there was something that keep drawing me back to this book. (And it wasn’t just the sex.)  I recommend it, but I can’t exactly say', 3, '2019-10-28 13:59:08'),
+        (422, 422, 15, 'Dodie Smith''s novel I Capture the Castle is a journey through the mind of a young writer as she attempts to chronicle her daily life. Seventeen-year-old Cassandra Mortmain has recently learned to speed-write, and she decides to work on her writing skills ', 4, '2020-06-03 22:45:09'),
+        (423, 423, 2, 'Really liked the first 30 pages or so, but had to skim the rest.', 3, '2020-07-07 09:35:55'),
+        (424, 424, 15, 'Dodie Smith''s novel I Capture the Castle is a journey through the mind of a young writer as she attempts to chronicle her daily life. Seventeen-year-old Cassandra Mortmain has recently learned to speed-write, and she decides to work on her writing skills ', 2, '2020-08-14 04:25:54'),
+        (425, 425, 5, 'Dodie Smith''s novel I Capture the Castle is a journey through the mind of a young writer as she attempts to chronicle her daily life. Seventeen-year-old Cassandra Mortmain has recently learned to speed-write, and she decides to work on her writing skills ', 4, '2020-05-30 23:12:54'),
+        (426, 426, 18, 'About Marsupials is the title so the book is about...marsupials, of course. It''s non-fiction. I really think everyone would like the book. I think someone who likes animals would especially like to read it.
+
+The glossary of facts in the back of About Mars', 4, '2019-12-11 14:18:41'),
+        (427, 427, 2, 'Dodie Smith''s novel I Capture the Castle is a journey through the mind of a young writer as she attempts to chronicle her daily life. Seventeen-year-old Cassandra Mortmain has recently learned to speed-write, and she decides to work on her writing skills ', 3, '2020-08-08 23:34:13'),
+        (428, 428, 14, 'This book was about a bird who didn''t yet know how to fly.
+
+The bird has to decide if it will try to fly, but it was not sure if it wants to. The bird thought, "If I never forever endeavor" then I won''t ever learn. On one wing, he worries he might fail an', 2, '2020-08-02 21:45:54'),
+        (429, 429, 17, 'Dodie Smith''s novel I Capture the Castle is a journey through the mind of a young writer as she attempts to chronicle her daily life. Seventeen-year-old Cassandra Mortmain has recently learned to speed-write, and she decides to work on her writing skills ', 4, '2020-07-05 09:34:49'),
+        (430, 430, 5, 'Every day, people around the world use maps. Whether it is an airplane pilot or businessman, housewife or museum group, maps have always and will continue to provide useful information for all.
+
+Mapping the World talks about the uses of maps, as well as h', 3, '2020-07-18 11:23:56'),
+        (431, 431, 18, 'Breen makes a great point that social media is here to stay and that getting some influence over our kids’ opinions about how to behave online should start early while they’re still listening to us more than they’re listening to their friends. Great advic', 4, '2019-12-20 03:44:30'),
+        (432, 432, 19, 'I admire Organ’s ability to write about faith in such a relatable and vulnerable way, and it makes me wonder if I could do the same one day. Really good read.', 2, '2020-06-12 05:13:20');
 
 INSERT INTO `order`(UserID, OrderDate, TotalPrice, Status, ShippingAddress, RecipientName, RecipientPhone)
 VALUES (5, '2020-12-15 14:22:20', 155, 'Delivered', 'Quang Nam', 'Vu Nguyen', '113'),

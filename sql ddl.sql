@@ -78,7 +78,7 @@ CREATE TABLE Review
     ReviewID   INT AUTO_INCREMENT,
     BookID     INT,
     UserID     INT,
-    Comment    VARCHAR(255),
+    Comment    TEXT,
     Rating     INT      NOT NULL,
     ReviewDate DATETIME NOT NULL,
     PRIMARY KEY (ReviewID),
