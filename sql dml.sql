@@ -19,7 +19,8 @@ VALUES ('thaitangluc2412@gmail.com', '1234', 'Thai Luc', 'Quang Tri', '068734968
        ('customer3@gmail.com', '1234', 'Customer 3', 'Viet Nam', '115', '037486164967', 'Customer'),
        ('customer4@gmail.com', '1234', 'Customer 4', 'Viet Nam', '115', '037486164967', 'Customer'),
        ('customer5@gmail.com', '1234', 'Customer 5', 'Viet Nam', '115', '037486164967', 'Customer'),
-       ('customer6@gmail.com', '1234', 'Customer 6', 'Viet Nam', '115', '037486164967', 'Customer');
+       ('customer6@gmail.com', '1234', 'Customer 6', 'Viet Nam', '115', '037486164967', 'Customer'),
+       ('shipper1@gmail.com', '1234', 'Shipper 1', 'Viet Nam', '116', '037486164967', 'Shipper');
 
 
 INSERT INTO Category (CategoryID, Name)

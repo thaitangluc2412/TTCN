@@ -14,13 +14,13 @@ CREATE TABLE Category
 CREATE TABLE User
 (
     UserID        INT AUTO_INCREMENT,
-    Email         VARCHAR(255)                         NOT NULL UNIQUE,
-    UserPassword  VARCHAR(255)                         NOT NULL,
-    Name          VARCHAR(255)                         NOT NULL,
-    Address       VARCHAR(255)                         NOT NULL,
-    PhoneNumber   VARCHAR(255)                         NOT NULL,
-    AccountNumber VARCHAR(255)                         NOT NULL,
-    Role          ENUM ('Admin', 'Customer', 'Author') NOT NULL,
+    Email         VARCHAR(255)                                    NOT NULL UNIQUE,
+    UserPassword  VARCHAR(255)                                    NOT NULL,
+    Name          VARCHAR(255)                                    NOT NULL,
+    Address       VARCHAR(255)                                    NOT NULL,
+    PhoneNumber   VARCHAR(255)                                    NOT NULL,
+    AccountNumber VARCHAR(255)                                    NOT NULL,
+    Role          ENUM ('Admin', 'Customer', 'Author', 'Shipper') NOT NULL,
     CONSTRAINT PRIMARY KEY (UserID)
 );
 
@@ -65,9 +65,10 @@ CREATE TABLE `Order`
 
 CREATE TABLE OrderDetail
 (
-    OrderID  INT,
-    BookID   INT,
-    Quantity INT NOT NULL,
+    OrderID      INT,
+    BookID       INT,
+    Quantity     INT     NOT NULL,
+    ReviewStatus BOOLEAN NOT NULL DEFAULT FALSE,
     PRIMARY KEY (orderID, BookID),
     CONSTRAINT fk_OrderDetail_Order FOREIGN KEY (OrderID) REFERENCES `Order` (OrderID),
     CONSTRAINT fk_OrderDetail_Book FOREIGN KEY (BookID) REFERENCES `Book` (BookID)
