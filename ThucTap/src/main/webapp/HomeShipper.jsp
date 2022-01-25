@@ -356,26 +356,18 @@ table.table .avatar {
 										</c:choose>
 										<c:choose>
 											<c:when test="${status=='Delivered'}">
-												<option value="Delivered" selected>Delivered</option>
+												<option value="Delivered" selected>Shipped</option>
 											</c:when>
 											<c:otherwise>
-												<option value="Delivered">Delivered</option>
+												<option value="Delivered">Shipped</option>
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
 											<c:when test="${status=='Shipping'}">
-												<option value="Shipping" selected>Shipping</option>
+												<option value="Shipping" selected>Not Shipped</option>
 											</c:when>
 											<c:otherwise>
-												<option value="Shipping">Shipping</option>
-											</c:otherwise>
-										</c:choose>
-										<c:choose>
-											<c:when test="${status=='Processing'}">
-												<option value="Processing" selected>Processing</option>
-											</c:when>
-											<c:otherwise>
-												<option value="Processing">Processing</option>
+												<option value="Shipping">Not Shipped</option>
 											</c:otherwise>
 										</c:choose>
 									</select>
@@ -455,18 +447,18 @@ table.table .avatar {
 					<ul class="pagination">
 						<c:if test="${currentPage != 1}">
 							<li class="page-item"><a class="page-link"
-								href="Admin?Management=Order&page=1&searchName=${searchName}&status=${status}">
+								href="HomeShipper?&page=1&searchName=${searchName}&status=${status}">
 									First </a></li>
 						</c:if>
 						<c:forEach var="page" begin="${maxLeft}" end="${maxRight}">
 							<li class="page-item ${page == currentPage ? "active" : "" } "><a
 								class="page-link"
-								href="Admin?Management=Order&page=${page}&searchName=${searchName}&status=${status}">
+								href="HomeShipper?&page=${page}&searchName=${searchName}&status=${status}">
 									${page} </a></li>
 						</c:forEach>
 						<c:if test="${currentPage != totalPages}">
 							<li class="page-item"><a class="page-link"
-								href="Admin?Management=Order&page=${totalPages}&searchName=${searchName}&status=${status}">
+								href="HomeShipper?&page=${totalPages}&searchName=${searchName}&status=${status}">
 									Last </a></li>
 						</c:if>
 					</ul>
