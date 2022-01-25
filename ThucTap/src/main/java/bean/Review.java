@@ -7,8 +7,10 @@ import java.time.LocalDateTime;
 @Table(name = "Review")
 public class Review {
 
+	
     @Id
     @Column(name = "ReviewID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer reviewId;
 
     @ManyToOne(fetch = FetchType.LAZY)

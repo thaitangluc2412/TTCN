@@ -34,10 +34,13 @@ public class MyOrderDetail extends HttpServlet {
 		OrderServiceImpl orderService = new OrderServiceImpl();
 		
 		int orderId = Integer.parseInt(request.getParameter("orderId"));
+		String orderStatus = request.getParameter("orderStatus");
 		
 		Order order = orderService.getOrderByOrderId(orderId);
 		
 		request.setAttribute("order", order);
+		request.setAttribute("orderId", orderId);
+		request.setAttribute("orderStatus", orderStatus);
 		request.setAttribute("listOrderDetail", order.getOrderDetails());
 		request.getRequestDispatcher("CustomerOrderDetail.jsp").forward(request, response);
 	}

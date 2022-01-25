@@ -1,11 +1,24 @@
 package controller;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import bean.Book;
+import bean.OrderDetail;
+import bean.OrderDetail.Id;
+import bean.OrderDetail.ReviewStatus;
+import bean.Review;
+import bean.User;
+import service.BookServiceImpl;
+import service.OrderDetailServiceImpl;
+import service.ReviewServiceImpl;
 
 /**
  * Servlet implementation class ReviewProduct
@@ -27,10 +40,39 @@ public class ReviewProduct extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		String id = request.getParameter("productId");
-		String rating = request.getParameter("rating");
-		System.out.println(id + "co rating" + rating);
+		BookServiceImpl bookService = new BookServiceImpl();
+		OrderDetailServiceImpl orderDetailService = new OrderDetailServiceImpl();
+		ReviewServiceImpl reviewService = new ReviewServiceImpl();
+		
+		int productId = Integer.parseInt(request.getParameter("productId"));
+		int rating = Integer.parseInt(request.getParameter("rating"));
+	    int orderId = Integer.parseInt(request.getParameter("orderId"));
+//	    int orderDetailId = Integer.parseInt(request.getParameter("orderDetailId"));
+	    String orderStatus = request.getParameter("orderStatus");
+	    String reviewText = request.getParameter("reviewText");
+	    
+	    HttpSession session = request.getSession();
+	    User user = (User) session.getAttribute("user");
+	    
+        Book book = bookService.getById(productId);
+        
+        Review review = new Review();
+        review.setBook(book);
+        review.setUser(user);
+        review.setComment(reviewText);
+        review.setRating(Double.valueOf(rating));
+        review.setReviewDate(LocalDateTime.now());
+        
+        reviewService.save(review);
+        
+        bookService.updateBookRating(book, rating);
+        
+        OrderDetail orderDetail = orderDetailService.getById(new Id(orderId, book.getBookId()));
+        orderDetailService.updateStatus(orderDetail, ReviewStatus.Reviewed);
+        
+        request.setAttribute("orderStatus", orderStatus);
+        request.setAttribute("orderId", orderId);
+        request.getRequestDispatcher("MyOrderDetail").forward(request, response);
 	}
 
 	/**

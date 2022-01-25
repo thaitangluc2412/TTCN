@@ -384,7 +384,7 @@ th {
 									<td><span class="status text-success">&bull;</span>
 										Delivered</td>
 								</c:if>
-								<td><a href="MyOrderDetail?orderId=${order.orderId}"
+								<td><a href="MyOrderDetail?orderId=${order.orderId}&orderStatus=${order.status}"
 									class="view" title="View Details" data-toggle="tooltip"><i
 										class="fa fa-info-circle"></i></a></td>
 							</tr>

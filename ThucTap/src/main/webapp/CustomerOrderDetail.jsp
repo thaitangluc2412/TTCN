@@ -391,7 +391,9 @@ th {
 								<th>Price</th>
 								<th>Quantity</th>
 								<th>Total</th>
-								<th>Review</th>
+								<c:if test="${orderStatus == 'Delivered'}">
+									<th>Review</th>
+								</c:if>
 							</tr>
 						</thead>
 						<tbody>
@@ -404,15 +406,28 @@ th {
 									<td>$${orderDetail.book.price}</td>
 									<td>${orderDetail.quantity}</td>
 									<td>$${orderDetail.quantity*orderDetail.book.price}</td>
-									<td><a href="#" class="view ratingProduct"
-										onclick="writeRating(this)" data-target="#productModal"
-										title="Quick view" data-toggle="modal"
-										data-id="${orderDetail.book.bookId}"
-										data-description="${orderDetail.book.description}"
-										data-image="${orderDetail.book.image}"
-										data-title="${orderDetail.book.title}"
-										data-price="${orderDetail.book.price}"><i
-											class="fa fa-comments"></i></a></td>
+									<c:choose>
+										<c:when
+											test="${orderStatus == 'Delivered' && orderDetail.reviewStatus == 'NotReview'}">
+											<td><a href="#" class="view ratingProduct"
+												onclick="writeRating(this)" data-target="#productModal"
+												title="Quick view" data-toggle="modal"
+												data-id="${orderDetail.book.bookId}"
+												data-order-id="${orderDetail.id}"
+												data-description="${orderDetail.book.description}"
+												data-image="${orderDetail.book.image}"
+												data-title="${orderDetail.book.title}"
+												data-price="${orderDetail.book.price}"><i
+													class="fa fa-comments"></i></a></td>
+										</c:when>
+										<c:when
+											test="${orderStatus == 'Delivered' && orderDetail.reviewStatus != 'NotReview'}">
+											<td><a href="#" style="font-size:25px"><i
+													class="fa fa-check-circle"></i></a></td>
+										</c:when>
+										<c:otherwise>
+										</c:otherwise>
+									</c:choose>
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -454,25 +469,29 @@ th {
 				<div class="modal-body">
 					<div class="modal-product">
 						<div class="product-images" style="height: 400px">
-							<div class="main-image images" style="height:100%">
-								<img id="imageProduct" alt="" src="img/quick-view.jpg" style="height:100%; width:100%">
+							<div class="main-image images" style="height: 100%">
+								<img id="imageProduct" alt="" src="img/quick-view.jpg"
+									style="height: 100%; width: 100%">
 							</div>
 						</div>
 						<div class="product-info">
-							<h1 class="product-detail-title" id="titleProduct">Frame Princes Cut Diamond</h1>
+							<h1 class="product-detail-title" id="titleProduct">Frame
+								Princes Cut Diamond</h1>
 							<div class="price-box">
 								<p class="s-price">
-									<span class="special-price"><span class="amount" id="priceProduct">$280.00</span></span>
+									<span class="special-price"><span class="amount"
+										id="priceProduct">$280.00</span></span>
 								</p>
 							</div>
-							<div class="quick-desc" id="descriptionProduct">Lorem ipsum dolor sit amet,
-								consectetur adipiscing elit. Nam fringilla augue nec est
-								tristique auctor. Donec non est at libero vulputate rutrum.
-								Morbi ornare lectus quis justo gravida semper. Nulla tellus mi,
-								vulputate adipiscing cursus eu, suscipit id nulla.</div>
-							<form action="ReviewProduct" method="POST" id="form">
+							<div class="quick-desc" id="descriptionProduct">Lorem ipsum
+								dolor sit amet, consectetur adipiscing elit. Nam fringilla augue
+								nec est tristique auctor. Donec non est at libero vulputate
+								rutrum. Morbi ornare lectus quis justo gravida semper. Nulla
+								tellus mi, vulputate adipiscing cursus eu, suscipit id nulla.</div>
+							<form action="ReviewProduct?orderId=${orderId}&orderStatus=${orderStatus}" method="POST" id="form">
 								<input type="hidden" value="1" name="productId" id="productId">
 								<input type="hidden" name="rating" id="rating">
+								<input type="hidden" name="orderDetailId" value="" id="orderDetailId">
 								<div class="quick-add-to-cart" , style="text-align: center">
 									<span onmouseover="starmark(this)" onclick="starmark(this)"
 										id="1one" style="font-size: 40px; cursor: pointer;"
@@ -509,10 +528,12 @@ th {
 		function writeRating(item) {
 			document.getElementById("imageProduct").src = item.dataset.image;
 			document.getElementById("titleProduct").innerHTML = item.dataset.title;
-			document.getElementById("priceProduct").innerHTML = item.dataset.price + "$";
+			document.getElementById("priceProduct").innerHTML = item.dataset.price
+					+ "$";
 			document.getElementById("descriptionProduct").innerHTML = item.dataset.description;
 			document.getElementById("productId").value = item.dataset.id;
-        
+			document.getElementById("orderDetailId").value = item.dataset.orderId;
+
 		}
 
 		var count;

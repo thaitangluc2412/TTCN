@@ -57,11 +57,7 @@ public class HibernateProvider {
         props.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
         props.put(Environment.URL, "jdbc:mysql://localhost:3306/bookstore");
         props.put(Environment.USER, "root");
-<<<<<<< HEAD
-        props.put(Environment.PASS, "anhvu_pro123");
-=======
         props.put(Environment.PASS, "nguyenmanhviet");
->>>>>>> 8d34b89 (viet)
         props.put(Environment.POOL_SIZE, 1000);
         props.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");
         props.put(Environment.SHOW_SQL, "true");
