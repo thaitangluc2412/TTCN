@@ -143,8 +143,8 @@
 									class="addToCart" style="font-family: sans-serif"> Add
 										to cart</span></i>
 							</button>
-							<a href=""><button class="btn btn-success">
-									<i class="fa fa-shopping-bag "><span class=""
+							<a href="Checkout.jsp"><button class="btn btn-success addToCart">
+									<i class="fa fa-shopping-bag addToCart"><span class="addToCart"
 										style="font-family: sans-serif"> Buy now</span></i>
 								</button></a>
 						</div>
@@ -248,8 +248,8 @@
 										class="addToCart" style="font-family: sans-serif"> Add
 											to cart</span></i>
 								</button>
-								<a href=""><button class="btn btn-success">
-										<i class="fa fa-shopping-bag "><span class=""
+								<a href="Checkout.jsp"><button class="btn btn-success addToCart">
+										<i class="fa fa-shopping-bag addToCart"><span class="addToCart"
 											style="font-family: sans-serif"> Buy now</span></i>
 									</button></a>
 							</div>
