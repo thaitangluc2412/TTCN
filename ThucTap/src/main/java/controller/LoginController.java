@@ -1,6 +1,7 @@
 package controller;
 
 import bean.User;
+import bean.User.Role;
 import service.UserServiceImpl;
 
 import javax.servlet.ServletException;
@@ -51,7 +52,13 @@ public class LoginController extends HttpServlet {
         if (user == null) {
         	request.setAttribute("err", "err");            
         	request.getRequestDispatcher("Login.jsp").forward(request, response);
-        } else {
+        } 
+        else if(user.getRole() == Role.Shipper) {
+        	HttpSession session = request.getSession();
+        	session.setAttribute("user", user);
+            request.getRequestDispatcher("HomeShipper").forward(request, response);
+        }
+        else {
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
             request.getRequestDispatcher("Home").forward(request, response);

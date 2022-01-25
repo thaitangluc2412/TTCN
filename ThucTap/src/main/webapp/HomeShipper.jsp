@@ -320,14 +320,6 @@ table.table .avatar {
 </script>
 </head>
 <body>
-	<!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-
-	<!-- Add your site or application content here -->
-	<!--Header Area Start-->
-	<jsp:include page="Header.jsp"></jsp:include>
-	<!--Header Area End-->
 	<div class="table-title">
 		<div class="row">
 			<div class="col-sm-4">
@@ -343,7 +335,7 @@ table.table .avatar {
 				<div class="table-filter">
 					<div class="row">
 						<div class="col-sm-9">
-							<form action="Admin?Management=Order" method="POST">
+							<form action="HomeShipper" method="POST">
 								<button type="submit" class="btn btn-primary">
 									<i class="fa fa-search"></i>
 								</button>
@@ -408,50 +400,53 @@ table.table .avatar {
 					</thead>
 					<tbody>
 						<c:forEach items="${listOrder}" var="order">
-							<tr>
-								<td class="order-id">
-									<p>${order.orderId}</p>
-								</td>
+							<c:if test="${order.getStatus().toString() != 'Processing'}">
+								<tr>
+									<td class="order-id">
+										<p>${order.orderId}</p>
+									</td>
 
-								<td class="customer-name"><a href="#"><img
-										src="https://www.w3schools.com/howto/img_avatar.png"
-										class="avatar" alt="Avatar">${order.user.name}</a></td>
-								<td>
-									<p>${order.shippingAddress}</p>
-								</td>
+									<td class="customer-name"><a href="#"><img
+											src="https://www.w3schools.com/howto/img_avatar.png"
+											class="avatar" alt="Avatar">${order.user.name}</a></td>
+									<td>
+										<p>${order.shippingAddress}</p>
+									</td>
 
 
-								<td>${order.orderDate}</td>
+									<td>${order.orderDate}</td>
 
-								<td><c:choose>
-										<c:when test="${order.getStatus().toString() == 'Delivered'}">
-											<span class="status text-success">&bull;</span>${order.status}
+									<td><c:choose>
+											<c:when test="${order.getStatus().toString() == 'Delivered'}">
+												<span class="status text-success">&bull;</span>Shipped
 									</c:when>
-										<c:when test="${order.getStatus().toString() == 'Processing'}">
-											<span class="status text-warning">&bull;</span>${order.status}
+											<c:when test="${order.getStatus().toString() == 'Shipping'}">
+												<span class="status text-warning">&bull;</span>Not Shipped
 									</c:when>
-										<c:otherwise>
-											<span class="status text-info">&bull;</span>${order.status}			
-									</c:otherwise>
-									</c:choose></td>
+											<c:otherwise>
 
-								<td>${order.totalPrice}</td>
+											</c:otherwise>
+										</c:choose></td>
 
-								<td><c:choose>
-										<c:when test="${order.getStatus().toString() == 'Processing'}">
-											<a
-												href="ConvertStatus?orderId=${order.orderId}&page=${currentPage}&searchName=${searchName}&status=${status}""><i
-												class="fa fa-times-circle" style="font-size: 25px"></i> </a>
-										</c:when>
-										<c:otherwise>
-											<i class="fa fa-check-circle" style="font-size: 25px"></i>
-										</c:otherwise>
-									</c:choose></td>
+									<td>${order.totalPrice}</td>
 
-								<td><a href="MyOrderDetail?orderId=${order.orderId}"
-									class="view" title="View Details" data-toggle="tooltip"><i
-										class="fa fa-info-circle"></i></a></td>
-							</tr>
+									<td><c:choose>
+											<c:when
+												test="${order.getStatus().toString() == 'Shipping'}">
+												<a
+													href="ConvertStatusShipper?orderId=${order.orderId}&page=${currentPage}&searchName=${searchName}&status=${status}""><i
+													class="fa fa-times-circle" style="font-size: 25px"></i> </a>
+											</c:when>
+											<c:otherwise>
+												<i class="fa fa-check-circle" style="font-size: 25px"></i>
+											</c:otherwise>
+										</c:choose></td>
+
+									<td><a href="MyOrderDetail?orderId=${order.orderId}"
+										class="view" title="View Details" data-toggle="tooltip"><i
+											class="fa fa-info-circle"></i></a></td>
+								</tr>
+							</c:if>
 						</c:forEach>
 					</tbody>
 				</table>
@@ -480,11 +475,6 @@ table.table .avatar {
 		</div>
 	</div>
 
-
-
-	<!-- Footer Area Start -->
-	<jsp:include page="Footer.jsp"></jsp:include>
-	<!--End of Quickview Product-->
 	<!-- all js here -->
 	<!-- jquery latest version -->
 	<script src="js/vendor/jquery-1.12.0.min.js "></script>
