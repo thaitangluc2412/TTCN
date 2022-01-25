@@ -43,6 +43,8 @@
         <link rel="stylesheet" href="css/responsive.css">
 		<!-- modernizr css -->
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <link rel="stylesheet" href="css/myAccount.css">
+        
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -66,13 +68,13 @@
 				</div>
 				<div class="row">
 					<div class="addresses-lists">
-						<div class="col-xs-12 col-sm-6 col-lg-6">
+						<div class="col-xs-12 col-sm-12 col-lg-12">
 							<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 								<div class="panel panel-default">
 									<div class="panel-heading" role="tab" id="headingOne">
 										<h4 class="panel-title">
 											<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-												<i class="fa fa-building"></i>
+												<i class="fa fa-info-circle"></i>
 											   <span>My Profile</span>
 											</a>
 										</h4>
@@ -87,16 +89,16 @@
 														<input type="text" placeholder="email" value="${profile.email}" readonly/>
 													</p>
 													<p class="form-row"><b>Name</b>
-														<input type="text" placeholder="name" value="${profile.name}" id="name" name="name">
+														<input type="text" placeholder="name" value="${profile.name}" id="name" name="name" required>
 													</p>
 													<p class="form-row"><b>Address</b>
-														<input type="text" placeholder="address" value="${profile.address}" id="address" name="address">
+														<input type="text" placeholder="address" value="${profile.address}" id="address" name="address" required>
 													</p>	
 													<p class="form-row"><b>Phone number</b>
-														<input type="text" placeholder="phone number" value="${profile.phoneNumber}" id="phone" name="phoneNumber"/>
+														<input type="text" placeholder="phone number" value="${profile.phoneNumber}" id="phone" name="phoneNumber" pattern="(?!.*[^0-9]).{10,15}" title="Must be number and the length between 10 to 15 digits." required/>
 													</p>
 													<p class="form-row"><b>Account number</b>
-														<input type="text" placeholder="account number" value="${profile.accountNumber}" id="account" name="accountNumber" />
+														<input type="text" placeholder="account number" value="${profile.accountNumber}" id="account" name="accountNumber" pattern="(?!.*[^0-9]).{10,20}" title="Must be number and the length between 10 to 20 digits." required/>
 													</p>
 													<button type="submit" name="SaveProfile"  class="btn button button-small" >
 														<span>
@@ -109,12 +111,7 @@
 										</div>
 									</div>
 								</div>
-								
-								
-							</div>
-						</div>
-						<div class="col-xs-12 col-sm-6 col-lg-6">
-							<div class="myaccount-link-list">								
+
 								<div class="panel panel-default">
 									<div class="panel-heading" role="tab" id="headingTwo">
 										<h4 class="panel-title">
@@ -129,13 +126,17 @@
 										<div class="panel-body">
 											<div class="password-info">
 													<p class="form-row"><b>Old password</b>
-														<input type="password" placeholder="Old password" id="pwOld" value="${profile.userPassword}">
+														<input type="password" placeholder="Old password" id="pwOld" value="${profile.userPassword}" required>
 													</p>
+											<label style=" background-color: #FDCAC4;" class="error"></label> 											
+											<label style=" background-color: #FDCAC4;" class="error2"></label> 
 													<p class="form-row"><b>New password</b>
-														<input type="password" placeholder="New password" id="pwNew"><p id="pwNewErr" style="display:none;color:red;">*Still match old password</p>
+														<input type="password" placeholder="New password" id="pwNew" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*[^a-zA-Z0-9]).{6,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters" required>
+														<p id="pwNewErr" style="display:none;color:red;">*Still match old password</p>
 													</p>	
 													<p class="form-row"><b>Confirm password</b>
-														<input type="password" placeholder="Confirm password" id="pwConfirm" name="updatePw" /><p id="pwConfirmErr" style="display:none;color:red;">*Do not match new password</p>
+														<input type="password" placeholder="Confirm password" id="pwConfirm" name="updatePw" required/>
+														<p id="pwConfirmErr" style="display:none;color:red;">*Do not match new password</p>
 													</p>
 													
 													<button type="submit" name="SavePw"  class="btn button button-small" >
@@ -150,8 +151,10 @@
 									</form>
 								</div>
 								
+								
 							</div>
 						</div>
+						
 					</div>
 				</div>
 				<div class="row">
@@ -194,6 +197,7 @@
         <script src="js/wow.min.js"></script>	
         <script src="js/confirmPassword.js"></script>
         <script src="js/addToCart.js"></script>
+
 		<script>
 			new WOW().init();
 		</script>
@@ -206,5 +210,6 @@
 		<script src="lib/home.js" type="text/javascript"></script>
 		<!-- main js -->
         <script src="js/main.js"></script>
+        <script src="js/myAccount.js"></script>
     </body>
 </html>
