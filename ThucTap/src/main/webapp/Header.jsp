@@ -7,7 +7,7 @@
 
 </head>
 <div class="header-area">
-	<div class="container">
+	<div class="container header-container">
 		<div class="row">
 			<div class="col-md-2 col-sm-6 col-xs-6">
 				<div class="header-logo">

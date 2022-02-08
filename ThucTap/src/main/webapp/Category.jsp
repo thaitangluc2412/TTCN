@@ -355,7 +355,6 @@ th {
 									<th>Category Name</th>
 									<th>Book</th>
 									<th>Edit</th>
-									<th>Delete</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -371,10 +370,6 @@ th {
 											View Details" data-toggle="tooltip">
 												<i class="fa fa-edit "></i>
 										</a></td>
-										<td><a
-											href="DeleteCategory?categoryId=${category.categoryId}"
-											class="view" title="View Details" data-toggle="tooltip"><i
-												class="flaticon-delete delete-in-cart"></i></a></td>
 									</tr>
 								</c:forEach>
 							</tbody>

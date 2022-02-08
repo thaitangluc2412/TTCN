@@ -175,24 +175,11 @@
 									<form action="Shopping?categoryID=${categoryID}" method="POST">
 										<input type="hidden" value="search" name="command">
 										<div class="input-group" style="width: 100%">
-											<input type="search" class="form-control rounded w-50 p-3"
+											<input type="search" class="form-control rounded w-75 p-3"
 												placeholder="Search..." aria-label="Search"
 												aria-describedby="search-addon" name="searchBook"
 												value="${searchBook}" />
 											<button type="submit" class="btn btn-outline-primary">search</button>
-											<div style="display: inline; position: absolute; right: 20px">
-												<select class="form-control rounded w-100"
-													aria-label="Disabled select example" style="outline: none"
-													name="sortBy">
-													<option value="" selected>Select your options</option>
-													<option value="nameL">Name: from Lowest to Highest</option>
-													<option value="nameH">Name: from Highest to Lowest</option>
-													<option value="priceL">Price: from Lowest to
-														Highest</option>
-													<option value="priceH">Price: from Highest to
-														Lowest</option>
-												</select>
-											</div>
 										</div>
 									</form>
 								</div>

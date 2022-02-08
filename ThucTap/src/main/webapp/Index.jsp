@@ -87,7 +87,7 @@
 				</div>
 				<!-- layer 3 -->
 				<div class="layer-3">
-					<a href="#" class="title-3">SHOPPING</a>
+					<a href="Shopping" class="title-3">SHOPPING</a>
 				</div>
 				<!-- layer 4 -->
 				<div class="layer-4">
