@@ -167,9 +167,15 @@ public class User {
 
     @Override
     public String toString() {
-        return "User [userId=" + userId + ", email=" + email + ", userPassword=" + userPassword + ", name=" + name
-               + ", address=" + address + ", phoneNumber=" + phoneNumber + ", accountNumber=" + accountNumber
-               + ", role=" + role + ", bookUsers=" + bookUsers + "]";
+        return getClass().getSimpleName() + "(" +
+               "userId = " + userId + ", " +
+               "email = " + email + ", " +
+               "userPassword = " + userPassword + ", " +
+               "name = " + name + ", " +
+               "address = " + address + ", " +
+               "phoneNumber = " + phoneNumber + ", " +
+               "accountNumber = " + accountNumber + ", " +
+               "role = " + role + ")";
     }
 
     public enum Role {

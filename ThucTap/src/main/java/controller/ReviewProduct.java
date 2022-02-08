@@ -1,15 +1,5 @@
 package controller;
 
-import java.io.IOException;
-import java.time.LocalDateTime;
-
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 import bean.Book;
 import bean.OrderDetail;
 import bean.OrderDetail.Id;
@@ -19,6 +9,15 @@ import bean.User;
 import service.BookServiceImpl;
 import service.OrderDetailServiceImpl;
 import service.ReviewServiceImpl;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.time.LocalDateTime;
 
 /**
  * Servlet implementation class ReviewProduct
@@ -55,7 +54,7 @@ public class ReviewProduct extends HttpServlet {
 	    User user = (User) session.getAttribute("user");
 	    
         Book book = bookService.getById(productId);
-        
+
         Review review = new Review();
         review.setBook(book);
         review.setUser(user);
