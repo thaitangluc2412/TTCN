@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!doctype html>
 <html class="no-js" lang="">
- 
 <head>
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<title>Profit</title>
+<title>Shopping Cart || Witter Multipage Responsive Template</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- favicon -->
@@ -52,98 +51,379 @@
 <link rel="stylesheet" href="css/responsive.css">
 <!-- modernizr css -->
 <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+<style>
+.table-responsive {
+	margin: 30px 0;
+}
+
+.table-wrapper {
+	min-width: 1000px;
+	background: #fff;
+	padding: 20px 25px;
+	border-radius: 3px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+.table-wrapper .btn {
+	float: right;
+	color: #333;
+	background-color: #fff;
+	border-radius: 3px;
+	border: none;
+	outline: none !important;
+	margin-left: 10px;
+}
+
+.table-wrapper .btn:hover {
+	color: #333;
+	background: #f2f2f2;
+}
+
+.table-wrapper .btn.btn-primary {
+	color: #fff;
+	background: #03A9F4;
+}
+
+.table-wrapper .btn.btn-primary:hover {
+	background: #03a3e7;
+}
+
+.table-title .btn {
+	font-size: 13px;
+	border: none;
+}
+
+.table-title .btn i {
+	float: left;
+	font-size: 21px;
+	margin-right: 5px;
+}
+
+.table-title .btn span {
+	float: left;
+	margin-top: 2px;
+}
+
+.table-title {
+	color: #fff;
+	background: #32b5f3;
+	padding: 16px 25px;
+	margin: -20px -25px 10px;
+	border-radius: 3px 3px 0 0;
+}
+
+.table-title h2 {
+	margin: 5px 0 0;
+	font-size: 24px;
+}
+
+.show-entries select.form-control {
+	width: 60px;
+	margin: 0 5px;
+}
+
+.table-filter .filter-group {
+	float: right;
+	margin-left: 15px;
+}
+
+.table-filter input, .table-filter select {
+	height: 34px;
+	border-radius: 3px;
+	border-color: #ddd;
+	box-shadow: none;
+}
+
+.table-filter {
+	padding: 5px 0 15px;
+	border-bottom: 1px solid #e9e9e9;
+	margin-bottom: 5px;
+}
+
+.table-filter .btn {
+	height: 34px;
+}
+
+.table-filter label {
+	font-weight: normal;
+	margin-left: 10px;
+}
+
+.table-filter select, .table-filter input {
+	display: inline-block;
+	margin-left: 5px;
+}
+
+.filter-group select.form-control {
+	width: 110px;
+}
+
+.filter-icon {
+	float: right;
+	margin-top: 7px;
+}
+
+.filter-icon i {
+	font-size: 18px;
+	opacity: 0.7;
+}
+
+table.table tr th, table.table tr td {
+	border-color: #e9e9e9;
+	padding: 12px 15px;
+	vertical-align: middle;
+}
+
+table.table tr th:first-child {
+	width: 20px;
+}
+
+.product-detail-title {
+	width: 500px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-align: left;
+}
+
+.product-detail-info {
+	border: 1px solid #ddd;
+	border-radius: 10px;
+	padding: 15px;
+}
+
+table.table tr th:last-child {
+	width: 80px;
+}
+
+table.table-striped tbody tr:nth-of-type(odd) {
+	background-color: #fcfcfc;
+}
+
+table.table-striped.table-hover tbody tr:hover {
+	background: #f5f5f5;
+}
+
+table.table th i {
+	font-size: 13px;
+	margin: 0 5px;
+	cursor: pointer;
+}
+
+table.table td a {
+	font-weight: bold;
+	color: #566787;
+	display: inline-block;
+	text-decoration: none;
+}
+
+table.table td a:hover {
+	color: #2196F3;
+}
+
+table.table td a button {
+	width: 30px;
+	height: 30px;
+	color: #2196F3;
+	border: 2px solid;
+	border-radius: 30px;
+	text-align: center;
+}
+
+table.table td a.view i {
+	font-size: 22px;
+	margin: 2px 0 0 1px;
+}
+
+table.table .avatar {
+	vertical-align: middle;
+	margin-right: 10px;
+	height: 70px;
+	width: 70px;
+}
+
+.status {
+	font-size: 30px;
+	margin: 2px 2px 0 0;
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 10px;
+}
+
+.text-success {
+	color: #10c469;
+}
+
+.text-info {
+	color: #62c9e8;
+}
+
+.text-warning {
+	color: #FFC107;
+}
+
+.text-danger {
+	color: #ff5b5b;
+}
+
+.pagination {
+	float: right;
+	margin: 0 0 5px;
+}
+
+.pagination li a {
+	border: none;
+	font-size: 13px;
+	min-width: 30px;
+	min-height: 30px;
+	color: #999;
+	margin: 0 2px;
+	line-height: 30px;
+	border-radius: 2px !important;
+	text-align: center;
+	padding: 0 6px;
+}
+
+.pagination li a:hover {
+	color: #666;
+}
+
+.pagination li.active a {
+	background: #03A9F4;
+}
+
+.pagination li.active a:hover {
+	background: #0397d6;
+}
+
+.pagination li.disabled i {
+	color: #ccc;
+}
+
+.pagination li i {
+	font-size: 16px;
+	padding-top: 6px
+}
+
+.hint-text {
+	float: left;
+	margin-top: 10px;
+	font-size: 13px;
+}
+
+th {
+	text-align: center;
+}
+</style>
+<script>
+	$(document).ready(function() {
+		$('[data-toggle="tooltip"]').tooltip();
+	});
+</script>
 </head>
-
 <body>
-	<!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
 
-	<!-- Add your site or application content here -->
-	<jsp:include page="Header.jsp"></jsp:include>
+	<!--Header Area Start-->
+	<jsp:include page="Header.jsp" />
+	<!--Header Area End-->
 
-   
-
-	<div class="d-flex justify-content-center">
-		<div class="input-group" style="width: 500px">
-			<input type="search" class="form-control rounded w-75 p-3"
-				placeholder="Search" aria-label="Search"
-				aria-describedby="search-addon" />
-			<button type="button" class="btn btn-outline-primary">search</button>
+	<div class="table-title">
+		<div class="row">
+			<div class="col-sm-4">
+				<h2 style="margin-left: 20px">
+					Manage <b>AUTHOR / REVENUE</b>
+				</h2>
+			</div>
 		</div>
-	
+
 	</div>
-	<div class="shopping-cart-area section-padding">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="wishlist-table-area table-responsive">
-						<table>
-							<thead>
-								<tr>
-									<th class="product-id">ID</th>
-									<th class="product-image">Image</th>
-									<th class="product-title">Title</th>
-									<th class="product-category">Category</th>
-									<th class="product-quantity">Sold</th>
-									<th class="product-price">Profit</th>
-								</tr>
-							</thead>
-							<tbody>
-								<c:forEach items="${listBook}" var="book">
-									<tr>
-										<td class="product-id">
-											<p>
-											<p>${book.bookId}</p>
-											</p>
-										</td>
-										<td class="product-image"><a href="#"> <img
-												src="${book.image}" alt="">
-										</a></td>
-										<td class="t-product-name">
-											<p>
-											<p>${book.title}</p>
-											</p>
-										</td>
-										
-										<td class="product-category">
-											<p>
-											<p>${book.categoryId.name}</p>
-											</p>
-										</td>
-										
-										<td class="product-quantity">
-											<p>
-											<c:set var="total" value="${0}"/>
-											<c:forEach items="${book.getOrderDetail()}" var="orderDetail">
-												<c:set var="total" value="${total + orderDetail.getQuantity()}" />
-											</c:forEach>
-												${total}
-											</p>
-										</td>
-										<td class="product-price">
-											<p>
-											<p>${book.price*total} VND</p>
-											</p>
-	
-										</td>
-										
-									</tr>
-							</c:forEach>
-							</tbody>
-						</table>
+	<div class="row">
+		<div class="col-sm-12">
+			<p>
+				Author: <span class="status text-success"> ${author.name}</span>
+			</p>
+		</div>
+	</div>
+
+
+	<div class="container-xl">
+		<div class="table-responsive">
+			<div class="table-wrapper">
+				<div class="d-flex justify-content-center">
+					<form action="ViewRevenueInAuthor?authorId=${authorId}"
+						method="POST">
+						<div style="width: 300px; display: inline-block;">
+							Start Date <input type="date" name="startDate"
+								value="${startDate}" />
+						</div>
+						<div style="width: 300px; display: inline-block;">
+							End Date <input type="date" name="endDate" value="${endDate}" />
+						</div>
+						<button type="submit" class="btn btn-outline-primary">search</button>
+					</form>
+				</div>
+				<table class="table table-striped table-hover"
+					style="text-align: center">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Product</th>
+							<th>Category</th>
+							<th>Total</th>
+							<th>Profit</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${listBookDto}" var="book">
+							<tr>
+								<td>${book.bookId}</td>
+								<td><div class="product-detail-title">
+										<a href="#"><img src="${book.image}" class="avatar">${book.title}</a>
+									</div></td>
+								<td>${book.category}</td>
+								<td>${book.total}</td>
+								<td>$${book.profit}</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+
+				<nav class="d-flex justify-content-center"
+					aria-label="Page navigation example">
+					<ul class="pagination">
+						<c:if test="${currentPage != 1}">
+							<li class="page-item"><a class="page-link"
+								href="ViewRevenueInAuhor?authorId=${authorId}&page=1&startDate=${startDate}&endDate=${endDate}">
+									First </a></li>
+						</c:if>
+						<c:forEach var="page" begin="${maxLeft}" end="${maxRight}">
+							<li class="page-item ${page == currentPage ? "active" : "" } "><a
+								class="page-link"
+								href="ViewRevenueInAuhor?authorId=${authorId}&page=${page}&startDate=${startDate}&endDate=${endDate}">
+									${page} </a></li>
+						</c:forEach>
+						<c:if test="${currentPage != totalPages}">
+							<li class="page-item"><a class="page-link"
+								href="ViewRevenueInAuhor?authorId=${authorId}&page=${totalPages}&startDate=${startDate}&endDate=${endDate}">
+									Last </a></li>
+						</c:if>
+					</ul>
+				</nav>
+				<div class="row">
+					<div class="col-sm-8">
+						<div class="shopingcart-bottom-area">
+							<a class="left-shoping-cart" href="javascript:history.back()">GO
+								BACK</a>
+						</div>
 					</div>
-					
 				</div>
 			</div>
 		</div>
 	</div>
-
-
-
+	</div>
 	<!-- Footer Area Start -->
 	<jsp:include page="Footer.jsp"></jsp:include>
-	<!--End of Quickview Product-->
+	<!-- Footer Area End -->
 	<!-- all js here -->
 	<!-- jquery latest version -->
 	<script src="js/vendor/jquery-1.12.0.min.js"></script>
@@ -177,5 +457,4 @@
 	<!-- main js -->
 	<script src="js/main.js"></script>
 </body>
-
 </html>

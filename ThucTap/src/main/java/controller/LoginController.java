@@ -58,6 +58,11 @@ public class LoginController extends HttpServlet {
         	session.setAttribute("user", user);
             request.getRequestDispatcher("HomeShipper").forward(request, response);
         }
+        else if(user.getRole() == Role.Author) {
+        	HttpSession session = request.getSession();
+        	session.setAttribute("user", user);
+            request.getRequestDispatcher("AuthorController?Management=Profit").forward(request, response);
+        }
         else {
             HttpSession session = request.getSession();
             session.setAttribute("user", user);

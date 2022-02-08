@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 
@@ -319,8 +319,14 @@ table.table .avatar {
 	});
 </script>
 </head>
+
+
 <body>
-	<div class="table-title">
+	<!--Header Area Start-->
+	<jsp:include page="Header.jsp" />
+	<!--Header Area End-->
+
+	<div class="table-title" style="margin-top: 20px">
 		<div class="row">
 			<div class="col-sm-4">
 				<h2 style="margin-left: 20px">
@@ -423,8 +429,7 @@ table.table .avatar {
 									<td>${order.totalPrice}</td>
 
 									<td><c:choose>
-											<c:when
-												test="${order.getStatus().toString() == 'Shipping'}">
+											<c:when test="${order.getStatus().toString() == 'Shipping'}">
 												<a
 													href="ConvertStatusShipper?orderId=${order.orderId}&page=${currentPage}&searchName=${searchName}&status=${status}""><i
 													class="fa fa-times-circle" style="font-size: 25px"></i> </a>
