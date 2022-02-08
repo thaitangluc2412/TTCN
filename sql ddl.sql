@@ -30,7 +30,7 @@ CREATE TABLE Book
     BookID      INT AUTO_INCREMENT,
     CategoryID  INT,
     Title       VARCHAR(255) NOT NULL,
-    Description VARCHAR(255),
+    Description TEXT,
     Rating      INT,
     Image       TEXT         NOT NULL,
     Price       DOUBLE       NOT NULL,
