@@ -294,12 +294,14 @@ public class HibernateBookDao extends AbstractHibernateDao implements BookDao {
 
     @Override
     public int deleteByBookId(Integer bookId) {
-        Transaction transaction = session.beginTransaction();
-        int query;
-        query = session.createNativeQuery(Q_DELETE_BOOK_ID, Book.class)
-                       .setParameter("bookId", bookId, IntegerType.INSTANCE).executeUpdate();
-        transaction.commit();
-        return query;
+        // Transaction transaction = session.beginTransaction();
+        // int query;
+        // query = session.createNativeQuery(Q_DELETE_BOOK_ID, Book.class)
+        //                .setParameter("bookId", bookId, IntegerType.INSTANCE).executeUpdate();
+        // transaction.commit();
+        // return query;
+        QueryUtils.delete(getById(bookId));
+        return 0;
     }
 
     @Override

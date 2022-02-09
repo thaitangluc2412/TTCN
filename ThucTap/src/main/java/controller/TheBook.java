@@ -36,6 +36,7 @@ public class TheBook extends HttpServlet {
         BookServiceImpl bookService = new BookServiceImpl();
         Book book = bookService.getById(Integer.parseInt(id));
         List<Book> listBook = bookService.getBookByCategoryId(book.getCategoryId().getCategoryId());
+        System.out.println(book);
         request.setAttribute("book", book);
         request.setAttribute("listBook", listBook);
     	request.getRequestDispatcher("SingleProduct.jsp").forward(request, response);
