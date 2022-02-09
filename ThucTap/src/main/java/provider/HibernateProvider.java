@@ -60,7 +60,7 @@ public class HibernateProvider {
         props.put(Environment.PASS, "luc2412");
         props.put(Environment.POOL_SIZE, 1000);
         props.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");
-        props.put(Environment.SHOW_SQL, "false");
+        props.put(Environment.SHOW_SQL, "true");
         props.put(Environment.FORMAT_SQL, "true");
         props.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
         props.put(Environment.ENABLE_LAZY_LOAD_NO_TRANS, "true");

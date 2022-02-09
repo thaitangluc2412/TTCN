@@ -1,20 +1,7 @@
 package controller;
 
-import bean.Book;
-import bean.BookDto;
-import bean.BookUser;
-import bean.Category;
-import bean.Order;
-import bean.Review;
-import bean.User;
-import service.BookService;
-import service.BookServiceImpl;
-import service.CategoryService;
-import service.CategoryServiceImpl;
-import service.OrderService;
-import service.OrderServiceImpl;
-import service.ReviewServiceImpl;
-import service.UserServiceImpl;
+import bean.*;
+import service.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,9 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -90,7 +75,7 @@ public class Admin extends HttpServlet {
 					listAllBook = bookService.getAll();
 				}
 
-				System.out.println("last : " + listAllBook.get(listAllBook.size() - 1));
+				// System.out.println("last : " + listAllBook.get(listAllBook.size() - 1));
 
 //	        	int totalPages = (int) (Math.floor(listAllBook.size() / rows));
 				int totalPages = listAllBook.size() / rows;
@@ -115,7 +100,7 @@ public class Admin extends HttpServlet {
 					maxRight = totalPages;
 				}
 
-				System.out.println("listbook : " + listBook);
+				// System.out.println("listbook : " + listBook);
 
 				request.setAttribute("searchBook", searchBook);
 				request.setAttribute("listBook", listBook);
