@@ -22,4 +22,9 @@ public interface UserService {
 	int updatePassword(Integer id, String newPassword);
 	
 	int updateProfile(String name, String address, String phoneNumber, String accountNumber, Integer id);
+	
+	boolean existUser(String email);
+	
+	int insertUser( String email, String password, String name, String address, String phoneNumber, String accountNumber, int role);
+ 
 }

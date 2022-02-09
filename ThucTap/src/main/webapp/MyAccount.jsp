@@ -128,8 +128,6 @@
 													<p class="form-row"><b>Old password</b>
 														<input type="password" placeholder="Old password" id="pwOld" value="${profile.userPassword}" required>
 													</p>
-											<label style=" background-color: #FDCAC4;" class="error"></label> 											
-											<label style=" background-color: #FDCAC4;" class="error2"></label> 
 													<p class="form-row"><b>New password</b>
 														<input type="password" placeholder="New password" id="pwNew" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*[^a-zA-Z0-9]).{6,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters" required>
 														<p id="pwNewErr" style="display:none;color:red;">*Still match old password</p>
@@ -195,7 +193,6 @@
         <script src="js/jquery.meanmenu.js"></script>
 		<!-- wow js -->
         <script src="js/wow.min.js"></script>	
-        <script src="js/confirmPassword.js"></script>
         <script src="js/addToCart.js"></script>
 
 		<script>

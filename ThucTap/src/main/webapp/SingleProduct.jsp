@@ -218,7 +218,7 @@
 	<!-- Single Product Area End -->
 	<!-- Related Product Area Start -->
 	<div class="related-product-area">
-		<h2 class="section-title">RELATED PRODUCTS</h2>
+		<h1 class="section-title">RELATED PRODUCTS</h1><br>
 		<div class="container">
 			<div class="row">
 				<div class="related-product indicator-style">

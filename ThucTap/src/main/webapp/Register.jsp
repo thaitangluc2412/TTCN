@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+	
 <!doctype html>
 <html class="no-js" lang="">
     <head>
@@ -43,6 +45,22 @@
         <link rel="stylesheet" href="css/responsive.css">
 		<!-- modernizr css -->
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+   		<style>
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+</style>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -87,22 +105,34 @@
                             </h2>
                             <input type="hidden" value="REGISTER" name="command">
                             <p class="form-row">
-                                <input type="email" placeholder="Email address" name="username" required>
+                                <input type="email" placeholder="Email address" name="email" value="${email}" pattern="[a-zA-Z0-9._\-]+@[a-z]{2,5}.[a-zA-Z]{2,4}" title="Not valid email" required>
+                            </p>
+                            <c:choose>
+								<c:when test="${err == 'err'}">
+									<div class="alert alert-danger">
+									  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+									  This <strong>email</strong> already registered!
+									</div>
+								</c:when>
+						</c:choose>
+                            <p class="form-row">
+                                <input type="password" placeholder="Password" name="password" id="pwNew" value="${password}"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*[^a-zA-Z0-9]).{6,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters" required>
                             </p>
                             <p class="form-row">
-                                <input type="password" placeholder="Password" name="password" required>
+                                <input type="password" placeholder="Comfirm Password" name="confirmpass" id="pwConfirm" value="${password}" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*[^a-zA-Z0-9]).{6,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters" required>
                             </p>
+                            <p id="pwConfirmErr" style="display:none;color:red;">*Password do not match!</p>
                             <p class="form-row">
-                                <input type="password" placeholder="Comfirm Password" name="comfirmpass" required>
-                            </p>
-                            <p class="form-row">
-                                <input type="text" placeholder="Your Name" name="name" required>
+                                <input type="text" placeholder="Your Name" name="name" value="${name}" required>
                             </p>
                              <p class="form-row">
-                                <input type="text" placeholder="Address" name="address" required>
+                                <input type="text" placeholder="Address" name="address" value="${address}" required>
                             </p>
-                             <p class="form-row">
-                                <input type="text" placeholder="Phone Number" name="phonenumber" required>
+                            <p class="form-row">
+                                <input type="text" placeholder="Phone Number" name="phoneNumber" value="${phoneNumber}" pattern="(?!.*[^0-9]).{10,15}" title="Must be number and the length between 10 to 15 digits." required>
+                            </p> 
+                            <p class="form-row">
+                                <input type="text" placeholder="Account Number" name="accountNumber" value="${accountNumber}" pattern="(?!.*[^0-9]).{10,20}" title="Must be number and the length between 10 to 20 digits." required>
                             </p>
                             <div class="d-flex justify-content-center">					
                                 <button name="submitcreate" id="submitcreate" type="submit" class="btn-default">
@@ -159,5 +189,6 @@
 		<script src="lib/home.js" type="text/javascript"></script>
 		<!-- main js -->
         <script src="js/main.js"></script>
+        <script src="js/myAccount.js"></script>
     </body>
 </html>

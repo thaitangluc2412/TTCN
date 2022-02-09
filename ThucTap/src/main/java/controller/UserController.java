@@ -5,6 +5,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import service.UserServiceImpl;
+
 import java.io.IOException;
 
 /**
@@ -27,8 +30,7 @@ public class UserController extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request,
                          HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
-        response.getWriter().append("Served at: ").append(request.getContextPath());
+    	request.getRequestDispatcher("Register.jsp").forward(request, response);
     }
 
     /**
@@ -37,7 +39,30 @@ public class UserController extends HttpServlet {
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
-        doGet(request, response);
+    	String email = request.getParameter("email");
+        String password = request.getParameter("confirmpass");
+        String name = request.getParameter("name");
+        String address = request.getParameter("address");
+        String phoneNumber = request.getParameter("phoneNumber");
+        String accountNumber = request.getParameter("accountNumber");
+ 
+        UserServiceImpl userService = new UserServiceImpl();
+        if(userService.existUser(email) ) {
+        	request.setAttribute("err", "err");       
+        	request.setAttribute("email",email);
+        	request.setAttribute("password",password); 
+        	request.setAttribute("name",name); 
+        	request.setAttribute("address",address); 
+        	request.setAttribute("phoneNumber",phoneNumber); 
+        	request.setAttribute("accountNumber",accountNumber);
+        	request.getRequestDispatcher("Register.jsp").forward(request, response);
+        }
+        else {
+        	userService.insertUser(email, password, name, address, phoneNumber, accountNumber, 2);
+        	request.setAttribute("username",email);
+        	request.setAttribute("registed","registed");
+        	request.getRequestDispatcher("Login.jsp").forward(request, response);
+        }
     }
 
 }

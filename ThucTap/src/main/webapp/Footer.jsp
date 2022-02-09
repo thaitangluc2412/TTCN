@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="ISO-8859-1"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
@@ -11,29 +11,33 @@
 		    <div class="footer-top-area">
 		        <div class="container">
 		            <div class="row">
-		                <div class="col-md-3 col-sm-8">
+		                <div class="col-md-4 col-sm-8">
 		                    <div class="footer-left">
-		                        <a href="index.html">
+		                        <a href="Home">
 		                            <img src="img/logo-2.png" alt="">
 		                        </a>
-		                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
-		                        <ul class="footer-contact">
+		                        
+								<ul class="footer-contact">
 		                            <li>
 		                                <i class="flaticon-location"></i>
-		                                450 fifth Avenue, 34th floor. NYC
+		                                421 Nguyễn Lương Bằng Street,
+									Liên Chiểu District,
+									Đà Nẵng city, Vietnam.
 		                            </li>
 		                            <li>
 		                                <i class="flaticon-technology"></i>
-		                                (+800) 123 4567 890
+		                                
+		                                <ol>09 71960879</ol>
+										<ol>09 32597346</ol>
 		                            </li>
 		                            <li>
 		                                <i class="flaticon-web"></i>
-		                                info@bookstore.com
+		                               xuantuan1124@gmail.com
 		                            </li>
 		                        </ul>
 		                    </div>
 		                </div>
-		                <div class="col-md-2 col-sm-4">
+		                <div class="col-md-3 col-sm-8">
 		                    <div class="single-footer">
 		                        <h2 class="footer-title">Information</h2>
 		                        <ul class="footer-list">
@@ -41,21 +45,12 @@
 		                            <li><a href="#">Delivery Information</a></li>
 		                            <li><a href="#">Privacy & Policy</a></li>
 		                            <li><a href="#">Terms & Conditions</a></li>
-		                            <li><a href="#">Manufactures</a></li>
+		                            <li><a href="Contact.jsp">Contact</a></li>
 		                        </ul>
 		                    </div>
 		                </div>
-		                <div class="col-md-2 hidden-sm">
-		                    <div class="single-footer">
-		                        <h2 class="footer-title">My Account</h2>
-		                        <ul class="footer-list">
-		                            <li><a href="MyAccount.jsp">My Account</a></li>
-		                            <li><a href="Cart.jsp">My Cart</a></li>
-		                            <li><a href="Checkout.jsp">Checkout</a></li>
-		                        </ul>
-		                    </div>
-		                </div>
-		                <div class="col-md-2 hidden-sm">
+		                
+		                <div class="col-md-2 col-sm-8">
 		                    <div class="single-footer">
 		                        <h2 class="footer-title">Shop</h2>
 		                        <ul class="footer-list">
@@ -69,15 +64,8 @@
 		                </div>
 		                <div class="col-md-3 col-sm-8">
 		                    <div class="single-footer footer-newsletter">
-		                        <h2 class="footer-title">Our Newsletter</h2>
-		                        <p>Consectetur adipisicing elit se do eiusm od tempor incididunt ut labore et dolore magnas aliqua.</p>
-		                        <form action="#" method="post">
-		                            <div>
-		                                <input type="text" placeholder="email address">
-		                            </div>
-		                            <button class="btn btn-search btn-small" type="submit">SUBSCRIBE</button>
-		                            <i class="flaticon-networking"></i>
-		                        </form>
+		                        <h2 class="footer-title">Media platforms</h2>
+		                       
 		                        <ul class="social-icon">
 		                            <li>
 		                                <a href="#">
@@ -102,18 +90,7 @@
 		                        </ul>
 		                    </div>
 		                </div>
-		                <div class="col-md-2 col-sm-4 visible-sm">
-		                    <div class="single-footer">
-		                        <h2 class="footer-title">Shop</h2>
-		                        <ul class="footer-list">
-		                            <li><a href="#">Orders & Returns</a></li>
-		                            <li><a href="#">Search Terms</a></li>
-		                            <li><a href="#">Advance Search</a></li>
-		                            <li><a href="#">Affiliates</a></li>
-		                            <li><a href="#">Group Sales</a></li>
-		                        </ul>
-		                    </div>
-		                </div>
+		                
 		            </div>
 		        </div>
 		    </div>
@@ -134,44 +111,6 @@
 		        </div>
 		    </div>
 		</footer>
-		<div id="quickview-wrapper">
-            <!-- Modal -->
-            <div class="modal fade" id="productModal" tabindex="-1" role="dialog">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="modal-product">
-                                <div class="product-images">
-                                    <div class="main-image images">
-                                        <img alt="" src="img/quick-view.jpg">
-                                    </div>
-                                </div>
-                                <div class="product-info">
-                                    <h1>Frame Princes Cut Diamond</h1>
-                                    <div class="price-box">
-                                        <p class="s-price"><span class="special-price"><span class="amount">$280.00</span></span></p>
-                                    </div>
-                                    <a href="product-details.html" class="see-all">See all features</a>
-                                    <div class="quick-add-to-cart">
-                                        <form method="post" class="cart">
-                                            <div class="numbers-row">
-                                                <input type="number" id="french-hens" value="3">
-                                            </div>
-                                            <button class="single_add_to_cart_button" type="submit">Add to cart</button>
-                                        </form>
-                                    </div>
-                                    <div class="quick-desc">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla.
-                                    </div>
-                                </div><!-- .product-info -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+		
 </body>
 </html>

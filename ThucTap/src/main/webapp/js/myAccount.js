@@ -1,31 +1,3 @@
-$(document).ready(function(){
-    $('#pwNew').on('focusout', function(){
-		
-        if($('#pwNew').val() === ""){
-            $('.error').text('New password Required...!');
-            $('.error').fadeIn("slow");
-            console.log("11111111");
-        } else {
-        	$('.error').fadeOut('slow');
-        	console.log("2222222222");
-        }
-    });
-
-});
-$(document).ready(function(){
-    $('#pwConfirm').on('focusout', function(){
-		
-        if($('#pwConfirm').val() === ""){
-            $('.error2').text('Comfirm password Required...!');
-            $('.error2').fadeIn("slow");
-            console.log("11111111");
-        } else {
-        	$('.error2').fadeOut('slow');
-        	console.log("2222222222");
-        }
-    });
-
-});
 
 var pwOld = document.getElementById("pwOld");
 var pwNew = document.getElementById("pwNew");

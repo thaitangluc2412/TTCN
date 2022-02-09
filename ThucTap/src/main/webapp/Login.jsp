@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+
 <!doctype html>
 <html class="no-js" lang="">
 <head>
@@ -59,8 +61,25 @@
 <!-- modernizr css -->
 <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 <link rel="stylesheet" href="css/email.css">
+<style>
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+</style>
 </head>
 <body>
+
 	<!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -83,14 +102,29 @@
 						<label style=" background-color: #FDCAC4;" for="WELCOME" class="error"></label> 
 						<label style=" background-color: #FDCAC4;" for="WELCOME" class="error2"></label> 
 						<p class="form-row">	
-							<input type="text" id="email" placeholder="Email address" name="username" required>
+							<input type="text" id="email" placeholder="Email address" name="username" value="${username}" required>
 						</p>
 						<br>
 						<p class="form-row">
 							<input type="password" id="pass" placeholder="Password" name="password"	required>
 						</p>
+						
+						<c:choose>
+								<c:when test="${err == 'err'}">
+									<div class="alert alert-danger">
+									  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+									  Wrong <strong>password</strong> or <strong>email</strong>!
+									</div>
+								</c:when>
+								<c:when test="${registed == 'registed'}">
+									<div class="alert alert-success">
+										<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+									    <strong>Registered successfully!</strong> 
+									</div>
+								</c:when>
+						</c:choose>
 						<p class="lost-password form-group">
-							<a href="Register.jsp" rel="nofollow">Don't have an account?</a>
+							<a href="UserController" rel="nofollow">Don't have an account?</a>
 						</p>
 						<div class="d-flex justify-content-center">
 							<button name="submitcreate" id="submitcreate" type="submit"
@@ -105,6 +139,7 @@
 			</div>
 		</div>
 	</div>
+	
 	<!-- Loging Area End -->
 	<!-- Footer Area Start -->
 	<jsp:include page="Footer.jsp"></jsp:include>

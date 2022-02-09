@@ -60,4 +60,15 @@ public class UserServiceImpl implements UserService {
 	public int updateProfile(String name, String address, String phoneNumber, String accountNumber, Integer id) {
 		return userDao.updateProfile(name,address,phoneNumber,accountNumber,id);
 	}
+
+	@Override
+	public boolean existUser(String email) {
+		return userDao.existUser(email);
+	}
+
+	@Override
+	public int insertUser(String email, String password, String name, String address, String phoneNumber,
+			String accountNumber, int role) {
+		return userDao.insertUser(email, password, name, address, phoneNumber, accountNumber, role);
+	}
 }

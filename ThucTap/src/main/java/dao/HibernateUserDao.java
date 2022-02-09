@@ -1,12 +1,15 @@
 package dao;
 
+import bean.Book;
 import bean.User;
+import utils.DateUtils;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.type.IntegerType;
 import org.hibernate.type.StringType;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -22,7 +25,9 @@ public class HibernateUserDao extends AbstractHibernateDao implements UserDao {
     private static final String Q_PROFILE = "SELECT * FROM User WHERE UserID= :userId";
     private static final String Q_UPDATE_PASSWORD = "UPDATE bookstore.User SET UserPassword = :newPassword WHERE UserID = :id";
     private static final String Q_UPDATE_PROFILE = "UPDATE bookstore.User SET Name = :name, Address = :address, PhoneNumber = :phoneNumber, AccountNumber = :accountNumber WHERE UserID = :id";
-
+    private static final String Q_EXIST = "SELECT * FROM User WHERE Email = :email";
+    private static final String Q_REGISTER = "INSERT INTO user (Email, UserPassword, Name, Address, PhoneNumber, AccountNumber, Role)\n"
+            + "VALUES (:email, :password, :name, :address, :phoneNumber, :accountNumber, :role)";
 
     @Override
     public List<User> getAll() {
@@ -114,5 +119,32 @@ public class HibernateUserDao extends AbstractHibernateDao implements UserDao {
 		transaction.commit();
 		return query;
   } 
+    @Override
+    public boolean existUser(String email) {
+        User u= openSession().createNativeQuery(Q_EXIST, User.class)
+                            .setParameter("email", email, StringType.INSTANCE)
+                            .uniqueResult();
+        if(u==null) {
+        	return false;
+        }
+        else return true;
+    }
     
+    @Override
+    public int insertUser(String email, String password, String name, String address, String phoneNumber, String accountNumber, int role) {
+        Session session = openSession();
+        Transaction transaction = session.beginTransaction();
+        int query;
+        query = session.createNativeQuery(Q_REGISTER, Book.class)
+        		.setParameter("email", email)		
+        		.setParameter("password", password)
+        		.setParameter("name", name)
+		        .setParameter("address", address)
+		        .setParameter("phoneNumber", phoneNumber)
+		        .setParameter("accountNumber", accountNumber)
+		        .setParameter("role", role)
+		        .executeUpdate();
+        transaction.commit();
+        return query;
+    }
 }

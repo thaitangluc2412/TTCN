@@ -54,7 +54,7 @@
 								</c:otherwise>
 							</c:choose>
 							<c:if test="${sessionScope.user == null }">
-								<li><a href="Login.jsp" class="ml-5"><button
+								<li><a href="LoginController" class="ml-5"><button
 											type="button" class="btn btn-primary">Login</button></a></li>
 							</c:if>
 							<c:if test="${sessionScope.user != null }">

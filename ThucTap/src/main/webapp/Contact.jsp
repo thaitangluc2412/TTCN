@@ -1,13 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="ISO-8859-1"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!doctype html>
 <html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Contact</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Contact</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- favicon -->
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
         <!-- Place favicon.ico in the root directory -->
@@ -71,8 +72,8 @@
 								</div>
 								<div class="info">
 									<h3>PHONE</h3>
-									<p>+(02)-12345-6789-55</p>
-									<p>+(05)-15689-5698-44</p>
+									<p>09 71960879</p>
+									<p>09 71960879</p>
 								</div>
 							</div>
 						</div>						
@@ -85,8 +86,9 @@
 								</div>
 								<div class="info">
 									<h3>ADDRESS</h3>
-									<p>Mhilara Street 205,</p>
-									<p>Roitan city, USA.</p>
+									<p>421 Nguyễn Lương Bằng Street,</p>
+									<p>Liên Chiểu District,</p>
+									<p>Đà Nẵng city, Vietnam.</p>
 								</div>
 							</div>
 						</div>						
@@ -99,8 +101,8 @@
 								</div>
 								<div class="info">
 									<h3>E-MAIL</h3>
-									<p>info123@gmail.com</p>
-									<p>www.companyweb.com</p>
+									<p>xuantuan1124@gmail.com</p>
+									<p>nguyen20dang@gmail.com</p>
 								</div>
 							</div>
 						</div>					
@@ -108,39 +110,6 @@
 				</div>
 			</div>
 		</div>
-		<!-- Address Information Area End -->
-		<!-- Contact Form Area Start -->
-		<div class="contact-form-area">
-			<div class="container">
-				<div class="about-title">
-					<h3>LEAVE A MESSAGE</h3>
-				</div>
-				<div class="row">
-					<div class="col-md-12">
-						<form>
-							<div class="row">
-								<div class="col-md-5">
-									<div class="contact-form-left">
-										<input type="text" placeholder="Your Name" />
-										<input type="email" placeholder="Your Email" />
-										<input type="text" placeholder="Your phone"/>
-									</div>								
-								</div>
-								<div class="col-md-7">
-									<div class="contact-form-right">
-										<div class="input-message">
-											<textarea name="message" id="message" placeholder="Your Message"></textarea>
-											<input class="btn btn-default" type="submit" value="SEND" name="submit" id="submit">
-										</div>
-									</div>
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- Contact Form Area End -->
 		<!-- Footer Area Start -->
 		<jsp:include page="Footer.jsp"></jsp:include>
 		<!-- Footer Area End -->
