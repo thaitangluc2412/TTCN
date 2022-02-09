@@ -33,6 +33,7 @@ public class DeleteCategory extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int categoryId = Integer.parseInt(request.getParameter("categoryId"));
 		categoryService.deleteById(categoryId);
+		System.out.println("categoryid is deleted: " + categoryId);
 		request.getRequestDispatcher("Admin?Management=Category").forward(request, response);
 	}
 

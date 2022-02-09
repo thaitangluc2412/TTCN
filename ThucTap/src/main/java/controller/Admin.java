@@ -295,6 +295,10 @@ public class Admin extends HttpServlet {
 					listAllBookDto = bookService.getBookWithProfit();
 				}
 				
+				Double revenue = 0.0;
+				for (BookDto bookDto: listAllBookDto) {
+					revenue += bookDto.getProfit();
+				}
 				
 				int totalPages = listAllBookDto.size() / rows;
 				
@@ -329,6 +333,7 @@ public class Admin extends HttpServlet {
 				request.setAttribute("startDate", startDate);
 				request.setAttribute("endDate", endDate);
 				request.setAttribute("listBookDto", listBookDto);
+				request.setAttribute("revenue", revenue);
 				request.setAttribute("currentPage", currentPage);
 				request.setAttribute("totalPages", totalPages);
 				request.setAttribute("maxLeft", maxLeft);
