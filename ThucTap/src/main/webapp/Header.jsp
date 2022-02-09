@@ -11,7 +11,7 @@
 		<div class="row">
 			<div class="col-md-2 col-sm-6 col-xs-6">
 				<div class="header-logo">
-					<a href="Home"> <img src="img/logo.png" alt="">
+					<a href=""> <img src="img/logo.png" alt="">
 					</a>
 				</div>
 			</div>

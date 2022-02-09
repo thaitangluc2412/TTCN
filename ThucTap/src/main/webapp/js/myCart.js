@@ -88,7 +88,7 @@ paypal.Buttons({
 			},
 			purchase_units: [{
 				amount: {
-					value: countTheSumPrice() + ''// Can reference variables or functions. Example: `value: document.getElementById('...').value`
+					value: countTheSumPrice() > 0 ? countTheSumPrice : '' + ''// Can reference variables or functions. Example: `value: document.getElementById('...').value`
 				}
 			}]
 		});
@@ -101,7 +101,7 @@ paypal.Buttons({
 			let result1 = productsInCart.map(product => {
 				return `<input type="checkbox" class="hidden" name="bookNQuantity" value="${product.id}/${product.count}" checked>`;
 			});
-			
+
 			document.getElementById("myForm").innerHTML = document.getElementById("myForm").innerHTML + result1.join('');
 			window.localStorage.clear();
 			document.getElementById("myForm").submit();
@@ -113,5 +113,8 @@ paypal.Buttons({
 			// element.innerHTML = '<h3>Thank you for your payment!</h3>';
 			// Or go to another URL:  actions.redirect('thank_you.html');
 		});
+	},
+	onError: function(err) {
+		alert('You didn\'t buy anything');
 	}
 }).render('#paypal-button-container');
