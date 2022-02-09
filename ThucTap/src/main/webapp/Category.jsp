@@ -471,7 +471,6 @@ th {
 									<th>Category Name</th>
 									<th>Book</th>
 									<th>Edit</th>
-									<th>Delete</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -489,9 +488,6 @@ th {
 											View Details" data-toggle="tooltip">
 												<i class="fa fa-edit "></i>
 										</a></td>
-										<td><a href="#myModal" class="trigger-btn click-delete"
-											data-toggle="modal"><button name="categoryId" value="${category.categoryId}"><i
-												class="flaticon-delete delete-in-cart"></i></button></a></td>
 									</tr>
 								</c:forEach>
 							</tbody>
