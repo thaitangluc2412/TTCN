@@ -440,7 +440,7 @@ th {
 								<td><a href="EditBook?bookId=${book.bookId}" class="view"
 									title="View Details" data-toggle="tooltip"><i
 										class="fa fa-edit "></i></a></td>
-								<td><a href="#myModal" class="trigger-btn" data-toggle="modal"><i
+								<td><a href="#myModal" onclick="deleteBook(this)" class="trigger-btn" data-toggle="modal" data-id="${book.bookId}"><i
 										class="flaticon-delete delete-in-cart"></i></a>
 									<!-- Modal HTML -->
 									<div id="myModal" class="modal fade">
@@ -455,12 +455,12 @@ th {
 														aria-hidden="true">&times;</button>
 												</div>
 												<div class="modal-body">
-													<p>Do you really want to delete book has BookID = ${book.bookId}</p>
+													<p id="popupDelete" >Do you really want to delete book has BookID = ${book.bookId}</p>
 												</div>
 												<div class="modal-footer">
 													<button type="button" class="btn btn-info"
 														data-dismiss="modal">Cancel</button>
-													<a href="DeleteBook?bookId=${book.bookId}"><button type="button" class="btn btn-danger">Delete</button></a>
+													<a id="linkDelete" href="DeleteBook?bookId=${book.bookId}"><button type="button" class="btn btn-danger">Delete</button></a>
 												</div>
 											</div>
 										</div>
@@ -494,7 +494,18 @@ th {
 			</div>
 		</div>
 	</div>
-	</div>
+	
+	<script>
+	
+	function deleteBook(e){
+		var id = e.dataset.id;
+		document.getElementById('popupDelete').innerText =  `Do you really want to delete book has BookID = ` + id ;
+		document.getElementById('linkDelete').href = `DeleteBook?bookId=` + id;
+	}
+	
+	</script>
+	
+	
 	<!-- Footer Area Start -->
 	<jsp:include page="Footer.jsp"></jsp:include>
 	<!-- Footer Area End -->
