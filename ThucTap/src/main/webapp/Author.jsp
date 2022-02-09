@@ -6,7 +6,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<title>Shopping Cart || Witter Multipage Responsive Template</title>
+<title>Management Author</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- favicon -->
@@ -349,7 +349,6 @@ th {
 							<th>Phone</th>
 							<th>Book</th>
 							<th>Revenue</th>
-							<th>Delete</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -364,9 +363,6 @@ th {
 									data-toggle="tooltip"><i class="fa fa-eye"></i></a></td>
 								<td><a href="ViewRevenueInAuthor?authorId=${author.userId}" class="view" title="View Details"
 									data-toggle="tooltip"><i class="fa fa-money"></i></a></td>
-								<td><a href="DeleteCustomer?customerId=${customer.userId}"
-									class="view" title="View Details" data-toggle="tooltip"><i
-										class="flaticon-delete delete-in-cart"></i></a></td>
 							</tr>
 						</c:forEach>
 					</tbody>

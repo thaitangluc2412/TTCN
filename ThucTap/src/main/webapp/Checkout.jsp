@@ -6,7 +6,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<title>Checkout || Witter Multipage Responsive Template</title>
+<title>Checkout</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- favicon -->
@@ -65,7 +65,7 @@
 				<p class="text-left font-weight-bold">Information payment.</p>
 				<c:if test="${sessionScope.user == null}">
 					<p class="font-weight-normal">
-						You already have an account? <a href="">Login</a>
+						You already have an account? <a href="Login.jsp">Login</a>
 					</p>
 				</c:if>
 				<c:if test="${sessionScope.user != null}">

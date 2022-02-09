@@ -44,8 +44,13 @@
 											<li><a href="Contact.jsp">CONTACT</a></li>
 										</ul></li>
 								</c:when>
+								<c:when test="${sessionScope.user.role == 'Author'}">
+								</c:when>
+								<c:when test="${sessionScope.user.role == 'Shipper'}">
+								</c:when>
 								<c:otherwise>
-									
+									<li><a href="Home">HOME</a></li>
+									<li><a href="Shopping">SHOPPING</a></li>
 								</c:otherwise>
 							</c:choose>
 							<c:if test="${sessionScope.user == null }">

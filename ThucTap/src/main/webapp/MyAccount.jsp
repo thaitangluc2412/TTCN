@@ -110,27 +110,6 @@
 									</div>
 								</div>
 								
-								<div class="panel panel-default">
-									<div class="panel-heading" role="tab" id="headingThree">
-										<h4 class="panel-title">
-											<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-												<i class="fa fa-list-ol"></i>
-												<span>My credit slips</span>
-											</a>
-										</h4>
-									</div>
-									<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-										<div class="panel-body">
-											<div class="coupon-info">
-												<h1 class="heading-title">Order history </h1>
-												<p class="coupon-text">Here are the orders you've placed since your account was created.</p>
-												<div class="order-history">
-													<p class="alert">You have not placed any orders.</p>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
 								
 							</div>
 						</div>
@@ -178,7 +157,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="create-account-button pull-left">
-							<a href="index.html" class="btn button button-small" title="Home">
+							<a href="Home" class="btn button button-small" title="Home">
 								<span>
 									<i class="fa fa-chevron-left"></i>
 									  Home
