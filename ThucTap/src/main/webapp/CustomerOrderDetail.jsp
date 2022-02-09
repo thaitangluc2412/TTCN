@@ -556,8 +556,6 @@ th {
 		function result() {
 			//Rating : Count
 			//Review : Comment(id)
-			alert("Rating : " + count + "\nReview : "
-					+ document.getElementById("comment").value);
 			document.getElementById("rating").value = count;
 			document.getElementById("form").submit();
 
