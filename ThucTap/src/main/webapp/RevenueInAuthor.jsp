@@ -314,6 +314,10 @@ table.table .avatar {
 th {
 	text-align: center;
 }
+.total {
+	font-weight: bold;
+	float: right;
+}
 </style>
 <script>
 	$(document).ready(function() {
@@ -387,7 +391,7 @@ th {
 						</c:forEach>
 					</tbody>
 				</table>
-
+				<div class="total">Revenue: $${revenue}</div>
 				<nav class="d-flex justify-content-center"
 					aria-label="Page navigation example">
 					<ul class="pagination">

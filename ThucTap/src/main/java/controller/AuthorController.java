@@ -106,6 +106,11 @@ public class AuthorController extends HttpServlet {
 					listAllBookDto = bookService.getBookWithProfitByAuthorId(Integer.parseInt(authorId));
 				}
 
+				Double revenue = 0.0;
+				for (BookDto bookDto: listAllBookDto) {
+					revenue += bookDto.getProfit();
+				}
+				
 				int totalPages = listAllBookDto.size() / rows;
 
 				if (totalPages * rows < listAllBookDto.size()) {
@@ -133,6 +138,7 @@ public class AuthorController extends HttpServlet {
 					System.out.println(b);
 				}
 
+				request.setAttribute("revenue", revenue);
 				request.setAttribute("startDate", startDate);
 				request.setAttribute("endDate", endDate);
 				request.setAttribute("authorId", authorId);
