@@ -42,14 +42,14 @@ const updateShoppingCartHTML = function() {  // 3
 		let result = productsInCart.map(product => {
 			return `<div class="row cart-product">
 			<div class="cart-product-image" style="margin-left: 10px">
-				<a href="single-product.html"> <img
+				<a href="TheBook?Book=${product.id}"> <img
 					src="${product.image}"
 					alt="">
 				</a>
 			</div>
 			<div class="cart-product-info title-product">
 				<p style="margin-bottom: 5px">
-					<a href="single-product.html"> ${product.name}</a>
+					<a href="TheBook?Book=${product.id}"> ${product.name}</a>
 				</p>
 				<span class="cart-price">$ ${product.price}</span>
 				<div style="margin-top: 10px">
@@ -69,7 +69,7 @@ const updateShoppingCartHTML = function() {  // 3
 		</div>
 	</div>
 	<div class="cart-checkout">
-		<a href="checkout.html"> Check out <i
+		<a href="CheckoutController"> Check out <i
 			class="fa fa-chevron-right"></i>
 		</a>
 	</div>`;
@@ -83,7 +83,7 @@ const updateShoppingCartHTML = function() {  // 3
 		</div>
 	</div>
 	<div class="cart-checkout">
-		<a href="checkout.html"> Check out <i
+		<a href="CheckoutController"> Check out <i
 			class="fa fa-chevron-right"></i>
 		</a>
 	</div>`;

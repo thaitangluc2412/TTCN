@@ -31,7 +31,7 @@ const updateMyCart = function() {
 			let result = productsInCart.map(product => {
 				return `<div class="row" style="margin-bottom: 10px">
 							<div class="col-2" style="height: 70px; width: 90px">
-								<a href="#"><img src="${product.image}" style="height: 100%"></a>
+								<a href="TheBook?Book=${product.id}"><img src="${product.image}" style="height: 100%"></a>
 							</div>
 							<div class="col-6 title-product d-flex align-items-center"
 								style="margin: 0">
