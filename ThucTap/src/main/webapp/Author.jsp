@@ -338,6 +338,10 @@ th {
 						</div>
 					</div>
 				</div>
+				<div class="shopingcart-bottom-area">
+					<a class="left-shoping-cart" href="CreateNewAuthor.jsp">CREATE NEW
+						AUTHOR</a>
+				</div>
 				<table class="table table-striped table-hover"
 					style="text-align: center">
 					<thead>
@@ -359,10 +363,12 @@ th {
 								<td>${author.name}</td>
 								<td>${author.address}</td>
 								<td>${author.phoneNumber}</td>
-								<td><a href="ViewBookInAuthor?authorId=${author.userId}" class="view" title="View Details"
-									data-toggle="tooltip"><i class="fa fa-eye"></i></a></td>
-								<td><a href="ViewRevenueInAuthor?authorId=${author.userId}" class="view" title="View Details"
-									data-toggle="tooltip"><i class="fa fa-money"></i></a></td>
+								<td><a href="ViewBookInAuthor?authorId=${author.userId}"
+									class="view" title="View Details" data-toggle="tooltip"><i
+										class="fa fa-eye"></i></a></td>
+								<td><a href="ViewRevenueInAuthor?authorId=${author.userId}"
+									class="view" title="View Details" data-toggle="tooltip"><i
+										class="fa fa-money"></i></a></td>
 							</tr>
 						</c:forEach>
 					</tbody>

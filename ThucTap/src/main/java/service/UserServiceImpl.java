@@ -71,4 +71,10 @@ public class UserServiceImpl implements UserService {
 			String accountNumber, int role) {
 		return userDao.insertUser(email, password, name, address, phoneNumber, accountNumber, role);
 	}
+	
+	@Override
+	public int addtAuthor(String email, String password, String name, String address, String phoneNumber,
+			String accountNumber) {
+		return userDao.addtAuthor(email, password, name, address, phoneNumber, accountNumber);
+	}
 }

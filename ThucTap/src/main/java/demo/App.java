@@ -23,15 +23,8 @@ public class App {
     private static LocalDate endDate = LocalDate.of(2023, 1, 1);
 
     public static void main(String[] args) {
-        // update book rating
-        Book book = bookService.getById(1);
-        bookService.updateBookRating(book, 3);
-
-        // get orderdetail by bookId and orderId
-        OrderDetail orderDetail = orderDetailService.getById(new Id(1, 1));
-
-        // update review status orderdetail
-        orderDetailService.updateStatus(orderDetail, ReviewStatus.Reviewed);
+       int i = userService.addtAuthor("thaitangluc22", "1234", "TEST THU", "asdasd 123123 ", "0123456789", "05749874");
+       System.out.println(i);
     }
 
     private static <Element> void print(Collection<Element> elements) {

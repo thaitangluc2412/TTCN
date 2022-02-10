@@ -26,5 +26,7 @@ public interface UserService {
 	boolean existUser(String email);
 	
 	int insertUser( String email, String password, String name, String address, String phoneNumber, String accountNumber, int role);
+	
+	int addtAuthor(String email, String password, String name, String address, String phoneNumber, String accountNumber);
  
 }

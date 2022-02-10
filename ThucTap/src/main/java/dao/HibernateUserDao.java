@@ -28,6 +28,9 @@ public class HibernateUserDao extends AbstractHibernateDao implements UserDao {
     private static final String Q_EXIST = "SELECT * FROM User WHERE Email = :email";
     private static final String Q_REGISTER = "INSERT INTO user (Email, UserPassword, Name, Address, PhoneNumber, AccountNumber, Role)\n"
             + "VALUES (:email, :password, :name, :address, :phoneNumber, :accountNumber, :role)";
+    
+    private static final String Q_REGISTER_AUTHOR = "INSERT INTO user (Email, UserPassword, Name, Address, PhoneNumber, AccountNumber, Role)\n"
+            + "VALUES (:email, :password, :name, :address, :phoneNumber, :accountNumber, 'Author')";
 
     @Override
     public List<User> getAll() {
@@ -143,6 +146,24 @@ public class HibernateUserDao extends AbstractHibernateDao implements UserDao {
 		        .setParameter("phoneNumber", phoneNumber)
 		        .setParameter("accountNumber", accountNumber)
 		        .setParameter("role", role)
+		        .executeUpdate();
+        transaction.commit();
+        return query;
+    }
+    
+    @Override
+    public int addtAuthor(String email, String password, String name, String address, String phoneNumber,
+    		String accountNumber) {
+    	Session session = openSession();
+        Transaction transaction = session.beginTransaction();
+        int query;
+        query = session.createNativeQuery(Q_REGISTER_AUTHOR, User.class)
+        		.setParameter("email", email, StringType.INSTANCE)		
+        		.setParameter("password", password, StringType.INSTANCE)
+        		.setParameter("name", name, StringType.INSTANCE)
+		        .setParameter("address", address, StringType.INSTANCE)
+		        .setParameter("phoneNumber", phoneNumber, StringType.INSTANCE)
+		        .setParameter("accountNumber", accountNumber, StringType.INSTANCE)
 		        .executeUpdate();
         transaction.commit();
         return query;
